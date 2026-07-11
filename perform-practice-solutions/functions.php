@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.2.2' );
+define( 'PPS_THEME_VERSION', '1.3.0' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -20,7 +20,7 @@ require_once PPS_THEME_DIR . '/inc/setup-wizard.php';
  * Clears stored home mods so new defaults from Home content.md appear.
  */
 function pps_maybe_refresh_home_content() {
-	$content_version = '1.2.2';
+	$content_version = '1.3.0';
 	if ( get_option( 'pps_home_content_version' ) === $content_version ) {
 		return;
 	}

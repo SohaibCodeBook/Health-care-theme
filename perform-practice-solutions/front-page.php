@@ -31,6 +31,13 @@ get_header();
 	</div>
 </section>
 
+<section class="pps-section home-intro" id="intro">
+	<div class="pps-container pps-container--narrow pps-reveal">
+		<p class="home-intro__text"><?php echo esc_html( page_home( 'intro_text_1' ) ); ?></p>
+		<p class="home-intro__text home-intro__text--accent"><?php echo esc_html( page_home( 'intro_text_2' ) ); ?></p>
+	</div>
+</section>
+
 <section class="pps-section home-services" id="services">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">
@@ -81,6 +88,7 @@ get_header();
 				<p class="pps-eyebrow"><?php echo esc_html( page_home( 'about_eyebrow' ) ); ?></p>
 				<h2 class="pps-section-title"><?php echo esc_html( page_home( 'about_title' ) ); ?></h2>
 				<p><?php echo esc_html( page_home( 'about_text' ) ); ?></p>
+				<p><?php echo esc_html( page_home( 'about_text_2' ) ); ?></p>
 				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( page_home( 'about_cta_url' ) ); ?>">
 					<?php echo esc_html( page_home( 'about_cta' ) ); ?>
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -96,8 +104,16 @@ get_header();
 			<p class="pps-eyebrow"><?php echo esc_html( page_home( 'insights_eyebrow' ) ); ?></p>
 			<h2 class="pps-section-title"><?php echo esc_html( page_home( 'insights_title' ) ); ?></h2>
 			<p class="pps-section-lead"><?php echo esc_html( page_home( 'insights_lead' ) ); ?></p>
-			<p class="insights-note"><?php echo esc_html( page_home( 'insights_note' ) ); ?></p>
 		</div>
+		<div class="results-grid pps-reveal">
+			<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
+				<div class="result-card">
+					<div class="result-card__value"><?php echo esc_html( page_home( "result_{$i}_value" ) ); ?></div>
+					<p class="result-card__label"><?php echo esc_html( page_home( "result_{$i}_label" ) ); ?></p>
+				</div>
+			<?php endfor; ?>
+		</div>
+		<p class="insights-note pps-reveal"><?php echo esc_html( page_home( 'insights_note' ) ); ?></p>
 		<div class="pps-reveal">
 			<?php get_template_part( 'template-parts/dashboard', 'collage' ); ?>
 		</div>
@@ -214,6 +230,31 @@ get_header();
 				<?php echo esc_html( page_home( 'stats_cta' ) ); ?>
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 			</a>
+		</div>
+	</div>
+</section>
+
+<section class="pps-section home-providers" id="providers">
+	<div class="pps-container">
+		<div class="support-panel pps-reveal">
+			<div>
+				<p class="pps-eyebrow"><?php echo esc_html( page_home( 'providers_eyebrow' ) ); ?></p>
+				<h2 class="pps-section-title"><?php echo esc_html( page_home( 'providers_title' ) ); ?></h2>
+				<p style="color:var(--pps-muted);margin-bottom:1rem;"><?php echo esc_html( page_home( 'providers_lead' ) ); ?></p>
+				<p style="color:var(--pps-muted);margin-bottom:1.5rem;"><?php echo esc_html( page_home( 'providers_text' ) ); ?></p>
+				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( page_home( 'providers_cta_url' ) ); ?>">
+					<?php echo esc_html( page_home( 'providers_cta' ) ); ?>
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+				</a>
+			</div>
+			<ul class="support-list">
+				<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
+					<li>
+						<i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+						<span><?php echo esc_html( page_home( "providers_{$i}" ) ); ?></span>
+					</li>
+				<?php endfor; ?>
+			</ul>
 		</div>
 	</div>
 </section>
