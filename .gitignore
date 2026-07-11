@@ -1,0 +1,27 @@
+# Dependencies / OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# WordPress / local
+wp-config.php
+.env
+.env.*
+
+# Build artifacts — do not commit theme zips
+*.zip
+perform-practice-solutions.zip
+
+# Node (if added later)
+node_modules/
+npm-debug.log*
+
+# Agent / local caches
+.cursor/
+agent-transcripts/
