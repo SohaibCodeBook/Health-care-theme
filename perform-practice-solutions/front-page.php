@@ -245,14 +245,16 @@ get_header();
 <section class="pps-section home-specialties" id="specialties">
 	<div class="pps-container pps-reveal">
 		<p class="pps-eyebrow" style="justify-content:center;"><?php echo esc_html( page_home( 'spec_eyebrow' ) ); ?></p>
-		<h2 class="pps-section-title" style="margin-inline:auto;"><?php echo esc_html( page_home( 'spec_title' ) ); ?></h2>
-		<p class="pps-section-lead" style="margin-inline:auto;"><?php echo esc_html( page_home( 'spec_lead' ) ); ?></p>
+		<p class="pps-section-lead" style="margin-inline:auto;margin-bottom:1.5rem;"><?php echo esc_html( page_home( 'spec_emr_text' ) ); ?></p>
 		<div class="specialty-pills">
 			<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
 				<span class="specialty-pill"><?php echo esc_html( page_home( "spec_{$i}" ) ); ?></span>
 			<?php endfor; ?>
 		</div>
-		<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( page_home( 'spec_cta_url' ) ); ?>">
+		<h2 class="pps-section-title" style="margin-inline:auto;margin-top:2rem;"><?php echo esc_html( page_home( 'spec_title' ) ); ?></h2>
+		<p class="pps-section-lead" style="margin-inline:auto;"><?php echo esc_html( page_home( 'spec_lead' ) ); ?></p>
+		<p class="pps-section-lead" style="margin-inline:auto;margin-top:1rem;"><?php echo esc_html( page_home( 'spec_text' ) ); ?></p>
+		<a class="pps-btn pps-btn--primary" style="margin-top:1.75rem;" href="<?php echo esc_url( page_home( 'spec_cta_url' ) ); ?>">
 			<?php echo esc_html( page_home( 'spec_cta' ) ); ?>
 		</a>
 	</div>

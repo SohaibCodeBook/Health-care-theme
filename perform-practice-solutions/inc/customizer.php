@@ -181,8 +181,10 @@ function pps_home_defaults() {
 		'support_q6'              => 'Laboratories',
 
 		'spec_eyebrow'            => 'Preferred by Leading EMR Systems',
+		'spec_emr_text'           => 'We integrate with the platforms you already use, including Tride, Tebra, Athena Health, Raintree, and CureMD, so implementing our medical practice management services doesn\'t mean overhauling your systems.',
 		'spec_title'              => 'Specialty-Specific Practice Management, Not Guesswork',
-		'spec_lead'               => 'We integrate with platforms you already use and specialize in the billing codes, payer requirements, and operational challenges of PT, chiropractic, OT, and speech therapy — plus a growing range of specialty medical providers.',
+		'spec_lead'               => 'Generic practice management companies apply the same playbook to every client. We don\'t. Our teams specialize in the specific billing codes, payer requirements, and operational challenges of PT, chiropractic, OT, and speech therapy practices, along with a growing range of specialty medical providers.',
+		'spec_text'               => 'That means fewer denied claims, faster credentialing, and marketing that actually speaks to the patients you want to treat.',
 		'spec_cta'                => 'Contact Us Now',
 		'spec_cta_url'            => '#contact',
 		'spec_1'                  => 'Tride',
