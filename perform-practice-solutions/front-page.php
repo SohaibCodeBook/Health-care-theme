@@ -32,9 +32,16 @@ get_header();
 </section>
 
 <section class="pps-section home-intro" id="intro">
-	<div class="pps-container pps-container--narrow pps-reveal">
-		<p class="home-intro__text"><?php echo esc_html( page_home( 'intro_text_1' ) ); ?></p>
-		<p class="home-intro__text home-intro__text--accent"><?php echo esc_html( page_home( 'intro_text_2' ) ); ?></p>
+	<div class="pps-container">
+		<div class="pps-section-head pps-section-head--center pps-reveal">
+			<p class="pps-eyebrow"><?php echo esc_html( page_home( 'intro_eyebrow' ) ); ?></p>
+			<h2 class="pps-section-title"><?php echo esc_html( page_home( 'intro_title' ) ); ?></h2>
+		</div>
+		<div class="home-intro__panel pps-reveal">
+			<p class="home-intro__text"><?php echo esc_html( page_home( 'intro_text_1' ) ); ?></p>
+			<p class="home-intro__text"><?php echo esc_html( page_home( 'intro_text_2' ) ); ?></p>
+			<p class="home-intro__text home-intro__text--accent"><?php echo esc_html( page_home( 'intro_text_3' ) ); ?></p>
+		</div>
 	</div>
 </section>
 

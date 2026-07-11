@@ -69,15 +69,18 @@ function pps_home_defaults() {
 	return array(
 		'hero_brand'              => 'Perform Practice Solutions',
 		'hero_title'              => 'Medical Practice Management Services Built to Help You Focus on Care',
-		'hero_lead'               => 'Running a healthcare practice means wearing a dozen hats you never trained for. Perform Practice Solutions delivers medical practice management services that cover billing, credentialing, virtual staffing, digital marketing, coaching, and AI automation, all built around how your practice actually runs.',
+		'hero_lead'               => 'Billing, credentialing, staffing, marketing, and AI automation — built around how your practice actually runs.',
 		'hero_cta_primary'        => 'Book a Strategy Session',
 		'hero_cta_primary_url'    => '#contact',
 		'hero_cta_secondary'      => 'Explore Our Services',
 		'hero_cta_secondary_url'  => '#services',
 		'hero_visual_caption'     => 'Medical practice management, built around how your practice actually runs.',
 
-		'intro_text_1'            => 'Perform Practice Solutions is a medical practice management company that helps Allied Health practices, including physical therapy, chiropractic, occupational therapy, and speech therapy clinics, increase collections, speed up credentialing, and remove administrative bottlenecks through daily billing, AI powered tracking, and hands on staffing support.',
-		'intro_text_2'            => 'From getting you paid faster to giving your front desk room to breathe, we map a clear path forward so you can spend less time on paperwork and more time with patients.',
+		'intro_eyebrow'           => 'Who We Help',
+		'intro_title'             => 'Medical Practice Management Built Around How You Work',
+		'intro_text_1'            => 'Running a healthcare practice means wearing a dozen hats you never trained for. Perform Practice Solutions delivers medical practice management services that cover billing, credentialing, virtual staffing, digital marketing, coaching, and AI automation, all built around how your practice actually runs.',
+		'intro_text_2'            => 'Perform Practice Solutions is a medical practice management company that helps Allied Health practices, including physical therapy, chiropractic, occupational therapy, and speech therapy clinics, increase collections, speed up credentialing, and remove administrative bottlenecks through daily billing, AI powered tracking, and hands on staffing support.',
+		'intro_text_3'            => 'From getting you paid faster to giving your front desk room to breathe, we map a clear path forward so you can spend less time on paperwork and more time with patients.',
 
 		'services_eyebrow'        => 'Our Services',
 		'services_title'          => 'Complete Medical Billing Services for Every Specialty',
