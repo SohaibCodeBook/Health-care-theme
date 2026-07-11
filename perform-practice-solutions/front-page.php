@@ -41,8 +41,8 @@ get_header();
 
 		<div class="services-grid">
 			<?php
-			for ( $i = 1; $i <= 5; $i++ ) :
-				$extra = ( 5 === $i ) ? ' service-card--ai' : '';
+			for ( $i = 1; $i <= 6; $i++ ) :
+				$extra = ( 4 === $i ) ? ' service-card--ai' : '';
 				?>
 				<article class="service-card<?php echo esc_attr( $extra ); ?> pps-reveal">
 					<div class="service-card__icon" aria-hidden="true">
@@ -72,16 +72,16 @@ get_header();
 					loading="lazy"
 				>
 				<div class="about-float-card">
-					<span><?php esc_html_e( 'Live practice insights', 'perform-practice' ); ?></span>
-					<strong>+$84k</strong>
-					<small><?php esc_html_e( 'recovered last quarter', 'perform-practice' ); ?></small>
+					<span><?php echo esc_html( page_home( 'about_float_label' ) ); ?></span>
+					<strong><?php echo esc_html( page_home( 'about_float_value' ) ); ?></strong>
+					<small><?php echo esc_html( page_home( 'about_float_note' ) ); ?></small>
 				</div>
 			</div>
 			<div class="about-split__body pps-reveal">
 				<p class="pps-eyebrow"><?php echo esc_html( page_home( 'about_eyebrow' ) ); ?></p>
 				<h2 class="pps-section-title"><?php echo esc_html( page_home( 'about_title' ) ); ?></h2>
 				<p><?php echo esc_html( page_home( 'about_text' ) ); ?></p>
-				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( home_url( page_home( 'about_cta_url' ) ) ); ?>">
+				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( page_home( 'about_cta_url' ) ); ?>">
 					<?php echo esc_html( page_home( 'about_cta' ) ); ?>
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</a>
@@ -93,9 +93,10 @@ get_header();
 <section class="pps-section home-insights" id="insights">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">
-			<p class="pps-eyebrow"><?php esc_html_e( 'Practice Intelligence', 'perform-practice' ); ?></p>
-			<h2 class="pps-section-title"><?php esc_html_e( 'See the money you are leaving on the table', 'perform-practice' ); ?></h2>
-			<p class="pps-section-lead"><?php esc_html_e( 'A clearer view of denials, underpayments, and collections — so your team can act before revenue slips away.', 'perform-practice' ); ?></p>
+			<p class="pps-eyebrow"><?php echo esc_html( page_home( 'insights_eyebrow' ) ); ?></p>
+			<h2 class="pps-section-title"><?php echo esc_html( page_home( 'insights_title' ) ); ?></h2>
+			<p class="pps-section-lead"><?php echo esc_html( page_home( 'insights_lead' ) ); ?></p>
+			<p class="insights-note"><?php echo esc_html( page_home( 'insights_note' ) ); ?></p>
 		</div>
 		<div class="pps-reveal">
 			<?php get_template_part( 'template-parts/dashboard', 'collage' ); ?>
@@ -114,7 +115,7 @@ get_header();
 				<h2 class="pps-section-title"><?php echo esc_html( page_home( 'help_title' ) ); ?></h2>
 				<p><?php echo esc_html( page_home( 'help_text' ) ); ?></p>
 				<p class="need-help-note"><strong><?php echo esc_html( page_home( 'help_note' ) ); ?></strong></p>
-				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( home_url( page_home( 'help_cta_url' ) ) ); ?>">
+				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( page_home( 'help_cta_url' ) ); ?>">
 					<?php echo esc_html( page_home( 'help_cta' ) ); ?>
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</a>
@@ -171,7 +172,7 @@ get_header();
 					<span class="founder-chip"><?php echo esc_html( page_home( 'founder_role_3' ) ); ?></span>
 				</div>
 				<p><?php echo esc_html( page_home( 'founder_text' ) ); ?></p>
-				<a class="pps-btn pps-btn--ghost" href="<?php echo esc_url( home_url( page_home( 'founder_cta_url' ) ) ); ?>">
+				<a class="pps-btn pps-btn--ghost" href="<?php echo esc_url( page_home( 'founder_cta_url' ) ); ?>">
 					<?php echo esc_html( page_home( 'founder_cta' ) ); ?>
 				</a>
 			</div>
@@ -193,6 +194,12 @@ get_header();
 					<p class="stat-card__label"><?php echo esc_html( page_home( "stat_{$i}_label" ) ); ?></p>
 				</div>
 			<?php endfor; ?>
+		</div>
+		<div class="pps-section-head pps-section-head--center" style="margin-top:2.25rem;margin-bottom:0;">
+			<a class="pps-btn pps-btn--light" href="<?php echo esc_url( page_home( 'stats_cta_url' ) ); ?>">
+				<?php echo esc_html( page_home( 'stats_cta' ) ); ?>
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+			</a>
 		</div>
 	</div>
 </section>
@@ -264,6 +271,7 @@ get_header();
 		<div class="pps-section-head pps-section-head--center pps-reveal">
 			<p class="pps-eyebrow"><?php echo esc_html( page_home( 'test_eyebrow' ) ); ?></p>
 			<h2 class="pps-section-title"><?php echo esc_html( page_home( 'test_title' ) ); ?></h2>
+			<p class="pps-section-lead"><?php echo esc_html( page_home( 'test_lead' ) ); ?></p>
 		</div>
 		<div class="testimonials-track">
 			<?php for ( $i = 1; $i <= 6; $i++ ) : ?>

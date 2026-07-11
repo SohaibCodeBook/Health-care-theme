@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 1.1.1
+Version: 1.2.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -863,7 +863,7 @@ p:last-child {
   margin-bottom: 1.15rem;
 }
 
-.service-card:nth-child(5) .service-card__icon,
+.service-card:nth-child(4) .service-card__icon,
 .service-card--ai .service-card__icon {
   background: var(--pps-tech-soft);
   color: var(--pps-tech);
@@ -899,23 +899,9 @@ p:last-child {
   transform: translateX(4px);
 }
 
-.services-grid .service-card:nth-child(4),
-.services-grid .service-card:nth-child(5) {
-  grid-column: span 1;
-}
-
 @media (min-width: 992px) {
   .services-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-  .services-grid .service-card {
-    grid-column: span 2;
-  }
-  .services-grid .service-card:nth-child(4) {
-    grid-column: 2 / span 2;
-  }
-  .services-grid .service-card:nth-child(5) {
-    grid-column: 4 / span 2;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -993,6 +979,17 @@ p:last-child {
 .home-insights {
   background: linear-gradient(180deg, #eef6f7 0%, #f4f7fb 40%, #f7f3ea 100%);
   overflow: hidden;
+}
+
+.insights-note {
+  margin-top: 1rem;
+  max-width: 36rem;
+  margin-inline: auto;
+  font-family: var(--pps-font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--pps-primary-dark);
+  font-weight: 500;
 }
 
 .dash-collage {

@@ -7,13 +7,36 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.1.1' );
+define( 'PPS_THEME_VERSION', '1.2.0' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
 require_once PPS_THEME_DIR . '/inc/customizer.php';
 require_once PPS_THEME_DIR . '/inc/logo.php';
 require_once PPS_THEME_DIR . '/inc/setup-wizard.php';
+
+/**
+ * Refresh homepage Customizer defaults when content pack updates.
+ * Clears stored home mods so new defaults from Home content.md appear.
+ */
+function pps_maybe_refresh_home_content() {
+	$content_version = '1.2.0';
+	if ( get_option( 'pps_home_content_version' ) === $content_version ) {
+		return;
+	}
+
+	$mods = get_theme_mods();
+	if ( is_array( $mods ) ) {
+		foreach ( array_keys( $mods ) as $key ) {
+			if ( 0 === strpos( $key, 'pps_home_' ) ) {
+				remove_theme_mod( $key );
+			}
+		}
+	}
+
+	update_option( 'pps_home_content_version', $content_version );
+}
+add_action( 'after_setup_theme', 'pps_maybe_refresh_home_content', 20 );
 
 /**
  * Theme setup.

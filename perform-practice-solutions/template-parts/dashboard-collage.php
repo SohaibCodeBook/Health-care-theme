@@ -69,18 +69,18 @@ defined( 'ABSPATH' ) || exit;
 	<div class="dash-metric dash-metric--a dash-card--float-4">
 		<div class="dash-metric__icon"><i class="fa-solid fa-shield-halved"></i></div>
 		<div>
-			<p class="dash-metric__label">Resolve payer denials</p>
-			<p class="dash-metric__value">$525k <span>missing revenue</span></p>
+			<p class="dash-metric__label">Clean claim performance</p>
+			<p class="dash-metric__value">98% <span>average clean claim rate</span></p>
 		</div>
-		<span class="dash-metric__cta">Add service</span>
+		<span class="dash-metric__cta">See results</span>
 	</div>
 
 	<div class="dash-metric dash-metric--b dash-card--float-5">
-		<div class="dash-metric__icon is-warm"><i class="fa-solid fa-file-circle-exclamation"></i></div>
+		<div class="dash-metric__icon is-warm"><i class="fa-solid fa-chart-line"></i></div>
 		<div>
-			<p class="dash-metric__label">Contractual underpayment</p>
-			<p class="dash-metric__value">$525k <span>recoverable</span></p>
+			<p class="dash-metric__label">Billing cycle speed</p>
+			<p class="dash-metric__value">~3 wks <span>vs 45–60 day industry avg</span></p>
 		</div>
-		<span class="dash-metric__cta">Add service</span>
+		<span class="dash-metric__cta">Learn more</span>
 	</div>
 </div>

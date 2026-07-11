@@ -17,19 +17,19 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 		<div class="hero-dash__kpis">
 			<div class="hero-kpi">
-				<span>Net collections</span>
-				<strong>$248.6k</strong>
-				<em class="is-up">▲ 12.8%</em>
-			</div>
-			<div class="hero-kpi">
 				<span>Clean claim rate</span>
-				<strong>96.2%</strong>
-				<em class="is-up">▲ 3.1%</em>
+				<strong>98%</strong>
+				<em class="is-up">avg across accounts</em>
 			</div>
 			<div class="hero-kpi">
-				<span>Days in A/R</span>
-				<strong>28</strong>
-				<em class="is-down">▼ 6 days</em>
+				<span>Revenue increase</span>
+				<strong>+16%</strong>
+				<em class="is-up">after onboarding</em>
+			</div>
+			<div class="hero-kpi">
+				<span>Claim turnaround</span>
+				<strong>48 hrs</strong>
+				<em class="is-down">vs 7+ day norms</em>
 			</div>
 		</div>
 		<svg class="hero-dash__spark" viewBox="0 0 480 120" preserveAspectRatio="none">
