@@ -154,6 +154,7 @@ function pps_home_defaults() {
 		'founder_text'            => 'Running a successful practice takes more than clinical skill. Kevin works directly with owners to build the systems, dashboards, and team accountability behind a practice that grows and profits even when the owner steps away. Bi-monthly coaching sessions use a real-time metrics dashboard to replace guesswork with data-driven decisions.',
 		'founder_cta'             => 'Get a Custom Quote',
 		'founder_cta_url'         => '#contact',
+		'founder_image'           => '',
 
 		'stats_eyebrow'           => 'Revenue Reality',
 		'stats_title'             => 'You\'re Probably Leaving Revenue on the Table',
@@ -351,6 +352,30 @@ function pps_customize_register( $wp_customize ) {
 			}
 		}
 
+		$setting_id = 'pps_home_' . $key;
+
+		// Image uploads use a dedicated media control.
+		if ( false !== strpos( $key, '_image' ) ) {
+			$wp_customize->add_setting(
+				$setting_id,
+				array(
+					'default'           => $default,
+					'sanitize_callback' => 'esc_url_raw',
+				)
+			);
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					$setting_id,
+					array(
+						'label'   => ucwords( str_replace( '_', ' ', $key ) ),
+						'section' => 'pps_section_home_' . $section_slug,
+					)
+				)
+			);
+			continue;
+		}
+
 		$type = 'text';
 		if ( false !== strpos( $key, '_text' ) || false !== strpos( $key, '_lead' ) || false !== strpos( $key, '_quote' ) || false !== strpos( $key, '_a' ) || false !== strpos( $key, '_note' ) || false !== strpos( $key, '_label' ) ) {
 			$type = 'textarea';
@@ -359,7 +384,6 @@ function pps_customize_register( $wp_customize ) {
 			$type = 'url';
 		}
 
-		$setting_id = 'pps_home_' . $key;
 		$wp_customize->add_setting(
 			$setting_id,
 			array(

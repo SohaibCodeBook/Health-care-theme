@@ -162,7 +162,21 @@ get_header();
 <section class="pps-section home-founder" id="founder">
 	<div class="pps-container">
 		<div class="founder-card pps-reveal">
-			<div class="founder-card__photo" role="img" aria-label="<?php echo esc_attr( page_home( 'founder_name' ) ); ?>"></div>
+			<?php
+			$founder_image = page_home( 'founder_image' );
+			if ( empty( $founder_image ) ) {
+				$founder_image = get_template_directory_uri() . '/assets/images/founder.jpeg';
+			}
+			?>
+			<div class="founder-card__photo">
+				<img
+					src="<?php echo esc_url( $founder_image ); ?>"
+					alt="<?php echo esc_attr( page_home( 'founder_name' ) ); ?>"
+					width="480"
+					height="600"
+					loading="lazy"
+				>
+			</div>
 			<div>
 				<p class="pps-eyebrow"><?php echo esc_html( page_home( 'founder_eyebrow' ) ); ?></p>
 				<h2 class="pps-section-title"><?php echo esc_html( page_home( 'founder_name' ) ); ?></h2>
