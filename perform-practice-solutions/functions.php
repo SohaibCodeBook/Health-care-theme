@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.1.0' );
+define( 'PPS_THEME_VERSION', '1.1.1' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
