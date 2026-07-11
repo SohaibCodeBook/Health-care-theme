@@ -33,47 +33,37 @@ get_header();
 
 <section class="pps-section home-intro" id="intro">
 	<div class="pps-container">
-		<div class="intro-split">
-			<div class="intro-split__media pps-reveal">
-				<div class="intro-split__photo">
-					<img
-						src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
-						alt=""
-						width="560"
-						height="640"
-						loading="lazy"
-					>
-				</div>
-				<div class="intro-float intro-float--top">
-					<span class="intro-float__icon" aria-hidden="true"><i class="fa-solid fa-stethoscope"></i></span>
-					<div>
-						<strong><?php esc_html_e( 'Allied Health Focus', 'perform-practice' ); ?></strong>
-						<small><?php esc_html_e( 'PT · Chiro · OT · Speech', 'perform-practice' ); ?></small>
-					</div>
-				</div>
-				<div class="intro-float intro-float--bottom">
-					<span class="intro-float__stat">3 wks</span>
-					<small><?php esc_html_e( 'typical cash-flow cycle', 'perform-practice' ); ?></small>
+		<div class="intro-shell pps-reveal">
+			<div class="intro-shell__media">
+				<img
+					src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=900&q=80"
+					alt=""
+					width="520"
+					height="480"
+					loading="lazy"
+				>
+				<div class="intro-shell__badge">
+					<span><?php esc_html_e( 'Allied Health', 'perform-practice' ); ?></span>
+					<strong>PT · Chiro · OT · Speech</strong>
 				</div>
 			</div>
 
-			<div class="intro-split__body pps-reveal">
+			<div class="intro-shell__body">
 				<p class="pps-eyebrow"><?php echo esc_html( page_home( 'intro_eyebrow' ) ); ?></p>
 				<h2 class="pps-section-title"><?php echo esc_html( page_home( 'intro_title' ) ); ?></h2>
-				<p class="intro-split__text"><?php echo esc_html( page_home( 'intro_text_1' ) ); ?></p>
-				<p class="intro-split__text"><?php echo esc_html( page_home( 'intro_text_2' ) ); ?></p>
+				<p><?php echo esc_html( page_home( 'intro_text_1' ) ); ?></p>
+				<p><?php echo esc_html( page_home( 'intro_text_2' ) ); ?></p>
 
-				<div class="intro-specialty-row" aria-label="<?php esc_attr_e( 'Specialties we support', 'perform-practice' ); ?>">
-					<span><i class="fa-solid fa-person-walking" aria-hidden="true"></i> <?php esc_html_e( 'Physical Therapy', 'perform-practice' ); ?></span>
-					<span><i class="fa-solid fa-bone" aria-hidden="true"></i> <?php esc_html_e( 'Chiropractic', 'perform-practice' ); ?></span>
-					<span><i class="fa-solid fa-hand-holding-hand" aria-hidden="true"></i> <?php esc_html_e( 'Occupational Therapy', 'perform-practice' ); ?></span>
-					<span><i class="fa-solid fa-comments" aria-hidden="true"></i> <?php esc_html_e( 'Speech Therapy', 'perform-practice' ); ?></span>
+				<ul class="intro-shell__tags">
+					<li><?php esc_html_e( 'Physical Therapy', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Chiropractic', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Occupational Therapy', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Speech Therapy', 'perform-practice' ); ?></li>
+				</ul>
+
+				<div class="intro-shell__note">
+					<?php echo esc_html( page_home( 'intro_text_3' ) ); ?>
 				</div>
-
-				<blockquote class="intro-callout">
-					<i class="fa-solid fa-quote-left" aria-hidden="true"></i>
-					<p><?php echo esc_html( page_home( 'intro_text_3' ) ); ?></p>
-				</blockquote>
 			</div>
 		</div>
 	</div>

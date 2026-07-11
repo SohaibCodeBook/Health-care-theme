@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 1.3.1
+Version: 1.3.2
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -592,178 +592,121 @@ p:last-child {
 }
 
 .home-intro {
-  background:
-    radial-gradient(ellipse 60% 50% at 0% 50%, rgba(14, 124, 134, 0.08), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 20%, rgba(37, 99, 235, 0.06), transparent 50%),
-    linear-gradient(180deg, #f4f7fb 0%, #eef6f7 45%, #fff 100%);
-  overflow: hidden;
+  background: var(--pps-surface);
 }
 
-.intro-split {
+.intro-shell {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-
-.intro-split__media {
-  position: relative;
-  min-height: 460px;
-}
-
-.intro-split__photo {
-  position: absolute;
-  inset: 0 12% 0 0;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: stretch;
+  background: #fff;
   border-radius: 28px;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  box-shadow: var(--pps-shadow);
+  border: 1px solid var(--pps-line);
+}
+
+.intro-shell__media {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--pps-shadow-lg);
+  min-height: 100%;
+  background: #e8eef3;
 }
 
-.intro-split__photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, transparent 40%, rgba(11, 18, 32, 0.35));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.intro-split__photo img {
+.intro-shell__media img {
   width: 100%;
   height: 100%;
+  min-height: 380px;
   object-fit: cover;
   display: block;
 }
 
-.intro-float {
+.intro-shell__badge {
   position: absolute;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
-  animation: pps-float 6.5s ease-in-out infinite;
-}
-
-.intro-float--top {
-  top: 1.5rem;
-  right: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.9rem 1rem;
-  max-width: 220px;
-}
-
-.intro-float--bottom {
-  bottom: 1.75rem;
   left: 1rem;
-  padding: 1rem 1.15rem;
-  text-align: center;
-  animation-delay: 0.6s;
+  bottom: 1rem;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 14px;
+  padding: 0.75rem 0.95rem;
+  box-shadow: var(--pps-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.85);
 }
 
-.intro-float__icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: var(--pps-primary-soft);
-  color: var(--pps-primary);
-  flex-shrink: 0;
-}
-
-.intro-float strong {
+.intro-shell__badge span {
   display: block;
-  font-family: var(--pps-font-display);
-  font-size: 0.88rem;
-  color: var(--pps-ink);
-  line-height: 1.2;
-}
-
-.intro-float small {
-  color: var(--pps-muted);
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.intro-float__stat {
-  display: block;
-  font-family: var(--pps-font-display);
-  font-size: 1.55rem;
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--pps-primary);
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
-.intro-split__body .pps-section-title {
-  max-width: 16ch;
-  margin-bottom: 1.15rem;
+.intro-shell__badge strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: 0.9rem;
+  color: var(--pps-ink);
 }
 
-.intro-split__text {
+.intro-shell__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(0.35rem, 1.5vw, 0.85rem) clamp(0.25rem, 1.5vw, 0.75rem);
+}
+
+.intro-shell__body .pps-section-title {
+  max-width: 18ch;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  margin-bottom: 0.9rem;
+}
+
+.intro-shell__body > p {
   color: var(--pps-muted);
-  font-size: 1.02rem;
-  line-height: 1.7;
-  margin-bottom: 1rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
 }
 
-.intro-specialty-row {
+.intro-shell__tags {
+  list-style: none;
+  margin: 0.35rem 0 1.15rem;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin: 1.35rem 0 1.5rem;
+  gap: 0.45rem;
 }
 
-.intro-specialty-row span {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 0.85rem;
+.intro-shell__tags li {
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
-  background: #fff;
-  border: 1px solid var(--pps-line);
-  box-shadow: var(--pps-shadow-sm);
+  background: var(--pps-primary-soft);
+  color: var(--pps-primary-dark);
   font-family: var(--pps-font-display);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--pps-ink-soft);
 }
 
-.intro-specialty-row span i {
-  color: var(--pps-primary);
-  font-size: 0.85rem;
-}
-
-.intro-callout {
-  margin: 0;
-  position: relative;
-  background: linear-gradient(135deg, rgba(14, 124, 134, 0.1), rgba(37, 99, 235, 0.06));
-  border: 1px solid rgba(14, 124, 134, 0.18);
-  border-radius: var(--pps-radius-lg);
-  padding: 1.35rem 1.35rem 1.35rem 1.5rem;
-  box-shadow: var(--pps-shadow-sm);
-}
-
-.intro-callout > i {
-  color: var(--pps-primary);
-  opacity: 0.45;
-  font-size: 1.1rem;
-  margin-bottom: 0.55rem;
-  display: block;
-}
-
-.intro-callout p {
-  margin: 0;
+.intro-shell__note {
+  margin-top: auto;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(14, 124, 134, 0.1), rgba(37, 99, 235, 0.05));
+  border: 1px solid rgba(14, 124, 134, 0.15);
   font-family: var(--pps-font-display);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--pps-primary-dark);
-  line-height: 1.55;
+  line-height: 1.5;
+}
+
+@media (min-width: 992px) {
+  .intro-shell {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
 }
 
 .results-grid {
@@ -2369,7 +2312,7 @@ p:last-child {
 
   .home-hero__grid,
   .about-split,
-  .intro-split,
+  .intro-shell,
   .need-help-shell,
   .automation-grid,
   .founder-card,
@@ -2388,13 +2331,8 @@ p:last-child {
     order: -1;
   }
 
-  .intro-split__media {
-    min-height: 360px;
-    order: -1;
-  }
-
-  .intro-split__photo {
-    inset: 0 8% 0 0;
+  .intro-shell__media img {
+    min-height: 280px;
   }
 
   .hero-dash {
