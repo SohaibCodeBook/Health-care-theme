@@ -1,27 +1,50 @@
-# Dependencies / OS
+# OS
 .DS_Store
+.DS_Store?
+._*
 Thumbs.db
-*.log
+Desktop.ini
 
-# Editor
+# Editor / IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
 
-# WordPress / local
-wp-config.php
+# Env / secrets
 .env
 .env.*
+*.pem
+wp-config.php
+wp-config-local.php
 
-# Build artifacts — do not commit theme zips
+# Build / packaging artifacts
 *.zip
+*.tar
+*.tar.gz
+*.rar
 perform-practice-solutions.zip
+
+# Duplicate root assets (canonical copy lives in the theme)
+/founder.jpeg
+/founder.jpg
+/founder.png
 
 # Node (if added later)
 node_modules/
 npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
 
-# Agent / local caches
+# Local / agent caches
 .cursor/
 agent-transcripts/
+*.log
+tmp/
+temp/
+.cache/
