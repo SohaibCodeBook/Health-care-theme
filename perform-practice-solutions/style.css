@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 1.3.2
+Version: 1.4.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -217,6 +217,7 @@ p:last-child {
   backdrop-filter: blur(16px) saturate(1.2);
   border-bottom: 1px solid transparent;
   transition: background 0.3s var(--pps-ease), border-color 0.3s var(--pps-ease), box-shadow 0.3s var(--pps-ease);
+  overflow: visible;
 }
 
 .site-header.is-scrolled {
@@ -385,6 +386,187 @@ p:last-child {
 .sub-menu a:hover {
   background: var(--pps-primary-soft);
   color: var(--pps-primary-dark);
+}
+
+/* Billing mega menu */
+.pps-mega-billing {
+  position: static;
+}
+
+.pps-mega-panel {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 12px);
+  width: min(1120px, calc(100vw - 2rem));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s var(--pps-ease), transform 0.25s var(--pps-ease), visibility 0.25s;
+  z-index: 200;
+  padding-top: 0.65rem;
+}
+
+.pps-mega-billing:hover > .pps-mega-panel,
+.pps-mega-billing:focus-within > .pps-mega-panel,
+.pps-mega-billing.is-open > .pps-mega-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.pps-mega-panel__inner {
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  border-radius: 22px;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.14);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+.pps-mega-panel__intro {
+  grid-row: 1 / 2;
+  background: linear-gradient(165deg, #0a3d45 0%, #0e7c86 55%, #0f766e 100%);
+  color: #fff;
+  padding: 1.5rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.pps-mega-kicker {
+  margin: 0;
+  font-family: var(--pps-font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pps-accent);
+}
+
+.pps-mega-title {
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.pps-mega-lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.pps-mega-overview {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #fff;
+  font-family: var(--pps-font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.pps-mega-overview:hover {
+  color: var(--pps-accent);
+}
+
+.pps-mega-grid.sub-menu {
+  position: static;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  min-width: 0;
+  margin: 0;
+  padding: 1.15rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.75rem;
+  max-height: min(58vh, 420px);
+  overflow: auto;
+  background: #fff;
+}
+
+.pps-mega-grid > li {
+  margin: 0;
+  list-style: none;
+}
+
+.pps-mega-grid > li > a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.7rem;
+  border-radius: 12px;
+  color: var(--pps-ink-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  transition: background 0.2s var(--pps-ease), color 0.2s var(--pps-ease), transform 0.2s var(--pps-ease);
+}
+
+.pps-mega-grid > li > a:hover {
+  background: var(--pps-primary-soft);
+  color: var(--pps-primary-dark);
+  transform: translateX(2px);
+}
+
+.pps-mega-link__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--pps-surface);
+  color: var(--pps-primary);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+}
+
+.pps-mega-item--featured > a {
+  background: linear-gradient(135deg, rgba(14, 124, 134, 0.08), rgba(37, 99, 235, 0.04));
+  border: 1px solid rgba(14, 124, 134, 0.12);
+}
+
+.pps-mega-item--featured .pps-mega-link__icon {
+  background: var(--pps-primary);
+  color: #fff;
+}
+
+.pps-mega-panel__footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.25rem;
+  background: var(--pps-surface);
+  border-top: 1px solid var(--pps-line);
+}
+
+.pps-mega-panel__footer strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: 0.9rem;
+  color: var(--pps-ink);
+}
+
+.pps-mega-panel__footer span {
+  color: var(--pps-muted);
+  font-size: 0.82rem;
+}
+
+.pps-mega-panel__footer .pps-btn {
+  padding: 0.7rem 1.05rem;
+  font-size: 0.82rem;
 }
 
 .header-cta {
@@ -2299,6 +2481,55 @@ p:last-child {
 
   .menu-item-has-children.is-open > .sub-menu {
     display: block;
+  }
+
+  .pps-mega-billing {
+    position: relative;
+  }
+
+  .pps-mega-panel {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    padding-top: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    display: none;
+  }
+
+  .pps-mega-billing.is-open > .pps-mega-panel {
+    display: block;
+  }
+
+  .pps-mega-panel__inner {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+    box-shadow: none;
+  }
+
+  .pps-mega-grid.sub-menu {
+    display: none;
+    grid-template-columns: 1fr;
+    max-height: none;
+    padding: 0.5rem;
+    background: transparent;
+  }
+
+  .pps-mega-billing.is-open .pps-mega-grid.sub-menu {
+    display: grid;
+  }
+
+  .pps-mega-panel__footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .pps-mega-panel__intro {
+    padding: 1.1rem;
   }
 
   .mobile-nav-cta {

@@ -7,13 +7,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.3.2' );
+define( 'PPS_THEME_VERSION', '1.4.0' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
 require_once PPS_THEME_DIR . '/inc/customizer.php';
 require_once PPS_THEME_DIR . '/inc/logo.php';
 require_once PPS_THEME_DIR . '/inc/setup-wizard.php';
+require_once PPS_THEME_DIR . '/inc/billing-mega.php';
 
 /**
  * Refresh homepage Customizer defaults when content pack updates.
@@ -129,9 +130,16 @@ function pps_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'pps_enqueue_assets' );
 
 /**
- * Custom nav walker for dropdown carets and mobile toggles.
+ * Custom nav walker for dropdown carets, mobile toggles, and billing mega menu.
  */
 class PPS_Nav_Walker extends Walker_Nav_Menu {
+
+	/**
+	 * Whether the current top-level branch is the billing mega menu.
+	 *
+	 * @var bool
+	 */
+	protected $is_mega = false;
 
 	/**
 	 * Starts the list before the elements are added.
@@ -141,7 +149,43 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 	 * @param stdClass $args   Menu arguments.
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = null ) {
+		if ( 0 === $depth && $this->is_mega ) {
+			$output .= '<div class="pps-mega-panel" role="region" aria-label="' . esc_attr__( 'Medical Billing Services', 'perform-practice' ) . '">';
+			$output .= '<div class="pps-mega-panel__inner">';
+			$output .= '<div class="pps-mega-panel__intro">';
+			$output .= '<p class="pps-mega-kicker">' . esc_html__( 'Medical Billing', 'perform-practice' ) . '</p>';
+			$output .= '<h3 class="pps-mega-title">' . esc_html__( 'Specialty billing services', 'perform-practice' ) . '</h3>';
+			$output .= '<p class="pps-mega-lead">' . esc_html__( 'Explore dedicated billing support for your practice specialty — built to reduce denials and speed reimbursement.', 'perform-practice' ) . '</p>';
+			$output .= '<a class="pps-mega-overview" href="' . esc_url( home_url( '/billing-solutions/' ) ) . '">' . esc_html__( 'View all billing solutions', 'perform-practice' ) . ' <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>';
+			$output .= '</div>';
+			$output .= '<ul class="sub-menu pps-mega-grid">';
+			return;
+		}
+
 		$output .= '<ul class="sub-menu">';
+	}
+
+	/**
+	 * Ends the list of after the elements are added.
+	 *
+	 * @param string   $output Used to append additional content.
+	 * @param int      $depth  Depth of menu item.
+	 * @param stdClass $args   Menu arguments.
+	 */
+	public function end_lvl( &$output, $depth = 0, $args = null ) {
+		if ( 0 === $depth && $this->is_mega ) {
+			$output .= '</ul>';
+			$output .= '<div class="pps-mega-panel__footer">';
+			$output .= '<div><strong>' . esc_html__( 'Not sure which specialty fits?', 'perform-practice' ) . '</strong>';
+			$output .= '<span>' . esc_html__( 'Book a strategy session and we\'ll map the right billing path.', 'perform-practice' ) . '</span></div>';
+			$output .= '<a class="pps-btn pps-btn--primary" href="' . esc_url( site_data( 'cta_url' ) ) . '">' . esc_html( site_data( 'cta_label' ) ) . '</a>';
+			$output .= '</div>';
+			$output .= '</div></div>';
+			$this->is_mega = false;
+			return;
+		}
+
+		$output .= '</ul>';
 	}
 
 	/**
@@ -157,9 +201,25 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 
-		$class_names = implode( ' ', array_map( 'esc_attr', array_filter( $classes ) ) );
+		if ( 0 === $depth ) {
+			$this->is_mega = in_array( 'pps-mega-billing', $classes, true );
+		}
 
-		$output .= '<li class="' . $class_names . '">';
+		$group = '';
+		$icon  = 'fa-file-medical';
+		if ( 1 === $depth && $this->is_mega && ! empty( $item->object_id ) ) {
+			$group     = (string) get_post_meta( $item->object_id, '_pps_billing_group', true );
+			$meta_icon = get_post_meta( $item->object_id, '_pps_billing_icon', true );
+			if ( $meta_icon ) {
+				$icon = $meta_icon;
+			}
+			if ( 'featured' === $group ) {
+				$classes[] = 'pps-mega-item--featured';
+			}
+		}
+
+		$class_names = implode( ' ', array_map( 'esc_attr', array_filter( $classes ) ) );
+		$output     .= '<li class="' . $class_names . '">';
 
 		$atts           = array();
 		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -179,7 +239,13 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 
 		$item_output  = isset( $args->before ) ? $args->before : '';
 		$item_output .= '<a' . $attributes . '>';
-		$item_output .= ( isset( $args->link_before ) ? $args->link_before : '' ) . esc_html( $title ) . ( isset( $args->link_after ) ? $args->link_after : '' );
+
+		if ( 1 === $depth && $this->is_mega ) {
+			$item_output .= '<span class="pps-mega-link__icon" aria-hidden="true"><i class="fa-solid ' . esc_attr( $icon ) . '"></i></span>';
+			$item_output .= '<span class="pps-mega-link__text">' . esc_html( $title ) . '</span>';
+		} else {
+			$item_output .= ( isset( $args->link_before ) ? $args->link_before : '' ) . esc_html( $title ) . ( isset( $args->link_after ) ? $args->link_after : '' );
+		}
 
 		if ( in_array( 'menu-item-has-children', $classes, true ) && 0 === $depth ) {
 			$item_output .= ' <i class="fa-solid fa-chevron-down submenu-caret" aria-hidden="true"></i>';

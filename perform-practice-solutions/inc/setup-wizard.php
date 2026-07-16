@@ -139,7 +139,7 @@ function pps_create_primary_menu( $pages ) {
 
 	$top_items = array(
 		array( 'slug' => 'home', 'title' => 'Home' ),
-		array( 'slug' => 'billing-solutions', 'title' => 'Billing Solutions' ),
+		array( 'slug' => 'billing-solutions', 'title' => 'Billing Solutions', 'children' => array() ),
 		array( 'slug' => 'credentialing', 'title' => 'Credentialing' ),
 		array( 'slug' => 'med-va', 'title' => 'Med VA' ),
 		array( 'slug' => 'digital-marketing', 'title' => 'Digital Marketing' ),

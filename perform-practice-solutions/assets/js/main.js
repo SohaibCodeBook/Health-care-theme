@@ -44,7 +44,11 @@
         var parent = link.parentElement;
         if (parent && parent.classList.contains('menu-item-has-children')) {
           event.preventDefault();
-          parent.classList.toggle('is-open');
+          var wasOpen = parent.classList.contains('is-open');
+          document.querySelectorAll('.menu-item-has-children.is-open').forEach(function (openItem) {
+            if (openItem !== parent) openItem.classList.remove('is-open');
+          });
+          parent.classList.toggle('is-open', !wasOpen);
         }
       }
     });
