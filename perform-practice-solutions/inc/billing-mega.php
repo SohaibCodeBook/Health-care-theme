@@ -134,13 +134,12 @@ function pps_all_billing_child_pages() {
 }
 
 /**
- * Create or update a billing specialty page.
+ * Create or update a billing specialty page (top-level for flat URLs).
  *
  * @param array $data Page data.
- * @param int   $parent_id Parent page ID.
  * @return int
  */
-function pps_upsert_billing_page( $data, $parent_id ) {
+function pps_upsert_billing_page( $data ) {
 	$existing = get_page_by_path( $data['slug'] );
 	$content  = '<p>' . esc_html__( 'This specialty billing page is ready for content. Design and full copy will be added in a later phase.', 'perform-practice' ) . '</p>';
 
@@ -150,21 +149,36 @@ function pps_upsert_billing_page( $data, $parent_id ) {
 			array(
 				'ID'          => $page_id,
 				'post_title'  => $data['title'],
-				'post_parent' => $parent_id,
+				'post_parent' => 0,
 				'post_status' => 'publish',
 			)
 		);
 	} else {
-		$page_id = wp_insert_post(
-			array(
-				'post_title'   => $data['title'],
-				'post_name'    => $data['slug'],
-				'post_content' => $content,
-				'post_status'  => 'publish',
-				'post_type'    => 'page',
-				'post_parent'  => $parent_id,
-			)
-		);
+		// Also migrate if page was previously nested under billing-solutions.
+		$nested = get_page_by_path( 'billing-solutions/' . $data['slug'] );
+		if ( $nested ) {
+			$page_id = (int) $nested->ID;
+			wp_update_post(
+				array(
+					'ID'          => $page_id,
+					'post_title'  => $data['title'],
+					'post_name'   => $data['slug'],
+					'post_parent' => 0,
+					'post_status' => 'publish',
+				)
+			);
+		} else {
+			$page_id = wp_insert_post(
+				array(
+					'post_title'   => $data['title'],
+					'post_name'    => $data['slug'],
+					'post_content' => $content,
+					'post_status'  => 'publish',
+					'post_type'    => 'page',
+					'post_parent'  => 0,
+				)
+			);
+		}
 	}
 
 	if ( is_wp_error( $page_id ) || ! $page_id ) {
@@ -281,25 +295,26 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.0.0' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.1.0' ) {
 		return;
 	}
 
-	$parent_id = pps_ensure_billing_parent_page();
-	if ( ! $parent_id ) {
-		return;
-	}
+	pps_ensure_billing_parent_page();
 
 	$child_ids = array();
 	foreach ( pps_all_billing_child_pages() as $data ) {
-		$id = pps_upsert_billing_page( $data, $parent_id );
+		$id = pps_upsert_billing_page( $data );
 		if ( $id ) {
 			$child_ids[ $data['slug'] ] = $id;
 		}
 	}
 
 	pps_attach_billing_mega_menu_items( $child_ids );
-	update_option( 'pps_billing_mega_version', '1.0.0' );
+
+	// Flush rewrite rules once after flattening URLs.
+	flush_rewrite_rules( false );
+
+	update_option( 'pps_billing_mega_version', '1.1.0' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );
