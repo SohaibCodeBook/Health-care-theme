@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 1.4.1
+Version: 1.5.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -2666,6 +2666,373 @@ p:last-child {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* ==========================================================================
+   Specialty service page
+   ========================================================================== */
+.svc-hero {
+  position: relative;
+  padding: calc(var(--pps-header-h) + 3.5rem) 0 4.5rem;
+  background: var(--pps-grad-hero);
+  color: #fff;
+  overflow: hidden;
+}
+
+.svc-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 85% 20%, rgba(45, 212, 191, 0.22), transparent 55%),
+    radial-gradient(ellipse 40% 50% at 10% 80%, rgba(37, 99, 235, 0.15), transparent 50%);
+  pointer-events: none;
+}
+
+.svc-hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.svc-hero__eyebrow {
+  color: var(--pps-accent);
+}
+
+.svc-hero__title {
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  color: #fff;
+  max-width: 16ch;
+  margin-bottom: 1.25rem;
+}
+
+.svc-hero__lead {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.125rem;
+  max-width: 38rem;
+  margin-bottom: 1.75rem;
+}
+
+.svc-hero__content > * {
+  animation: pps-fade-up 0.7s var(--pps-ease) both;
+}
+
+.svc-hero__content > *:nth-child(1) { animation-delay: 0.05s; }
+.svc-hero__content > *:nth-child(2) { animation-delay: 0.15s; }
+.svc-hero__content > *:nth-child(3) { animation-delay: 0.25s; }
+.svc-hero__content > *:nth-child(4) { animation-delay: 0.35s; }
+
+.svc-hero__panel {
+  position: relative;
+  padding: 2rem;
+  border-radius: var(--pps-radius-lg);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--pps-shadow-lg);
+}
+
+.svc-hero__panel-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -40px;
+  right: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.svc-hero__stat {
+  position: relative;
+  margin-bottom: 1.75rem;
+}
+
+.svc-hero__stat-value {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1;
+}
+
+.svc-hero__stat-label {
+  display: block;
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+.svc-hero__signals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.svc-hero__signals li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.98rem;
+}
+
+.svc-hero__signals i {
+  color: var(--pps-accent);
+}
+
+.svc-problem {
+  padding-top: 4rem;
+}
+
+.svc-problem-shell {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: var(--pps-radius-xl);
+  background: var(--pps-grad-card);
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow);
+}
+
+.svc-problem-shell__body .pps-section-title {
+  margin-bottom: 1rem;
+}
+
+.svc-problem-shell__body > p {
+  color: var(--pps-muted);
+  max-width: 42rem;
+}
+
+.svc-problem-shell__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--pps-radius);
+  background: var(--pps-primary-soft);
+  color: var(--pps-primary-dark);
+  font-weight: 600;
+}
+
+.svc-problem-shell__note i {
+  margin-top: 0.2rem;
+}
+
+.svc-problem-shell__aside {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.svc-aside-card {
+  padding: 1.25rem;
+  border-radius: var(--pps-radius);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+}
+
+.svc-aside-card i {
+  color: var(--pps-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.svc-aside-card strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  color: var(--pps-ink);
+  margin-bottom: 0.35rem;
+}
+
+.svc-aside-card p {
+  color: var(--pps-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.svc-offer {
+  background: var(--pps-grad-soft);
+}
+
+.svc-offer-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.svc-offer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--pps-radius);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+  color: var(--pps-ink-soft);
+  font-weight: 500;
+}
+
+.svc-offer-item__icon {
+  color: var(--pps-success);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.svc-analysis-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: var(--pps-radius-xl);
+  background: var(--pps-grad-hero);
+  color: #fff;
+  box-shadow: var(--pps-shadow-lg);
+}
+
+.svc-analysis-band .pps-section-title {
+  color: #fff;
+}
+
+.svc-analysis-band p {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 40rem;
+  margin: 0;
+}
+
+.svc-analysis-band .pps-btn {
+  flex-shrink: 0;
+}
+
+.svc-process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.svc-process-card {
+  position: relative;
+  padding: 1.75rem;
+  border-radius: var(--pps-radius-lg);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+  transition: transform 0.3s var(--pps-ease), box-shadow 0.3s var(--pps-ease);
+}
+
+.svc-process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--pps-shadow);
+}
+
+.svc-process-card__step {
+  display: inline-block;
+  font-family: var(--pps-font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--pps-primary);
+  margin-bottom: 0.85rem;
+}
+
+.svc-process-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.svc-process-card p {
+  color: var(--pps-muted);
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.svc-promo-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 2.25rem;
+  border-radius: var(--pps-radius-lg);
+  background: linear-gradient(135deg, #ecfeff 0%, #f0f9fb 50%, #eef2ff 100%);
+  border: 1px solid rgba(14, 124, 134, 0.15);
+}
+
+.svc-promo-shell .pps-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.svc-promo-shell p {
+  color: var(--pps-muted);
+  margin: 0;
+  max-width: 40rem;
+}
+
+.svc-cta-panel {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: var(--pps-radius-xl);
+  background: var(--pps-grad-hero);
+  color: #fff;
+}
+
+.svc-cta-panel .pps-section-title {
+  color: #fff;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.svc-cta-panel p {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .svc-hero__grid,
+  .svc-problem-shell,
+  .svc-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-analysis-band,
+  .svc-promo-shell {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .svc-hero__title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .svc-hero {
+    padding-top: calc(var(--pps-header-h) + 2.5rem);
+  }
+
+  .svc-problem-shell,
+  .svc-analysis-band,
+  .svc-promo-shell {
+    padding: 1.5rem;
   }
 }
 

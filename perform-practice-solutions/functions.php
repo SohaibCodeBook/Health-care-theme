@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.4.1' );
+define( 'PPS_THEME_VERSION', '1.5.0' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -15,6 +15,7 @@ require_once PPS_THEME_DIR . '/inc/customizer.php';
 require_once PPS_THEME_DIR . '/inc/logo.php';
 require_once PPS_THEME_DIR . '/inc/setup-wizard.php';
 require_once PPS_THEME_DIR . '/inc/billing-mega.php';
+require_once PPS_THEME_DIR . '/inc/service-page.php';
 
 /**
  * Refresh homepage Customizer defaults when content pack updates.
