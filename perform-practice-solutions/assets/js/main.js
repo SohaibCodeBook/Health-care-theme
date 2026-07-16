@@ -54,6 +54,38 @@
     });
   });
 
+  // Desktop mega menu: keep open while moving into the panel
+  document.querySelectorAll('.pps-mega-billing').forEach(function (mega) {
+    var closeTimer = null;
+
+    function isDesktop() {
+      return window.matchMedia('(min-width: 992px)').matches;
+    }
+
+    function openMega() {
+      if (!isDesktop()) return;
+      clearTimeout(closeTimer);
+      mega.classList.add('is-open');
+    }
+
+    function scheduleClose() {
+      if (!isDesktop()) return;
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(function () {
+        mega.classList.remove('is-open');
+      }, 180);
+    }
+
+    mega.addEventListener('mouseenter', openMega);
+    mega.addEventListener('mouseleave', scheduleClose);
+    mega.addEventListener('focusin', openMega);
+    mega.addEventListener('focusout', function (event) {
+      if (!mega.contains(event.relatedTarget)) {
+        scheduleClose();
+      }
+    });
+  });
+
   // Close mobile nav on link click (non-parent)
   if (nav) {
     nav.querySelectorAll('a').forEach(function (link) {
