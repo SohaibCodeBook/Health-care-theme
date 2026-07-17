@@ -34,6 +34,9 @@ perform-practice-solutions.zip
 /founder.jpg
 /founder.png
 
+# Source content docs
+*.docx
+
 # Node (if added later)
 node_modules/
 npm-debug.log*
