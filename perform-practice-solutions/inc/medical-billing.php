@@ -226,10 +226,72 @@ function pps_mbs_skip_generic_meta() {
 add_action( 'wp', 'pps_mbs_skip_generic_meta' );
 
 /**
+ * Point the header Billing Solutions menu item at the medical billing hub page.
+ *
+ * @param int $page_id Medical billing page ID.
+ */
+function pps_attach_mbs_to_primary_menu( $page_id ) {
+	$locations = get_nav_menu_locations();
+	if ( empty( $locations['primary'] ) || ! $page_id ) {
+		return;
+	}
+
+	$menu_id = (int) $locations['primary'];
+	$items   = wp_get_nav_menu_items( $menu_id );
+	if ( ! $items ) {
+		return;
+	}
+
+	$billing_item_id = 0;
+	foreach ( $items as $item ) {
+		if ( pps_is_billing_nav_parent( $item, 0 ) ) {
+			$billing_item_id = (int) $item->ID;
+			break;
+		}
+	}
+
+	if ( $billing_item_id ) {
+		wp_update_nav_menu_item(
+			$menu_id,
+			$billing_item_id,
+			array(
+				'menu-item-title'     => 'Billing Solutions',
+				'menu-item-object'    => 'page',
+				'menu-item-object-id' => (int) $page_id,
+				'menu-item-type'      => 'post_type',
+				'menu-item-status'    => 'publish',
+				'menu-item-parent-id' => 0,
+			)
+		);
+		update_post_meta( $billing_item_id, '_menu_item_classes', array( 'menu-item', 'pps-mega-billing', 'menu-item-has-children' ) );
+		return;
+	}
+
+	$new_item_id = wp_update_nav_menu_item(
+		$menu_id,
+		0,
+		array(
+			'menu-item-title'     => 'Billing Solutions',
+			'menu-item-object'    => 'page',
+			'menu-item-object-id' => (int) $page_id,
+			'menu-item-type'      => 'post_type',
+			'menu-item-status'    => 'publish',
+			'menu-item-parent-id' => 0,
+			'menu-item-position'  => 2,
+		)
+	);
+
+	if ( $new_item_id && ! is_wp_error( $new_item_id ) ) {
+		update_post_meta( $new_item_id, '_menu_item_classes', array( 'menu-item', 'pps-mega-billing', 'menu-item-has-children' ) );
+	}
+}
+
+/**
  * One-time creation of the Medical Billing Solutions page.
  */
 function pps_setup_mbs_page() {
-	if ( get_option( 'pps_mbs_page_version' ) === '1.0.0' ) {
+	$version = '1.1.0';
+	if ( get_option( 'pps_mbs_page_version' ) === $version ) {
 		return;
 	}
 
@@ -256,6 +318,7 @@ function pps_setup_mbs_page() {
 	update_post_meta( $page_id, '_wp_page_template', 'page-templates/medical-billing.php' );
 	update_post_meta( $page_id, '_pps_seo_title', sanitize_text_field( $defaults['seo_title'] ) );
 	update_post_meta( $page_id, '_pps_seo_description', sanitize_text_field( $defaults['seo_desc'] ) );
-	update_option( 'pps_mbs_page_version', '1.0.0' );
+	pps_attach_mbs_to_primary_menu( $page_id );
+	update_option( 'pps_mbs_page_version', $version );
 }
 add_action( 'after_setup_theme', 'pps_setup_mbs_page', 41 );

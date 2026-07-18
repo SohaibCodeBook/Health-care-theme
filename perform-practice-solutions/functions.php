@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.6.0' );
+define( 'PPS_THEME_VERSION', '1.7.0' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -17,6 +17,7 @@ require_once PPS_THEME_DIR . '/inc/setup-wizard.php';
 require_once PPS_THEME_DIR . '/inc/billing-mega.php';
 require_once PPS_THEME_DIR . '/inc/service-page.php';
 require_once PPS_THEME_DIR . '/inc/medical-billing.php';
+require_once PPS_THEME_DIR . '/inc/credentialing.php';
 
 /**
  * Refresh homepage Customizer defaults when content pack updates.
@@ -158,7 +159,7 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 			$output .= '<p class="pps-mega-kicker">' . esc_html__( 'Medical Billing', 'perform-practice' ) . '</p>';
 			$output .= '<h3 class="pps-mega-title">' . esc_html__( 'Specialty billing services', 'perform-practice' ) . '</h3>';
 			$output .= '<p class="pps-mega-lead">' . esc_html__( 'Explore dedicated billing support for your practice specialty — built to reduce denials and speed reimbursement.', 'perform-practice' ) . '</p>';
-			$output .= '<a class="pps-mega-overview" href="' . esc_url( home_url( '/billing-solutions/' ) ) . '">' . esc_html__( 'View all billing solutions', 'perform-practice' ) . ' <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>';
+			$output .= '<a class="pps-mega-overview" href="' . esc_url( pps_billing_hub_url() ) . '">' . esc_html__( 'View all billing solutions', 'perform-practice' ) . ' <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>';
 			$output .= '</div>';
 			$output .= '<ul class="sub-menu pps-mega-grid">';
 			return;
@@ -266,8 +267,8 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 function pps_fallback_menu() {
 	$pages = array(
 		'home'              => __( 'Home', 'perform-practice' ),
-		'billing-solutions' => __( 'Billing Solutions', 'perform-practice' ),
-		'credentialing'     => __( 'Credentialing', 'perform-practice' ),
+		'medical-billing-solutions' => __( 'Billing Solutions', 'perform-practice' ),
+		'medical-credentialing-services' => __( 'Credentialing', 'perform-practice' ),
 		'med-va'            => __( 'Med VA', 'perform-practice' ),
 		'digital-marketing' => __( 'Digital Marketing', 'perform-practice' ),
 		'ai-development'    => __( 'AI Development', 'perform-practice' ),

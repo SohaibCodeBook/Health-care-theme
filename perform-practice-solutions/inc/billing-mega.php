@@ -8,6 +8,65 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Billing hub page ID (medical-billing-solutions preferred).
+ *
+ * @return int
+ */
+function pps_billing_hub_page_id() {
+	static $page_id = null;
+
+	if ( null !== $page_id ) {
+		return $page_id;
+	}
+
+	$page = get_page_by_path( 'medical-billing-solutions' );
+	if ( $page ) {
+		$page_id = (int) $page->ID;
+		return $page_id;
+	}
+
+	$page    = get_page_by_path( 'billing-solutions' );
+	$page_id = $page ? (int) $page->ID : 0;
+	return $page_id;
+}
+
+/**
+ * Billing hub page URL.
+ *
+ * @return string
+ */
+function pps_billing_hub_url() {
+	$hub_id = pps_billing_hub_page_id();
+	return $hub_id ? get_permalink( $hub_id ) : home_url( '/medical-billing-solutions/' );
+}
+
+/**
+ * Whether a top-level menu item is the Billing Solutions mega parent.
+ *
+ * @param WP_Post $item  Menu item.
+ * @param int     $depth Menu depth.
+ * @return bool
+ */
+function pps_is_billing_nav_parent( $item, $depth = 0 ) {
+	if ( 0 !== (int) $depth || (int) $item->menu_item_parent !== 0 ) {
+		return false;
+	}
+
+	$classes = is_array( $item->classes ) ? $item->classes : array();
+	if ( in_array( 'pps-mega-billing', $classes, true ) ) {
+		return true;
+	}
+
+	$hub_id = pps_billing_hub_page_id();
+	if ( $hub_id && (int) $item->object_id === $hub_id ) {
+		return true;
+	}
+
+	$slug = get_post_field( 'post_name', $item->object_id );
+	return in_array( $slug, array( 'billing-solutions', 'medical-billing-solutions' ), true );
+}
+
+/**
  * Featured billing specialty pages (full SEO from sheet).
  *
  * @return array
@@ -251,7 +310,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 	$existing_child_ids   = array();
 
 	foreach ( $items as $item ) {
-		if ( (int) $item->object_id && 'billing-solutions' === get_post_field( 'post_name', $item->object_id ) && (int) $item->menu_item_parent === 0 ) {
+		if ( pps_is_billing_nav_parent( $item, 0 ) ) {
 			$billing_menu_item_id = (int) $item->ID;
 		}
 	}
@@ -358,9 +417,27 @@ add_action( 'wp_head', 'pps_output_seo_meta_description', 1 );
  * @return array
  */
 function pps_nav_menu_css_class( $classes, $item, $args = null, $depth = 0 ) {
-	if ( isset( $item->object_id ) && 'billing-solutions' === get_post_field( 'post_name', $item->object_id ) && (int) $item->menu_item_parent === 0 ) {
+	if ( pps_is_billing_nav_parent( $item, $depth ) ) {
 		$classes[] = 'pps-mega-billing';
 	}
 	return $classes;
 }
 add_filter( 'nav_menu_css_class', 'pps_nav_menu_css_class', 10, 4 );
+
+/**
+ * Redirect legacy billing hub URL to the new medical billing page.
+ */
+function pps_redirect_legacy_billing_hub() {
+	if ( is_admin() || ! is_page( 'billing-solutions' ) ) {
+		return;
+	}
+
+	$target = get_page_by_path( 'medical-billing-solutions' );
+	if ( ! $target ) {
+		return;
+	}
+
+	wp_safe_redirect( get_permalink( $target ), 301 );
+	exit;
+}
+add_action( 'template_redirect', 'pps_redirect_legacy_billing_hub' );

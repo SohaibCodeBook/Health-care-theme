@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 1.6.0
+Version: 1.7.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -3591,6 +3591,541 @@ p:last-child {
     width: 38px;
     height: 38px;
     font-size: 0.9rem;
+  }
+}
+
+/* ==========================================================================
+   Medical Credentialing Services page
+   ========================================================================== */
+.cred-hero {
+  position: relative;
+  padding: calc(var(--pps-header-h) + 3rem) 0 4.5rem;
+  background:
+    radial-gradient(ellipse 50% 55% at 88% 18%, rgba(37, 99, 235, 0.28), transparent 55%),
+    radial-gradient(ellipse 40% 50% at 8% 85%, rgba(45, 212, 191, 0.18), transparent 50%),
+    linear-gradient(145deg, #07111f 0%, #0c2a3a 45%, #123a4a 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.cred-hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.cred-hero__eyebrow {
+  color: var(--pps-accent);
+}
+
+.cred-hero__title {
+  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  color: #fff;
+  max-width: 18ch;
+  margin-bottom: 1rem;
+}
+
+.cred-hero__lead,
+.cred-hero__text {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 40rem;
+}
+
+.cred-hero__note {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--pps-accent);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0 12px 12px 0;
+  font-family: var(--pps-font-display);
+  font-weight: 600;
+  color: #fff;
+}
+
+.cred-hero__text {
+  margin-bottom: 1.5rem;
+}
+
+.cred-hero__content > * {
+  animation: pps-fade-up 0.7s var(--pps-ease) both;
+}
+
+.cred-hero__content > *:nth-child(1) { animation-delay: 0.05s; }
+.cred-hero__content > *:nth-child(2) { animation-delay: 0.12s; }
+.cred-hero__content > *:nth-child(3) { animation-delay: 0.18s; }
+.cred-hero__content > *:nth-child(4) { animation-delay: 0.24s; }
+.cred-hero__content > *:nth-child(5) { animation-delay: 0.3s; }
+.cred-hero__content > *:nth-child(6) { animation-delay: 0.36s; }
+
+.cred-hero__visual {
+  position: relative;
+}
+
+.cred-pathway {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--pps-radius-xl);
+  padding: 1.4rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--pps-shadow-lg);
+}
+
+.cred-pathway__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.cred-pathway__head span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+}
+
+.cred-pathway__head strong {
+  color: var(--pps-accent);
+  font-family: var(--pps-font-display);
+  font-size: 0.95rem;
+}
+
+.cred-pathway__steps {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.cred-pathway__steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
+}
+
+.cred-pathway__steps li.is-done {
+  background: rgba(45, 212, 191, 0.1);
+  border-color: rgba(45, 212, 191, 0.2);
+}
+
+.cred-pathway__steps li.is-active {
+  background: rgba(37, 99, 235, 0.18);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.cred-pathway__steps span {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-family: var(--pps-font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.cred-pathway__steps li.is-done span {
+  background: var(--pps-accent-deep);
+  color: #041016;
+}
+
+.cred-pathway__steps li.is-active span {
+  background: var(--pps-tech);
+}
+
+.cred-pathway__steps em {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cred-pathway__status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cred-pathway__status small {
+  display: block;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+.cred-pathway__status strong {
+  font-size: 0.88rem;
+  font-family: var(--pps-font-display);
+}
+
+.cred-pathway__pill {
+  flex-shrink: 0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.25);
+  color: #93c5fd;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.cred-speed-card {
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1.25rem;
+  width: min(220px, 70%);
+  padding: 1rem 1.1rem;
+  border-radius: var(--pps-radius);
+  background: #fff;
+  color: var(--pps-ink);
+  box-shadow: var(--pps-shadow-lg);
+  animation: pps-float 5.5s ease-in-out infinite;
+}
+
+.cred-speed-card__value {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--pps-primary);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.cred-speed-card__label {
+  font-size: 0.78rem;
+  color: var(--pps-muted);
+  line-height: 1.4;
+}
+
+.cred-why__intro {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+}
+
+.cred-why__intro > p {
+  color: var(--pps-muted);
+}
+
+.cred-why__lead {
+  font-family: var(--pps-font-display);
+  font-weight: 600;
+  color: var(--pps-ink) !important;
+  margin-top: 1.25rem;
+}
+
+.cred-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+}
+
+.cred-benefit-card {
+  position: relative;
+  padding: 1.75rem 1.5rem 1.6rem;
+  border-radius: var(--pps-radius-lg);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+  overflow: hidden;
+}
+
+.cred-benefit-card__num {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: rgba(14, 124, 134, 0.15);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.cred-benefit-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cred-benefit-card p {
+  color: var(--pps-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.cred-why__closing {
+  margin-top: 1.75rem;
+  max-width: 48rem;
+  color: var(--pps-muted);
+  padding: 1rem 1.25rem;
+  border-radius: var(--pps-radius);
+  background: var(--pps-primary-soft);
+  border-left: 3px solid var(--pps-primary);
+}
+
+.cred-process {
+  background: linear-gradient(180deg, #f3f7fb 0%, #eef4f8 100%);
+}
+
+.cred-process-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.cred-process-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0;
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  border-radius: var(--pps-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--pps-shadow-sm);
+}
+
+.cred-process-card:nth-child(even) {
+  grid-template-columns: 1fr 140px;
+}
+
+.cred-process-card:nth-child(even) .cred-process-card__rail {
+  order: 2;
+}
+
+.cred-process-card__rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(165deg, #0c2a3a 0%, #0e7c86 100%);
+  color: #fff;
+  font-family: var(--pps-font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 1.25rem;
+}
+
+.cred-process-card__body {
+  padding: 1.5rem 1.6rem;
+}
+
+.cred-process-card__body h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.45rem;
+}
+
+.cred-process-card__body p {
+  color: var(--pps-muted);
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.cred-apart-shell {
+  padding: 2.5rem;
+  border-radius: var(--pps-radius-xl);
+  background: linear-gradient(145deg, #061525 0%, #0a3540 100%);
+  color: #fff;
+}
+
+.cred-apart-shell .pps-section-title {
+  color: #fff;
+  max-width: 22ch;
+}
+
+.cred-apart-shell__intro {
+  margin-bottom: 1.75rem;
+}
+
+.cred-apart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.cred-apart-list li {
+  display: flex;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--pps-radius);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cred-apart-list__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(45, 212, 191, 0.15);
+  color: var(--pps-accent);
+  flex-shrink: 0;
+}
+
+.cred-apart-list strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  margin-bottom: 0.3rem;
+  color: #fff;
+}
+
+.cred-apart-list p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+.cred-focus-panel {
+  max-width: 820px;
+  margin-inline: auto;
+  padding: 2.5rem;
+  border-radius: var(--pps-radius-xl);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow);
+}
+
+.cred-focus-panel > p {
+  color: var(--pps-muted);
+}
+
+.cred-focus-panel__lead {
+  font-family: var(--pps-font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--pps-ink) !important;
+  margin: 1rem 0 1.25rem;
+}
+
+.cred-focus-panel__close {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--pps-line);
+  font-weight: 600;
+  color: var(--pps-primary-dark) !important;
+}
+
+.cred-test-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--pps-line);
+  border-radius: var(--pps-radius-xl);
+  overflow: hidden;
+  background: #fff;
+}
+
+.cred-test-item {
+  margin: 0;
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid var(--pps-line);
+}
+
+.cred-test-item:last-child {
+  border-right: 0;
+}
+
+.cred-test-item p {
+  color: var(--pps-ink-soft);
+  font-size: 0.98rem;
+  margin-bottom: 1.1rem;
+}
+
+.cred-test-item footer strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  color: var(--pps-ink);
+  font-size: 0.92rem;
+}
+
+.cred-test-item footer span {
+  color: var(--pps-muted);
+  font-size: 0.8rem;
+}
+
+.cred-cta-panel {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: 2.75rem 2rem;
+  border-radius: var(--pps-radius-xl);
+  background: var(--pps-grad-soft);
+  border: 1px solid var(--pps-line);
+}
+
+.cred-cta-panel .pps-section-title {
+  margin-inline: auto;
+  max-width: 22ch;
+}
+
+.cred-cta-panel p {
+  color: var(--pps-muted);
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.cred-cta-panel .pps-btn {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 991.98px) {
+  .cred-hero__grid,
+  .cred-benefit-grid,
+  .cred-test-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .cred-process-card,
+  .cred-process-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .cred-process-card:nth-child(even) .cred-process-card__rail {
+    order: 0;
+  }
+
+  .cred-process-card__rail {
+    padding: 0.9rem 1.25rem;
+    justify-content: flex-start;
+  }
+
+  .cred-test-item {
+    border-right: 0;
+    border-bottom: 1px solid var(--pps-line);
+  }
+
+  .cred-test-item:last-child {
+    border-bottom: 0;
+  }
+
+  .cred-hero__title {
+    max-width: none;
+  }
+
+  .cred-speed-card {
+    position: static;
+    width: auto;
+    margin-top: 1rem;
+    animation: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cred-apart-shell,
+  .cred-focus-panel,
+  .cred-cta-panel {
+    padding: 1.5rem;
   }
 }
 

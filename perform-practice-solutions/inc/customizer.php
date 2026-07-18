@@ -88,12 +88,12 @@ function pps_home_defaults() {
 
 		'service_1_title'         => 'Medical Billing Solutions',
 		'service_1_text'          => 'Know exactly where your every dollar stands. Our transparent billing platform gives you real time visibility into the health of your revenue cycle, so nothing is a guessing game.',
-		'service_1_url'           => '/billing-solutions/',
+		'service_1_url'           => '/medical-billing-solutions/',
 		'service_1_icon'          => 'fa-solid fa-file-invoice-dollar',
 
 		'service_2_title'         => 'Medical Credentialing Services',
 		'service_2_text'          => 'Falling out of network or behind on credentials is one of the fastest ways to lose revenue. We manage the full lifecycle of provider enrollment and payer contracting.',
-		'service_2_url'           => '/credentialing/',
+		'service_2_url'           => '/medical-credentialing-services/',
 		'service_2_icon'          => 'fa-solid fa-id-card-clip',
 
 		'service_3_title'         => 'Virtual Medical Assistant',
