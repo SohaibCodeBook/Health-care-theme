@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 1.7.0
+Version: 1.8.0
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -4126,6 +4126,449 @@ p:last-child {
   .cred-focus-panel,
   .cred-cta-panel {
     padding: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   Virtual Medical Assistant (Med VA) page
+   ========================================================================== */
+.va-hero {
+  padding: 4rem 0 4.5rem;
+  background:
+    radial-gradient(ellipse 50% 60% at 100% 0%, rgba(14, 124, 134, 0.12), transparent 55%),
+    linear-gradient(180deg, #eef6f7 0%, #f4f7fb 55%, #ffffff 100%);
+}
+
+.va-hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.va-hero__title {
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+  max-width: 16ch;
+  margin-bottom: 1rem;
+}
+
+.va-hero__lead,
+.va-hero__text {
+  color: var(--pps-muted);
+  max-width: 40rem;
+}
+
+.va-hero__text {
+  margin-bottom: 1.5rem;
+}
+
+.va-hero__trust {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.15rem;
+}
+
+.va-hero__trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pps-ink-soft);
+}
+
+.va-hero__trust i {
+  color: var(--pps-primary);
+}
+
+.va-hero__content > * {
+  animation: pps-fade-up 0.7s var(--pps-ease) both;
+}
+
+.va-hero__content > *:nth-child(1) { animation-delay: 0.05s; }
+.va-hero__content > *:nth-child(2) { animation-delay: 0.12s; }
+.va-hero__content > *:nth-child(3) { animation-delay: 0.18s; }
+.va-hero__content > *:nth-child(4) { animation-delay: 0.24s; }
+.va-hero__content > *:nth-child(5) { animation-delay: 0.3s; }
+.va-hero__content > *:nth-child(6) { animation-delay: 0.36s; }
+
+.va-hero__media {
+  position: relative;
+}
+
+.va-hero__figure {
+  margin: 0;
+  border-radius: var(--pps-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--pps-shadow-lg);
+  border: 1px solid var(--pps-line);
+}
+
+.va-hero__figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.va-hero__badge {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  background: #fff;
+  border-radius: var(--pps-radius);
+  padding: 0.85rem 1.1rem;
+  box-shadow: var(--pps-shadow);
+  max-width: 180px;
+}
+
+.va-hero__badge strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: 1.5rem;
+  color: var(--pps-primary);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.va-hero__badge span {
+  font-size: 0.78rem;
+  color: var(--pps-muted);
+  line-height: 1.35;
+}
+
+.va-why__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.75rem;
+  align-items: center;
+}
+
+.va-why__media figure {
+  margin: 0;
+  border-radius: var(--pps-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--pps-shadow);
+  border: 1px solid var(--pps-line);
+}
+
+.va-why__media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.va-why__body > p {
+  color: var(--pps-muted);
+}
+
+.va-why__lead {
+  font-family: var(--pps-font-display);
+  font-weight: 600;
+  color: var(--pps-ink) !important;
+  margin: 1.1rem 0 0.85rem;
+}
+
+.va-why-list {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.va-why-list li {
+  padding: 0.95rem 1.05rem;
+  border-radius: var(--pps-radius);
+  background: var(--pps-grad-card);
+  border: 1px solid var(--pps-line);
+}
+
+.va-why-list strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  color: var(--pps-ink);
+  margin-bottom: 0.25rem;
+  font-size: 0.98rem;
+}
+
+.va-why-list span {
+  color: var(--pps-muted);
+  font-size: 0.92rem;
+}
+
+.va-why__closing {
+  padding: 1rem 1.15rem;
+  border-radius: var(--pps-radius);
+  background: var(--pps-primary-soft);
+  border-left: 3px solid var(--pps-primary);
+  color: var(--pps-ink-soft) !important;
+}
+
+.va-process {
+  background: linear-gradient(180deg, #f7fafc 0%, #eef4f7 100%);
+}
+
+.va-process-rail {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+
+.va-process-rail::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pps-primary), var(--pps-accent));
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.va-process-step {
+  position: relative;
+  z-index: 1;
+  padding: 1.4rem 1.2rem;
+  border-radius: var(--pps-radius-lg);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+}
+
+.va-process-step__num {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--pps-grad-hero);
+  color: #fff;
+  font-family: var(--pps-font-display);
+  font-weight: 700;
+  font-size: 0.82rem;
+  margin-bottom: 0.9rem;
+}
+
+.va-process-step h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.45rem;
+}
+
+.va-process-step p {
+  color: var(--pps-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.va-task-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.va-task-card {
+  padding: 1.5rem 1.35rem;
+  border-radius: var(--pps-radius-lg);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+  transition: transform 0.25s var(--pps-ease), box-shadow 0.25s var(--pps-ease);
+}
+
+.va-task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--pps-shadow);
+}
+
+.va-task-card--wide {
+  grid-column: span 2;
+  background: linear-gradient(135deg, rgba(14, 124, 134, 0.07), rgba(37, 99, 235, 0.04));
+  border-color: rgba(14, 124, 134, 0.18);
+}
+
+.va-task-card__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--pps-primary-soft);
+  color: var(--pps-primary);
+  margin-bottom: 0.85rem;
+}
+
+.va-task-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.va-task-card p {
+  color: var(--pps-muted);
+  font-size: 0.94rem;
+  margin: 0;
+}
+
+.va-cost-shell {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: var(--pps-radius-xl);
+  background: linear-gradient(145deg, #07111f 0%, #0c3340 100%);
+  color: #fff;
+}
+
+.va-cost-shell .pps-section-title {
+  color: #fff;
+}
+
+.va-cost-shell__copy > p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.va-cost-shell__close {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: var(--pps-accent) !important;
+}
+
+.va-cost-stats {
+  display: grid;
+  gap: 0.9rem;
+  align-content: center;
+}
+
+.va-cost-stat {
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--pps-radius);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.va-cost-stat strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  font-size: 2rem;
+  color: var(--pps-accent);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.va-cost-stat span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+}
+
+.va-test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+}
+
+.va-test-card {
+  margin: 0;
+  padding: 1.6rem 1.45rem;
+  border-radius: var(--pps-radius-lg);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.va-test-card p {
+  color: var(--pps-ink-soft);
+  font-size: 0.95rem;
+  margin-bottom: 1.1rem;
+  flex: 1;
+}
+
+.va-test-card footer strong {
+  display: block;
+  font-family: var(--pps-font-display);
+  color: var(--pps-ink);
+  font-size: 0.92rem;
+}
+
+.va-test-card footer span {
+  color: var(--pps-muted);
+  font-size: 0.8rem;
+}
+
+.va-cta-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2.5rem;
+  border-radius: var(--pps-radius-xl);
+  background: var(--pps-grad-hero);
+  color: #fff;
+  box-shadow: var(--pps-shadow-lg);
+}
+
+.va-cta-panel .pps-section-title {
+  color: #fff;
+}
+
+.va-cta-panel p {
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 42rem;
+  margin: 0 0 0.65rem;
+}
+
+.va-cta-panel .pps-btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 991.98px) {
+  .va-hero__grid,
+  .va-why__grid,
+  .va-cost-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .va-process-rail,
+  .va-task-mosaic,
+  .va-test-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .va-task-card--wide {
+    grid-column: auto;
+  }
+
+  .va-process-rail::before {
+    display: none;
+  }
+
+  .va-cta-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .va-hero__title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .va-cost-shell,
+  .va-cta-panel {
+    padding: 1.5rem;
+  }
+
+  .va-hero__badge {
+    position: static;
+    margin-top: 1rem;
+    max-width: none;
   }
 }
 

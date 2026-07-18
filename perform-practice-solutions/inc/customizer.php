@@ -98,7 +98,7 @@ function pps_home_defaults() {
 
 		'service_3_title'         => 'Virtual Medical Assistant',
 		'service_3_text'          => 'Our virtual staffing service gives your practice a trained, dependable professional backed by built in AI tools that surface priority tasks and organize follow up queues.',
-		'service_3_url'           => '/med-va/',
+		'service_3_url'           => '/virtual-medical-assistant/',
 		'service_3_icon'          => 'fa-solid fa-headset',
 
 		'service_4_title'         => 'AI Automation and Workflow Development',

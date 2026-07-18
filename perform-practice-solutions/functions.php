@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '1.7.0' );
+define( 'PPS_THEME_VERSION', '1.8.0' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -18,6 +18,7 @@ require_once PPS_THEME_DIR . '/inc/billing-mega.php';
 require_once PPS_THEME_DIR . '/inc/service-page.php';
 require_once PPS_THEME_DIR . '/inc/medical-billing.php';
 require_once PPS_THEME_DIR . '/inc/credentialing.php';
+require_once PPS_THEME_DIR . '/inc/med-va.php';
 
 /**
  * Refresh homepage Customizer defaults when content pack updates.
@@ -269,7 +270,7 @@ function pps_fallback_menu() {
 		'home'              => __( 'Home', 'perform-practice' ),
 		'medical-billing-solutions' => __( 'Billing Solutions', 'perform-practice' ),
 		'medical-credentialing-services' => __( 'Credentialing', 'perform-practice' ),
-		'med-va'            => __( 'Med VA', 'perform-practice' ),
+		'virtual-medical-assistant' => __( 'Med VA', 'perform-practice' ),
 		'digital-marketing' => __( 'Digital Marketing', 'perform-practice' ),
 		'ai-development'    => __( 'AI Development', 'perform-practice' ),
 		'about-us'          => __( 'About Us', 'perform-practice' ),
