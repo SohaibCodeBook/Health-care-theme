@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.1.1
+Version: 2.1.2
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -389,33 +389,39 @@ p:last-child {
   color: var(--pps-primary-dark);
 }
 
-/* Billing mega menu — panel anchors to header container, not the nav item */
-.primary-menu > li.pps-mega-billing {
-  position: static;
-}
-
+/* Billing mega menu — panel anchors to header container, not the nav item.
+   Desktop-only: on mobile the panel flows inline inside the drawer. */
 .pps-mega-panel {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
   width: 100%;
-  max-width: none;
-  /* Hit-area includes header so the pointer never falls through a gap */
-  padding-top: var(--pps-header-h);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s var(--pps-ease), visibility 0.2s;
-  z-index: 1100;
 }
 
-.pps-mega-billing:hover > .pps-mega-panel,
-.pps-mega-billing:focus-within > .pps-mega-panel,
-.pps-mega-billing.is-open > .pps-mega-panel {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
+@media (min-width: 992px) {
+  .primary-menu > li.pps-mega-billing {
+    position: static;
+  }
+
+  .pps-mega-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    max-width: none;
+    /* Hit-area includes header so the pointer never falls through a gap */
+    padding-top: var(--pps-header-h);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s var(--pps-ease), visibility 0.2s;
+    z-index: 1100;
+  }
+
+  .pps-mega-billing:hover > .pps-mega-panel,
+  .pps-mega-billing:focus-within > .pps-mega-panel,
+  .pps-mega-billing.is-open > .pps-mega-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 }
 
 .pps-mega-panel__inner {
@@ -2458,6 +2464,7 @@ p:last-child {
     box-shadow: var(--pps-shadow-lg);
     z-index: 1001;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .primary-nav.is-open {
@@ -2470,10 +2477,21 @@ p:last-child {
     gap: 0.25rem;
   }
 
+  /* Stack link + panel vertically; base rule keeps li as a flex row for desktop */
+  .primary-menu > li {
+    display: block;
+    position: static;
+  }
+
   .primary-menu > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     padding: 0.9rem 1rem;
     border-radius: 12px;
     font-size: 1rem;
+    white-space: normal;
   }
 
   .sub-menu {
@@ -2493,21 +2511,19 @@ p:last-child {
     display: block;
   }
 
-  .pps-mega-billing {
-    position: relative;
-  }
-
+  /* Mega panel flows inline inside the drawer, hidden until tapped open */
   .pps-mega-panel {
-    position: static;
-    left: auto;
-    top: auto;
-    transform: none;
+    position: static !important;
+    inset: auto;
     width: 100%;
+    max-width: 100%;
     padding-top: 0;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transform: none;
     display: none;
+    margin: 0.25rem 0 0.5rem;
   }
 
   .pps-mega-billing.is-open > .pps-mega-panel {
@@ -2516,9 +2532,11 @@ p:last-child {
 
   .pps-mega-panel__inner {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
     border-radius: 16px;
     box-shadow: none;
     transform: none;
+    width: 100%;
   }
 
   .pps-mega-billing:hover > .pps-mega-panel .pps-mega-panel__inner,
@@ -2527,16 +2545,21 @@ p:last-child {
     transform: none;
   }
 
-  .pps-mega-grid.sub-menu {
-    display: none;
-    grid-template-columns: 1fr;
-    max-height: none;
-    padding: 0.5rem;
-    background: transparent;
+  .pps-mega-panel__intro {
+    grid-row: auto;
   }
 
-  .pps-mega-billing.is-open .pps-mega-grid.sub-menu {
+  .pps-mega-grid.sub-menu {
     display: grid;
+    grid-template-columns: 1fr;
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background: #fff;
+  }
+
+  .pps-mega-grid > li > a {
+    white-space: normal;
   }
 
   .pps-mega-panel__footer {
