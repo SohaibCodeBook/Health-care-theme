@@ -19,7 +19,7 @@
 				<h4><?php esc_html_e( 'How We Can Help', 'perform-practice' ); ?></h4>
 				<ul class="footer-links">
 					<li><a href="<?php echo esc_url( pps_billing_hub_url() ); ?>"><?php esc_html_e( 'Billing Solutions', 'perform-practice' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/digital-marketing/' ) ); ?>"><?php esc_html_e( 'Marketing Solutions', 'perform-practice' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/digital-marketing-healthcare-agency/' ) ); ?>"><?php esc_html_e( 'Marketing Solutions', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/medical-credentialing-services/' ) ); ?>"><?php esc_html_e( 'Credentialing', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/virtual-medical-assistant/' ) ); ?>"><?php esc_html_e( 'Med VA', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/coaching-for-healthcare-professionals/' ) ); ?>"><?php esc_html_e( 'Coaching', 'perform-practice' ); ?></a></li>

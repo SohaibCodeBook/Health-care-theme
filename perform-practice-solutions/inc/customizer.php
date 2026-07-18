@@ -108,7 +108,7 @@ function pps_home_defaults() {
 
 		'service_5_title'         => 'Digital Marketing Healthcare Agency',
 		'service_5_text'          => 'A great website isn\'t enough. Our packages combine SEO, content, social, email, and design to attract the patients who are the best fit for your practice.',
-		'service_5_url'           => '/digital-marketing/',
+		'service_5_url'           => '/digital-marketing-healthcare-agency/',
 		'service_5_icon'          => 'fa-solid fa-bullhorn',
 
 		'service_6_title'         => 'Coaching for Healthcare Professionals',

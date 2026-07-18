@@ -33,9 +33,9 @@ function pps_theme_activation() {
 			'title'   => 'Med VA',
 			'content' => '<p>Virtual staffing (Med VA) page content will be designed in a later phase.</p>',
 		),
-		'digital-marketing' => array(
-			'title'   => 'Digital Marketing',
-			'content' => '<p>Digital Marketing page content will be designed in a later phase.</p>',
+		'digital-marketing-healthcare-agency' => array(
+			'title'   => 'Digital Marketing Healthcare Agency',
+			'content' => '<p>Digital marketing for healthcare practices — managed via the Digital Marketing template.</p>',
 		),
 		'ai-development'    => array(
 			'title'   => 'AI Development',
@@ -142,7 +142,7 @@ function pps_create_primary_menu( $pages ) {
 		array( 'slug' => 'billing-solutions', 'title' => 'Billing Solutions', 'children' => array() ),
 		array( 'slug' => 'credentialing', 'title' => 'Credentialing' ),
 		array( 'slug' => 'med-va', 'title' => 'Med VA' ),
-		array( 'slug' => 'digital-marketing', 'title' => 'Digital Marketing' ),
+		array( 'slug' => 'digital-marketing-healthcare-agency', 'title' => 'Digital Marketing' ),
 		array( 'slug' => 'ai-development', 'title' => 'AI Development', 'children' => array(
 			array( 'slug' => 'phone-text-system', 'title' => 'Fully Automated Phone and Text System' ),
 			array( 'slug' => 'referral-outreach', 'title' => 'Fully Automated New Client Referral Outreach' ),
