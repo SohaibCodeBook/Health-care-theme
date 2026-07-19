@@ -31,68 +31,75 @@ function pps_service_defaults_for( $slug ) {
 	$catalog = array(
 		'physical-therapy-billing-services' => array(
 			'seo_title' => 'Physical Therapy Billing Services | Perform Practice Solutions',
-			'seo_desc'  => 'Expert physical therapy billing services for USA practices. Reduce denials, speed up reimbursement, and recover lost revenue. Get a free claim audit today.',
+			'seo_desc'  => 'Outsource your physical therapy billing to PT billing experts. Daily claim submission, denial prevention, and a 3 week average bill to paid cycle. Book a strategy session today.',
 
 			'hero_eyebrow'    => 'Physical Therapy Billing Services',
-			'hero_title'      => 'Changing the way PT practices bill and operate',
-			'hero_lead'       => 'Too many physical therapy practices get burned by in-house billers or agencies that leave money on the table. Our PT billing experts work around the clock to maximize claims, partner with your front desk, and bill daily — with an average 3-week bill-to-paid cycle.',
+			'hero_title'      => 'Physical Therapy Billing That Gets PT Practices Paid Faster',
+			'hero_lead'       => 'Physical therapy billing services handle claim submission, denial management, and patient collections so your clinic gets paid faster with less admin work. Perform Practice Solutions partners with your front desk, scrubs and submits claims daily, and delivers an average 3 week bill to paid cycle.',
 			'hero_cta'        => 'Book a Strategy Session',
 			'hero_cta_url'    => '#contact',
 			'hero_stat'       => '3 weeks',
 			'hero_stat_label' => 'average bill-to-paid time',
 
-			'problem_eyebrow' => 'Who We Help',
-			'problem_title'   => 'Unhappy with your current PT billing service?',
-			'problem_text'    => 'Feel like you’re overpaying for limited billing support — or unclear where your dollars actually are? Perform Practice Solutions is committed to changing how medical billing works for physical therapy practices. With a transparent billing platform, we work with your front office to improve patient data processing and pursue every dollar you’ve earned.',
-			'problem_note'    => 'We’re on your team — and we want you to get paid.',
+			'problem_eyebrow'       => 'Why Outsource',
+			'problem_title'         => 'Why outsource your physical therapy billing?',
+			'problem_text'          => 'Outsourcing physical therapy billing gives your practice a dedicated team of PT billing specialists without the cost of hiring, training, and managing in-house billers. Practices that partner with a billing company typically see fewer denials, faster reimbursement, and cleaner reporting.',
+			'problem_text_2'        => 'An in-house biller means salary, benefits, software, and turnover risk. A generic billing agency means slow batches and no visibility. Perform Practice Solutions is built differently. We bill daily, work directly with your front desk, and show you where every dollar stands.',
+			'problem_note'          => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title'  => 'Transparent billing',
+			'problem_card_1_text'   => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title'  => 'Front desk partnership',
+			'problem_card_2_text'   => 'We coach your team so clean data goes out and clean payments come back.',
 
 			'offer_eyebrow' => 'What You Get',
-			'offer_title'   => 'PT billing done the way it’s meant to be done',
+			'offer_title'   => 'PT billing done the way it is meant to be done',
 			'offer_lead'    => 'Full-service physical therapy billing built for cleaner claims, faster reimbursement, and clearer reporting.',
-			'offer_1'       => 'Full Revenue Cycle Management for PT practices',
-			'offer_2'       => 'AI-powered patient billing and collections support',
-			'offer_3'       => 'Daily billing with front-desk collaboration',
-			'offer_4'       => 'Best-practices coaching and denial prevention',
+			'offer_1'       => 'Full revenue cycle management for PT practices',
+			'offer_2'       => 'Daily claim submission with front desk collaboration',
+			'offer_3'       => 'Denial prevention and best-practices coaching',
+			'offer_4'       => 'AI-powered patient billing and collections support',
 			'offer_5'       => 'Chat support for your front desk team',
 			'offer_6'       => 'Monthly report reviews and quarterly deep analysis',
-			'offer_7'       => 'EMR integration — we work with the systems you already use',
-			'offer_8'       => 'Insurance claims and patient-balance management',
+			'offer_7'       => 'EMR integration with Raintree, Tebra, AthenaHealth, and the systems you already use',
+			'offer_8'       => 'Insurance claims, Medicare compliance, and patient balance management',
 
-			'analysis_eyebrow'  => 'Free Analysis',
-			'analysis_title'    => 'Free physical therapy billing service analysis',
-			'analysis_text'     => 'Want to see how your current biller rates? Take a few minutes to request our medical billing service analysis and get an honest look at denials, turnaround, and recoverable revenue.',
-			'analysis_cta'      => 'Get Your Free Analysis',
-			'analysis_cta_url'  => '#contact',
+			'analysis_eyebrow' => 'Free Analysis',
+			'analysis_title'   => 'Free physical therapy billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free medical billing analysis and get an honest look at your denials, turnaround time, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Analysis',
+			'analysis_cta_url' => '#contact',
 
 			'process_eyebrow' => 'How It Works',
 			'process_title'   => 'A clearer path from visit to payment',
-			'process_1_title' => 'Connect & audit',
-			'process_1_text'  => 'We review your current claims, denial patterns, and front-desk workflows to find the leaks.',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, denial patterns, and front desk workflows to find where revenue is leaking.',
 			'process_2_title' => 'Bill daily with precision',
-			'process_2_text'  => 'Claims are scrubbed against payer rules and submitted daily — not in slow weekly batches.',
-			'process_3_title' => 'Recover & report',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and submitted every day, not in slow weekly batches.',
+			'process_3_title' => 'Recover and report',
 			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
 
-			'promo_title'    => 'New PT billing clients',
-			'promo_text'     => 'Get three months of FREE Front Desk 101 Coaching & Training when you switch your physical therapy billing to PPS.',
-			'promo_cta'      => 'Claim This Offer',
-			'promo_cta_url'  => '#contact',
+			'promo_title'   => 'New PT billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your physical therapy billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
 
 			'faq_eyebrow' => 'FAQs',
 			'faq_title'   => 'Physical therapy billing questions we hear most',
-			'faq_1_q'     => 'What billing challenges are common in PT practices?',
-			'faq_1_a'     => 'Common issues include claim denials, coding errors, slow payments, authorization gaps, and patient billing confusion.',
-			'faq_2_q'     => 'How do you ensure billing accuracy and reduce claim denials?',
-			'faq_2_a'     => 'Our team uses precise coding, follows current payer rules, and reviews claims before submission to prevent avoidable errors and denials.',
-			'faq_3_q'     => 'What technologies do you use for PT billing?',
-			'faq_3_a'     => 'We use proven billing platforms that integrate well with most EMR and practice management systems for efficiency and transparency.',
-			'faq_4_q'     => 'How transparent is your billing process?',
-			'faq_4_a'     => 'We provide clear, regular reporting on claim status, payments, denials, and revenue performance so you always know where your dollars are.',
-			'faq_5_q'     => 'Can you handle both insurance claims and patient payments?',
-			'faq_5_a'     => 'Yes. We manage the full billing cycle — insurance claims, patient payments, and collections follow-up.',
+			'faq_1_q'     => 'Why should physical therapy practices outsource their billing?',
+			'faq_1_a'     => 'Outsourcing physical therapy billing gives your practice access to PT billing specialists, daily claim submission, and denial prevention without the cost of hiring and training in-house staff. Most practices that outsource see faster reimbursement, fewer write offs, and more time for patient care instead of paperwork.',
+			'faq_2_q'     => 'Is outsourcing PT billing more affordable than hiring an in-house biller?',
+			'faq_2_a'     => 'For most practices, yes. An in-house biller costs a salary, benefits, software, and ongoing training, and turnover puts your revenue at risk. Outsourcing to Perform Practice Solutions replaces those fixed costs with a predictable partnership that scales with your claim volume and keeps billing running without interruption.',
+			'faq_3_q'     => 'How do you reduce claim denials for PT practices?',
+			'faq_3_a'     => 'We prevent denials before claims go out. Every claim is scrubbed against payer rules, submitted daily, and tracked through payment. When a denial does happen, we correct and resubmit it quickly, then coach your front desk on the root cause so the same error does not repeat.',
+			'faq_4_q'     => 'Which EMR systems do you work with?',
+			'faq_4_a'     => 'We work inside the systems your practice already uses, including Raintree, Tebra, AthenaHealth, and CureMD. There is no software migration required to start. Our team adapts to your existing EMR and clearinghouse workflows, so switching to Perform Practice Solutions does not disrupt your schedule or documentation.',
+			'faq_5_q'     => 'How transparent is your billing process?',
+			'faq_5_a'     => 'Completely transparent. You see where every dollar stands, including claims, A/R, denials, and patient balances. We deliver monthly report reviews and quarterly deep analysis, and your team gets direct chat access to our billers. You never have to wonder what happened to a claim or a payment.',
+			'faq_6_q'     => 'Can you handle both insurance claims and patient payments?',
+			'faq_6_a'     => 'Yes. Perform Practice Solutions manages full revenue cycle management for PT practices, from insurance claim submission and Medicare compliance to patient balance billing and collections support. We pursue every dollar you have earned across both payer and patient sides, so nothing falls through the cracks.',
 
 			'cta_title'      => 'Ready to get paid faster for the care you deliver?',
-			'cta_text'       => 'Let’s map a billing strategy around your PT practice — cleaner claims, faster cash flow, and less admin stress.',
+			'cta_text'       => 'Let\'s map a billing strategy around your PT practice for cleaner claims, faster cash flow, and less admin stress.',
 			'cta_button'     => 'Book a Strategy Session',
 			'cta_button_url' => '#contact',
 		),
@@ -118,6 +125,10 @@ function pps_service_defaults_for( $slug ) {
 		'problem_title'   => 'Unhappy with your current billing service?',
 		'problem_text'    => 'If you’re unclear where your dollars are — or tired of slow reimbursements — our transparent billing platform and specialty-trained team can help.',
 		'problem_note'    => 'We’re on your team — and we want you to get paid.',
+		'problem_card_1_title' => 'Transparent billing',
+		'problem_card_1_text'  => 'See where every dollar stands — claims, A/R, and patient balances.',
+		'problem_card_2_title' => 'Front-desk partnership',
+		'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
 		'offer_eyebrow'   => 'What You Get',
 		'offer_title'     => 'Billing done the way it’s meant to be done',
 		'offer_lead'      => 'End-to-end revenue cycle support with clear reporting and daily follow-through.',
@@ -158,6 +169,8 @@ function pps_service_defaults_for( $slug ) {
 		'faq_4_a'         => 'You’ll get clear reporting on claim status, payments, and revenue performance.',
 		'faq_5_q'         => 'Do you handle patient payments too?',
 		'faq_5_a'         => 'Yes — insurance claims, patient payments, and collections follow-up.',
+		'faq_6_q'         => 'Which EMR systems do you work with?',
+		'faq_6_a'         => 'We adapt to the EMR and clearinghouse systems your practice already uses, so there is no disruptive software migration required.',
 		'cta_title'       => 'Ready to improve collections and reduce billing stress?',
 		'cta_text'        => 'Book a strategy session and we’ll map the right billing path for your practice.',
 		'cta_button'      => 'Book a Strategy Session',
@@ -237,7 +250,7 @@ function pps_service_customize_register( $wp_customize ) {
 		$defaults = pps_service_defaults_for( $slug );
 		foreach ( $defaults as $key => $default ) {
 			$setting_id = 'pps_svc_' . str_replace( '-', '_', $slug ) . '_' . $key;
-			$is_textarea = (bool) preg_match( '/(_text|_lead|_note|_desc|_a)$/', $key ) || 'seo_desc' === $key;
+			$is_textarea = (bool) preg_match( '/(_text|_lead|_note|_desc|_a)$/', $key ) || 'seo_desc' === $key || preg_match( '/_card_\d+_text$/', $key );
 			$is_url      = (bool) preg_match( '/_url$/', $key );
 
 			$wp_customize->add_setting(
@@ -304,9 +317,11 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
 
 /**
  * Assign specialty template + SEO to the PT billing page.
+ * Clears stored Customizer mods when content pack updates so new defaults apply.
  */
 function pps_assign_pt_service_template() {
-	if ( get_option( 'pps_pt_service_template_version' ) === '1.0.0' ) {
+	$content_version = '1.1.0';
+	if ( get_option( 'pps_pt_service_template_version' ) === $content_version ) {
 		return;
 	}
 
@@ -315,9 +330,21 @@ function pps_assign_pt_service_template() {
 		return;
 	}
 
+	$defaults = pps_service_defaults_for( 'physical-therapy-billing-services' );
+	$prefix   = 'pps_svc_physical_therapy_billing_services_';
+
+	$mods = get_theme_mods();
+	if ( is_array( $mods ) ) {
+		foreach ( array_keys( $mods ) as $key ) {
+			if ( 0 === strpos( $key, $prefix ) ) {
+				remove_theme_mod( $key );
+			}
+		}
+	}
+
 	update_post_meta( $page->ID, '_wp_page_template', 'page-templates/specialty-service.php' );
-	update_post_meta( $page->ID, '_pps_seo_title', 'Physical Therapy Billing Services | Perform Practice Solutions' );
-	update_post_meta( $page->ID, '_pps_seo_description', 'Expert physical therapy billing services for USA practices. Reduce denials, speed up reimbursement, and recover lost revenue. Get a free claim audit today.' );
-	update_option( 'pps_pt_service_template_version', '1.0.0' );
+	update_post_meta( $page->ID, '_pps_seo_title', sanitize_text_field( $defaults['seo_title'] ) );
+	update_post_meta( $page->ID, '_pps_seo_description', sanitize_text_field( $defaults['seo_desc'] ) );
+	update_option( 'pps_pt_service_template_version', $content_version );
 }
 add_action( 'after_setup_theme', 'pps_assign_pt_service_template', 40 );

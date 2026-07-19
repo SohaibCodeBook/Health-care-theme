@@ -44,6 +44,9 @@ get_header();
 				<p class="pps-eyebrow"><?php echo esc_html( page_service( 'problem_eyebrow' ) ); ?></p>
 				<h2 class="pps-section-title"><?php echo esc_html( page_service( 'problem_title' ) ); ?></h2>
 				<p><?php echo esc_html( page_service( 'problem_text' ) ); ?></p>
+				<?php if ( page_service( 'problem_text_2' ) ) : ?>
+					<p><?php echo esc_html( page_service( 'problem_text_2' ) ); ?></p>
+				<?php endif; ?>
 				<div class="svc-problem-shell__note">
 					<i class="fa-solid fa-handshake" aria-hidden="true"></i>
 					<span><?php echo esc_html( page_service( 'problem_note' ) ); ?></span>
@@ -52,13 +55,13 @@ get_header();
 			<div class="svc-problem-shell__aside">
 				<div class="svc-aside-card">
 					<i class="fa-solid fa-file-invoice-dollar" aria-hidden="true"></i>
-					<strong><?php esc_html_e( 'Transparent billing', 'perform-practice' ); ?></strong>
-					<p><?php esc_html_e( 'See where every dollar stands — claims, A/R, and patient balances.', 'perform-practice' ); ?></p>
+					<strong><?php echo esc_html( page_service( 'problem_card_1_title' ) ); ?></strong>
+					<p><?php echo esc_html( page_service( 'problem_card_1_text' ) ); ?></p>
 				</div>
 				<div class="svc-aside-card">
 					<i class="fa-solid fa-users" aria-hidden="true"></i>
-					<strong><?php esc_html_e( 'Front-desk partnership', 'perform-practice' ); ?></strong>
-					<p><?php esc_html_e( 'We coach your team so clean data goes out and clean payments come back.', 'perform-practice' ); ?></p>
+					<strong><?php echo esc_html( page_service( 'problem_card_2_title' ) ); ?></strong>
+					<p><?php echo esc_html( page_service( 'problem_card_2_text' ) ); ?></p>
 				</div>
 			</div>
 		</div>
@@ -138,7 +141,7 @@ get_header();
 			<h2 class="pps-section-title"><?php echo esc_html( page_service( 'faq_title' ) ); ?></h2>
 		</div>
 		<div class="faq-list">
-			<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
+			<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
 				<div class="faq-item pps-reveal">
 					<button class="faq-item__question" type="button" aria-expanded="false">
 						<span><?php echo esc_html( page_service( "faq_{$i}_q" ) ); ?></span>
