@@ -206,25 +206,301 @@ function pps_service_defaults_for( $slug ) {
 			'cta_button'     => 'Book a Strategy Session',
 			'cta_button_url' => '#contact',
 		),
-		'chiropractic-billing-services' => pps_service_placeholder_defaults(
-			'Chiropractic',
-			'Chiropractic Billing Services | Perform Practice Solutions',
-			'Outsource your chiropractic billing to specialists who know CMT codes, Medicare AT modifiers, and medical necessity documentation. Book a strategy session today.'
+		'chiropractic-billing-services' => array(
+			'seo_title' => 'Chiropractic Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your chiropractic billing to specialists who know CMT codes, Medicare AT modifiers, and medical necessity documentation. Book a strategy session today.',
+
+			'hero_eyebrow'    => 'Chiropractic Billing Services',
+			'hero_title'      => 'Chiropractic Billing That Keeps Adjustments Paid and Denials Down',
+			'hero_lead'       => 'Chiropractic billing services manage claim submission, CMT coding, and medical necessity documentation so your clinic gets reimbursed for every adjustment. Perform Practice Solutions partners with your front desk, scrubs and submits claims daily, and delivers an average 3 week bill to paid cycle.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why outsource your chiropractic billing?',
+			'problem_text'         => 'Outsourcing chiropractic billing gives your practice specialists who understand spinal manipulation codes, Medicare\'s AT modifier rules, and the medical necessity documentation payers demand. Chiropractic claims face some of the highest denial rates in outpatient care, and maintenance care denials quietly drain revenue from clinics every month.',
+			'problem_text_2'       => 'An in-house biller rarely has chiropractic-specific expertise, and generic agencies treat CMT codes like any other claim. Perform Practice Solutions bills daily, coaches your front desk on clean intake data, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Chiropractic billing done the way it is meant to be done',
+			'offer_lead'    => 'Full-service chiropractic billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for chiropractic practices',
+			'offer_2'       => 'Accurate CMT coding for 98940, 98941, and 98942 claims',
+			'offer_3'       => 'Medicare AT modifier compliance and maintenance care guidance',
+			'offer_4'       => 'Daily claim submission with front desk collaboration',
+			'offer_5'       => 'Denial prevention and medical necessity documentation coaching',
+			'offer_6'       => 'Hybrid cash and insurance billing support',
+			'offer_7'       => 'Monthly report reviews and quarterly deep analysis',
+			'offer_8'       => 'Insurance claims and patient balance management',
+
+			'analysis_eyebrow' => 'Free Analysis',
+			'analysis_title'   => 'Free chiropractic billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing analysis and get an honest look at your denials, turnaround time, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'A clearer path from adjustment to payment',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, CMT coding patterns, and front desk workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and Medicare chiropractic guidelines, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New chiropractic billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your chiropractic billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Chiropractic billing questions we hear most',
+			'faq_1_q'     => 'Why should chiropractors outsource their billing?',
+			'faq_1_a'     => 'Outsourcing chiropractic billing gives your clinic access to specialists who know CMT codes, Medicare AT modifier rules, and medical necessity requirements. Most chiropractors who outsource see fewer maintenance care denials, faster reimbursement, and more time for patient care instead of appealing rejected claims.',
+			'faq_2_q'     => 'Why do chiropractic claims get denied so often?',
+			'faq_2_a'     => 'Chiropractic claims are commonly denied for missing AT modifiers, insufficient medical necessity documentation, and visits payers classify as maintenance care. Perform Practice Solutions scrubs every claim against these rules before submission and coaches your team on documentation that supports active treatment.',
+			'faq_3_q'     => 'Do you handle Medicare chiropractic billing?',
+			'faq_3_a'     => 'Yes. We manage Medicare chiropractic claims including AT modifier compliance, ABN requirements, and the documentation standards that separate active treatment from maintenance care. Our team stays current on Medicare chiropractic policy so your claims meet requirements the first time.',
+			'faq_4_q'     => 'Can you bill for both insurance and cash-based services?',
+			'faq_4_a'     => 'Yes. Many chiropractic practices run hybrid models with insured adjustments alongside cash services like massage or wellness plans. Perform Practice Solutions manages your insurance claims and patient balances together so both revenue streams stay organized and collected.',
+			'faq_5_q'     => 'Which chiropractic software do you work with?',
+			'faq_5_a'     => 'We work inside the systems your practice already uses, including ChiroTouch, Jane, and other common chiropractic EMRs. There is no software migration required to start, so switching to Perform Practice Solutions does not disrupt your schedule or documentation.',
+			'faq_6_q'     => 'How transparent is your billing process?',
+			'faq_6_a'     => 'Completely transparent. You see where every dollar stands, including claims, A/R, denials, and patient balances. We deliver monthly report reviews and quarterly deep analysis, and your team gets direct chat access to our billers.',
+
+			'cta_title'      => 'Ready to get paid for every adjustment you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your chiropractic practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'pain-management-billing-services' => pps_service_placeholder_defaults(
-			'Pain Management',
-			'Pain Management Billing Services | Perform Practice Solutions',
-			'Outsource your pain management billing to experts in prior authorizations, injection coding, and payer audits. Faster reimbursement, fewer denials. Book a strategy session.'
+		'pain-management-billing-services' => array(
+			'seo_title' => 'Pain Management Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your pain management billing to experts in prior authorizations, injection coding, and payer audits. Faster reimbursement, fewer denials. Book a strategy session.',
+
+			'hero_eyebrow'    => 'Pain Management Billing Services',
+			'hero_title'      => 'Pain Management Billing Built for High-Value Procedures',
+			'hero_lead'       => 'Pain management billing services handle prior authorizations, procedure coding, and denial management for interventional pain practices. Perform Practice Solutions submits claims daily, protects your high-dollar procedures from denials, and delivers an average 3 week bill to paid cycle.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why outsource your pain management billing?',
+			'problem_text'         => 'Outsourcing pain management billing gives your practice specialists who understand injection coding, fluoroscopy bundling rules, and the prior authorization workload that comes with interventional procedures. A single denied epidural or ablation can cost more than a week of office visits, so pain practices cannot afford billing errors.',
+			'problem_text_2'       => 'Pain management also faces heavier payer scrutiny and documentation audits than most specialties. Perform Practice Solutions scrubs every claim against payer-specific rules, manages authorizations before the procedure happens, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Pain management billing done the way it is meant to be done',
+			'offer_lead'    => 'Full-service pain management billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for pain management practices',
+			'offer_2'       => 'Prior authorization management for injections and procedures',
+			'offer_3'       => 'Accurate coding for epidurals, nerve blocks, and ablations',
+			'offer_4'       => 'Fluoroscopy and imaging guidance bundling compliance',
+			'offer_5'       => 'Daily claim submission with front desk collaboration',
+			'offer_6'       => 'Denial prevention and payer audit documentation support',
+			'offer_7'       => 'Monthly report reviews and quarterly deep analysis',
+			'offer_8'       => 'Insurance claims and patient balance management',
+
+			'analysis_eyebrow' => 'Free Analysis',
+			'analysis_title'   => 'Free pain management billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing analysis and get an honest look at your denials, authorization delays, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'A clearer path from procedure to payment',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, denial patterns, and authorization workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and bundling edits, then submitted every day, not in slow weekly batches.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New pain management billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your pain management billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Pain management billing questions we hear most',
+			'faq_1_q'     => 'Why should pain management practices outsource their billing?',
+			'faq_1_a'     => 'Outsourcing pain management billing gives your practice specialists in procedure coding, prior authorizations, and payer audit documentation. Because interventional procedures carry high reimbursement values, a single billing error costs far more than in other specialties. Outsourcing protects that revenue while freeing your staff.',
+			'faq_2_q'     => 'Do you handle prior authorizations for procedures?',
+			'faq_2_a'     => 'Yes. We manage prior authorizations for epidurals, nerve blocks, radiofrequency ablations, and other interventional procedures before they happen. Getting authorization right up front prevents the most expensive category of pain management denials and keeps your procedure schedule moving.',
+			'faq_3_q'     => 'How do you prevent denials on injection claims?',
+			'faq_3_a'     => 'We scrub every claim against payer-specific coding rules, bundling edits, and frequency limits before submission. Fluoroscopy guidance, bilateral procedures, and multi-level injections each carry unique billing rules, and our team applies them correctly the first time so claims pay without appeals.',
+			'faq_4_q'     => 'Can you support us through payer audits?',
+			'faq_4_a'     => 'Yes. Pain management practices face more payer audits than most specialties. Perform Practice Solutions maintains clean documentation trails on every claim and helps you respond to records requests, so audits become a routine process instead of a revenue threat.',
+			'faq_5_q'     => 'Which EMR systems do you work with?',
+			'faq_5_a'     => 'We work inside the systems your practice already uses, including Tebra, AthenaHealth, CureMD, and other common EMRs. There is no software migration required to start, so switching to Perform Practice Solutions does not disrupt your workflows.',
+			'faq_6_q'     => 'How transparent is your billing process?',
+			'faq_6_a'     => 'Completely transparent. You see where every dollar stands, including claims, A/R, denials, and patient balances. We deliver monthly report reviews and quarterly deep analysis, and your team gets direct chat access to our billers.',
+
+			'cta_title'      => 'Ready to get paid faster for the procedures you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your pain management practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'orthopedic-medical-billing-services' => pps_service_placeholder_defaults(
-			'Orthopedic',
-			'Orthopedic Medical Billing Services | Perform Practice Solutions',
-			'Outsource your orthopedic billing to experts in surgical coding, global periods, and modifier compliance. Cleaner claims and faster payment. Book a strategy session.'
+		'orthopedic-medical-billing-services' => array(
+			'seo_title' => 'Orthopedic Medical Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your orthopedic billing to experts in surgical coding, global periods, and modifier compliance. Cleaner claims and faster payment. Book a strategy session.',
+
+			'hero_eyebrow'    => 'Orthopedic Medical Billing Services',
+			'hero_title'      => 'Orthopedic Billing That Protects Surgical Revenue',
+			'hero_lead'       => 'Orthopedic medical billing services manage surgical coding, global period tracking, and modifier compliance so orthopedic practices capture every dollar they earn. Perform Practice Solutions submits claims daily, prevents modifier denials, and delivers an average 3 week bill to paid cycle.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why outsource your orthopedic billing?',
+			'problem_text'         => 'Outsourcing orthopedic billing gives your practice coders who understand global surgical periods, laterality modifiers, fracture care coding, and DME billing. Orthopedics combines surgery, office visits, imaging, and durable medical equipment on the same patients, which makes it one of the easiest specialties to underbill.',
+			'problem_text_2'       => 'An in-house biller juggling all of that alone leaves money on the table. Perform Practice Solutions bills daily, applies modifiers correctly the first time, tracks global periods so billable visits are never written off, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Orthopedic billing done the way it is meant to be done',
+			'offer_lead'    => 'Full-service orthopedic medical billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for orthopedic practices',
+			'offer_2'       => 'Surgical coding with correct modifier application, including RT, LT, and 59',
+			'offer_3'       => 'Global surgical period tracking and post-op visit management',
+			'offer_4'       => 'Fracture care and casting supply billing',
+			'offer_5'       => 'Prior authorization management for surgery and advanced imaging',
+			'offer_6'       => 'DME billing for braces, boots, and orthotics',
+			'offer_7'       => 'Daily claim submission with front desk collaboration',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Analysis',
+			'analysis_title'   => 'Free orthopedic billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing analysis and get an honest look at your denials, modifier errors, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'A clearer path from visit to payment',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, modifier usage, and global period tracking to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and surgical coding edits, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New orthopedic billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your orthopedic billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Orthopedic billing questions we hear most',
+			'faq_1_q'     => 'Why should orthopedic practices outsource their billing?',
+			'faq_1_a'     => 'Outsourcing orthopedic billing gives your practice coders trained in surgical modifiers, global periods, fracture care, and DME claims. Because orthopedics blends surgery, office visits, and equipment on the same patients, specialized billing captures revenue that general billers routinely miss or write off.',
+			'faq_2_q'     => 'How do you handle global surgical periods?',
+			'faq_2_a'     => 'We track every global period so post-op visits are documented correctly and separately billable services are never buried inside the surgical package. When a visit falls outside the global period or qualifies for a modifier, we bill it, so your surgeons get paid for all their work.',
+			'faq_3_q'     => 'Can you bill for DME like braces and orthotics?',
+			'faq_3_a'     => 'Yes. Perform Practice Solutions handles durable medical equipment billing including braces, boots, and orthotics, along with the supplier documentation payers require. DME is a common revenue leak in orthopedic practices, and we make sure it is captured and collected.',
+			'faq_4_q'     => 'Do you manage prior authorizations for surgery and imaging?',
+			'faq_4_a'     => 'Yes. We manage prior authorizations for surgical procedures and advanced imaging like MRI before they happen. Authorization denials are among the most expensive in orthopedics, and handling them proactively keeps your OR schedule and your revenue moving.',
+			'faq_5_q'     => 'Which EMR systems do you work with?',
+			'faq_5_a'     => 'We work inside the systems your practice already uses, including Tebra, AthenaHealth, CureMD, and other common orthopedic EMRs. There is no software migration required to start, so switching to Perform Practice Solutions does not disrupt your workflows.',
+			'faq_6_q'     => 'How transparent is your billing process?',
+			'faq_6_a'     => 'Completely transparent. You see where every dollar stands, including claims, A/R, denials, and patient balances. We deliver monthly report reviews and quarterly deep analysis, and your team gets direct chat access to our billers.',
+
+			'cta_title'      => 'Ready to get paid faster for the care you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your orthopedic practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'occupational-therapy-billing-services' => pps_service_placeholder_defaults(
-			'Occupational Therapy',
-			'Occupational Therapy Billing Services | Perform Practice Solutions',
-			'Outsource your OT billing to experts in timed codes, the 8 minute rule, and Medicare therapy thresholds. Cleaner claims, faster payment. Book a strategy session.'
+		'occupational-therapy-billing-services' => array(
+			'seo_title' => 'Occupational Therapy Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your OT billing to experts in timed codes, the 8 minute rule, and Medicare therapy thresholds. Cleaner claims, faster payment. Book a strategy session.',
+
+			'hero_eyebrow'    => 'Occupational Therapy Billing Services',
+			'hero_title'      => 'Occupational Therapy Billing That Captures Every Timed Unit',
+			'hero_lead'       => 'Occupational therapy billing services manage timed code units, Medicare therapy thresholds, and plan of care compliance so OT practices get paid for every minute of treatment. Perform Practice Solutions submits claims daily and delivers an average 3 week bill to paid cycle.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why outsource your occupational therapy billing?',
+			'problem_text'         => 'Outsourcing occupational therapy billing gives your practice specialists who understand the 8 minute rule, timed versus untimed codes, KX modifier requirements, and plan of care certification deadlines. OT revenue lives in the details, and undercounted units or a lapsed certification quietly costs practices thousands every month.',
+			'problem_text_2'       => 'Generic billers rarely understand therapy billing rules, and in-house staff struggle to keep up with Medicare threshold changes. Perform Practice Solutions bills daily, counts every billable unit, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'OT billing done the way it is meant to be done',
+			'offer_lead'    => 'Full-service occupational therapy billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for occupational therapy practices',
+			'offer_2'       => 'Accurate timed code unit counting under the 8 minute rule',
+			'offer_3'       => 'Medicare therapy threshold tracking and KX modifier compliance',
+			'offer_4'       => 'Plan of care certification and recertification tracking',
+			'offer_5'       => 'Daily claim submission with front desk collaboration',
+			'offer_6'       => 'Denial prevention and documentation coaching',
+			'offer_7'       => 'Pediatric and adult payer expertise',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Analysis',
+			'analysis_title'   => 'Free occupational therapy billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing analysis and get an honest look at your denials, undercounted units, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'A clearer path from session to payment',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, unit counting, and plan of care workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and therapy thresholds, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New OT billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your occupational therapy billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Occupational therapy billing questions we hear most',
+			'faq_1_q'     => 'Why should OT practices outsource their billing?',
+			'faq_1_a'     => 'Outsourcing occupational therapy billing gives your practice specialists in timed codes, the 8 minute rule, and Medicare therapy thresholds. Most OT practices that outsource recover units they were undercounting, reduce plan of care denials, and free their therapists to focus on treatment instead of paperwork.',
+			'faq_2_q'     => 'What is the 8 minute rule and why does it matter?',
+			'faq_2_a'     => 'The 8 minute rule determines how many billable units you can claim for timed therapy codes based on total treatment minutes. Miscounting units is one of the most common revenue leaks in OT billing. Our team counts units correctly on every claim so nothing is left unbilled.',
+			'faq_3_q'     => 'Do you track Medicare therapy thresholds?',
+			'faq_3_a'     => 'Yes. We monitor each patient\'s progress toward the Medicare therapy threshold and apply the KX modifier with supporting documentation when continued care is medically necessary. That keeps claims paying past the threshold instead of triggering denials or audits.',
+			'faq_4_q'     => 'Can you bill for pediatric occupational therapy?',
+			'faq_4_a'     => 'Yes. We handle pediatric OT billing including Medicaid plans, school-adjacent services, and commercial payers with pediatric-specific rules. Whether your caseload is children, adults, or both, Perform Practice Solutions manages the payer mix so reimbursement stays consistent.',
+			'faq_5_q'     => 'Which EMR systems do you work with?',
+			'faq_5_a'     => 'We work inside the systems your practice already uses, including Raintree, Tebra, AthenaHealth, and other common therapy EMRs. There is no software migration required to start, so switching to Perform Practice Solutions does not disrupt your documentation.',
+			'faq_6_q'     => 'How transparent is your billing process?',
+			'faq_6_a'     => 'Completely transparent. You see where every dollar stands, including claims, A/R, denials, and patient balances. We deliver monthly report reviews and quarterly deep analysis, and your team gets direct chat access to our billers.',
+
+			'cta_title'      => 'Ready to get paid for every unit you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your OT practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
 		'speech-therapy-billing-services' => pps_service_placeholder_defaults(
 			'Speech Therapy',
@@ -497,7 +773,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.3.0';
+	$content_version = '1.3.2';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -519,6 +795,12 @@ function pps_assign_specialty_service_templates() {
 		'telemedicine-billing-services'         => 'Telemedicine Billing Services',
 		'urology-billing-services'              => 'Urology Billing Services',
 		'wound-care-billing-services'           => 'Wound Care Billing Services',
+	);
+
+	$clear_customizer_slugs = array(
+		'pain-management-billing-services',
+		'orthopedic-medical-billing-services',
+		'occupational-therapy-billing-services',
 	);
 
 	foreach ( array_keys( pps_service_customizer_slugs() ) as $slug ) {
@@ -543,9 +825,22 @@ function pps_assign_specialty_service_templates() {
 		update_post_meta( $page->ID, '_wp_page_template', 'page-templates/specialty-service.php' );
 		update_post_meta( $page->ID, '_pps_seo_title', sanitize_text_field( $defaults['seo_title'] ) );
 		update_post_meta( $page->ID, '_pps_seo_description', sanitize_text_field( $defaults['seo_desc'] ) );
+
+		// Clear Customizer overrides when content pack updates for this specialty.
+		if ( in_array( $slug, $clear_customizer_slugs, true ) ) {
+			$prefix = 'pps_svc_' . str_replace( '-', '_', $slug ) . '_';
+			$mods   = get_theme_mods();
+			if ( is_array( $mods ) ) {
+				foreach ( array_keys( $mods ) as $key ) {
+					if ( 0 === strpos( $key, $prefix ) ) {
+						remove_theme_mod( $key );
+					}
+				}
+			}
+		}
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.3.0' );
+	update_option( 'pps_pt_service_template_version', '1.3.2' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
