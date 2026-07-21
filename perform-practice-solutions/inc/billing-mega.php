@@ -77,7 +77,7 @@ function pps_billing_featured_pages() {
 			'slug'        => 'physical-therapy-billing-services',
 			'title'       => 'Physical Therapy Billing Services',
 			'seo_title'   => 'Physical Therapy Billing Services | Perform Practice Solutions',
-			'seo_desc'    => 'Expert physical therapy billing services for USA practices. Reduce denials, speed up reimbursement, and recover lost revenue. Get a free claim audit today.',
+			'seo_desc'    => 'Outsource your physical therapy billing to PT billing experts. Daily claim submission, denial prevention, and a 3 week average bill to paid cycle. Book a strategy session today.',
 			'group'       => 'featured',
 			'icon'        => 'fa-person-walking',
 		),
@@ -85,7 +85,7 @@ function pps_billing_featured_pages() {
 			'slug'        => 'chiropractic-billing-services',
 			'title'       => 'Chiropractic Billing Services',
 			'seo_title'   => 'Chiropractic Billing Services | Perform Practice Solutions',
-			'seo_desc'    => 'Perform Practice Solutions delivers transparent chiropractic billing services nationwide. Reduce denials, speed up reimbursements, and get paid accurately every time.',
+			'seo_desc'    => 'Outsource your chiropractic billing to specialists who know CMT codes, Medicare AT modifiers, and medical necessity documentation. Book a strategy session today.',
 			'group'       => 'featured',
 			'icon'        => 'fa-bone',
 		),
@@ -93,7 +93,7 @@ function pps_billing_featured_pages() {
 			'slug'        => 'pain-management-billing-services',
 			'title'       => 'Pain Management Billing Services',
 			'seo_title'   => 'Pain Management Billing Services | Perform Practice Solutions',
-			'seo_desc'    => 'Perform Practice Solutions offers expert pain management billing services built to reduce claim denials and keep your practice\'s cash flow strong.',
+			'seo_desc'    => 'Outsource your pain management billing to experts in prior authorizations, injection coding, and payer audits. Faster reimbursement, fewer denials. Book a strategy session.',
 			'group'       => 'featured',
 			'icon'        => 'fa-heart-pulse',
 		),
@@ -101,7 +101,7 @@ function pps_billing_featured_pages() {
 			'slug'        => 'orthopedic-medical-billing-services',
 			'title'       => 'Orthopedic Medical Billing Services',
 			'seo_title'   => 'Orthopedic Medical Billing Services | Perform Practice Solutions',
-			'seo_desc'    => 'Perform Practice Solutions provides specialized orthopedic medical billing services nationwide, handling complex coding and payer rules so your revenue keeps flowing.',
+			'seo_desc'    => 'Outsource your orthopedic billing to experts in surgical coding, global periods, and modifier compliance. Cleaner claims and faster payment. Book a strategy session.',
 			'group'       => 'featured',
 			'icon'        => 'fa-crutch',
 		),
@@ -109,7 +109,7 @@ function pps_billing_featured_pages() {
 			'slug'        => 'occupational-therapy-billing-services',
 			'title'       => 'Occupational Therapy Billing Services',
 			'seo_title'   => 'Occupational Therapy Billing Services | Perform Practice Solutions',
-			'seo_desc'    => 'Perform Practice Solutions manages occupational therapy billing with a transparent platform, reducing errors and helping your practice get paid faster.',
+			'seo_desc'    => 'Outsource your OT billing to experts in timed codes, the 8 minute rule, and Medicare therapy thresholds. Cleaner claims, faster payment. Book a strategy session.',
 			'group'       => 'featured',
 			'icon'        => 'fa-hand-holding-hand',
 		),
@@ -117,7 +117,7 @@ function pps_billing_featured_pages() {
 			'slug'        => 'speech-therapy-billing-services',
 			'title'       => 'Speech Therapy Billing Services',
 			'seo_title'   => 'Speech Therapy Billing Services | Perform Practice Solutions',
-			'seo_desc'    => 'Perform Practice Solutions handles speech therapy billing services nationwide, from claims to collections, so you can spend less time on paperwork and more time on care.',
+			'seo_desc'    => 'Outsource your speech therapy billing to experts in SLP evaluation codes, Medicare thresholds, and pediatric payers. Cleaner claims, faster payment. Book a strategy session.',
 			'group'       => 'featured',
 			'icon'        => 'fa-comments',
 		),
@@ -168,16 +168,65 @@ function pps_billing_specialty_pages() {
 		'Wound Care Billing Services',
 	);
 
+	// Prefer unique SEO from specialty service page defaults when available.
+	$seo_overrides = array(
+		'pediatrics-billing-services'      => array(
+			'seo_title' => 'Pediatrics Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your pediatric billing to experts in well-child visits, vaccine billing, and Medicaid plans. Get a free billing service analysis today.',
+		),
+		'plastic-surgery-billing-services' => array(
+			'seo_title' => 'Plastic Surgery Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your plastic surgery billing to experts in reconstructive vs cosmetic separation, medical necessity documentation, and surgical coding. Get a free billing service analysis today.',
+		),
+		'podiatry-billing-services'        => array(
+			'seo_title' => 'Podiatry Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your podiatry billing to experts in routine foot care rules, Q modifiers, and DME claims. Get a free billing service analysis today.',
+		),
+		'psychiatry-billing-services'      => array(
+			'seo_title' => 'Psychiatry Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your psychiatry billing to experts in E/M plus psychotherapy add-ons, telehealth claims, and med management coding. Get a free billing service analysis today.',
+		),
+		'psychology-billing-services'      => array(
+			'seo_title' => 'Psychology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your psychology billing to experts in therapy session codes, testing billing by hour, and behavioral health networks. Get a free billing service analysis today.',
+		),
+		'pulmonology-billing-services'     => array(
+			'seo_title' => 'Pulmonology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your pulmonology billing to experts in PFT coding, sleep study claims, and chronic respiratory care programs. Get a free billing service analysis today.',
+		),
+		'rheumatology-billing-services'    => array(
+			'seo_title' => 'Rheumatology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your rheumatology billing to experts in infusion coding, biologic authorizations, and complex E/M capture. Get a free billing service analysis today.',
+		),
+		'telemedicine-billing-services'    => array(
+			'seo_title' => 'Telemedicine Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your telemedicine billing to experts in place of service codes, telehealth modifiers, and multi-state payer rules. Get a free billing service analysis today.',
+		),
+		'urology-billing-services'         => array(
+			'seo_title' => 'Urology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your urology billing to experts in cystoscopy coding, in-office procedures, and surgical global periods. Get a free billing service analysis today.',
+		),
+		'wound-care-billing-services'      => array(
+			'seo_title' => 'Wound Care Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your wound care billing to experts in debridement coding, skin substitute claims, and measurement documentation. Get a free billing service analysis today.',
+		),
+	);
+
 	$pages = array();
 	foreach ( $names as $name ) {
 		$slug = sanitize_title( $name );
-		$pages[] = array(
+		$row  = array(
 			'slug'      => $slug,
 			'title'     => $name,
 			'seo_title' => $name . ' | Perform Practice Solutions',
 			'seo_desc'  => 'Perform Practice Solutions provides specialized ' . strtolower( $name ) . ' to reduce denials, improve collections, and protect your practice revenue.',
 			'group'     => 'specialty',
 		);
+		if ( isset( $seo_overrides[ $slug ] ) ) {
+			$row['seo_title'] = $seo_overrides[ $slug ]['seo_title'];
+			$row['seo_desc']  = $seo_overrides[ $slug ]['seo_desc'];
+		}
+		$pages[] = $row;
 	}
 
 	return $pages;
@@ -354,7 +403,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.1.0' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.0' ) {
 		return;
 	}
 
@@ -373,7 +422,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.1.0' );
+	update_option( 'pps_billing_mega_version', '1.3.0' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );

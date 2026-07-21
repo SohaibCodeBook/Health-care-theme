@@ -1,10 +1,3 @@
-
-
-Batch 6 of 7 complete (30 of 35 pages done). Say "next batch" for the final set: Pages 31–35: Pulmonology, Rheumatology, Telemedicine, Urology, and Wound Care.
-next batch
-
-
-
 PAGE 35: Wound Care Billing Services
 Meta Title
 Wound Care Billing Services | Perform Practice Solutions
