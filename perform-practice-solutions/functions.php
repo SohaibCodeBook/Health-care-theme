@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.4.7' );
+define( 'PPS_THEME_VERSION', '2.5.1' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -21,6 +21,7 @@ require_once PPS_THEME_DIR . '/inc/credentialing.php';
 require_once PPS_THEME_DIR . '/inc/med-va.php';
 require_once PPS_THEME_DIR . '/inc/coaching.php';
 require_once PPS_THEME_DIR . '/inc/digital-marketing.php';
+require_once PPS_THEME_DIR . '/inc/ai-phone-text.php';
 require_once PPS_THEME_DIR . '/inc/about.php';
 
 /**
