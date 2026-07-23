@@ -231,6 +231,26 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'Internal Medicine Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your internal medicine billing to experts in complex E/M coding, chronic care management, and Medicare wellness visits. Get a free billing service analysis today.',
 		),
+		'nephrology-billing-services' => array(
+			'seo_title' => 'Nephrology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your nephrology billing to experts in MCP dialysis codes, CKD staging, and transplant follow-up claims. Get a free billing service analysis today.',
+		),
+		'neurology-billing-services' => array(
+			'seo_title' => 'Neurology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your neurology billing to experts in EEG and EMG coding, Botox claims, and prolonged visit capture. Get a free billing service analysis today.',
+		),
+		'neurosurgery-billing-services' => array(
+			'seo_title' => 'Neurosurgery Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your neurosurgery billing to experts in spine coding, co-surgeon claims, and complex operative reports. Get a free billing service analysis today.',
+		),
+		'oncology-billing-services' => array(
+			'seo_title' => 'Oncology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your oncology billing to experts in chemotherapy infusion coding, J-code drug billing, and treatment authorizations. Get a free billing service analysis today.',
+		),
+		'ophthalmology-billing-services' => array(
+			'seo_title' => 'Ophthalmology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your ophthalmology billing to experts in eye codes vs E/M, cataract co-management, and injection billing. Get a free billing service analysis today.',
+		),
 		'pediatrics-billing-services'      => array(
 			'seo_title' => 'Pediatrics Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your pediatric billing to experts in well-child visits, vaccine billing, and Medicaid plans. Get a free billing service analysis today.',
