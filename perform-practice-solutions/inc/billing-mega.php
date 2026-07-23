@@ -215,6 +215,22 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'General Surgery Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your general surgery billing to experts in global periods, assistant surgeon modifiers, and multiple procedure claims. Get a free billing service analysis today.',
 		),
+		'hematology-billing-services' => array(
+			'seo_title' => 'Hematology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your hematology billing to experts in infusion coding, J-code drug billing, and prior authorizations. Get a free billing service analysis today.',
+		),
+		'home-health-billing-services' => array(
+			'seo_title' => 'Home Health Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your home health billing to experts in PDGM, OASIS accuracy, and Medicare episodic claims. Get a free billing service analysis today.',
+		),
+		'hormone-testing-billing-services' => array(
+			'seo_title' => 'Hormone Testing Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your hormone testing and therapy billing to experts in lab panels, medical necessity coding, and hybrid cash-insurance models. Get a free billing service analysis today.',
+		),
+		'internal-medicine-billing-services' => array(
+			'seo_title' => 'Internal Medicine Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your internal medicine billing to experts in complex E/M coding, chronic care management, and Medicare wellness visits. Get a free billing service analysis today.',
+		),
 		'pediatrics-billing-services'      => array(
 			'seo_title' => 'Pediatrics Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your pediatric billing to experts in well-child visits, vaccine billing, and Medicaid plans. Get a free billing service analysis today.',

@@ -2153,26 +2153,302 @@ function pps_service_defaults_for( $slug ) {
 			'cta_button_url' => '#contact',
 		),
 
-		// Part 2 — pages 17–25 placeholder until full content pass.
-		'hematology-billing-services' => pps_service_placeholder_defaults(
-			'Hematology',
-			'Hematology Billing Services | Perform Practice Solutions',
-			'Outsource your hematology billing to experts in infusion coding, J-code drug billing, and prior authorizations. Get a free billing service analysis today.'
+		// Part 2 — pages 17–20 full content; pages 21+ placeholder until later pass.
+		'hematology-billing-services' => array(
+			'seo_title' => 'Hematology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your hematology billing to experts in infusion coding, J-code drug billing, and prior authorizations. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Hematology Billing Services',
+			'hero_title'      => 'Hematology Billing Built for High-Value Drugs and Infusions',
+			'hero_lead'       => 'Hematology billing services manage infusion coding, J-code drug units, and prior authorizations so hematology practices are paid accurately for expensive therapies. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Hematology Billing Services?',
+			'problem_text'         => 'Outsourcing hematology billing gives your practice specialists who understand infusion hierarchy coding, J-code unit conversion, buy-and-bill drug margins, and the prior authorization burden attached to therapies like IVIG, iron infusions, and clotting factor. In hematology, a single unit error on a drug claim can cost thousands on one encounter.',
+			'problem_text_2'       => 'Wastage documentation, sequential and concurrent infusion rules, and payer-specific drug policies all decide whether high-cost care is reimbursed or absorbed. Perform Practice Solutions bills daily, verifies every drug unit, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Hematology Billing Services, Done Right',
+			'offer_lead'    => 'Full-service hematology billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for hematology practices',
+			'offer_2'       => 'Infusion and injection coding with correct hierarchy and time capture',
+			'offer_3'       => 'J-code drug billing with accurate unit conversion and wastage documentation',
+			'offer_4'       => 'Prior authorization management for IVIG, iron infusions, and specialty drugs',
+			'offer_5'       => 'Buy-and-bill workflow support and underpayment recovery',
+			'offer_6'       => 'Complex E/M coding for multi-condition hematology patients',
+			'offer_7'       => 'Daily claim submission with front desk collaboration',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free hematology billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, drug unit errors, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Hematology Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, drug billing accuracy, and authorization workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer drug policies and infusion coding rules, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, recover drug underpayments, and review performance with you every month.',
+
+			'promo_title'   => 'New hematology billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your hematology billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Hematology billing questions we hear most',
+			'faq_1_q'     => 'What is hematology billing?',
+			'faq_1_a'     => 'Hematology billing is the coding and claims process for practices treating blood disorders, covering infusion administration, J-code drug billing, and prior authorizations for specialty therapies like IVIG and clotting factor. It requires precise unit conversion since drug claims dominate hematology revenue at high dollar values.',
+			'faq_2_q'     => 'Why should hematology practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing hematology billing gives your practice specialists in infusion coding, J-code units, and specialty drug authorizations. Because drug claims dominate hematology revenue and carry extreme dollar values, specialized billing prevents the unit and wastage errors that cost thousands per encounter.',
+			'faq_3_q'     => 'How much do hematology billing services cost?',
+			'faq_3_a'     => 'Hematology billing services typically charge a percentage of monthly collections, often reflecting the high dollar value of infused drugs. Because a single unit conversion error can cost thousands, specialized billing usually recovers well beyond its cost. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'How are infused drugs billed using J-codes?',
+			'faq_4_a'     => 'J-codes represent specific drug billing units, and administered doses must be converted into the correct number of units based on each drug\'s unit definition. Unit conversion mistakes are the most expensive error in hematology billing, since a single error can misstate a claim by thousands of dollars.',
+			'faq_5_q'     => 'Do specialty drugs like IVIG require prior authorization?',
+			'faq_5_a'     => 'Yes, most specialty infusions including IVIG, iron infusions, and clotting factor require prior authorization before administration, along with periodic renewals for ongoing therapy. A missing authorization on one infusion can mean an unrecoverable five-figure loss given the cost of these drugs.',
+			'faq_6_q'     => 'Why do hematology claims get denied?',
+			'faq_6_a'     => 'Hematology claims are most often denied for J-code unit conversion errors, missing prior authorizations on specialty drugs, and incorrect infusion hierarchy coding when multiple drugs are administered in sequence. Because the dollar values are high, these errors carry outsized financial impact.',
+
+			'cta_title'      => 'Ready to get paid accurately for every therapy you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your hematology practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'home-health-billing-services' => pps_service_placeholder_defaults(
-			'Home Health',
-			'Home Health Billing Services | Perform Practice Solutions',
-			'Outsource your home health billing to experts in PDGM, OASIS accuracy, and Medicare episodic claims. Get a free billing service analysis today.'
+		'home-health-billing-services' => array(
+			'seo_title' => 'Home Health Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your home health billing to experts in PDGM, OASIS accuracy, and Medicare episodic claims. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Home Health Billing Services',
+			'hero_title'      => 'Home Health Billing Built for PDGM and Episodic Payment',
+			'hero_lead'       => 'Home health billing services manage PDGM claims, OASIS-driven payment accuracy, and Medicare episodic billing so agencies are paid fully and reliably. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Home Health Billing Services?',
+			'problem_text'         => 'Outsourcing home health billing gives your agency specialists who understand PDGM payment groupings, NOA submission deadlines, OASIS coding accuracy, and the face-to-face documentation Medicare requires before paying anything. Home health billing runs on deadlines, and a late NOA alone reduces payment for every day it slips.',
+			'problem_text_2'       => 'Between LUPA thresholds, managed Medicaid variations, and episode reconciliation, agency billing has become a specialty of its own. Perform Practice Solutions bills daily, protects every deadline, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and episode status.',
+			'problem_card_2_title' => 'Intake partnership',
+			'problem_card_2_text'  => 'We coach your team so clean referral and OASIS data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Home Health Billing Services, Done Right',
+			'offer_lead'    => 'Full-service home health billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for home health agencies',
+			'offer_2'       => 'PDGM claim submission and payment grouping accuracy',
+			'offer_3'       => 'Notice of Admission tracking and deadline protection',
+			'offer_4'       => 'OASIS review support for payment-impacting accuracy',
+			'offer_5'       => 'LUPA threshold monitoring and visit utilization alerts',
+			'offer_6'       => 'Face-to-face and physician order documentation tracking',
+			'offer_7'       => 'Medicare, Medicare Advantage, and managed Medicaid billing',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free home health billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, deadline losses, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Home Health Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, NOA timeliness, and episode management to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against PDGM rules and payer requirements, then submitted on schedule every time.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, resolve episode holds, and review performance with you every month.',
+
+			'promo_title'   => 'New home health billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your home health billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Home health billing questions we hear most',
+			'faq_1_q'     => 'What is home health billing?',
+			'faq_1_a'     => 'Home health billing is the process of submitting claims under Medicare\'s Patient-Driven Groupings Model, which pays agencies in 30 day episodes based on clinical characteristics captured in OASIS assessments. It requires meeting strict Notice of Admission deadlines and tracking LUPA visit thresholds.',
+			'faq_2_q'     => 'Why should home health agencies outsource their billing?',
+			'faq_2_a'     => 'Outsourcing home health billing gives your agency specialists in PDGM, NOA deadlines, and Medicare documentation requirements. Agencies that outsource stop losing revenue to missed deadlines and payment grouping errors, and their clinical staff spend time on patients instead of claim rework.',
+			'faq_3_q'     => 'How much do home health billing services cost?',
+			'faq_3_a'     => 'Home health billing services typically charge a percentage of monthly collections or a per-episode rate. Because late NOAs and OASIS coding errors directly and permanently reduce payment, recovered revenue from deadline protection alone often exceeds the fee. Request a free billing analysis to see what your agency could recover.',
+			'faq_4_q'     => 'What is the Notice of Admission deadline in home health billing?',
+			'faq_4_a'     => 'The Notice of Admission must be submitted within a set number of days after a patient\'s admission, and payment is reduced for each day the deadline is missed with no way to recover that reduction later. Deadline tracking has to be a daily workflow, not a month-end task.',
+			'faq_5_q'     => 'How does OASIS accuracy affect home health payment?',
+			'faq_5_a'     => 'OASIS assessment responses directly determine the payment grouping under PDGM, so coding inaccuracies change reimbursement even when the clinical care delivered was identical. Reviewing payment-impacting OASIS items before claims go out protects both revenue and audit readiness.',
+			'faq_6_q'     => 'What is a LUPA in home health billing?',
+			'faq_6_a'     => 'A Low Utilization Payment Adjustment occurs when an episode\'s visit count falls below a payer-set threshold, dropping payment from the full episode rate to a lower per-visit rate. Monitoring utilization against LUPA thresholds in real time lets agencies make informed scheduling decisions before revenue is lost.',
+
+			'cta_title'      => 'Ready for steady, protected revenue across every episode?',
+			'cta_text'       => 'Let\'s map a billing strategy around your home health agency for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'hormone-testing-billing-services' => pps_service_placeholder_defaults(
-			'Hormone Testing',
-			'Hormone Testing Billing Services | Perform Practice Solutions',
-			'Outsource your hormone testing and therapy billing to experts in lab panels, medical necessity coding, and hybrid cash-insurance models. Get a free billing service analysis today.'
+		'hormone-testing-billing-services' => array(
+			'seo_title' => 'Hormone Testing Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your hormone testing and therapy billing to experts in lab panels, medical necessity coding, and hybrid cash-insurance models. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Hormone Testing Billing Services',
+			'hero_title'      => 'Hormone Testing Billing That Separates Covered Care From Cash',
+			'hero_lead'       => 'Hormone testing billing services manage lab panel claims, medical necessity coding, and hybrid cash-insurance workflows so hormone health practices collect cleanly on both sides. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Hormone Testing Billing Services?',
+			'problem_text'         => 'Outsourcing hormone testing billing gives your practice specialists who understand lab panel coding, the diagnosis-driven medical necessity rules payers apply to hormone tests, and the frequency limits that trigger denials on repeat panels. Hormone health sits in a gray zone where some services are covered, some are cash, and payers draw the line differently.',
+			'problem_text_2'       => 'Practices offering HRT, testosterone therapy, or wellness panels lose money in two ways: covered tests denied for weak diagnosis coding, and cash services accidentally routed to insurance. Perform Practice Solutions bills daily, keeps both streams clean, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Hormone Testing Billing Services, Done Right',
+			'offer_lead'    => 'Full-service hormone testing billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for hormone health practices',
+			'offer_2'       => 'Lab panel coding for thyroid, testosterone, estrogen, and metabolic testing',
+			'offer_3'       => 'Medical necessity diagnosis coding that supports coverage',
+			'offer_4'       => 'Frequency limit tracking on repeat lab panels',
+			'offer_5'       => 'Hybrid billing for insurance-covered and cash-pay services',
+			'offer_6'       => 'Hormone therapy visit and injection administration billing',
+			'offer_7'       => 'Daily claim submission with front desk collaboration',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free hormone testing billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, coverage gaps, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Hormone Testing Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, diagnosis coding, and cash-insurance separation to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer coverage policies and frequency limits, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New hormone testing billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your hormone testing billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Hormone testing billing questions we hear most',
+			'faq_1_q'     => 'What is hormone testing billing?',
+			'faq_1_a'     => 'Hormone testing billing is the coding and claims process for practices offering thyroid, testosterone, estrogen, and metabolic lab panels alongside hormone therapy services. It requires medical necessity diagnosis coding for coverage and a clean separation between insurance-billed and cash-pay services.',
+			'faq_2_q'     => 'Why should hormone health practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing hormone testing billing gives your practice specialists in lab coding, medical necessity rules, and hybrid cash-insurance models. Practices that outsource stop losing covered tests to weak diagnosis coding and stop leaking cash-pay revenue into insurance write offs.',
+			'faq_3_q'     => 'How much do hormone testing billing services cost?',
+			'faq_3_a'     => 'Hormone testing billing services typically charge a percentage of monthly collections on the insurance-billed portion of the practice. Because medical necessity denials are common and preventable, recovered revenue usually exceeds the fee. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'Does insurance cover hormone testing?',
+			'faq_4_a'     => 'Insurance covers hormone testing when a supporting diagnosis establishes medical necessity, such as evaluating symptoms of thyroid dysfunction, but often excludes routine wellness or elective hormone optimization panels. The diagnosis code attached to the order determines whether a payer covers the test.',
+			'faq_5_q'     => 'Why do hormone test claims get denied?',
+			'faq_5_a'     => 'Hormone panels are most often denied for medical necessity, meaning the diagnosis code did not support the test ordered, or for exceeding payer frequency limits on repeat testing. Pairing every ordered test with supporting diagnosis coding before submission prevents most of these denials.',
+			'faq_6_q'     => 'Can a practice bill both insurance and cash-pay hormone services?',
+			'faq_6_a'     => 'Yes. Covered services like diagnostic panels and problem visits can be billed to insurance, while wellness testing and elective therapy run through separate patient-pay workflows. Clear separation protects compliance and keeps both revenue streams fully collected without one contaminating the other.',
+
+			'cta_title'      => 'Ready to collect cleanly on every panel and visit?',
+			'cta_text'       => 'Let\'s map a billing strategy around your hormone health practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'internal-medicine-billing-services' => pps_service_placeholder_defaults(
-			'Internal Medicine',
-			'Internal Medicine Billing Services | Perform Practice Solutions',
-			'Outsource your internal medicine billing to experts in complex E/M coding, chronic care management, and Medicare wellness visits. Get a free billing service analysis today.'
+		'internal-medicine-billing-services' => array(
+			'seo_title' => 'Internal Medicine Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your internal medicine billing to experts in complex E/M coding, chronic care management, and Medicare wellness visits. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Internal Medicine Billing Services',
+			'hero_title'      => 'Internal Medicine Billing That Reflects the Complexity You Manage',
+			'hero_lead'       => 'Internal medicine billing services manage E/M coding for multi-condition patients, chronic care programs, and Medicare wellness visits so internists are paid for the complexity they carry. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Internal Medicine Billing Services?',
+			'problem_text'         => 'Outsourcing internal medicine billing gives your practice specialists who understand medical decision making documentation, chronic condition coding, transitional care management, and the Medicare programs built for the patients internists actually see. Internal medicine visits are among the most complex in outpatient care, yet they routinely code out at levels below the work performed.',
+			'problem_text_2'       => 'Aging panels with multiple chronic conditions qualify for recurring programs most practices never bill. Perform Practice Solutions bills daily, codes to your documentation, captures those programs, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Internal Medicine Billing Services, Done Right',
+			'offer_lead'    => 'Full-service internal medicine billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for internal medicine practices',
+			'offer_2'       => 'E/M coding that reflects multi-condition medical decision making',
+			'offer_3'       => 'Medicare annual wellness visit capture',
+			'offer_4'       => 'Chronic care management and remote patient monitoring programs',
+			'offer_5'       => 'Transitional care management billing after hospital discharge',
+			'offer_6'       => 'Preventive and problem visit same-day billing with modifier 25',
+			'offer_7'       => 'In-office lab, EKG, and procedure billing',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free internal medicine billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, undercoded visits, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Internal Medicine Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, E/M distribution, and program capture to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and coding edits, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New internal medicine billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your internal medicine billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Internal medicine billing questions we hear most',
+			'faq_1_q'     => 'What is internal medicine billing?',
+			'faq_1_a'     => 'Internal medicine billing is the coding and claims process for practices managing adult patients with complex, often multiple chronic conditions. It requires E/M coding that reflects true medical decision making complexity and capturing Medicare programs like chronic care management and transitional care management.',
+			'faq_2_q'     => 'Why should internal medicine practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing internal medicine billing gives your practice specialists in complex E/M coding, Medicare programs, and chronic care capture. Internists manage multi-condition patients whose visits justify higher coding levels and recurring program revenue, and specialized billing makes sure both are actually collected.',
+			'faq_3_q'     => 'How much do internal medicine billing services cost?',
+			'faq_3_a'     => 'Internal medicine billing services typically charge a percentage of monthly collections. Because chronic care management and transitional care management are commonly delivered but rarely billed, recovered program revenue often exceeds the fee. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'Why do internal medicine visits get undercoded?',
+			'faq_4_a'     => 'Complex visits get undercoded when documentation does not clearly show the medical decision making performed across multiple interacting conditions, or when billers default to safe middle E/M levels rather than coding to actual complexity. Coding to the documentation captures the true level of work.',
+			'faq_5_q'     => 'What is transitional care management billing?',
+			'faq_5_a'     => 'Transitional care management bills for the post-discharge contact and follow-up visit provided after a patient leaves the hospital, paying significantly more than a standard office visit. Most internal medicine practices already perform this follow-up but leave it unbilled.',
+			'faq_6_q'     => 'Can internal medicine practices bill for chronic care management?',
+			'faq_6_a'     => 'Yes. Patients with two or more chronic conditions often qualify for chronic care management, remote patient monitoring, and advance care planning, each reimbursing separately from office visits. For a panel heavy with chronic conditions, these programs create meaningful monthly recurring revenue.',
+
+			'cta_title'      => 'Ready to get paid for the complexity you manage?',
+			'cta_text'       => 'Let\'s map a billing strategy around your internal medicine practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
 		'nephrology-billing-services' => pps_service_placeholder_defaults(
 			'Nephrology',
@@ -2415,7 +2691,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.4.2';
+	$content_version = '1.4.3';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -2460,13 +2736,10 @@ function pps_assign_specialty_service_templates() {
 	);
 
 	$clear_customizer_slugs = array(
-		'dental-billing-services',
-		'dermatology-billing-services',
-		'emergency-medicine-billing-services',
-		'endocrinology-billing-services',
-		'family-medicine-billing-services',
-		'gastroenterology-billing-services',
-		'general-surgery-billing-services',
+		'hematology-billing-services',
+		'home-health-billing-services',
+		'hormone-testing-billing-services',
+		'internal-medicine-billing-services',
 	);
 
 	foreach ( array_keys( pps_service_customizer_slugs() ) as $slug ) {
@@ -2507,6 +2780,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.4.2' );
+	update_option( 'pps_pt_service_template_version', '1.4.3' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
