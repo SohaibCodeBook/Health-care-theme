@@ -147,6 +147,7 @@ function pps_billing_specialty_pages() {
 		'Genetic Counseling Billing Services',
 		'Hematology Billing Services',
 		'Home Health Billing Services',
+		'Hormone Testing Billing Services',
 		'Internal Medicine Billing Services',
 		'Nephrology Billing Services',
 		'Neurology Billing Services',

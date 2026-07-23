@@ -44,6 +44,15 @@ function pps_service_customizer_slugs() {
 		'family-medicine-billing-services'       => __( 'Family Medicine Billing', 'perform-practice' ),
 		'gastroenterology-billing-services'      => __( 'Gastroenterology Billing', 'perform-practice' ),
 		'general-surgery-billing-services'       => __( 'General Surgery Billing', 'perform-practice' ),
+		'hematology-billing-services'            => __( 'Hematology Billing', 'perform-practice' ),
+		'home-health-billing-services'           => __( 'Home Health Billing', 'perform-practice' ),
+		'hormone-testing-billing-services'       => __( 'Hormone Testing Billing', 'perform-practice' ),
+		'internal-medicine-billing-services'     => __( 'Internal Medicine Billing', 'perform-practice' ),
+		'nephrology-billing-services'            => __( 'Nephrology Billing', 'perform-practice' ),
+		'neurology-billing-services'             => __( 'Neurology Billing', 'perform-practice' ),
+		'neurosurgery-billing-services'          => __( 'Neurosurgery Billing', 'perform-practice' ),
+		'oncology-billing-services'              => __( 'Oncology Billing', 'perform-practice' ),
+		'ophthalmology-billing-services'         => __( 'Ophthalmology Billing', 'perform-practice' ),
 	);
 }
 
@@ -2143,6 +2152,53 @@ function pps_service_defaults_for( $slug ) {
 			'cta_button'     => 'Book a Strategy Session',
 			'cta_button_url' => '#contact',
 		),
+
+		// Part 2 — pages 17–25 placeholder until full content pass.
+		'hematology-billing-services' => pps_service_placeholder_defaults(
+			'Hematology',
+			'Hematology Billing Services | Perform Practice Solutions',
+			'Outsource your hematology billing to experts in infusion coding, J-code drug billing, and prior authorizations. Get a free billing service analysis today.'
+		),
+		'home-health-billing-services' => pps_service_placeholder_defaults(
+			'Home Health',
+			'Home Health Billing Services | Perform Practice Solutions',
+			'Outsource your home health billing to experts in PDGM, OASIS accuracy, and Medicare episodic claims. Get a free billing service analysis today.'
+		),
+		'hormone-testing-billing-services' => pps_service_placeholder_defaults(
+			'Hormone Testing',
+			'Hormone Testing Billing Services | Perform Practice Solutions',
+			'Outsource your hormone testing and therapy billing to experts in lab panels, medical necessity coding, and hybrid cash-insurance models. Get a free billing service analysis today.'
+		),
+		'internal-medicine-billing-services' => pps_service_placeholder_defaults(
+			'Internal Medicine',
+			'Internal Medicine Billing Services | Perform Practice Solutions',
+			'Outsource your internal medicine billing to experts in complex E/M coding, chronic care management, and Medicare wellness visits. Get a free billing service analysis today.'
+		),
+		'nephrology-billing-services' => pps_service_placeholder_defaults(
+			'Nephrology',
+			'Nephrology Billing Services | Perform Practice Solutions',
+			'Outsource your nephrology billing to experts in MCP dialysis codes, CKD staging, and transplant follow-up claims. Get a free billing service analysis today.'
+		),
+		'neurology-billing-services' => pps_service_placeholder_defaults(
+			'Neurology',
+			'Neurology Billing Services | Perform Practice Solutions',
+			'Outsource your neurology billing to experts in EEG and EMG coding, Botox claims, and prolonged visit capture. Get a free billing service analysis today.'
+		),
+		'neurosurgery-billing-services' => pps_service_placeholder_defaults(
+			'Neurosurgery',
+			'Neurosurgery Billing Services | Perform Practice Solutions',
+			'Outsource your neurosurgery billing to experts in spine coding, co-surgeon claims, and complex operative reports. Get a free billing service analysis today.'
+		),
+		'oncology-billing-services' => pps_service_placeholder_defaults(
+			'Oncology',
+			'Oncology Billing Services | Perform Practice Solutions',
+			'Outsource your oncology billing to experts in chemotherapy infusion coding, J-code drug billing, and treatment authorizations. Get a free billing service analysis today.'
+		),
+		'ophthalmology-billing-services' => pps_service_placeholder_defaults(
+			'Ophthalmology',
+			'Ophthalmology Billing Services | Perform Practice Solutions',
+			'Outsource your ophthalmology billing to experts in eye codes vs E/M, cataract co-management, and injection billing. Get a free billing service analysis today.'
+		),
 	);
 
 	if ( isset( $catalog[ $slug ] ) ) {
@@ -2359,7 +2415,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.4.1';
+	$content_version = '1.4.2';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -2392,6 +2448,15 @@ function pps_assign_specialty_service_templates() {
 		'family-medicine-billing-services'        => 'Family Medicine Billing Services',
 		'gastroenterology-billing-services'       => 'Gastroenterology Billing Services',
 		'general-surgery-billing-services'        => 'General Surgery Billing Services',
+		'hematology-billing-services'             => 'Hematology Billing Services',
+		'home-health-billing-services'            => 'Home Health Billing Services',
+		'hormone-testing-billing-services'        => 'Hormone Testing Billing Services',
+		'internal-medicine-billing-services'      => 'Internal Medicine Billing Services',
+		'nephrology-billing-services'             => 'Nephrology Billing Services',
+		'neurology-billing-services'              => 'Neurology Billing Services',
+		'neurosurgery-billing-services'           => 'Neurosurgery Billing Services',
+		'oncology-billing-services'               => 'Oncology Billing Services',
+		'ophthalmology-billing-services'          => 'Ophthalmology Billing Services',
 	);
 
 	$clear_customizer_slugs = array(
@@ -2442,6 +2507,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.4.1' );
+	update_option( 'pps_pt_service_template_version', '1.4.2' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );

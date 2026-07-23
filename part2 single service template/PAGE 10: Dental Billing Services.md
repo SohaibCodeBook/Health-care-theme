@@ -1,5 +1,3 @@
-
-
 PAGE 10: Dental Billing Services
 Meta Title
 Dental Billing Services | Perform Practice Solutions
