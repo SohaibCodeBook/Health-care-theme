@@ -1328,26 +1328,302 @@ function pps_service_defaults_for( $slug ) {
 			'cta_button_url' => '#contact',
 		),
 
-		// Part 2 — placeholder design only (full MD copy comes in a later pass).
-		'allergy-and-immunology-billing-services' => pps_service_placeholder_defaults(
-			'Allergy and Immunology',
-			'Allergy and Immunology Billing Services | Perform Practice Solutions',
-			'Outsource your allergy billing to experts in immunotherapy coding, serum billing, and testing units. Get a free billing service analysis today.'
+		// Part 2 — pages 6–9 full content; pages 10+ placeholder until later pass.
+		'allergy-and-immunology-billing-services' => array(
+			'seo_title' => 'Allergy and Immunology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your allergy billing to experts in immunotherapy coding, serum billing, and testing units. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Allergy and Immunology Billing Services',
+			'hero_title'      => 'Allergy and Immunology Billing That Captures Every Test and Injection',
+			'hero_lead'       => 'Allergy and immunology billing services manage testing unit counts, immunotherapy serum billing, and injection administration coding so your practice gets paid for every service. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Allergy and Immunology Billing Services?',
+			'problem_text'         => 'Outsourcing allergy and immunology billing gives your practice specialists who understand per-test unit counting, serum preparation versus administration coding, and the frequency rules payers apply to immunotherapy. Allergy revenue is built on high volumes of small charges, so small unit errors compound into large losses fast.',
+			'problem_text_2'       => 'An in-house biller undercounting skin test units or missing serum vial charges leaks revenue every single week. Perform Practice Solutions bills daily, counts every unit, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Allergy and Immunology Billing Services, Done Right',
+			'offer_lead'    => 'Full-service allergy and immunology billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for allergy and immunology practices',
+			'offer_2'       => 'Accurate unit counting for skin and patch testing claims',
+			'offer_3'       => 'Immunotherapy serum preparation and vial billing',
+			'offer_4'       => 'Injection administration coding for allergy shots',
+			'offer_5'       => 'Biologic prior authorization and buy-and-bill support',
+			'offer_6'       => 'Daily claim submission with front desk collaboration',
+			'offer_7'       => 'Denial prevention and frequency limit tracking',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free allergy and immunology billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, undercounted units, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Allergy and Immunology Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, testing unit counts, and serum billing to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and frequency limits, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New allergy and immunology billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your allergy and immunology billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Allergy and immunology billing questions we hear most',
+			'faq_1_q'     => 'What is allergy and immunology billing?',
+			'faq_1_a'     => 'Allergy and immunology billing is the coding and claims process for allergy practices, covering per-unit testing claims, immunotherapy serum preparation, and injection administration. It requires expertise in unit counting, frequency limits, and the separation of serum charges from shot administration.',
+			'faq_2_q'     => 'Why should allergy practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing allergy and immunology billing gives your practice specialists in per-unit test counting, serum billing, and immunotherapy frequency rules. Because allergy revenue depends on high volumes of small charges, specialized billing recovers the unit errors and missed vial charges that quietly drain in-house operations.',
+			'faq_3_q'     => 'How much do allergy billing services cost?',
+			'faq_3_a'     => 'Allergy billing services typically charge a percentage of monthly collections. Because allergy revenue is built from high volumes of per-unit charges, recovered undercounted units usually exceed the fee within months. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'How is allergy testing billed to insurance?',
+			'faq_4_a'     => 'Allergy skin and patch testing is billed per test performed, with each prick, scratch, or patch counted as a unit. Undercounting units is the most common revenue leak in allergy practices. We verify unit counts against documentation on every testing claim before submission.',
+			'faq_5_q'     => 'How is allergy immunotherapy billed?',
+			'faq_5_a'     => 'Immunotherapy billing separates serum preparation and vial charges from injection administration, each with its own codes and units. Because immunotherapy runs for years per patient, small billing errors compound over time. We capture both the serum and every administered shot on every claim.',
+			'faq_6_q'     => 'Why do allergy claims get denied?',
+			'faq_6_a'     => 'Allergy claims are most often denied for exceeded frequency limits, unit count mismatches against documentation, and missing prior authorizations on biologics for asthma and eczema. Scrubbing claims against payer-specific testing and immunotherapy rules before submission prevents the bulk of these denials.',
+
+			'cta_title'      => 'Ready to get paid for every test and injection you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your allergy practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'anesthesiology-billing-services' => pps_service_placeholder_defaults(
-			'Anesthesiology',
-			'Anesthesiology Billing Services | Perform Practice Solutions',
-			'Outsource your anesthesia billing to experts in time-based units, ASA codes, and medical direction modifiers. Get a free billing service analysis today.'
+		'anesthesiology-billing-services' => array(
+			'seo_title' => 'Anesthesiology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your anesthesia billing to experts in time-based units, ASA codes, and medical direction modifiers. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Anesthesiology Billing Services',
+			'hero_title'      => 'Anesthesia Billing Built on Accurate Time Units',
+			'hero_lead'       => 'Anesthesiology billing services manage time-based unit calculation, ASA coding, and medical direction modifiers so anesthesia groups capture every billable minute. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Anesthesiology Billing Services?',
+			'problem_text'         => 'Outsourcing anesthesiology billing gives your group specialists who understand base units plus time units, ASA physical status modifiers, and the medical direction rules that govern anesthesiologist and CRNA billing. Anesthesia is the only specialty billed primarily on time, and generic billers routinely miscalculate it.',
+			'problem_text_2'       => 'Start and stop time documentation, concurrency tracking, and AA versus QK versus QZ modifiers all decide whether your group is paid in full. Perform Practice Solutions bills daily, calculates every unit correctly, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Documentation partnership',
+			'problem_card_2_text'  => 'We coach your team so clean anesthesia records go out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Anesthesiology Billing Services, Done Right',
+			'offer_lead'    => 'Full-service anesthesiology billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for anesthesia groups',
+			'offer_2'       => 'Accurate base unit plus time unit calculation',
+			'offer_3'       => 'ASA physical status and qualifying circumstance modifiers',
+			'offer_4'       => 'Medical direction and concurrency modifier compliance for anesthesiologists and CRNAs',
+			'offer_5'       => 'Obstetric and labor epidural billing',
+			'offer_6'       => 'Daily claim submission with clean documentation workflows',
+			'offer_7'       => 'Denial prevention and payer contract expertise',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free anesthesiology billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, unit calculation errors, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Anesthesiology Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, time unit calculations, and concurrency records to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and medical direction requirements, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New anesthesiology billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your anesthesiology billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Anesthesiology billing questions we hear most',
+			'faq_1_q'     => 'What is anesthesiology billing?',
+			'faq_1_a'     => 'Anesthesiology billing is the process of calculating and submitting claims based on base units plus time units, unlike most medical specialties which bill by procedure or visit level alone. It requires precise start and stop time documentation, ASA physical status modifiers, and medical direction concurrency rules for anesthesiologists and CRNAs.',
+			'faq_2_q'     => 'Why should anesthesia groups outsource their billing?',
+			'faq_2_a'     => 'Outsourcing anesthesiology billing gives your group specialists in time-based unit calculation, ASA modifiers, and medical direction rules. Because anesthesia is billed unlike any other specialty, generic billers leave units and modifiers on the table. Specialized billing captures every minute your providers deliver.',
+			'faq_3_q'     => 'How much do anesthesiology billing services cost?',
+			'faq_3_a'     => 'Anesthesiology billing services typically charge a percentage of monthly collections, often at a different rate than standard medical billing given the specialty\'s complexity. Because time unit and concurrency errors are common and costly, specialized billing usually recovers more than it costs. Request a free billing analysis to see what your group could recover.',
+			'faq_4_q'     => 'How is anesthesia time calculated for billing?',
+			'faq_4_a'     => 'Anesthesia time is calculated from documented start time, when the anesthesiologist begins preparing the patient, to stop time, when the patient is safely placed under postoperative care, then converted into billable time units per payer rules. Small documentation gaps in start or stop times directly reduce payment.',
+			'faq_5_q'     => 'What is medical direction in anesthesia billing?',
+			'faq_5_a'     => 'Medical direction refers to an anesthesiologist supervising CRNAs across a limited number of concurrent cases, billed with specific concurrency modifiers like AA, QK, or QZ. Incorrect concurrency modifiers are a leading cause of anesthesia claim denials and compliance risk.',
+			'faq_6_q'     => 'Why do anesthesia claims get denied?',
+			'faq_6_a'     => 'Anesthesia claims are most often denied for incomplete time documentation, incorrect concurrency modifiers, missing ASA physical status codes, and qualifying circumstance omissions. Because anesthesia billing follows a different formula than the rest of medicine, these errors are common with billers who lack anesthesia-specific training.',
+
+			'cta_title'      => 'Ready to get paid for every minute you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your anesthesia group for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'behavioral-therapy-aba-billing-services' => pps_service_placeholder_defaults(
-			'Behavioral Therapy (ABA)',
-			'ABA Billing Services | Behavioral Therapy Billing | Perform Practice Solutions',
-			'Outsource your ABA billing to experts in adaptive behavior codes, authorization tracking, and Medicaid requirements. Get a free billing service analysis today.'
+		'behavioral-therapy-aba-billing-services' => array(
+			'seo_title' => 'ABA Billing Services | Behavioral Therapy Billing | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your ABA billing to experts in adaptive behavior codes, authorization tracking, and Medicaid requirements. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Behavioral Therapy (ABA) Billing Services',
+			'hero_title'      => 'ABA Billing That Keeps Authorized Hours Paid',
+			'hero_lead'       => 'ABA billing services manage adaptive behavior code billing, authorization tracking, and credentialing for BCBAs and RBTs so your practice gets paid for every authorized hour. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource ABA Billing Services?',
+			'problem_text'         => 'Outsourcing ABA billing gives your practice specialists who understand adaptive behavior codes like 97151 and 97153, authorization unit tracking, and the supervising versus rendering provider rules that govern BCBA and RBT claims. ABA runs on authorized hours, and every unbilled or lapsed unit is revenue your team already delivered.',
+			'problem_text_2'       => 'Medicaid plans, autism mandates, and commercial payers each apply different rules to the same services. Perform Practice Solutions bills daily, tracks every authorization, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean session data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'ABA Billing Services, Done Right',
+			'offer_lead'    => 'Full-service ABA billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for ABA practices',
+			'offer_2'       => 'Accurate coding for 97151, 97153, 97155, and related adaptive behavior codes',
+			'offer_3'       => 'Authorization unit tracking and reauthorization management',
+			'offer_4'       => 'Supervising and rendering provider compliance for BCBAs and RBTs',
+			'offer_5'       => 'Medicaid, managed care, and autism mandate payer expertise',
+			'offer_6'       => 'Credentialing support for growing clinical teams',
+			'offer_7'       => 'Daily claim submission with session data collaboration',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free ABA billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, authorization gaps, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our ABA Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, authorization tracking, and session data workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and authorized units, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New ABA billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your ABA billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'ABA billing questions we hear most',
+			'faq_1_q'     => 'What is ABA billing?',
+			'faq_1_a'     => 'ABA billing is the process of coding and submitting claims for applied behavior analysis services using adaptive behavior treatment codes like 97151 and 97153. It requires tracking authorized session units, distinguishing supervising BCBA claims from rendering RBT claims, and navigating Medicaid and autism mandate payer rules.',
+			'faq_2_q'     => 'Why should ABA practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing ABA billing gives your practice specialists in adaptive behavior codes, authorization tracking, and BCBA and RBT provider rules. Most ABA practices that outsource stop losing revenue to lapsed authorizations and undercounted units, and their clinical staff spend more time on cases instead of claims.',
+			'faq_3_q'     => 'How much do ABA billing services cost?',
+			'faq_3_a'     => 'ABA billing services typically charge a percentage of monthly collections. Because lapsed authorizations are the single biggest ABA revenue leak, specialized tracking usually recovers well beyond the cost of the service. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'Does insurance cover ABA therapy?',
+			'faq_4_a'     => 'Most states require insurance coverage for ABA therapy under autism insurance mandates, though covered hours, session limits, and reauthorization requirements vary by state and plan. Verifying benefits and tracking authorized units before sessions occur is essential to getting paid for delivered care.',
+			'faq_5_q'     => 'Why do ABA claims get denied?',
+			'faq_5_a'     => 'ABA claims are most often denied for lapsed prior authorizations, sessions billed past authorized unit limits, and mismatches between the billed provider and the supervising or rendering provider on file. Proactive authorization tracking prevents the majority of these denials before they happen.',
+			'faq_6_q'     => 'What is the difference between BCBA and RBT billing?',
+			'faq_6_a'     => 'BCBAs bill for assessment, treatment planning, and supervision, while RBTs bill for direct one-on-one session delivery under BCBA supervision. Each payer has specific rules for which provider type can bill which code, and mismatched provider claims are a common cause of ABA denials.',
+
+			'cta_title'      => 'Ready to get paid for every authorized hour you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your ABA practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'cardiology-billing-services' => pps_service_placeholder_defaults(
-			'Cardiology',
-			'Cardiology Billing Services | Perform Practice Solutions',
-			'Outsource your cardiology billing to experts in diagnostic testing, cath lab coding, and prior authorizations. Get a free billing service analysis today.'
+		'cardiology-billing-services' => array(
+			'seo_title' => 'Cardiology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your cardiology billing to experts in diagnostic testing, cath lab coding, and prior authorizations. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Cardiology Billing Services',
+			'hero_title'      => 'Cardiology Billing That Captures Every Test and Procedure',
+			'hero_lead'       => 'Cardiology billing services manage diagnostic test coding, procedure claims, and prior authorizations so cardiology practices capture the full value of their work. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Cardiology Billing Services?',
+			'problem_text'         => 'Outsourcing cardiology billing gives your practice specialists who understand echo and stress test coding, professional versus technical component billing, device monitoring claims, and the prior authorization load that comes with advanced imaging. Cardiology mixes office visits, diagnostics, and procedures on the same patients, making it one of the most error-prone specialties to bill.',
+			'problem_text_2'       => 'A missed 26 or TC modifier, an unbilled remote monitoring period, or a bundling error on a cath claim each costs real money. Perform Practice Solutions bills daily, applies component and bundling rules correctly, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Cardiology Billing Services, Done Right',
+			'offer_lead'    => 'Full-service cardiology billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for cardiology practices',
+			'offer_2'       => 'Diagnostic test billing for echo, stress tests, EKGs, and Holter monitoring',
+			'offer_3'       => 'Professional and technical component modifier compliance',
+			'offer_4'       => 'Remote device and cardiac monitoring claim capture',
+			'offer_5'       => 'Prior authorization management for advanced imaging and procedures',
+			'offer_6'       => 'Cath lab and interventional procedure coding support',
+			'offer_7'       => 'Daily claim submission with front desk collaboration',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free cardiology billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, component billing errors, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Cardiology Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, diagnostic billing patterns, and authorization workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules, bundling edits, and component modifiers, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New cardiology billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your cardiology billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Cardiology billing questions we hear most',
+			'faq_1_q'     => 'What is cardiology billing?',
+			'faq_1_a'     => 'Cardiology billing is the coding and claims process for cardiology practices, covering diagnostic testing, professional and technical components, remote device monitoring, and interventional procedures. It requires expertise in modifier application and the prior authorization rules that govern advanced cardiac imaging.',
+			'faq_2_q'     => 'Why should cardiology practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing cardiology billing gives your practice specialists in diagnostic test coding, component modifiers, and procedure bundling rules. Because cardiology combines high-volume diagnostics with high-value procedures, specialized billing recovers revenue that general billers miss on both ends of the claim spectrum.',
+			'faq_3_q'     => 'How much do cardiology billing services cost?',
+			'faq_3_a'     => 'Cardiology billing services typically charge a percentage of monthly collections, reflecting the mix of diagnostics and procedures billed. Because component modifier and remote monitoring errors are common and costly, specialized billing usually recovers more than it costs. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'What is the difference between professional and technical component billing?',
+			'faq_4_a'     => 'The technical component covers the equipment and staff performing a diagnostic test, while the professional component covers the physician interpreting the results. Practices that own their equipment can bill both components together, while others must apply modifier 26 or TC correctly to get paid for their portion.',
+			'faq_5_q'     => 'Can cardiology practices bill for remote device monitoring?',
+			'faq_5_a'     => 'Yes. Remote monitoring of pacemakers, ICDs, and cardiac event monitors is billable on a recurring basis under specific CPT codes, separate from office visits. This revenue is easy to miss because it is not tied to a scheduled appointment, making it one of the most common cardiology billing oversights.',
+			'faq_6_q'     => 'Why do cardiology claims get denied?',
+			'faq_6_a'     => 'Cardiology claims are most often denied for missing or incorrect component modifiers, prior authorization gaps on advanced imaging like nuclear stress tests and cardiac CT, and bundling errors on interventional procedures. Specialized claim scrubbing catches these issues before submission.',
+
+			'cta_title'      => 'Ready to get paid faster for the care you deliver?',
+			'cta_text'       => 'Let\'s map a billing strategy around your cardiology practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
 		'dental-billing-services' => pps_service_placeholder_defaults(
 			'Dental',
@@ -1600,7 +1876,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.3.9';
+	$content_version = '1.4.0';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -1636,6 +1912,10 @@ function pps_assign_specialty_service_templates() {
 	);
 
 	$clear_customizer_slugs = array(
+		'allergy-and-immunology-billing-services',
+		'anesthesiology-billing-services',
+		'behavioral-therapy-aba-billing-services',
+		'cardiology-billing-services',
 		'dental-billing-services',
 		'dermatology-billing-services',
 		'emergency-medicine-billing-services',
@@ -1683,6 +1963,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.3.9' );
+	update_option( 'pps_pt_service_template_version', '1.4.0' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
