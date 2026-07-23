@@ -149,12 +149,16 @@ function pps_billing_specialty_pages() {
 		'Home Health Billing Services',
 		'Hormone Testing Billing Services',
 		'Internal Medicine Billing Services',
+		'Labs Billing Services',
 		'Nephrology Billing Services',
 		'Neurology Billing Services',
 		'Neurosurgery Billing Services',
+		'Nursing Homes & Assisted Living Facilities Billing Services',
 		'Obstetrics and Gynecology Billing Services',
 		'Oncology Billing Services',
 		'Ophthalmology Billing Services',
+		'Outpatient Surgery Centers Billing Services',
+		'Pathology Services Billing Services',
 		'Pediatrics Billing Services',
 		'Plastic Surgery Billing Services',
 		'Podiatry Billing Services',
@@ -231,6 +235,10 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'Internal Medicine Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your internal medicine billing to experts in complex E/M coding, chronic care management, and Medicare wellness visits. Get a free billing service analysis today.',
 		),
+		'labs-billing-services' => array(
+			'seo_title' => 'Labs Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your laboratory billing to experts in test panel coding, medical necessity rules, and payer fee schedules. Get a free billing service analysis today.',
+		),
 		'nephrology-billing-services' => array(
 			'seo_title' => 'Nephrology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your nephrology billing to experts in MCP dialysis codes, CKD staging, and transplant follow-up claims. Get a free billing service analysis today.',
@@ -243,6 +251,10 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'Neurosurgery Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your neurosurgery billing to experts in spine coding, co-surgeon claims, and complex operative reports. Get a free billing service analysis today.',
 		),
+		'nursing-homes-assisted-living-facilities-billing-services' => array(
+			'seo_title' => 'Nursing Homes & Assisted Living Facilities Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your nursing home and assisted living billing to experts in SNF claims, PDPM, and Medicare Part A workflows. Get a free billing service analysis today.',
+		),
 		'oncology-billing-services' => array(
 			'seo_title' => 'Oncology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your oncology billing to experts in chemotherapy infusion coding, J-code drug billing, and treatment authorizations. Get a free billing service analysis today.',
@@ -250,6 +262,14 @@ function pps_billing_specialty_pages() {
 		'ophthalmology-billing-services' => array(
 			'seo_title' => 'Ophthalmology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your ophthalmology billing to experts in eye codes vs E/M, cataract co-management, and injection billing. Get a free billing service analysis today.',
+		),
+		'outpatient-surgery-centers-billing-services' => array(
+			'seo_title' => 'Outpatient Surgery Centers Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your ASC billing to experts in facility claims, surgical coding, and implant billing. Get a free billing service analysis today.',
+		),
+		'pathology-services-billing-services' => array(
+			'seo_title' => 'Pathology Services Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your pathology billing to experts in professional and technical components, specimen coding, and payer edits. Get a free billing service analysis today.',
 		),
 		'pediatrics-billing-services'      => array(
 			'seo_title' => 'Pediatrics Billing Services | Perform Practice Solutions',
@@ -484,7 +504,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.2' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.3' ) {
 		return;
 	}
 
@@ -503,7 +523,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.2' );
+	update_option( 'pps_billing_mega_version', '1.3.3' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );

@@ -53,6 +53,10 @@ function pps_service_customizer_slugs() {
 		'neurosurgery-billing-services'          => __( 'Neurosurgery Billing', 'perform-practice' ),
 		'oncology-billing-services'              => __( 'Oncology Billing', 'perform-practice' ),
 		'ophthalmology-billing-services'         => __( 'Ophthalmology Billing', 'perform-practice' ),
+		'labs-billing-services'                  => __( 'Labs Billing', 'perform-practice' ),
+		'nursing-homes-assisted-living-facilities-billing-services' => __( 'Nursing Homes & Assisted Living Billing', 'perform-practice' ),
+		'outpatient-surgery-centers-billing-services' => __( 'Outpatient Surgery Centers Billing', 'perform-practice' ),
+		'pathology-services-billing-services'    => __( 'Pathology Services Billing', 'perform-practice' ),
 	);
 }
 
@@ -2820,6 +2824,28 @@ function pps_service_defaults_for( $slug ) {
 			'cta_button'     => 'Book a Strategy Session',
 			'cta_button_url' => '#contact',
 		),
+
+		// Facility / lab billing — placeholder until full content pass.
+		'labs-billing-services' => pps_service_placeholder_defaults(
+			'Labs',
+			'Labs Billing Services | Perform Practice Solutions',
+			'Outsource your laboratory billing to experts in test panel coding, medical necessity rules, and payer fee schedules. Get a free billing service analysis today.'
+		),
+		'nursing-homes-assisted-living-facilities-billing-services' => pps_service_placeholder_defaults(
+			'Nursing Homes & Assisted Living Facilities',
+			'Nursing Homes & Assisted Living Facilities Billing Services | Perform Practice Solutions',
+			'Outsource your nursing home and assisted living billing to experts in SNF claims, PDPM, and Medicare Part A workflows. Get a free billing service analysis today.'
+		),
+		'outpatient-surgery-centers-billing-services' => pps_service_placeholder_defaults(
+			'Outpatient Surgery Centers',
+			'Outpatient Surgery Centers Billing Services | Perform Practice Solutions',
+			'Outsource your ASC billing to experts in facility claims, surgical coding, and implant billing. Get a free billing service analysis today.'
+		),
+		'pathology-services-billing-services' => pps_service_placeholder_defaults(
+			'Pathology Services',
+			'Pathology Services Billing Services | Perform Practice Solutions',
+			'Outsource your pathology billing to experts in professional and technical components, specimen coding, and payer edits. Get a free billing service analysis today.'
+		),
 	);
 
 	if ( isset( $catalog[ $slug ] ) ) {
@@ -3036,7 +3062,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.4.4';
+	$content_version = '1.4.5';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -3078,15 +3104,13 @@ function pps_assign_specialty_service_templates() {
 		'neurosurgery-billing-services'           => 'Neurosurgery Billing Services',
 		'oncology-billing-services'               => 'Oncology Billing Services',
 		'ophthalmology-billing-services'          => 'Ophthalmology Billing Services',
+		'labs-billing-services'                   => 'Labs Billing Services',
+		'nursing-homes-assisted-living-facilities-billing-services' => 'Nursing Homes & Assisted Living Facilities Billing Services',
+		'outpatient-surgery-centers-billing-services' => 'Outpatient Surgery Centers Billing Services',
+		'pathology-services-billing-services'     => 'Pathology Services Billing Services',
 	);
 
-	$clear_customizer_slugs = array(
-		'nephrology-billing-services',
-		'neurology-billing-services',
-		'neurosurgery-billing-services',
-		'oncology-billing-services',
-		'ophthalmology-billing-services',
-	);
+	$clear_customizer_slugs = array();
 
 	foreach ( array_keys( pps_service_customizer_slugs() ) as $slug ) {
 		$page = get_page_by_path( $slug );
@@ -3126,6 +3150,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.4.4' );
+	update_option( 'pps_pt_service_template_version', '1.4.5' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
