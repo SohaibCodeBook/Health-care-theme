@@ -140,7 +140,51 @@ add_action( 'customize_register', 'pps_ai_pts_customize_register', 24 );
  * @return bool
  */
 function pps_is_ai_pts_page() {
-	return is_page_template( 'page-templates/ai-phone-text-system.php' );
+	$template = 'page-templates/ai-phone-text-system.php';
+
+	if ( is_page_template( $template ) || is_page_template( 'ai-phone-text-system.php' ) ) {
+		return true;
+	}
+
+	if ( is_page( 'phone-text-system' ) ) {
+		return true;
+	}
+
+	$page_id = get_queried_object_id();
+	if ( $page_id ) {
+		$assigned = get_page_template_slug( $page_id );
+		if ( $template === $assigned || 'ai-phone-text-system.php' === $assigned ) {
+			return true;
+		}
+	}
+
+	$page = get_queried_object();
+	return ( $page instanceof WP_Post && 'page' === $page->post_type && 'phone-text-system' === $page->post_name );
+}
+
+/**
+ * Register phone & text page stylesheet.
+ */
+function pps_ai_pts_register_styles() {
+	pps_enqueue_theme_style( 'pps-ai-phone-text', '/assets/css/ai-phone-text.css', array() );
+
+	if ( ! has_action( 'wp_head', 'pps_ai_pts_print_inline_css' ) ) {
+		add_action( 'wp_head', 'pps_ai_pts_print_inline_css', 200 );
+	}
+}
+
+/**
+ * Print phone & text CSS inline.
+ */
+function pps_ai_pts_print_inline_css() {
+	pps_print_theme_style_inline( 'pps-ai-phone-text', '/assets/css/ai-phone-text.css' );
+}
+
+/**
+ * Force phone & text CSS after header.
+ */
+function pps_ai_pts_force_styles() {
+	pps_print_theme_style_inline( 'pps-ai-phone-text', '/assets/css/ai-phone-text.css' );
 }
 
 /**
@@ -200,16 +244,9 @@ add_filter( 'body_class', 'pps_ai_pts_body_class' );
  * Enqueue page-specific stylesheet.
  */
 function pps_ai_pts_enqueue_assets() {
-	if ( ! pps_is_ai_pts_page() ) {
-		return;
+	if ( pps_is_ai_pts_page() ) {
+		pps_ai_pts_register_styles();
 	}
-
-	wp_enqueue_style(
-		'pps-ai-phone-text',
-		PPS_THEME_URI . '/assets/css/ai-phone-text.css',
-		array( 'pps-theme' ),
-		PPS_THEME_VERSION
-	);
 }
 add_action( 'wp_enqueue_scripts', 'pps_ai_pts_enqueue_assets', 25 );
 

@@ -7,9 +7,62 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.5.3' );
+define( 'PPS_THEME_VERSION', '2.5.7' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
+
+/**
+ * Enqueue a theme stylesheet with filemtime cache busting.
+ *
+ * @param string $handle        Style handle.
+ * @param string $relative_path Path relative to theme root, e.g. /assets/css/page.css.
+ * @param array  $deps          Style dependencies.
+ */
+function pps_enqueue_theme_style( $handle, $relative_path, $deps = array() ) {
+	if ( wp_style_is( $handle, 'enqueued' ) || wp_style_is( $handle, 'done' ) ) {
+		return;
+	}
+
+	$path = PPS_THEME_DIR . $relative_path;
+	$uri  = PPS_THEME_URI . $relative_path;
+	$ver  = file_exists( $path ) ? (string) filemtime( $path ) : PPS_THEME_VERSION;
+
+	wp_enqueue_style( $handle, $uri, $deps, $ver );
+}
+
+/**
+ * Print a theme CSS file inline (guaranteed on hosts that block/miss extra CSS files).
+ *
+ * @param string $handle        Unique handle / style id.
+ * @param string $relative_path Path relative to theme root.
+ * @return bool True when CSS was printed.
+ */
+function pps_print_theme_style_inline( $handle, $relative_path ) {
+	static $printed = array();
+
+	if ( isset( $printed[ $handle ] ) ) {
+		return true;
+	}
+
+	$path = PPS_THEME_DIR . $relative_path;
+	if ( ! is_readable( $path ) ) {
+		return false;
+	}
+
+	$css = file_get_contents( $path );
+	if ( false === $css || '' === trim( $css ) ) {
+		return false;
+	}
+
+	printf(
+		"<style id=\"%s-inline\">\n%s\n</style>\n",
+		esc_attr( $handle ),
+		$css // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted theme CSS file.
+	);
+
+	$printed[ $handle ] = true;
+	return true;
+}
 
 require_once PPS_THEME_DIR . '/inc/customizer.php';
 require_once PPS_THEME_DIR . '/inc/logo.php';
@@ -24,6 +77,7 @@ require_once PPS_THEME_DIR . '/inc/digital-marketing.php';
 require_once PPS_THEME_DIR . '/inc/ai-phone-text.php';
 require_once PPS_THEME_DIR . '/inc/ai-referral-outreach.php';
 require_once PPS_THEME_DIR . '/inc/ai-website-chatbot.php';
+require_once PPS_THEME_DIR . '/inc/ai-front-desk-tools.php';
 require_once PPS_THEME_DIR . '/inc/about.php';
 
 /**

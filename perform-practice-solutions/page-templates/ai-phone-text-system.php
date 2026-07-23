@@ -6,7 +6,9 @@
  * @package Perform_Practice
  */
 
+pps_ai_pts_register_styles();
 get_header();
+pps_ai_pts_force_styles();
 
 $cap_icons = array(
 	'fa-circle-question',

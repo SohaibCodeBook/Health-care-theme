@@ -132,7 +132,52 @@ add_action( 'customize_register', 'pps_ai_chat_customize_register', 24 );
  * @return bool
  */
 function pps_is_ai_chat_page() {
-	return is_page_template( 'page-templates/ai-website-chatbot.php' );
+	$template = 'page-templates/ai-website-chatbot.php';
+
+	if ( is_page_template( $template ) || is_page_template( 'ai-website-chatbot.php' ) ) {
+		return true;
+	}
+
+	if ( is_page( 'website-chatbot' ) ) {
+		return true;
+	}
+
+	$page_id = get_queried_object_id();
+	if ( $page_id ) {
+		$assigned = get_page_template_slug( $page_id );
+		if ( $template === $assigned || 'ai-website-chatbot.php' === $assigned ) {
+			return true;
+		}
+	}
+
+	$page = get_queried_object();
+	return ( $page instanceof WP_Post && 'page' === $page->post_type && 'website-chatbot' === $page->post_name );
+}
+
+/**
+ * Register chatbot page stylesheet (safe to call from template or wp_enqueue_scripts).
+ */
+function pps_ai_chat_register_styles() {
+	pps_enqueue_theme_style( 'pps-ai-website-chatbot', '/assets/css/ai-website-chatbot.css', array() );
+
+	// Inline fallback — some hosts fail to serve /assets/css/*.css.
+	if ( ! has_action( 'wp_head', 'pps_ai_chat_print_inline_css' ) ) {
+		add_action( 'wp_head', 'pps_ai_chat_print_inline_css', 200 );
+	}
+}
+
+/**
+ * Print chatbot CSS inline in <head>.
+ */
+function pps_ai_chat_print_inline_css() {
+	pps_print_theme_style_inline( 'pps-ai-website-chatbot', '/assets/css/ai-website-chatbot.css' );
+}
+
+/**
+ * Force chatbot CSS after header (absolute fallback if wp_head path missed).
+ */
+function pps_ai_chat_force_styles() {
+	pps_print_theme_style_inline( 'pps-ai-website-chatbot', '/assets/css/ai-website-chatbot.css' );
 }
 
 /**
@@ -192,16 +237,9 @@ add_filter( 'body_class', 'pps_ai_chat_body_class' );
  * Enqueue page stylesheet.
  */
 function pps_ai_chat_enqueue_assets() {
-	if ( ! pps_is_ai_chat_page() ) {
-		return;
+	if ( pps_is_ai_chat_page() ) {
+		pps_ai_chat_register_styles();
 	}
-
-	wp_enqueue_style(
-		'pps-ai-website-chatbot',
-		PPS_THEME_URI . '/assets/css/ai-website-chatbot.css',
-		array( 'pps-theme' ),
-		PPS_THEME_VERSION
-	);
 }
 add_action( 'wp_enqueue_scripts', 'pps_ai_chat_enqueue_assets', 25 );
 
@@ -226,7 +264,7 @@ add_filter( 'template_include', 'pps_ai_chat_template_include', 99 );
  * Create page, assign template/SEO.
  */
 function pps_setup_ai_chat_page() {
-	$version = '1.0.0';
+	$version = '1.0.1';
 	if ( get_option( 'pps_ai_chat_page_version' ) === $version ) {
 		return;
 	}

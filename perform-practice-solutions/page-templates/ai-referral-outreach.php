@@ -6,7 +6,9 @@
  * @package Perform_Practice
  */
 
+pps_ai_ref_register_styles();
 get_header();
+pps_ai_ref_force_styles();
 ?>
 
 <div class="ai-ref-page">

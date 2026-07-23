@@ -141,7 +141,51 @@ add_action( 'customize_register', 'pps_ai_ref_customize_register', 24 );
  * @return bool
  */
 function pps_is_ai_ref_page() {
-	return is_page_template( 'page-templates/ai-referral-outreach.php' );
+	$template = 'page-templates/ai-referral-outreach.php';
+
+	if ( is_page_template( $template ) || is_page_template( 'ai-referral-outreach.php' ) ) {
+		return true;
+	}
+
+	if ( is_page( 'referral-outreach' ) ) {
+		return true;
+	}
+
+	$page_id = get_queried_object_id();
+	if ( $page_id ) {
+		$assigned = get_page_template_slug( $page_id );
+		if ( $template === $assigned || 'ai-referral-outreach.php' === $assigned ) {
+			return true;
+		}
+	}
+
+	$page = get_queried_object();
+	return ( $page instanceof WP_Post && 'page' === $page->post_type && 'referral-outreach' === $page->post_name );
+}
+
+/**
+ * Register referral outreach page stylesheet.
+ */
+function pps_ai_ref_register_styles() {
+	pps_enqueue_theme_style( 'pps-ai-referral-outreach', '/assets/css/ai-referral-outreach.css', array() );
+
+	if ( ! has_action( 'wp_head', 'pps_ai_ref_print_inline_css' ) ) {
+		add_action( 'wp_head', 'pps_ai_ref_print_inline_css', 200 );
+	}
+}
+
+/**
+ * Print referral outreach CSS inline.
+ */
+function pps_ai_ref_print_inline_css() {
+	pps_print_theme_style_inline( 'pps-ai-referral-outreach', '/assets/css/ai-referral-outreach.css' );
+}
+
+/**
+ * Force referral outreach CSS after header.
+ */
+function pps_ai_ref_force_styles() {
+	pps_print_theme_style_inline( 'pps-ai-referral-outreach', '/assets/css/ai-referral-outreach.css' );
 }
 
 /**
@@ -201,16 +245,9 @@ add_filter( 'body_class', 'pps_ai_ref_body_class' );
  * Enqueue page stylesheet.
  */
 function pps_ai_ref_enqueue_assets() {
-	if ( ! pps_is_ai_ref_page() ) {
-		return;
+	if ( pps_is_ai_ref_page() ) {
+		pps_ai_ref_register_styles();
 	}
-
-	wp_enqueue_style(
-		'pps-ai-referral-outreach',
-		PPS_THEME_URI . '/assets/css/ai-referral-outreach.css',
-		array( 'pps-theme' ),
-		PPS_THEME_VERSION
-	);
 }
 add_action( 'wp_enqueue_scripts', 'pps_ai_ref_enqueue_assets', 25 );
 
