@@ -170,6 +170,22 @@ function pps_billing_specialty_pages() {
 
 	// Prefer unique SEO from specialty service page defaults when available.
 	$seo_overrides = array(
+		'allergy-and-immunology-billing-services' => array(
+			'seo_title' => 'Allergy and Immunology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your allergy billing to experts in immunotherapy coding, serum billing, and testing units. Get a free billing service analysis today.',
+		),
+		'anesthesiology-billing-services' => array(
+			'seo_title' => 'Anesthesiology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your anesthesia billing to experts in time-based units, ASA codes, and medical direction modifiers. Get a free billing service analysis today.',
+		),
+		'behavioral-therapy-aba-billing-services' => array(
+			'seo_title' => 'ABA Billing Services | Behavioral Therapy Billing | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your ABA billing to experts in adaptive behavior codes, authorization tracking, and Medicaid requirements. Get a free billing service analysis today.',
+		),
+		'cardiology-billing-services' => array(
+			'seo_title' => 'Cardiology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your cardiology billing to experts in diagnostic testing, cath lab coding, and prior authorizations. Get a free billing service analysis today.',
+		),
 		'pediatrics-billing-services'      => array(
 			'seo_title' => 'Pediatrics Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your pediatric billing to experts in well-child visits, vaccine billing, and Medicaid plans. Get a free billing service analysis today.',
@@ -403,7 +419,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.0' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.1' ) {
 		return;
 	}
 
@@ -422,7 +438,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.0' );
+	update_option( 'pps_billing_mega_version', '1.3.1' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );

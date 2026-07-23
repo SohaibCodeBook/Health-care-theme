@@ -33,6 +33,10 @@ function pps_service_customizer_slugs() {
 		'telemedicine-billing-services'          => __( 'Telemedicine Billing', 'perform-practice' ),
 		'urology-billing-services'               => __( 'Urology Billing', 'perform-practice' ),
 		'wound-care-billing-services'            => __( 'Wound Care Billing', 'perform-practice' ),
+		'allergy-and-immunology-billing-services' => __( 'Allergy and Immunology Billing', 'perform-practice' ),
+		'anesthesiology-billing-services'        => __( 'Anesthesiology Billing', 'perform-practice' ),
+		'behavioral-therapy-aba-billing-services' => __( 'Behavioral Therapy (ABA) Billing', 'perform-practice' ),
+		'cardiology-billing-services'            => __( 'Cardiology Billing', 'perform-practice' ),
 	);
 }
 
@@ -1316,6 +1320,28 @@ function pps_service_defaults_for( $slug ) {
 			'cta_button'     => 'Book a Strategy Session',
 			'cta_button_url' => '#contact',
 		),
+
+		// Part 2 — placeholder design only (full MD copy comes in a later pass).
+		'allergy-and-immunology-billing-services' => pps_service_placeholder_defaults(
+			'Allergy and Immunology',
+			'Allergy and Immunology Billing Services | Perform Practice Solutions',
+			'Outsource your allergy billing to experts in immunotherapy coding, serum billing, and testing units. Get a free billing service analysis today.'
+		),
+		'anesthesiology-billing-services' => pps_service_placeholder_defaults(
+			'Anesthesiology',
+			'Anesthesiology Billing Services | Perform Practice Solutions',
+			'Outsource your anesthesia billing to experts in time-based units, ASA codes, and medical direction modifiers. Get a free billing service analysis today.'
+		),
+		'behavioral-therapy-aba-billing-services' => pps_service_placeholder_defaults(
+			'Behavioral Therapy (ABA)',
+			'ABA Billing Services | Behavioral Therapy Billing | Perform Practice Solutions',
+			'Outsource your ABA billing to experts in adaptive behavior codes, authorization tracking, and Medicaid requirements. Get a free billing service analysis today.'
+		),
+		'cardiology-billing-services' => pps_service_placeholder_defaults(
+			'Cardiology',
+			'Cardiology Billing Services | Perform Practice Solutions',
+			'Outsource your cardiology billing to experts in diagnostic testing, cath lab coding, and prior authorizations. Get a free billing service analysis today.'
+		),
 	);
 
 	if ( isset( $catalog[ $slug ] ) ) {
@@ -1532,32 +1558,39 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.3.7';
+	$content_version = '1.3.8';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
 
 	$title_map = array(
-		'physical-therapy-billing-services'     => 'Physical Therapy Billing Services',
-		'chiropractic-billing-services'         => 'Chiropractic Billing Services',
-		'pain-management-billing-services'      => 'Pain Management Billing Services',
-		'orthopedic-medical-billing-services'   => 'Orthopedic Medical Billing Services',
-		'occupational-therapy-billing-services' => 'Occupational Therapy Billing Services',
-		'speech-therapy-billing-services'       => 'Speech Therapy Billing Services',
-		'pediatrics-billing-services'           => 'Pediatrics Billing Services',
-		'plastic-surgery-billing-services'      => 'Plastic Surgery Billing Services',
-		'podiatry-billing-services'             => 'Podiatry Billing Services',
-		'psychiatry-billing-services'           => 'Psychiatry Billing Services',
-		'psychology-billing-services'           => 'Psychology Billing Services',
-		'pulmonology-billing-services'          => 'Pulmonology Billing Services',
-		'rheumatology-billing-services'         => 'Rheumatology Billing Services',
-		'telemedicine-billing-services'         => 'Telemedicine Billing Services',
-		'urology-billing-services'              => 'Urology Billing Services',
-		'wound-care-billing-services'           => 'Wound Care Billing Services',
+		'physical-therapy-billing-services'       => 'Physical Therapy Billing Services',
+		'chiropractic-billing-services'           => 'Chiropractic Billing Services',
+		'pain-management-billing-services'        => 'Pain Management Billing Services',
+		'orthopedic-medical-billing-services'     => 'Orthopedic Medical Billing Services',
+		'occupational-therapy-billing-services'   => 'Occupational Therapy Billing Services',
+		'speech-therapy-billing-services'         => 'Speech Therapy Billing Services',
+		'pediatrics-billing-services'             => 'Pediatrics Billing Services',
+		'plastic-surgery-billing-services'        => 'Plastic Surgery Billing Services',
+		'podiatry-billing-services'               => 'Podiatry Billing Services',
+		'psychiatry-billing-services'             => 'Psychiatry Billing Services',
+		'psychology-billing-services'             => 'Psychology Billing Services',
+		'pulmonology-billing-services'            => 'Pulmonology Billing Services',
+		'rheumatology-billing-services'           => 'Rheumatology Billing Services',
+		'telemedicine-billing-services'           => 'Telemedicine Billing Services',
+		'urology-billing-services'                => 'Urology Billing Services',
+		'wound-care-billing-services'             => 'Wound Care Billing Services',
+		'allergy-and-immunology-billing-services' => 'Allergy and Immunology Billing Services',
+		'anesthesiology-billing-services'         => 'Anesthesiology Billing Services',
+		'behavioral-therapy-aba-billing-services' => 'Behavioral Therapy (ABA) Billing Services',
+		'cardiology-billing-services'             => 'Cardiology Billing Services',
 	);
 
 	$clear_customizer_slugs = array(
-		'wound-care-billing-services',
+		'allergy-and-immunology-billing-services',
+		'anesthesiology-billing-services',
+		'behavioral-therapy-aba-billing-services',
+		'cardiology-billing-services',
 	);
 
 	foreach ( array_keys( pps_service_customizer_slugs() ) as $slug ) {
@@ -1598,6 +1631,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.3.7' );
+	update_option( 'pps_pt_service_template_version', '1.3.8' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
