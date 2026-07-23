@@ -441,8 +441,9 @@ function pps_ensure_billing_parent_page() {
 
 /**
  * Attach billing specialty pages under Billing Solutions in the primary menu.
+ * Featured services always come first, then specialty pages in catalog order.
  *
- * @param array $child_ids Map of slug => page ID.
+ * @param array $child_ids Map of slug => page ID (canonical order).
  */
 function pps_attach_billing_mega_menu_items( $child_ids ) {
 	$locations = get_nav_menu_locations();
@@ -457,7 +458,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 	}
 
 	$billing_menu_item_id = 0;
-	$existing_child_ids   = array();
+	$menu_item_by_page    = array();
 
 	foreach ( $items as $item ) {
 		if ( pps_is_billing_nav_parent( $item, 0 ) ) {
@@ -473,30 +474,35 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 	update_post_meta( $billing_menu_item_id, '_menu_item_classes', array( 'menu-item', 'pps-mega-billing', 'menu-item-has-children' ) );
 
 	foreach ( $items as $item ) {
-		if ( (int) $item->menu_item_parent === $billing_menu_item_id ) {
-			$existing_child_ids[ (int) $item->object_id ] = (int) $item->ID;
+		if ( (int) $item->menu_item_parent === $billing_menu_item_id && 'page' === $item->object ) {
+			$menu_item_by_page[ (int) $item->object_id ] = (int) $item->ID;
 		}
 	}
 
-	$position = 100;
+	$position = 1;
 	foreach ( $child_ids as $slug => $page_id ) {
-		if ( isset( $existing_child_ids[ $page_id ] ) ) {
+		$page_id = (int) $page_id;
+		if ( ! $page_id ) {
 			continue;
 		}
 
-		wp_update_nav_menu_item(
-			$menu_id,
-			0,
-			array(
-				'menu-item-title'     => get_the_title( $page_id ),
-				'menu-item-object'    => 'page',
-				'menu-item-object-id' => $page_id,
-				'menu-item-type'      => 'post_type',
-				'menu-item-status'    => 'publish',
-				'menu-item-parent-id' => $billing_menu_item_id,
-				'menu-item-position'  => $position++,
-			)
+		$menu_item_id = isset( $menu_item_by_page[ $page_id ] ) ? $menu_item_by_page[ $page_id ] : 0;
+		$args         = array(
+			'menu-item-title'     => get_the_title( $page_id ),
+			'menu-item-object'    => 'page',
+			'menu-item-object-id' => $page_id,
+			'menu-item-type'      => 'post_type',
+			'menu-item-status'    => 'publish',
+			'menu-item-parent-id' => $billing_menu_item_id,
+			'menu-item-position'  => $position,
 		);
+
+		$result = wp_update_nav_menu_item( $menu_id, $menu_item_id, $args );
+		if ( $result && ! is_wp_error( $result ) && ! $menu_item_id ) {
+			$menu_item_by_page[ $page_id ] = (int) $result;
+		}
+
+		$position++;
 	}
 }
 
@@ -504,7 +510,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.3' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.4' ) {
 		return;
 	}
 
@@ -523,7 +529,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.3' );
+	update_option( 'pps_billing_mega_version', '1.3.4' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );
