@@ -186,6 +186,34 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'Cardiology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your cardiology billing to experts in diagnostic testing, cath lab coding, and prior authorizations. Get a free billing service analysis today.',
 		),
+		'dental-billing-services' => array(
+			'seo_title' => 'Dental Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your dental billing to experts in CDT coding, insurance verification, and medical-dental cross coding. Get a free billing service analysis today.',
+		),
+		'dermatology-billing-services' => array(
+			'seo_title' => 'Dermatology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your dermatology billing to experts in lesion coding, biopsy claims, and Mohs surgery billing. Get a free billing service analysis today.',
+		),
+		'emergency-medicine-billing-services' => array(
+			'seo_title' => 'Emergency Medicine Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your emergency medicine billing to experts in E/M leveling, critical care time, and payer downcoding appeals. Get a free billing service analysis today.',
+		),
+		'endocrinology-billing-services' => array(
+			'seo_title' => 'Endocrinology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your endocrinology billing to experts in chronic care management, CGM billing, and complex E/M coding. Get a free billing service analysis today.',
+		),
+		'family-medicine-billing-services' => array(
+			'seo_title' => 'Family Medicine Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your family medicine billing to experts in E/M coding, preventive visit rules, and chronic care management. Get a free billing service analysis today.',
+		),
+		'gastroenterology-billing-services' => array(
+			'seo_title' => 'Gastroenterology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your GI billing to experts in endoscopy coding, screening vs diagnostic colonoscopy rules, and multiple procedure claims. Get a free billing service analysis today.',
+		),
+		'general-surgery-billing-services' => array(
+			'seo_title' => 'General Surgery Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your general surgery billing to experts in global periods, assistant surgeon modifiers, and multiple procedure claims. Get a free billing service analysis today.',
+		),
 		'pediatrics-billing-services'      => array(
 			'seo_title' => 'Pediatrics Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your pediatric billing to experts in well-child visits, vaccine billing, and Medicaid plans. Get a free billing service analysis today.',
@@ -419,7 +447,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.1' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.2' ) {
 		return;
 	}
 
@@ -438,7 +466,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.1' );
+	update_option( 'pps_billing_mega_version', '1.3.2' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );

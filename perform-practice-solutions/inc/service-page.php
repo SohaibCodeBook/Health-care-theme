@@ -37,6 +37,13 @@ function pps_service_customizer_slugs() {
 		'anesthesiology-billing-services'        => __( 'Anesthesiology Billing', 'perform-practice' ),
 		'behavioral-therapy-aba-billing-services' => __( 'Behavioral Therapy (ABA) Billing', 'perform-practice' ),
 		'cardiology-billing-services'            => __( 'Cardiology Billing', 'perform-practice' ),
+		'dental-billing-services'                => __( 'Dental Billing', 'perform-practice' ),
+		'dermatology-billing-services'           => __( 'Dermatology Billing', 'perform-practice' ),
+		'emergency-medicine-billing-services'    => __( 'Emergency Medicine Billing', 'perform-practice' ),
+		'endocrinology-billing-services'         => __( 'Endocrinology Billing', 'perform-practice' ),
+		'family-medicine-billing-services'       => __( 'Family Medicine Billing', 'perform-practice' ),
+		'gastroenterology-billing-services'      => __( 'Gastroenterology Billing', 'perform-practice' ),
+		'general-surgery-billing-services'       => __( 'General Surgery Billing', 'perform-practice' ),
 	);
 }
 
@@ -1342,6 +1349,41 @@ function pps_service_defaults_for( $slug ) {
 			'Cardiology Billing Services | Perform Practice Solutions',
 			'Outsource your cardiology billing to experts in diagnostic testing, cath lab coding, and prior authorizations. Get a free billing service analysis today.'
 		),
+		'dental-billing-services' => pps_service_placeholder_defaults(
+			'Dental',
+			'Dental Billing Services | Perform Practice Solutions',
+			'Outsource your dental billing to experts in CDT coding, insurance verification, and medical-dental cross coding. Get a free billing service analysis today.'
+		),
+		'dermatology-billing-services' => pps_service_placeholder_defaults(
+			'Dermatology',
+			'Dermatology Billing Services | Perform Practice Solutions',
+			'Outsource your dermatology billing to experts in lesion coding, biopsy claims, and Mohs surgery billing. Get a free billing service analysis today.'
+		),
+		'emergency-medicine-billing-services' => pps_service_placeholder_defaults(
+			'Emergency Medicine',
+			'Emergency Medicine Billing Services | Perform Practice Solutions',
+			'Outsource your emergency medicine billing to experts in E/M leveling, critical care time, and payer downcoding appeals. Get a free billing service analysis today.'
+		),
+		'endocrinology-billing-services' => pps_service_placeholder_defaults(
+			'Endocrinology',
+			'Endocrinology Billing Services | Perform Practice Solutions',
+			'Outsource your endocrinology billing to experts in chronic care management, CGM billing, and complex E/M coding. Get a free billing service analysis today.'
+		),
+		'family-medicine-billing-services' => pps_service_placeholder_defaults(
+			'Family Medicine',
+			'Family Medicine Billing Services | Perform Practice Solutions',
+			'Outsource your family medicine billing to experts in E/M coding, preventive visit rules, and chronic care management. Get a free billing service analysis today.'
+		),
+		'gastroenterology-billing-services' => pps_service_placeholder_defaults(
+			'Gastroenterology',
+			'Gastroenterology Billing Services | Perform Practice Solutions',
+			'Outsource your GI billing to experts in endoscopy coding, screening vs diagnostic colonoscopy rules, and multiple procedure claims. Get a free billing service analysis today.'
+		),
+		'general-surgery-billing-services' => pps_service_placeholder_defaults(
+			'General Surgery',
+			'General Surgery Billing Services | Perform Practice Solutions',
+			'Outsource your general surgery billing to experts in global periods, assistant surgeon modifiers, and multiple procedure claims. Get a free billing service analysis today.'
+		),
 	);
 
 	if ( isset( $catalog[ $slug ] ) ) {
@@ -1558,7 +1600,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.3.8';
+	$content_version = '1.3.9';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -1584,13 +1626,23 @@ function pps_assign_specialty_service_templates() {
 		'anesthesiology-billing-services'         => 'Anesthesiology Billing Services',
 		'behavioral-therapy-aba-billing-services' => 'Behavioral Therapy (ABA) Billing Services',
 		'cardiology-billing-services'             => 'Cardiology Billing Services',
+		'dental-billing-services'                 => 'Dental Billing Services',
+		'dermatology-billing-services'            => 'Dermatology Billing Services',
+		'emergency-medicine-billing-services'     => 'Emergency Medicine Billing Services',
+		'endocrinology-billing-services'          => 'Endocrinology Billing Services',
+		'family-medicine-billing-services'        => 'Family Medicine Billing Services',
+		'gastroenterology-billing-services'       => 'Gastroenterology Billing Services',
+		'general-surgery-billing-services'        => 'General Surgery Billing Services',
 	);
 
 	$clear_customizer_slugs = array(
-		'allergy-and-immunology-billing-services',
-		'anesthesiology-billing-services',
-		'behavioral-therapy-aba-billing-services',
-		'cardiology-billing-services',
+		'dental-billing-services',
+		'dermatology-billing-services',
+		'emergency-medicine-billing-services',
+		'endocrinology-billing-services',
+		'family-medicine-billing-services',
+		'gastroenterology-billing-services',
+		'general-surgery-billing-services',
 	);
 
 	foreach ( array_keys( pps_service_customizer_slugs() ) as $slug ) {
@@ -1631,6 +1683,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.3.8' );
+	update_option( 'pps_pt_service_template_version', '1.3.9' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
