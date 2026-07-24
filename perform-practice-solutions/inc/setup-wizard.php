@@ -70,8 +70,9 @@ function pps_theme_activation() {
 			'content' => '',
 		),
 		'contact-us'        => array(
-			'title'   => 'Contact Us',
-			'content' => '<p>Prefer the homepage contact form, or reach us by phone or email.</p>',
+			'title'    => 'Contact Us',
+			'content'  => '<!-- Contact page content is managed via the Contact Us template and Customizer. -->',
+			'template' => 'page-templates/contact.php',
 		),
 	);
 
@@ -81,6 +82,9 @@ function pps_theme_activation() {
 		$existing = get_page_by_path( $slug );
 		if ( $existing ) {
 			$created[ $slug ] = (int) $existing->ID;
+			if ( ! empty( $data['template'] ) ) {
+				update_post_meta( $existing->ID, '_wp_page_template', $data['template'] );
+			}
 			continue;
 		}
 
@@ -102,6 +106,9 @@ function pps_theme_activation() {
 
 		if ( ! is_wp_error( $page_id ) ) {
 			$created[ $slug ] = (int) $page_id;
+			if ( ! empty( $data['template'] ) ) {
+				update_post_meta( $page_id, '_wp_page_template', $data['template'] );
+			}
 		}
 	}
 

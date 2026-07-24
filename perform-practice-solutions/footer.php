@@ -64,7 +64,7 @@
 
 <?php wp_footer(); ?>
 
-<a class="pps-connect-tab" href="#contact">
+<a class="pps-connect-tab" href="<?php echo esc_url( home_url( '/contact-us/#contact' ) ); ?>">
 	<?php esc_html_e( "Let's Connect", 'perform-practice' ); ?>
 	<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 </a>

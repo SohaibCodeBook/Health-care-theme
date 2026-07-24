@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.6.6' );
+define( 'PPS_THEME_VERSION', '2.6.7' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -79,6 +79,7 @@ require_once PPS_THEME_DIR . '/inc/ai-referral-outreach.php';
 require_once PPS_THEME_DIR . '/inc/ai-website-chatbot.php';
 require_once PPS_THEME_DIR . '/inc/ai-front-desk-tools.php';
 require_once PPS_THEME_DIR . '/inc/about.php';
+require_once PPS_THEME_DIR . '/inc/contact.php';
 
 /**
  * Refresh homepage Customizer defaults when content pack updates.

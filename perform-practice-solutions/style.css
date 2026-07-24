@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.6.6
+Version: 2.6.7
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -2332,6 +2332,68 @@ p:last-child {
   display: block;
   background: rgba(220, 38, 38, 0.08);
   color: var(--pps-danger);
+}
+
+/* ==========================================================================
+   Contact Us page
+   ========================================================================== */
+.contact-hero {
+  position: relative;
+  padding: clamp(3.5rem, 8vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  background:
+    radial-gradient(ellipse 55% 70% at 90% 10%, rgba(45, 212, 191, 0.14), transparent 60%),
+    radial-gradient(ellipse 45% 60% at 5% 90%, rgba(37, 99, 235, 0.08), transparent 55%),
+    var(--pps-grad-soft);
+}
+
+.contact-hero__inner {
+  max-width: 46rem;
+}
+
+.contact-hero__title {
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  margin-bottom: 1rem;
+}
+
+.contact-hero__lead {
+  color: var(--pps-muted);
+  font-size: 1.08rem;
+  max-width: 42rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  list-style: none;
+  margin: 1.75rem 0 0;
+  padding: 0;
+}
+
+.contact-hero__chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  color: var(--pps-muted);
+}
+
+.contact-hero__chips i {
+  color: var(--pps-accent);
+}
+
+.contact-hero__chips a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-hero__chips a:hover {
+  color: var(--pps-accent);
+}
+
+.page-template-contact .home-contact {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 /* ==========================================================================
