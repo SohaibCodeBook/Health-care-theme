@@ -6,7 +6,9 @@
  * @package Perform_Practice
  */
 
+pps_contact_register_styles();
 get_header();
+pps_contact_force_styles();
 
 $service_tags = array(
 	__( 'Medical billing', 'perform-practice' ),
@@ -19,6 +21,11 @@ $service_tags = array(
 ?>
 
 <section class="contact-banner" id="top">
+	<div class="contact-banner__bg" aria-hidden="true">
+		<div class="contact-banner__grid-pattern"></div>
+		<div class="contact-banner__orb contact-banner__orb--1"></div>
+		<div class="contact-banner__orb contact-banner__orb--2"></div>
+	</div>
 	<div class="pps-container contact-banner__grid">
 		<div class="contact-banner__content">
 			<p class="pps-eyebrow contact-banner__eyebrow"><?php echo esc_html( page_contact( 'hero_eyebrow' ) ); ?></p>

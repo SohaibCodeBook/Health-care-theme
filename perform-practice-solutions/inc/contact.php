@@ -95,6 +95,58 @@ function pps_is_contact_page() {
 }
 
 /**
+ * Register Contact page stylesheet.
+ */
+function pps_contact_register_styles() {
+	pps_enqueue_theme_style( 'pps-contact', '/assets/css/contact.css', array() );
+
+	if ( ! has_action( 'wp_head', 'pps_contact_print_inline_css' ) ) {
+		add_action( 'wp_head', 'pps_contact_print_inline_css', 200 );
+	}
+}
+
+/**
+ * Print Contact page CSS inline.
+ */
+function pps_contact_print_inline_css() {
+	if ( ! pps_is_contact_page() ) {
+		return;
+	}
+	pps_print_theme_style_inline( 'pps-contact', '/assets/css/contact.css' );
+}
+
+/**
+ * Force Contact page CSS after header.
+ */
+function pps_contact_force_styles() {
+	pps_print_theme_style_inline( 'pps-contact', '/assets/css/contact.css' );
+}
+
+/**
+ * Body class for Contact page.
+ *
+ * @param array $classes Body classes.
+ * @return array
+ */
+function pps_contact_body_class( $classes ) {
+	if ( pps_is_contact_page() ) {
+		$classes[] = 'pps-contact-page';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'pps_contact_body_class' );
+
+/**
+ * Enqueue Contact page stylesheet.
+ */
+function pps_contact_enqueue_assets() {
+	if ( pps_is_contact_page() ) {
+		pps_contact_register_styles();
+	}
+}
+add_action( 'wp_enqueue_scripts', 'pps_contact_enqueue_assets', 25 );
+
+/**
  * SEO title for Contact page.
  *
  * @param string $title Title.
