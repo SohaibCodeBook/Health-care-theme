@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.6.7
+Version: 2.6.8
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -2337,63 +2337,155 @@ p:last-child {
 /* ==========================================================================
    Contact Us page
    ========================================================================== */
-.contact-hero {
+.contact-banner {
   position: relative;
-  padding: clamp(3.5rem, 8vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  padding: calc(var(--pps-header-h) + 2.75rem) 0 4rem;
   background:
-    radial-gradient(ellipse 55% 70% at 90% 10%, rgba(45, 212, 191, 0.14), transparent 60%),
-    radial-gradient(ellipse 45% 60% at 5% 90%, rgba(37, 99, 235, 0.08), transparent 55%),
-    var(--pps-grad-soft);
+    radial-gradient(ellipse 52% 58% at 88% 16%, rgba(37, 99, 235, 0.26), transparent 55%),
+    radial-gradient(ellipse 42% 48% at 10% 88%, rgba(45, 212, 191, 0.16), transparent 50%),
+    linear-gradient(145deg, #07111f 0%, #0c2a3a 45%, #123a4a 100%);
+  color: #fff;
+  overflow: hidden;
 }
 
-.contact-hero__inner {
-  max-width: 46rem;
+.contact-banner__grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
 }
 
-.contact-hero__title {
+.contact-banner__eyebrow {
+  color: var(--pps-accent);
+}
+
+.contact-banner__title {
   font-size: clamp(2rem, 3.8vw, 2.85rem);
+  color: #fff;
+  max-width: 16ch;
   margin-bottom: 1rem;
 }
 
-.contact-hero__lead {
-  color: var(--pps-muted);
+.contact-banner__lead {
+  color: rgba(255, 255, 255, 0.82);
   font-size: 1.08rem;
-  max-width: 42rem;
-  margin-bottom: 1.5rem;
+  max-width: 38rem;
+  margin-bottom: 1.75rem;
 }
 
-.contact-hero__chips {
+.contact-banner__content > * {
+  animation: pps-fade-up 0.7s var(--pps-ease) both;
+}
+
+.contact-banner__content > *:nth-child(1) { animation-delay: 0.05s; }
+.contact-banner__content > *:nth-child(2) { animation-delay: 0.12s; }
+.contact-banner__content > *:nth-child(3) { animation-delay: 0.18s; }
+.contact-banner__content > *:nth-child(4) { animation-delay: 0.24s; }
+
+.contact-banner__visual {
+  position: relative;
+}
+
+.contact-banner-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--pps-radius-xl);
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--pps-shadow-lg);
+}
+
+.contact-banner-card__head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.contact-banner-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 14px;
+  background: rgba(45, 212, 191, 0.16);
+  color: var(--pps-accent);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contact-banner-card__head small {
+  display: block;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.2rem;
+}
+
+.contact-banner-card__head strong {
+  display: block;
+  color: #fff;
+  font-family: var(--pps-font-display);
+  font-size: 1.05rem;
+}
+
+.contact-banner-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
+  gap: 0.55rem;
   list-style: none;
-  margin: 1.75rem 0 0;
+  margin: 0;
   padding: 0;
 }
 
-.contact-hero__chips li {
+.contact-banner-card__tags li {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.82rem;
+}
+
+.contact-banner-card__footer {
+  margin-top: 1.25rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-banner-card__pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.92rem;
-  color: var(--pps-muted);
-}
-
-.contact-hero__chips i {
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(45, 212, 191, 0.12);
   color: var(--pps-accent);
-}
-
-.contact-hero__chips a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.contact-hero__chips a:hover {
-  color: var(--pps-accent);
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 .page-template-contact .home-contact {
-  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2.75rem, 5vw, 4rem);
+}
+
+@media (max-width: 991.98px) {
+  .contact-banner__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-banner__title {
+    max-width: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-banner {
+    padding: calc(var(--pps-header-h) + 2rem) 0 3rem;
+  }
 }
 
 /* ==========================================================================

@@ -7,40 +7,51 @@
  */
 
 get_header();
+
+$service_tags = array(
+	__( 'Medical billing', 'perform-practice' ),
+	__( 'Credentialing', 'perform-practice' ),
+	__( 'Digital marketing', 'perform-practice' ),
+	__( 'Virtual staffing', 'perform-practice' ),
+	__( 'Coaching', 'perform-practice' ),
+	__( 'AI automation', 'perform-practice' ),
+);
 ?>
 
-<section class="contact-hero" id="top">
-	<div class="pps-container contact-hero__inner">
-		<p class="pps-eyebrow"><?php echo esc_html( page_contact( 'hero_eyebrow' ) ); ?></p>
-		<h1 class="contact-hero__title"><?php echo esc_html( page_contact( 'hero_title' ) ); ?></h1>
-		<p class="contact-hero__lead"><?php echo esc_html( page_contact( 'hero_lead' ) ); ?></p>
-		<div class="pps-btn-group">
-			<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( page_contact( 'hero_cta_url' ) ); ?>">
+<section class="contact-banner" id="top">
+	<div class="pps-container contact-banner__grid">
+		<div class="contact-banner__content">
+			<p class="pps-eyebrow contact-banner__eyebrow"><?php echo esc_html( page_contact( 'hero_eyebrow' ) ); ?></p>
+			<h1 class="contact-banner__title"><?php echo esc_html( page_contact( 'hero_title' ) ); ?></h1>
+			<p class="contact-banner__lead"><?php echo esc_html( page_contact( 'hero_lead' ) ); ?></p>
+			<a class="pps-btn pps-btn--light" href="<?php echo esc_url( page_contact( 'hero_cta_url' ) ); ?>">
 				<?php echo esc_html( page_contact( 'hero_cta' ) ); ?>
 				<i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
 			</a>
-			<a class="pps-btn pps-btn--ghost" href="<?php echo esc_url( 'tel:' . preg_replace( '/[^0-9+]/', '', site_data( 'phone' ) ) ); ?>">
-				<?php echo esc_html( site_data( 'phone' ) ); ?>
-			</a>
 		</div>
-		<ul class="contact-hero__chips" aria-label="<?php esc_attr_e( 'Contact options', 'perform-practice' ); ?>">
-			<li>
-				<i class="fa-solid fa-phone" aria-hidden="true"></i>
-				<a href="<?php echo esc_url( 'tel:' . preg_replace( '/[^0-9+]/', '', site_data( 'phone' ) ) ); ?>">
-					<?php echo esc_html( site_data( 'phone' ) ); ?>
-				</a>
-			</li>
-			<li>
-				<i class="fa-solid fa-envelope" aria-hidden="true"></i>
-				<a href="<?php echo esc_url( 'mailto:' . site_data( 'email' ) ); ?>">
-					<?php echo esc_html( site_data( 'email' ) ); ?>
-				</a>
-			</li>
-			<li>
-				<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-				<span><?php echo esc_html( site_data( 'address' ) ); ?></span>
-			</li>
-		</ul>
+
+		<aside class="contact-banner__visual pps-reveal" aria-hidden="true">
+			<div class="contact-banner-card">
+				<div class="contact-banner-card__head">
+					<span class="contact-banner-card__icon"><i class="fa-solid fa-headset"></i></span>
+					<div>
+						<small><?php esc_html_e( 'Practice support', 'perform-practice' ); ?></small>
+						<strong><?php esc_html_e( 'One conversation away', 'perform-practice' ); ?></strong>
+					</div>
+				</div>
+				<ul class="contact-banner-card__tags">
+					<?php foreach ( $service_tags as $tag ) : ?>
+						<li><?php echo esc_html( $tag ); ?></li>
+					<?php endforeach; ?>
+				</ul>
+				<div class="contact-banner-card__footer">
+					<span class="contact-banner-card__pill">
+						<i class="fa-solid fa-clock" aria-hidden="true"></i>
+						<?php esc_html_e( 'Typical reply within 1 business day', 'perform-practice' ); ?>
+					</span>
+				</div>
+			</div>
+		</aside>
 	</div>
 </section>
 

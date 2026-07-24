@@ -19,8 +19,8 @@ function pps_contact_defaults() {
 
 		'hero_eyebrow' => 'Contact Us',
 		'hero_title'   => 'Let\'s talk about your practice',
-		'hero_lead'    => 'Whether you need billing support, credentialing help, marketing, virtual staffing, coaching, or AI automation — tell us what you\'re working on and our team will follow up quickly.',
-		'hero_cta'     => 'Scroll to the form',
+		'hero_lead'    => 'Tell us what you\'re working on — billing, credentialing, marketing, staffing, coaching, or AI — and our team will follow up with a clear next step.',
+		'hero_cta'     => 'Go to the form',
 		'hero_cta_url' => '#contact',
 
 		'contact_eyebrow'    => 'Let\'s Chat',
