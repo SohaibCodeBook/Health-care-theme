@@ -158,7 +158,7 @@ function pps_billing_specialty_pages() {
 		'Oncology Billing Services',
 		'Ophthalmology Billing Services',
 		'Outpatient Surgery Centers Billing Services',
-		'Pathology Services Billing Services',
+		'Pathology Billing Services',
 		'Pediatrics Billing Services',
 		'Plastic Surgery Billing Services',
 		'Podiatry Billing Services',
@@ -271,8 +271,8 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'Outpatient Surgery Centers Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your ASC billing to experts in facility claims, surgical coding, and implant billing. Get a free billing service analysis today.',
 		),
-		'pathology-services-billing-services' => array(
-			'seo_title' => 'Pathology Services Billing Services | Perform Practice Solutions',
+		'pathology-billing-services' => array(
+			'seo_title' => 'Pathology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your pathology billing to experts in professional and technical components, specimen coding, and payer edits. Get a free billing service analysis today.',
 		),
 		'pediatrics-billing-services'      => array(
@@ -515,10 +515,49 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 }
 
 /**
+ * One-time rename: pathology-services-billing-services → pathology-billing-services.
+ */
+function pps_migrate_pathology_billing_page_slug() {
+	if ( get_option( 'pps_pathology_slug_migrated' ) ) {
+		return;
+	}
+
+	$old_slug  = 'pathology-services-billing-services';
+	$new_slug  = 'pathology-billing-services';
+	$new_title = 'Pathology Billing Services';
+	$seo_title = 'Pathology Billing Services | Perform Practice Solutions';
+
+	$old_page = get_page_by_path( $old_slug );
+	if ( ! $old_page ) {
+		update_option( 'pps_pathology_slug_migrated', '1' );
+		return;
+	}
+
+	$new_page = get_page_by_path( $new_slug );
+	if ( $new_page && (int) $new_page->ID !== (int) $old_page->ID ) {
+		wp_trash_post( $old_page->ID );
+		update_option( 'pps_pathology_slug_migrated', '1' );
+		return;
+	}
+
+	wp_update_post(
+		array(
+			'ID'         => $old_page->ID,
+			'post_name'  => $new_slug,
+			'post_title' => $new_title,
+		)
+	);
+	update_post_meta( $old_page->ID, '_pps_seo_title', sanitize_text_field( $seo_title ) );
+	update_option( 'pps_pathology_slug_migrated', '1' );
+}
+
+/**
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.5' ) {
+	pps_migrate_pathology_billing_page_slug();
+
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.6' ) {
 		return;
 	}
 
@@ -537,7 +576,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.5' );
+	update_option( 'pps_billing_mega_version', '1.3.6' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );

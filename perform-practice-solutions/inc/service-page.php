@@ -57,7 +57,7 @@ function pps_service_customizer_slugs() {
 		'nursing-homes-assisted-living-facilities-billing-services' => __( 'Nursing Homes & Assisted Living Billing', 'perform-practice' ),
 		'obstetrics-and-gynecology-billing-services' => __( 'Obstetrics and Gynecology Billing', 'perform-practice' ),
 		'outpatient-surgery-centers-billing-services' => __( 'Outpatient Surgery Centers Billing', 'perform-practice' ),
-		'pathology-services-billing-services'    => __( 'Pathology Services Billing', 'perform-practice' ),
+		'pathology-billing-services'    => __( 'Pathology Billing', 'perform-practice' ),
 		'radiology-billing-services'             => __( 'Radiology Billing', 'perform-practice' ),
 	);
 }
@@ -2843,9 +2843,9 @@ function pps_service_defaults_for( $slug ) {
 			'Outpatient Surgery Centers Billing Services | Perform Practice Solutions',
 			'Outsource your ASC billing to experts in facility claims, surgical coding, and implant billing. Get a free billing service analysis today.'
 		),
-		'pathology-services-billing-services' => pps_service_placeholder_defaults(
-			'Pathology Services',
-			'Pathology Services Billing Services | Perform Practice Solutions',
+		'pathology-billing-services' => pps_service_placeholder_defaults(
+			'Pathology',
+			'Pathology Billing Services | Perform Practice Solutions',
 			'Outsource your pathology billing to experts in professional and technical components, specimen coding, and payer edits. Get a free billing service analysis today.'
 		),
 		'obstetrics-and-gynecology-billing-services' => array(
@@ -3212,10 +3212,12 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.4.7';
+	$content_version = '1.4.8';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
+
+	pps_migrate_pathology_billing_page_slug();
 
 	$title_map = array(
 		'physical-therapy-billing-services'       => 'Physical Therapy Billing Services',
@@ -3258,7 +3260,7 @@ function pps_assign_specialty_service_templates() {
 		'nursing-homes-assisted-living-facilities-billing-services' => 'Nursing Homes & Assisted Living Facilities Billing Services',
 		'obstetrics-and-gynecology-billing-services' => 'Obstetrics and Gynecology Billing Services',
 		'outpatient-surgery-centers-billing-services' => 'Outpatient Surgery Centers Billing Services',
-		'pathology-services-billing-services'     => 'Pathology Services Billing Services',
+		'pathology-billing-services'     => 'Pathology Billing Services',
 		'radiology-billing-services'              => 'Radiology Billing Services',
 	);
 
@@ -3305,6 +3307,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.4.7' );
+	update_option( 'pps_pt_service_template_version', '1.4.8' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );
