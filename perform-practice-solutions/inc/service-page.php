@@ -55,8 +55,10 @@ function pps_service_customizer_slugs() {
 		'ophthalmology-billing-services'         => __( 'Ophthalmology Billing', 'perform-practice' ),
 		'labs-billing-services'                  => __( 'Labs Billing', 'perform-practice' ),
 		'nursing-homes-assisted-living-facilities-billing-services' => __( 'Nursing Homes & Assisted Living Billing', 'perform-practice' ),
+		'obstetrics-and-gynecology-billing-services' => __( 'Obstetrics and Gynecology Billing', 'perform-practice' ),
 		'outpatient-surgery-centers-billing-services' => __( 'Outpatient Surgery Centers Billing', 'perform-practice' ),
 		'pathology-services-billing-services'    => __( 'Pathology Services Billing', 'perform-practice' ),
+		'radiology-billing-services'             => __( 'Radiology Billing', 'perform-practice' ),
 	);
 }
 
@@ -2846,6 +2848,16 @@ function pps_service_defaults_for( $slug ) {
 			'Pathology Services Billing Services | Perform Practice Solutions',
 			'Outsource your pathology billing to experts in professional and technical components, specimen coding, and payer edits. Get a free billing service analysis today.'
 		),
+		'obstetrics-and-gynecology-billing-services' => pps_service_placeholder_defaults(
+			'Obstetrics and Gynecology',
+			'Obstetrics and Gynecology Billing Services | Perform Practice Solutions',
+			'Outsource your OB/GYN billing to experts in prenatal visit coding, global maternity packages, and surgical claim rules. Get a free billing service analysis today.'
+		),
+		'radiology-billing-services' => pps_service_placeholder_defaults(
+			'Radiology',
+			'Radiology Billing Services | Perform Practice Solutions',
+			'Outsource your radiology billing to experts in professional and technical components, modality coding, and payer fee schedules. Get a free billing service analysis today.'
+		),
 	);
 
 	if ( isset( $catalog[ $slug ] ) ) {
@@ -3062,7 +3074,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.4.5';
+	$content_version = '1.4.6';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -3106,8 +3118,10 @@ function pps_assign_specialty_service_templates() {
 		'ophthalmology-billing-services'          => 'Ophthalmology Billing Services',
 		'labs-billing-services'                   => 'Labs Billing Services',
 		'nursing-homes-assisted-living-facilities-billing-services' => 'Nursing Homes & Assisted Living Facilities Billing Services',
+		'obstetrics-and-gynecology-billing-services' => 'Obstetrics and Gynecology Billing Services',
 		'outpatient-surgery-centers-billing-services' => 'Outpatient Surgery Centers Billing Services',
 		'pathology-services-billing-services'     => 'Pathology Services Billing Services',
+		'radiology-billing-services'              => 'Radiology Billing Services',
 	);
 
 	$clear_customizer_slugs = array();
@@ -3150,6 +3164,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.4.5' );
+	update_option( 'pps_pt_service_template_version', '1.4.6' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );

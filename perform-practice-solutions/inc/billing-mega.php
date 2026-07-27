@@ -263,6 +263,10 @@ function pps_billing_specialty_pages() {
 			'seo_title' => 'Ophthalmology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your ophthalmology billing to experts in eye codes vs E/M, cataract co-management, and injection billing. Get a free billing service analysis today.',
 		),
+		'obstetrics-and-gynecology-billing-services' => array(
+			'seo_title' => 'Obstetrics and Gynecology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your OB/GYN billing to experts in prenatal visit coding, global maternity packages, and surgical claim rules. Get a free billing service analysis today.',
+		),
 		'outpatient-surgery-centers-billing-services' => array(
 			'seo_title' => 'Outpatient Surgery Centers Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your ASC billing to experts in facility claims, surgical coding, and implant billing. Get a free billing service analysis today.',
@@ -294,6 +298,10 @@ function pps_billing_specialty_pages() {
 		'pulmonology-billing-services'     => array(
 			'seo_title' => 'Pulmonology Billing Services | Perform Practice Solutions',
 			'seo_desc'  => 'Outsource your pulmonology billing to experts in PFT coding, sleep study claims, and chronic respiratory care programs. Get a free billing service analysis today.',
+		),
+		'radiology-billing-services'       => array(
+			'seo_title' => 'Radiology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your radiology billing to experts in professional and technical components, modality coding, and payer fee schedules. Get a free billing service analysis today.',
 		),
 		'rheumatology-billing-services'    => array(
 			'seo_title' => 'Rheumatology Billing Services | Perform Practice Solutions',
@@ -510,7 +518,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.4' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.5' ) {
 		return;
 	}
 
@@ -529,7 +537,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.4' );
+	update_option( 'pps_billing_mega_version', '1.3.5' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );
