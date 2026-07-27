@@ -2848,15 +2848,153 @@ function pps_service_defaults_for( $slug ) {
 			'Pathology Services Billing Services | Perform Practice Solutions',
 			'Outsource your pathology billing to experts in professional and technical components, specimen coding, and payer edits. Get a free billing service analysis today.'
 		),
-		'obstetrics-and-gynecology-billing-services' => pps_service_placeholder_defaults(
-			'Obstetrics and Gynecology',
-			'Obstetrics and Gynecology Billing Services | Perform Practice Solutions',
-			'Outsource your OB/GYN billing to experts in prenatal visit coding, global maternity packages, and surgical claim rules. Get a free billing service analysis today.'
+		'obstetrics-and-gynecology-billing-services' => array(
+			'seo_title' => 'OBGYN Medical Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your OBGYN billing to experts in global maternity billing, ultrasound coding, and well-woman visit rules. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'OBGYN Medical Billing Services',
+			'hero_title'      => 'OBGYN Billing That Keeps Maternity and Gynecology Revenue Whole',
+			'hero_lead'       => 'OBGYN medical billing services manage global maternity billing, ultrasound coding, and well-woman visit rules so OBGYN practices collect fully across obstetric and gynecologic care. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource OBGYN Medical Billing Services?',
+			'problem_text'         => 'Outsourcing OBGYN billing gives your practice specialists who understand global maternity billing packages, antepartum visit unbundling rules, ultrasound frequency limits, and the well-woman versus problem visit distinction payers scrutinize closely. OBGYN blends bundled obstetric care, high-frequency imaging, and surgical gynecology on the same patients, and each carries its own billing logic.',
+			'problem_text_2'       => 'A patient who transfers care mid-pregnancy, delivers by unplanned C-section, or needs more ultrasounds than the global package assumes creates billing complexity most generic billers miss. Perform Practice Solutions bills daily, unbundles maternity care correctly, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Front desk partnership',
+			'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'OBGYN Medical Billing Services, Done Right',
+			'offer_lead'    => 'Full-service OBGYN medical billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for OBGYN practices',
+			'offer_2'       => 'Global maternity package billing and antepartum unbundling for transferred or incomplete care',
+			'offer_3'       => 'Ultrasound coding within frequency and medical necessity limits',
+			'offer_4'       => 'Well-woman visit and problem visit same-day billing with modifier 25',
+			'offer_5'       => 'Delivery coding for vaginal, C-section, and VBAC deliveries',
+			'offer_6'       => 'Gynecologic surgery coding with global period tracking',
+			'offer_7'       => 'Prior authorization management for procedures and high-risk obstetric care',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free OBGYN billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, unbundling errors, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our OBGYN Medical Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, maternity package billing, and ultrasound frequency compliance to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules and global maternity edits, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New OBGYN billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your OBGYN billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'OBGYN billing questions we hear most',
+			'faq_1_q'     => 'What is OBGYN medical billing?',
+			'faq_1_a'     => 'OBGYN medical billing is the coding and claims process for obstetric and gynecologic practices, covering global maternity packages, ultrasound imaging, well-woman visits, and gynecologic surgery. It requires unbundling maternity care correctly when patients transfer or deliver unexpectedly, since obstetric billing follows different rules than standard visit-based specialties.',
+			'faq_2_q'     => 'Why should OBGYN practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing OBGYN billing gives your practice specialists in global maternity billing, ultrasound frequency rules, and well-woman visit coding. Because OBGYN blends bundled obstetric packages with high-frequency imaging and surgical gynecology, specialized billing captures revenue that generic billers miss when care does not fit the standard package.',
+			'faq_3_q'     => 'How much do OBGYN billing services cost?',
+			'faq_3_a'     => 'OBGYN billing services typically charge a percentage of monthly collections. Because global maternity unbundling errors and undercounted ultrasounds are common, recovered revenue often exceeds the fee. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'How does global maternity billing work?',
+			'faq_4_a'     => 'Global maternity billing bundles routine antepartum care, delivery, and postpartum care into a single package code, but care must be unbundled and billed separately when a patient transfers practices mid-pregnancy, delivers with a different provider, or receives incomplete care. Billing the global package when care was incomplete is a common OBGYN revenue leak.',
+			'faq_5_q'     => 'Can a well-woman visit and a problem visit be billed on the same day?',
+			'faq_5_a'     => 'Yes, when documentation supports a separately identifiable problem addressed during the preventive well-woman exam, using modifier 25 to bill both. OBGYN practices routinely give away problem visits inside annual exams when this modifier is not applied or the documentation split is unclear.',
+			'faq_6_q'     => 'Why do OBGYN claims get denied?',
+			'faq_6_a'     => 'OBGYN claims are most often denied for global maternity package errors when care was not complete, ultrasounds billed past frequency or medical necessity limits, and missing modifier 25 on combined well-woman and problem visits. Because obstetric care spans many months and providers, reconciling the full pregnancy episode against what was billed prevents most of these denials.',
+
+			'cta_title'      => 'Ready to collect fully across obstetric and gynecologic care?',
+			'cta_text'       => 'Let\'s map a billing strategy around your OBGYN practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
-		'radiology-billing-services' => pps_service_placeholder_defaults(
-			'Radiology',
-			'Radiology Billing Services | Perform Practice Solutions',
-			'Outsource your radiology billing to experts in professional and technical components, modality coding, and payer fee schedules. Get a free billing service analysis today.'
+		'radiology-billing-services' => array(
+			'seo_title' => 'Radiology Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your radiology billing to experts in professional vs technical component splits, modality coding, and prior authorizations. Get a free billing service analysis today.',
+
+			'hero_eyebrow'    => 'Radiology Billing Services',
+			'hero_title'      => 'Radiology Billing That Captures Every Study and Interpretation',
+			'hero_lead'       => 'Radiology billing services manage professional and technical component billing, modality-specific coding, and prior authorizations so radiology practices are paid for every study read and performed. Perform Practice Solutions submits claims daily and gives you full visibility into every claim from submission to payment.',
+			'hero_cta'        => 'Book a Strategy Session',
+			'hero_cta_url'    => '#contact',
+			'hero_stat'       => '3 weeks',
+			'hero_stat_label' => 'average bill-to-paid time',
+
+			'problem_eyebrow'      => 'Why Outsource',
+			'problem_title'        => 'Why Outsource Radiology Billing Services?',
+			'problem_text'         => 'Outsourcing radiology billing gives your practice specialists who understand professional versus technical component splits, modality-specific coding across X-ray, CT, MRI, and ultrasound, and the prior authorization load that comes with advanced imaging. Radiology bills at extremely high volume across many modalities, and small per-study coding errors compound fast across thousands of studies a month.',
+			'problem_text_2'       => 'Bundling edits between related studies, contrast administration billing, and interventional radiology procedures add layers most generic billers cannot manage. Perform Practice Solutions bills daily, applies component and modality rules correctly, and shows you where every dollar stands.',
+			'problem_note'         => 'We are on your team, and we want you to get paid.',
+			'problem_card_1_title' => 'Transparent billing',
+			'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
+			'problem_card_2_title' => 'Referral partnership',
+			'problem_card_2_text'  => 'We coach your intake and ordering teams so clean study data goes out and clean payments come back.',
+
+			'offer_eyebrow' => 'What You Get',
+			'offer_title'   => 'Radiology Billing Services, Done Right',
+			'offer_lead'    => 'Full-service radiology billing built for cleaner claims, faster reimbursement, and clearer reporting.',
+			'offer_1'       => 'Full revenue cycle management for radiology practices',
+			'offer_2'       => 'Professional and technical component modifier compliance',
+			'offer_3'       => 'Modality-specific coding for X-ray, CT, MRI, ultrasound, and nuclear medicine',
+			'offer_4'       => 'Contrast administration and supply billing',
+			'offer_5'       => 'Interventional radiology procedure coding with global period tracking',
+			'offer_6'       => 'Prior authorization management for advanced imaging studies',
+			'offer_7'       => 'Multiple procedure and bundling edit compliance',
+			'offer_8'       => 'Monthly report reviews and quarterly deep analysis',
+
+			'analysis_eyebrow' => 'Free Billing Analysis',
+			'analysis_title'   => 'Free radiology billing service analysis',
+			'analysis_text'    => 'Want to see how your current biller rates? Request a free billing service analysis and get an honest look at your denials, component billing errors, and recoverable revenue.',
+			'analysis_cta'     => 'Get Your Free Billing Analysis',
+			'analysis_cta_url' => '#contact',
+
+			'process_eyebrow' => 'How It Works',
+			'process_title'   => 'How Our Radiology Billing Services Work',
+			'process_1_title' => 'Connect and audit',
+			'process_1_text'  => 'We review your current claims, component modifier usage, and authorization workflows to find where revenue is leaking.',
+			'process_2_title' => 'Bill daily with precision',
+			'process_2_text'  => 'Claims are scrubbed against payer rules, bundling edits, and modality-specific requirements, then submitted every day.',
+			'process_3_title' => 'Recover and report',
+			'process_3_text'  => 'We chase unpaid claims, manage patient balances, and review performance with you every month.',
+
+			'promo_title'   => 'New radiology billing clients',
+			'promo_text'    => 'Get three months of free Front Desk 101 Coaching and Training when you switch your radiology billing to Perform Practice Solutions.',
+			'promo_cta'     => 'Claim This Offer',
+			'promo_cta_url' => '#contact',
+
+			'faq_eyebrow' => 'FAQs',
+			'faq_title'   => 'Radiology billing questions we hear most',
+			'faq_1_q'     => 'What is radiology billing?',
+			'faq_1_a'     => 'Radiology billing is the coding and claims process for imaging practices, covering professional and technical component billing, modality-specific codes across X-ray, CT, MRI, and ultrasound, and prior authorizations for advanced imaging. It requires precise component splits since many radiology groups read studies without owning the imaging equipment.',
+			'faq_2_q'     => 'Why should radiology practices outsource their billing?',
+			'faq_2_a'     => 'Outsourcing radiology billing gives your practice specialists in component modifiers, modality-specific coding, and advanced imaging authorizations. Because radiology bills at extremely high volume across many study types, specialized billing prevents the small per-study errors that compound significantly across thousands of monthly claims.',
+			'faq_3_q'     => 'How much do radiology billing services cost?',
+			'faq_3_a'     => 'Radiology billing services typically charge a percentage of monthly collections, often reflecting high claim volume. Because component modifier and bundling errors are common at scale, specialized billing usually recovers well beyond the fee. Request a free billing analysis to see what your practice could recover.',
+			'faq_4_q'     => 'What is the difference between professional and technical component billing in radiology?',
+			'faq_4_a'     => 'The technical component covers the imaging equipment, facility, and staff performing the study, while the professional component covers the radiologist\'s interpretation and report. Radiology groups that read studies without owning the equipment must bill only the professional component using modifier 26, and misapplying this modifier is a frequent cause of denials.',
+			'faq_5_q'     => 'Do advanced imaging studies require prior authorization?',
+			'faq_5_a'     => 'Yes, most advanced imaging studies including MRI, CT, and nuclear medicine studies require prior authorization from commercial payers before the study is performed. Studies performed without authorization are frequently denied in full, making upfront verification essential to protecting revenue on high-value imaging.',
+			'faq_6_q'     => 'Why do radiology claims get denied?',
+			'faq_6_a'     => 'Radiology claims are most often denied for missing or incorrect component modifiers, missing prior authorizations on advanced imaging, and bundling errors when multiple related studies are performed in the same session. Because radiology operates at high volume, even a small per-claim error rate creates significant cumulative revenue loss.',
+
+			'cta_title'      => 'Ready to get paid for every study you read?',
+			'cta_text'       => 'Let\'s map a billing strategy around your radiology practice for cleaner claims, faster cash flow, and less admin stress.',
+			'cta_button'     => 'Book a Strategy Session',
+			'cta_button_url' => '#contact',
 		),
 	);
 
@@ -3074,7 +3212,7 @@ add_action( 'wp', 'pps_skip_generic_seo_meta_on_service_pages' );
  * Assign specialty template + SEO to all registered specialty billing pages.
  */
 function pps_assign_specialty_service_templates() {
-	$content_version = '1.4.6';
+	$content_version = '1.4.7';
 	if ( get_option( 'pps_specialty_service_pages_version' ) === $content_version ) {
 		return;
 	}
@@ -3124,7 +3262,10 @@ function pps_assign_specialty_service_templates() {
 		'radiology-billing-services'              => 'Radiology Billing Services',
 	);
 
-	$clear_customizer_slugs = array();
+	$clear_customizer_slugs = array(
+		'obstetrics-and-gynecology-billing-services',
+		'radiology-billing-services',
+	);
 
 	foreach ( array_keys( pps_service_customizer_slugs() ) as $slug ) {
 		$page = get_page_by_path( $slug );
@@ -3164,6 +3305,6 @@ function pps_assign_specialty_service_templates() {
 	}
 
 	update_option( 'pps_specialty_service_pages_version', $content_version );
-	update_option( 'pps_pt_service_template_version', '1.4.6' );
+	update_option( 'pps_pt_service_template_version', '1.4.7' );
 }
 add_action( 'after_setup_theme', 'pps_assign_specialty_service_templates', 40 );

@@ -264,8 +264,8 @@ function pps_billing_specialty_pages() {
 			'seo_desc'  => 'Outsource your ophthalmology billing to experts in eye codes vs E/M, cataract co-management, and injection billing. Get a free billing service analysis today.',
 		),
 		'obstetrics-and-gynecology-billing-services' => array(
-			'seo_title' => 'Obstetrics and Gynecology Billing Services | Perform Practice Solutions',
-			'seo_desc'  => 'Outsource your OB/GYN billing to experts in prenatal visit coding, global maternity packages, and surgical claim rules. Get a free billing service analysis today.',
+			'seo_title' => 'OBGYN Medical Billing Services | Perform Practice Solutions',
+			'seo_desc'  => 'Outsource your OBGYN billing to experts in global maternity billing, ultrasound coding, and well-woman visit rules. Get a free billing service analysis today.',
 		),
 		'outpatient-surgery-centers-billing-services' => array(
 			'seo_title' => 'Outpatient Surgery Centers Billing Services | Perform Practice Solutions',
@@ -301,7 +301,7 @@ function pps_billing_specialty_pages() {
 		),
 		'radiology-billing-services'       => array(
 			'seo_title' => 'Radiology Billing Services | Perform Practice Solutions',
-			'seo_desc'  => 'Outsource your radiology billing to experts in professional and technical components, modality coding, and payer fee schedules. Get a free billing service analysis today.',
+			'seo_desc'  => 'Outsource your radiology billing to experts in professional vs technical component splits, modality coding, and prior authorizations. Get a free billing service analysis today.',
 		),
 		'rheumatology-billing-services'    => array(
 			'seo_title' => 'Rheumatology Billing Services | Perform Practice Solutions',
