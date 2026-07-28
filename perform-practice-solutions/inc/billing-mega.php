@@ -351,6 +351,72 @@ function pps_all_billing_child_pages() {
 }
 
 /**
+ * Specialty tiles for the Medical Billing Solutions page grid (phase 1: featured six).
+ *
+ * @return array<int, array{slug:string,label:string,abbr:string,tone:int,url:string,is_new:bool,search:string}>
+ */
+function pps_mbs_specialty_grid_items() {
+	$display = array(
+		'physical-therapy-billing-services'     => array(
+			'label' => 'Physical Therapy',
+			'abbr'  => 'PT',
+			'tone'  => 1,
+		),
+		'chiropractic-billing-services'         => array(
+			'label' => 'Chiropractic',
+			'abbr'  => 'CH',
+			'tone'  => 2,
+		),
+		'pain-management-billing-services'      => array(
+			'label' => 'Pain Management',
+			'abbr'  => 'PM',
+			'tone'  => 3,
+		),
+		'orthopedic-medical-billing-services'   => array(
+			'label' => 'Orthopedic',
+			'abbr'  => 'OR',
+			'tone'  => 4,
+		),
+		'occupational-therapy-billing-services' => array(
+			'label' => 'Occupational Therapy',
+			'abbr'  => 'OT',
+			'tone'  => 5,
+		),
+		'speech-therapy-billing-services'       => array(
+			'label' => 'Speech Therapy',
+			'abbr'  => 'ST',
+			'tone'  => 6,
+		),
+	);
+
+	$items = array();
+	foreach ( pps_billing_featured_pages() as $page ) {
+		$slug = $page['slug'];
+		if ( ! isset( $display[ $slug ] ) ) {
+			continue;
+		}
+
+		$row = $display[ $slug ];
+		$items[] = array(
+			'slug'    => $slug,
+			'label'   => $row['label'],
+			'abbr'    => $row['abbr'],
+			'tone'    => $row['tone'],
+			'url'     => home_url( '/' . $slug . '/' ),
+			'is_new'  => ! empty( $page['is_new'] ),
+			'search'  => strtolower( $row['label'] . ' ' . $row['abbr'] . ' ' . str_replace( '-', ' ', $slug ) ),
+		);
+	}
+
+	/**
+	 * Filter specialty grid tiles on the Medical Billing Solutions page.
+	 *
+	 * @param array $items Grid items.
+	 */
+	return apply_filters( 'pps_mbs_specialty_grid_items', $items );
+}
+
+/**
  * Create or update a billing specialty page (top-level for flat URLs).
  *
  * @param array $data Page data.

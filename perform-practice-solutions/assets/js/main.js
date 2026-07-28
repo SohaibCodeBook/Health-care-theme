@@ -192,4 +192,29 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // Medical Billing — specialty grid search
+  var specialtySearch = document.getElementById('mbs-specialty-search');
+  var specialtyGrid = document.getElementById('mbs-specialty-grid');
+  var specialtyEmpty = document.getElementById('mbs-specialty-empty');
+
+  if (specialtySearch && specialtyGrid) {
+    var specialtyTiles = specialtyGrid.querySelectorAll('.mbs-specialty-tile');
+
+    specialtySearch.addEventListener('input', function () {
+      var query = specialtySearch.value.trim().toLowerCase();
+      var visibleCount = 0;
+
+      specialtyTiles.forEach(function (tile) {
+        var haystack = tile.getAttribute('data-search') || tile.textContent || '';
+        var matches = !query || haystack.indexOf(query) !== -1;
+        tile.classList.toggle('is-hidden', !matches);
+        if (matches) visibleCount += 1;
+      });
+
+      if (specialtyEmpty) {
+        specialtyEmpty.hidden = visibleCount > 0;
+      }
+    });
+  }
 })();

@@ -3604,6 +3604,174 @@ p:last-child {
   font-size: 0.98rem;
 }
 
+/* Medical Billing — searchable specialty grid */
+.mbs-specialties {
+  background:
+    radial-gradient(ellipse 55% 45% at 12% 0%, rgba(45, 212, 191, 0.08), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 88% 100%, rgba(37, 99, 235, 0.1), transparent 50%),
+    linear-gradient(180deg, #061525 0%, #07111f 100%);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.mbs-specialties__eyebrow {
+  color: var(--pps-accent);
+}
+
+.mbs-specialties__title {
+  color: #fff;
+  max-width: 18ch;
+  margin-bottom: 0.85rem;
+}
+
+.mbs-specialties__lead {
+  max-width: 38rem;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  line-height: 1.65;
+}
+
+.mbs-specialties__head {
+  display: grid;
+  grid-template-columns: 1fr min(320px, 100%);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: end;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.mbs-specialties__search-wrap {
+  position: relative;
+}
+
+.mbs-specialties__search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.mbs-specialties__search {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font: inherit;
+  transition: border-color 0.2s var(--pps-ease), background 0.2s var(--pps-ease);
+}
+
+.mbs-specialties__search::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.mbs-specialties__search:focus {
+  outline: none;
+  border-color: rgba(45, 212, 191, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mbs-specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.mbs-specialty-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 4.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.25s var(--pps-ease), background 0.25s var(--pps-ease), border-color 0.25s var(--pps-ease);
+}
+
+.mbs-specialty-tile:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(45, 212, 191, 0.28);
+  color: #fff;
+}
+
+.mbs-specialty-tile.is-hidden {
+  display: none;
+}
+
+.mbs-specialty-tile__abbr {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  font-family: var(--pps-font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.mbs-specialty-tile[data-tone="1"] .mbs-specialty-tile__abbr {
+  background: rgba(45, 212, 191, 0.22);
+  color: #5eead4;
+}
+
+.mbs-specialty-tile[data-tone="2"] .mbs-specialty-tile__abbr {
+  background: rgba(20, 184, 166, 0.22);
+  color: #2dd4bf;
+}
+
+.mbs-specialty-tile[data-tone="3"] .mbs-specialty-tile__abbr {
+  background: rgba(13, 148, 136, 0.24);
+  color: #14b8a6;
+}
+
+.mbs-specialty-tile[data-tone="4"] .mbs-specialty-tile__abbr {
+  background: rgba(15, 118, 110, 0.28);
+  color: #0d9488;
+}
+
+.mbs-specialty-tile[data-tone="5"] .mbs-specialty-tile__abbr {
+  background: rgba(17, 94, 89, 0.32);
+  color: #0f766e;
+}
+
+.mbs-specialty-tile[data-tone="6"] .mbs-specialty-tile__abbr {
+  background: rgba(19, 78, 74, 0.36);
+  color: #115e59;
+}
+
+.mbs-specialty-tile__label {
+  flex: 1;
+  font-family: var(--pps-font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.mbs-specialty-tile__new {
+  flex-shrink: 0;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(45, 212, 191, 0.16);
+  color: var(--pps-accent);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.mbs-specialties__empty {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.62);
+}
+
 .mbs-include {
   background: var(--pps-grad-soft);
 }
@@ -3736,6 +3904,19 @@ p:last-child {
     grid-template-columns: 1fr;
   }
 
+  .mbs-specialties-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mbs-specialties__head {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .mbs-specialties__title {
+    max-width: none;
+  }
+
   .mbs-cta-panel {
     flex-direction: column;
     align-items: flex-start;
@@ -3753,6 +3934,10 @@ p:last-child {
 @media (max-width: 575.98px) {
   .mbs-hero {
     padding: 3rem 0 4rem;
+  }
+
+  .mbs-specialties-grid {
+    grid-template-columns: 1fr;
   }
 
   .mbs-cta-panel,

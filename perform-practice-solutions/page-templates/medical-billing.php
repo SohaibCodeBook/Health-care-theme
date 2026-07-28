@@ -140,6 +140,47 @@ get_header();
 	</div>
 </section>
 
+<section class="pps-section mbs-specialties" id="specialties">
+	<div class="pps-container">
+		<div class="mbs-specialties__head pps-reveal">
+			<div class="mbs-specialties__intro">
+				<p class="pps-eyebrow mbs-specialties__eyebrow"><?php echo esc_html( page_mbs( 'spec_grid_eyebrow' ) ); ?></p>
+				<h2 class="pps-section-title mbs-specialties__title"><?php echo esc_html( page_mbs( 'spec_grid_title' ) ); ?></h2>
+				<p class="mbs-specialties__lead"><?php echo esc_html( page_mbs( 'spec_grid_lead' ) ); ?></p>
+			</div>
+			<div class="mbs-specialties__search-wrap">
+				<label class="screen-reader-text" for="mbs-specialty-search"><?php esc_html_e( 'Search specialties', 'perform-practice' ); ?></label>
+				<i class="fa-solid fa-magnifying-glass mbs-specialties__search-icon" aria-hidden="true"></i>
+				<input
+					type="search"
+					id="mbs-specialty-search"
+					class="mbs-specialties__search"
+					placeholder="<?php esc_attr_e( 'Search specialties…', 'perform-practice' ); ?>"
+					autocomplete="off"
+				>
+			</div>
+		</div>
+
+		<div class="mbs-specialties-grid" id="mbs-specialty-grid">
+			<?php foreach ( pps_mbs_specialty_grid_items() as $item ) : ?>
+				<a
+					class="mbs-specialty-tile pps-reveal"
+					href="<?php echo esc_url( $item['url'] ); ?>"
+					data-search="<?php echo esc_attr( $item['search'] ); ?>"
+					data-tone="<?php echo esc_attr( (string) $item['tone'] ); ?>"
+				>
+					<span class="mbs-specialty-tile__abbr" aria-hidden="true"><?php echo esc_html( $item['abbr'] ); ?></span>
+					<span class="mbs-specialty-tile__label"><?php echo esc_html( $item['label'] ); ?></span>
+					<?php if ( ! empty( $item['is_new'] ) ) : ?>
+						<span class="mbs-specialty-tile__new"><?php esc_html_e( 'NEW', 'perform-practice' ); ?></span>
+					<?php endif; ?>
+				</a>
+			<?php endforeach; ?>
+		</div>
+		<p class="mbs-specialties__empty" id="mbs-specialty-empty" hidden><?php esc_html_e( 'No specialties match your search.', 'perform-practice' ); ?></p>
+	</div>
+</section>
+
 <section class="pps-section mbs-include" id="included">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">

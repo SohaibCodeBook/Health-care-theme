@@ -63,6 +63,10 @@ function pps_mbs_defaults() {
 		'step_5_title'    => 'Monthly and quarterly reviews',
 		'step_5_text'     => 'Every month you receive a report covering claim volume, approval rates, average days to payment, and denial reasons by payer. Every quarter, you sit down with our CEO for a deeper conversation about your practice’s financial health.',
 
+		'spec_grid_eyebrow' => 'Medical Billing Services',
+		'spec_grid_title'   => 'Specialty billing built for every corner of your practice',
+		'spec_grid_lead'    => 'From physical therapy to radiology, our coders know the CPT sets, modifiers, and payer rules for 46+ specialties — so claims go out clean and come back paid.',
+
 		'include_eyebrow' => 'What’s Included',
 		'include_title'   => 'What our medical billing solutions actually include',
 		'include_lead'    => 'You are not handing your billing off to a call center. You are gaining a specialized team that works inside your existing EMR, understands your specialty’s documentation requirements, and treats your revenue like it matters.',
