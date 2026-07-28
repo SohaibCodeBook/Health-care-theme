@@ -351,60 +351,81 @@ function pps_all_billing_child_pages() {
 }
 
 /**
- * Specialty tiles for the Medical Billing Solutions page grid (phase 1: featured six).
+ * Display catalog for the Medical Billing Solutions specialty grid.
+ *
+ * @return array<string, array{label:string,abbr:string,is_new:bool}>
+ */
+function pps_mbs_specialty_grid_display_catalog() {
+	return array(
+		'physical-therapy-billing-services'                         => array( 'label' => 'Physical Therapy', 'abbr' => 'PT', 'is_new' => false ),
+		'chiropractic-billing-services'                             => array( 'label' => 'Chiropractic', 'abbr' => 'CH', 'is_new' => false ),
+		'pain-management-billing-services'                          => array( 'label' => 'Pain Management', 'abbr' => 'PM', 'is_new' => false ),
+		'orthopedic-medical-billing-services'                       => array( 'label' => 'Orthopedic', 'abbr' => 'OR', 'is_new' => false ),
+		'occupational-therapy-billing-services'                     => array( 'label' => 'Occupational Therapy', 'abbr' => 'OT', 'is_new' => false ),
+		'speech-therapy-billing-services'                           => array( 'label' => 'Speech Therapy', 'abbr' => 'ST', 'is_new' => false ),
+		'allergy-and-immunology-billing-services'                   => array( 'label' => 'Allergy & Immunology', 'abbr' => 'AI', 'is_new' => false ),
+		'anesthesiology-billing-services'                           => array( 'label' => 'Anesthesiology', 'abbr' => 'AN', 'is_new' => false ),
+		'behavioral-therapy-aba-billing-services'                   => array( 'label' => 'Behavioral Therapy (ABA)', 'abbr' => 'AB', 'is_new' => false ),
+		'cardiology-billing-services'                               => array( 'label' => 'Cardiology', 'abbr' => 'CA', 'is_new' => false ),
+		'dental-billing-services'                                   => array( 'label' => 'Dental', 'abbr' => 'DN', 'is_new' => false ),
+		'dermatology-billing-services'                              => array( 'label' => 'Dermatology', 'abbr' => 'DE', 'is_new' => false ),
+		'diabetes-billing-services'                                 => array( 'label' => 'Diabetes', 'abbr' => 'DB', 'is_new' => true ),
+		'dme-durable-medical-equipment-billing-services'            => array( 'label' => 'DME', 'abbr' => 'DM', 'is_new' => true ),
+		'emergency-medicine-billing-services'                       => array( 'label' => 'Emergency Medicine', 'abbr' => 'EM', 'is_new' => false ),
+		'endocrinology-billing-services'                            => array( 'label' => 'Endocrinology', 'abbr' => 'EN', 'is_new' => false ),
+		'family-medicine-billing-services'                          => array( 'label' => 'Family Medicine', 'abbr' => 'FM', 'is_new' => false ),
+		'gastroenterology-billing-services'                         => array( 'label' => 'Gastroenterology', 'abbr' => 'GA', 'is_new' => false ),
+		'general-surgery-billing-services'                          => array( 'label' => 'General Surgery', 'abbr' => 'GS', 'is_new' => false ),
+		'genetic-counseling-billing-services'                       => array( 'label' => 'Genetic Counseling', 'abbr' => 'GC', 'is_new' => true ),
+		'hematology-billing-services'                               => array( 'label' => 'Hematology', 'abbr' => 'HE', 'is_new' => false ),
+		'home-health-billing-services'                              => array( 'label' => 'Home Health', 'abbr' => 'HH', 'is_new' => false ),
+		'hormone-testing-billing-services'                          => array( 'label' => 'Hormone Testing', 'abbr' => 'HX', 'is_new' => false ),
+		'internal-medicine-billing-services'                        => array( 'label' => 'Internal Medicine', 'abbr' => 'IM', 'is_new' => false ),
+		'nephrology-billing-services'                               => array( 'label' => 'Nephrology', 'abbr' => 'NE', 'is_new' => false ),
+		'neurology-billing-services'                                => array( 'label' => 'Neurology', 'abbr' => 'NU', 'is_new' => false ),
+		'neurosurgery-billing-services'                             => array( 'label' => 'Neurosurgery', 'abbr' => 'NS', 'is_new' => false ),
+		'obstetrics-and-gynecology-billing-services'                => array( 'label' => 'Obstetrics & Gynecology', 'abbr' => 'OB', 'is_new' => true ),
+		'oncology-billing-services'                                 => array( 'label' => 'Oncology', 'abbr' => 'ON', 'is_new' => false ),
+		'ophthalmology-billing-services'                            => array( 'label' => 'Ophthalmology', 'abbr' => 'OP', 'is_new' => false ),
+		'pathology-billing-services'                                => array( 'label' => 'Pathology', 'abbr' => 'PA', 'is_new' => true ),
+		'pediatrics-billing-services'                               => array( 'label' => 'Pediatrics', 'abbr' => 'PE', 'is_new' => false ),
+		'outpatient-surgery-centers-billing-services'               => array( 'label' => 'Outpatient Surgery Centers', 'abbr' => 'OS', 'is_new' => true ),
+		'nursing-homes-assisted-living-facilities-billing-services' => array( 'label' => 'Nursing Homes & Assisted Living', 'abbr' => 'NH', 'is_new' => true ),
+		'labs-billing-services'                                     => array( 'label' => 'Laboratories / Labs', 'abbr' => 'LA', 'is_new' => true ),
+		'plastic-surgery-billing-services'                          => array( 'label' => 'Plastic Surgery', 'abbr' => 'PL', 'is_new' => false ),
+		'podiatry-billing-services'                                 => array( 'label' => 'Podiatry', 'abbr' => 'PO', 'is_new' => false ),
+		'preventive-medicine-billing-services'                      => array( 'label' => 'Preventive Medicine', 'abbr' => 'PV', 'is_new' => true ),
+		'psychiatry-billing-services'                               => array( 'label' => 'Psychiatry', 'abbr' => 'PS', 'is_new' => false ),
+		'psychology-billing-services'                               => array( 'label' => 'Psychology', 'abbr' => 'PY', 'is_new' => false ),
+		'pulmonology-billing-services'                              => array( 'label' => 'Pulmonology', 'abbr' => 'PU', 'is_new' => false ),
+		'radiology-billing-services'                                => array( 'label' => 'Radiology', 'abbr' => 'RA', 'is_new' => true ),
+		'rheumatology-billing-services'                             => array( 'label' => 'Rheumatology', 'abbr' => 'RH', 'is_new' => false ),
+		'telemedicine-billing-services'                             => array( 'label' => 'Telemedicine', 'abbr' => 'TM', 'is_new' => false ),
+		'urology-billing-services'                                  => array( 'label' => 'Urology', 'abbr' => 'UR', 'is_new' => false ),
+		'wound-care-billing-services'                               => array( 'label' => 'Wound Care', 'abbr' => 'WC', 'is_new' => false ),
+	);
+}
+
+/**
+ * Specialty tiles for the Medical Billing Solutions page grid.
  *
  * @return array<int, array{slug:string,label:string,abbr:string,tone:int,url:string,is_new:bool,search:string}>
  */
 function pps_mbs_specialty_grid_items() {
-	$display = array(
-		'physical-therapy-billing-services'     => array(
-			'label' => 'Physical Therapy',
-			'abbr'  => 'PT',
-			'tone'  => 1,
-		),
-		'chiropractic-billing-services'         => array(
-			'label' => 'Chiropractic',
-			'abbr'  => 'CH',
-			'tone'  => 2,
-		),
-		'pain-management-billing-services'      => array(
-			'label' => 'Pain Management',
-			'abbr'  => 'PM',
-			'tone'  => 3,
-		),
-		'orthopedic-medical-billing-services'   => array(
-			'label' => 'Orthopedic',
-			'abbr'  => 'OR',
-			'tone'  => 4,
-		),
-		'occupational-therapy-billing-services' => array(
-			'label' => 'Occupational Therapy',
-			'abbr'  => 'OT',
-			'tone'  => 5,
-		),
-		'speech-therapy-billing-services'       => array(
-			'label' => 'Speech Therapy',
-			'abbr'  => 'ST',
-			'tone'  => 6,
-		),
-	);
+	$catalog = pps_mbs_specialty_grid_display_catalog();
+	$items   = array();
+	$index   = 0;
 
-	$items = array();
-	foreach ( pps_billing_featured_pages() as $page ) {
-		$slug = $page['slug'];
-		if ( ! isset( $display[ $slug ] ) ) {
-			continue;
-		}
-
-		$row = $display[ $slug ];
+	foreach ( $catalog as $slug => $row ) {
+		$index++;
 		$items[] = array(
-			'slug'    => $slug,
-			'label'   => $row['label'],
-			'abbr'    => $row['abbr'],
-			'tone'    => $row['tone'],
-			'url'     => home_url( '/' . $slug . '/' ),
-			'is_new'  => ! empty( $page['is_new'] ),
-			'search'  => strtolower( $row['label'] . ' ' . $row['abbr'] . ' ' . str_replace( '-', ' ', $slug ) ),
+			'slug'   => $slug,
+			'label'  => $row['label'],
+			'abbr'   => $row['abbr'],
+			'tone'   => ( ( $index - 1 ) % 6 ) + 1,
+			'url'    => home_url( '/' . $slug . '/' ),
+			'is_new' => ! empty( $row['is_new'] ),
+			'search' => strtolower( $row['label'] . ' ' . $row['abbr'] . ' ' . str_replace( '-', ' ', $slug ) ),
 		);
 	}
 
