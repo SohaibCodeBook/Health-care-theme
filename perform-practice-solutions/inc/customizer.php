@@ -31,15 +31,26 @@ function site_data( $key ) {
 		'contact_email' => 'Info@PerformPracticeSolutions.com',
 		'address'       => '1050 East Flamingo Rd, Suite 107-2470 Las Vegas, NV 89119',
 		'cta_label'     => 'Book a Strategy Session',
-		'cta_url'       => '#contact',
+		'cta_url'       => '/contact-us/',
 		'brand_name'    => 'Perform Practice Solutions',
 		'brand_short'   => 'PPS',
 	);
 
 	$mod_key = 'pps_global_' . $key;
 	$default = isset( $defaults[ $key ] ) ? $defaults[ $key ] : '';
+	$value   = (string) pps_mod( $mod_key, $default );
 
-	return (string) pps_mod( $mod_key, $default );
+	// Header CTA should open the Contact Us page (migrate old #contact anchors).
+	if ( 'cta_url' === $key ) {
+		if ( '' === $value || '#contact' === $value ) {
+			return home_url( '/contact-us/' );
+		}
+		if ( 0 === strpos( $value, '/' ) && 0 !== strpos( $value, '//' ) ) {
+			return home_url( $value );
+		}
+	}
+
+	return $value;
 }
 
 /**
