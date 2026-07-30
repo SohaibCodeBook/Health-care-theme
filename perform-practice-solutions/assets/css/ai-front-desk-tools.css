@@ -141,7 +141,15 @@
 
 .ai-fd-btn-ghost {
   color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: none !important;
+}
+
+.ai-fd-btn-ghost:hover {
+  color: #fff !important;
+  border-color: #fbbf24 !important;
+  background: rgba(251, 191, 36, 0.18) !important;
 }
 
 .ai-fd-hero__badges {

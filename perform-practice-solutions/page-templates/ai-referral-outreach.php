@@ -35,7 +35,7 @@ pps_ai_ref_force_styles();
 					<?php echo esc_html( page_ai_ref( 'hero_cta' ) ); ?>
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</a>
-				<a class="pps-btn pps-btn--ghost ai-ref-btn-ghost" href="<?php echo esc_url( page_ai_ref( 'hero_cta_2_url' ) ); ?>">
+				<a class="pps-btn pps-btn--secondary ai-ref-btn-ghost" href="<?php echo esc_url( page_ai_ref( 'hero_cta_2_url' ) ); ?>">
 					<?php echo esc_html( page_ai_ref( 'hero_cta_2' ) ); ?>
 				</a>
 			</div>

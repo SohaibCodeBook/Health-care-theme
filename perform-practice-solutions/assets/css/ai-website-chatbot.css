@@ -140,7 +140,15 @@
 
 .ai-chat-btn-ghost {
   color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: none !important;
+}
+
+.ai-chat-btn-ghost:hover {
+  color: #fff !important;
+  border-color: #5eead4 !important;
+  background: rgba(94, 234, 212, 0.18) !important;
 }
 
 .ai-chat-hero__badges {
