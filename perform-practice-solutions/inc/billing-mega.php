@@ -138,13 +138,11 @@ function pps_billing_specialty_pages() {
 		'Dental Billing Services',
 		'Dermatology Billing Services',
 		'Diabetes Billing Services',
-		'DME (Durable Medical Equipment) Billing Services',
 		'Emergency Medicine Billing Services',
 		'Endocrinology Billing Services',
 		'Family Medicine Billing Services',
 		'Gastroenterology Billing Services',
 		'General Surgery Billing Services',
-		'Genetic Counseling Billing Services',
 		'Hematology Billing Services',
 		'Home Health Billing Services',
 		'Hormone Testing Billing Services',
@@ -162,7 +160,6 @@ function pps_billing_specialty_pages() {
 		'Pediatrics Billing Services',
 		'Plastic Surgery Billing Services',
 		'Podiatry Billing Services',
-		'Preventive Medicine Billing Services',
 		'Psychiatry Billing Services',
 		'Psychology Billing Services',
 		'Pulmonology Billing Services',
@@ -370,13 +367,11 @@ function pps_mbs_specialty_grid_display_catalog() {
 		'dental-billing-services'                                   => array( 'label' => 'Dental', 'abbr' => 'DN', 'is_new' => false ),
 		'dermatology-billing-services'                              => array( 'label' => 'Dermatology', 'abbr' => 'DE', 'is_new' => false ),
 		'diabetes-billing-services'                                 => array( 'label' => 'Diabetes', 'abbr' => 'DB', 'is_new' => true ),
-		'dme-durable-medical-equipment-billing-services'            => array( 'label' => 'DME', 'abbr' => 'DM', 'is_new' => true ),
 		'emergency-medicine-billing-services'                       => array( 'label' => 'Emergency Medicine', 'abbr' => 'EM', 'is_new' => false ),
 		'endocrinology-billing-services'                            => array( 'label' => 'Endocrinology', 'abbr' => 'EN', 'is_new' => false ),
 		'family-medicine-billing-services'                          => array( 'label' => 'Family Medicine', 'abbr' => 'FM', 'is_new' => false ),
 		'gastroenterology-billing-services'                         => array( 'label' => 'Gastroenterology', 'abbr' => 'GA', 'is_new' => false ),
 		'general-surgery-billing-services'                          => array( 'label' => 'General Surgery', 'abbr' => 'GS', 'is_new' => false ),
-		'genetic-counseling-billing-services'                       => array( 'label' => 'Genetic Counseling', 'abbr' => 'GC', 'is_new' => true ),
 		'hematology-billing-services'                               => array( 'label' => 'Hematology', 'abbr' => 'HE', 'is_new' => false ),
 		'home-health-billing-services'                              => array( 'label' => 'Home Health', 'abbr' => 'HH', 'is_new' => false ),
 		'hormone-testing-billing-services'                          => array( 'label' => 'Hormone Testing', 'abbr' => 'HX', 'is_new' => false ),
@@ -394,7 +389,6 @@ function pps_mbs_specialty_grid_display_catalog() {
 		'labs-billing-services'                                     => array( 'label' => 'Laboratories / Labs', 'abbr' => 'LA', 'is_new' => true ),
 		'plastic-surgery-billing-services'                          => array( 'label' => 'Plastic Surgery', 'abbr' => 'PL', 'is_new' => false ),
 		'podiatry-billing-services'                                 => array( 'label' => 'Podiatry', 'abbr' => 'PO', 'is_new' => false ),
-		'preventive-medicine-billing-services'                      => array( 'label' => 'Preventive Medicine', 'abbr' => 'PV', 'is_new' => true ),
 		'psychiatry-billing-services'                               => array( 'label' => 'Psychiatry', 'abbr' => 'PS', 'is_new' => false ),
 		'psychology-billing-services'                               => array( 'label' => 'Psychology', 'abbr' => 'PY', 'is_new' => false ),
 		'pulmonology-billing-services'                              => array( 'label' => 'Pulmonology', 'abbr' => 'PU', 'is_new' => false ),
@@ -615,6 +609,17 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 		$position++;
 	}
 
+	// Drop billing submenu items that are no longer in the catalog.
+	$keep_page_ids = array_map( 'intval', array_values( $child_ids ) );
+	foreach ( $items as $item ) {
+		if ( (int) $item->menu_item_parent !== $billing_menu_item_id ) {
+			continue;
+		}
+		if ( 'page' === $item->object && ! in_array( (int) $item->object_id, $keep_page_ids, true ) ) {
+			wp_delete_post( (int) $item->ID, true );
+		}
+	}
+
 	// Clear nav menu caches so the front end picks up children immediately.
 	if ( function_exists( 'wp_cache_delete' ) ) {
 		wp_cache_delete( $menu_id, 'nav_menu_items' );
@@ -661,15 +666,37 @@ function pps_migrate_pathology_billing_page_slug() {
 }
 
 /**
+ * Trash empty specialty billing pages that were removed from the catalog.
+ */
+function pps_trash_removed_billing_specialty_pages() {
+	$slugs = array(
+		'dme-durable-medical-equipment-billing-services',
+		'genetic-counseling-billing-services',
+		'preventive-medicine-billing-services',
+	);
+
+	foreach ( $slugs as $slug ) {
+		$page = get_page_by_path( $slug );
+		if ( ! $page ) {
+			$page = get_page_by_path( 'billing-solutions/' . $slug );
+		}
+		if ( $page ) {
+			wp_trash_post( (int) $page->ID );
+		}
+	}
+}
+
+/**
  * One-time / updatable setup for billing mega menu pages.
  */
 function pps_setup_billing_mega_menu() {
 	pps_migrate_pathology_billing_page_slug();
 
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.7' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.8' ) {
 		return;
 	}
 
+	pps_trash_removed_billing_specialty_pages();
 	pps_ensure_billing_parent_page();
 
 	$child_ids = array();
@@ -685,7 +712,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.7' );
+	update_option( 'pps_billing_mega_version', '1.3.8' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );
