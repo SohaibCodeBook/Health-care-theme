@@ -155,9 +155,8 @@ pps_ai_chat_force_styles();
 				'fa-wand-magic-sparkles',
 			);
 			for ( $i = 1; $i <= 6; $i++ ) :
-				$wide = ( 1 === $i || 3 === $i );
 				?>
-				<article class="ai-chat-bento__card pps-reveal<?php echo $wide ? ' ai-chat-bento__card--wide' : ''; ?>">
+				<article class="ai-chat-bento__card pps-reveal">
 					<span class="ai-chat-bento__icon" aria-hidden="true">
 						<i class="fa-solid <?php echo esc_attr( $cap_icons[ $i - 1 ] ); ?>"></i>
 					</span>
