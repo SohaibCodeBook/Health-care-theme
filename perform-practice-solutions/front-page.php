@@ -320,16 +320,40 @@ get_header();
 	</div>
 </section>
 
+<section class="pps-section home-emr" id="emr">
+	<div class="pps-container pps-reveal">
+		<h2 class="pps-section-title home-emr__title"><?php echo esc_html( page_home( 'spec_eyebrow' ) ); ?></h2>
+		<div class="emr-logos" role="list">
+			<?php
+			$emr_logos = array(
+				array( 'file' => 'stride.png', 'alt' => 'Stride' ),
+				array( 'file' => 'tebra.png', 'alt' => 'Tebra' ),
+				array( 'file' => 'athena.png', 'alt' => 'athenahealth' ),
+				array( 'file' => 'raintree.png', 'alt' => 'Raintree' ),
+				array( 'file' => 'curemd.png', 'alt' => 'CureMD' ),
+			);
+			foreach ( $emr_logos as $logo ) :
+				$src = PPS_THEME_URI . '/assets/images/emr-systems/' . $logo['file'];
+				?>
+				<div class="emr-logos__item" role="listitem">
+					<img
+						class="emr-logos__img"
+						src="<?php echo esc_url( $src ); ?>"
+						alt="<?php echo esc_attr( $logo['alt'] ); ?>"
+						width="168"
+						height="70"
+						loading="lazy"
+						decoding="async"
+					>
+				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+
 <section class="pps-section home-specialties" id="specialties">
 	<div class="pps-container pps-reveal">
-		<p class="pps-eyebrow" style="justify-content:center;"><?php echo esc_html( page_home( 'spec_eyebrow' ) ); ?></p>
-		<p class="pps-section-lead" style="margin-inline:auto;margin-bottom:1.5rem;"><?php echo esc_html( page_home( 'spec_emr_text' ) ); ?></p>
-		<div class="specialty-pills">
-			<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
-				<span class="specialty-pill"><?php echo esc_html( page_home( "spec_{$i}" ) ); ?></span>
-			<?php endfor; ?>
-		</div>
-		<h2 class="pps-section-title" style="margin-inline:auto;margin-top:2rem;"><?php echo esc_html( page_home( 'spec_title' ) ); ?></h2>
+		<h2 class="pps-section-title" style="margin-inline:auto;"><?php echo esc_html( page_home( 'spec_title' ) ); ?></h2>
 		<p class="pps-section-lead" style="margin-inline:auto;"><?php echo esc_html( page_home( 'spec_lead' ) ); ?></p>
 		<p class="pps-section-lead" style="margin-inline:auto;margin-top:1rem;"><?php echo esc_html( page_home( 'spec_text' ) ); ?></p>
 		<a class="pps-btn pps-btn--primary" style="margin-top:1.75rem;" href="<?php echo esc_url( page_home( 'spec_cta_url' ) ); ?>">

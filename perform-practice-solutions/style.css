@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.6.8
+Version: 2.8.5
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -2078,8 +2078,80 @@ p:last-child {
 }
 
 /* ==========================================================================
-   Specialties / EMR
+   EMR logos + Specialties
    ========================================================================== */
+.home-emr {
+  background: #fff;
+  text-align: center;
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.home-emr .home-emr__title,
+.home-emr .pps-section-title {
+  font-family: var(--pps-font-display);
+  font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--pps-ink);
+  margin: 0 auto 2rem;
+  max-width: 22ch;
+  letter-spacing: -0.02em;
+}
+
+.emr-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3rem);
+  width: 100%;
+}
+
+.emr-logos__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: clamp(7.5rem, 16vw, 10.5rem);
+  max-width: 10.5rem;
+  min-width: 0;
+}
+
+.emr-logos__img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 3.25rem;
+  object-fit: contain;
+  object-position: center;
+  filter: grayscale(1) contrast(1.15);
+  opacity: 0.9;
+  transition: opacity 0.25s var(--pps-ease), filter 0.25s var(--pps-ease);
+}
+
+.emr-logos__item:hover .emr-logos__img {
+  opacity: 1;
+  filter: grayscale(0) contrast(1);
+}
+
+@media (max-width: 640px) {
+  .emr-logos {
+    gap: 1.25rem 1.5rem;
+  }
+
+  .emr-logos__item {
+    width: clamp(5.5rem, 28vw, 7.5rem);
+    max-width: 7.5rem;
+  }
+
+  .emr-logos__img {
+    max-height: 2.5rem;
+  }
+}
+
 .home-specialties {
   background: #fff;
   text-align: center;
