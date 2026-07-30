@@ -54,9 +54,11 @@
     });
   });
 
-  // Desktop mega menu: keep open while moving into the panel
+  // Desktop mega menu: open only from Billing Solutions trigger, keep open on panel
   document.querySelectorAll('.pps-mega-billing').forEach(function (mega) {
     var closeTimer = null;
+    var trigger = mega.querySelector(':scope > a');
+    var panel = mega.querySelector(':scope > .pps-mega-panel');
 
     function isDesktop() {
       return window.matchMedia('(min-width: 992px)').matches;
@@ -66,6 +68,7 @@
       if (!isDesktop()) return;
       clearTimeout(closeTimer);
       mega.classList.add('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
     }
 
     function scheduleClose() {
@@ -73,12 +76,19 @@
       clearTimeout(closeTimer);
       closeTimer = setTimeout(function () {
         mega.classList.remove('is-open');
-      }, 180);
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }, 160);
     }
 
-    mega.addEventListener('mouseenter', openMega);
+    if (trigger) {
+      trigger.addEventListener('mouseenter', openMega);
+      trigger.addEventListener('focus', openMega);
+    }
+    if (panel) {
+      panel.addEventListener('mouseenter', openMega);
+      panel.addEventListener('mouseleave', scheduleClose);
+    }
     mega.addEventListener('mouseleave', scheduleClose);
-    mega.addEventListener('focusin', openMega);
     mega.addEventListener('focusout', function (event) {
       if (!mega.contains(event.relatedTarget)) {
         scheduleClose();

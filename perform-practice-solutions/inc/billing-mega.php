@@ -547,7 +547,7 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 	}
 
 	$menu_id = (int) $locations['primary'];
-	$items   = wp_get_nav_menu_items( $menu_id );
+	$items   = wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) );
 	if ( ! $items ) {
 		return;
 	}
@@ -558,6 +558,17 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 	foreach ( $items as $item ) {
 		if ( pps_is_billing_nav_parent( $item, 0 ) ) {
 			$billing_menu_item_id = (int) $item->ID;
+			break;
+		}
+	}
+
+	// Fallback: match by title if hub slug detection failed.
+	if ( ! $billing_menu_item_id ) {
+		foreach ( $items as $item ) {
+			if ( 0 === (int) $item->menu_item_parent && false !== stripos( $item->title, 'Billing' ) ) {
+				$billing_menu_item_id = (int) $item->ID;
+				break;
+			}
 		}
 	}
 
@@ -565,8 +576,12 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 		return;
 	}
 
-	// Mark parent as mega menu.
-	update_post_meta( $billing_menu_item_id, '_menu_item_classes', array( 'menu-item', 'pps-mega-billing', 'menu-item-has-children' ) );
+	// Mark parent as mega menu (CSS class + has-children).
+	update_post_meta(
+		$billing_menu_item_id,
+		'_menu_item_classes',
+		array( 'menu-item', 'pps-mega-billing', 'menu-item-has-children' )
+	);
 
 	foreach ( $items as $item ) {
 		if ( (int) $item->menu_item_parent === $billing_menu_item_id && 'page' === $item->object ) {
@@ -599,6 +614,13 @@ function pps_attach_billing_mega_menu_items( $child_ids ) {
 
 		$position++;
 	}
+
+	// Clear nav menu caches so the front end picks up children immediately.
+	if ( function_exists( 'wp_cache_delete' ) ) {
+		wp_cache_delete( $menu_id, 'nav_menu_items' );
+		wp_cache_delete( 'last_changed', 'posts' );
+	}
+	delete_transient( 'pps_billing_mega_attached' );
 }
 
 /**
@@ -644,7 +666,7 @@ function pps_migrate_pathology_billing_page_slug() {
 function pps_setup_billing_mega_menu() {
 	pps_migrate_pathology_billing_page_slug();
 
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.6' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.7' ) {
 		return;
 	}
 
@@ -663,10 +685,64 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.6' );
+	update_option( 'pps_billing_mega_version', '1.3.7' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );
+
+/**
+ * Repair mega menu if Billing Solutions has no children (e.g. menu was edited in WP admin).
+ */
+function pps_maybe_repair_billing_mega_menu() {
+	if ( is_admin() ) {
+		return;
+	}
+
+	$locations = get_nav_menu_locations();
+	if ( empty( $locations['primary'] ) ) {
+		return;
+	}
+
+	$menu_id = (int) $locations['primary'];
+	$items   = wp_get_nav_menu_items( $menu_id );
+	if ( ! $items ) {
+		return;
+	}
+
+	$billing_id = 0;
+	$child_count = 0;
+	foreach ( $items as $item ) {
+		if ( pps_is_billing_nav_parent( $item, 0 ) ) {
+			$billing_id = (int) $item->ID;
+		}
+	}
+	if ( ! $billing_id ) {
+		return;
+	}
+
+	foreach ( $items as $item ) {
+		if ( (int) $item->menu_item_parent === $billing_id ) {
+			$child_count++;
+		}
+	}
+
+	if ( $child_count >= 6 ) {
+		return;
+	}
+
+	$child_ids = array();
+	foreach ( pps_all_billing_child_pages() as $data ) {
+		$page = get_page_by_path( $data['slug'] );
+		if ( $page ) {
+			$child_ids[ $data['slug'] ] = (int) $page->ID;
+		}
+	}
+
+	if ( $child_ids ) {
+		pps_attach_billing_mega_menu_items( $child_ids );
+	}
+}
+add_action( 'wp', 'pps_maybe_repair_billing_mega_menu', 5 );
 
 /**
  * Output custom SEO title when set.

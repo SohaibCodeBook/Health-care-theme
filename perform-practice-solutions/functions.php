@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.7.7' );
+define( 'PPS_THEME_VERSION', '2.8.1' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -267,8 +267,13 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 		$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
 
+		// Detect billing mega by hub page / slug / class — not only stored CSS class.
 		if ( 0 === $depth ) {
-			$this->is_mega = in_array( 'pps-mega-billing', $classes, true );
+			$this->is_mega = function_exists( 'pps_is_billing_nav_parent' ) && pps_is_billing_nav_parent( $item, 0 );
+			if ( $this->is_mega ) {
+				$classes[] = 'pps-mega-billing';
+				$classes[] = 'menu-item-has-children';
+			}
 		}
 
 		$group = '';
@@ -284,7 +289,8 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 			}
 		}
 
-		$class_names = implode( ' ', array_map( 'esc_attr', array_filter( $classes ) ) );
+		$classes     = apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth );
+		$class_names = implode( ' ', array_map( 'esc_attr', array_filter( (array) $classes ) ) );
 		$output     .= '<li class="' . $class_names . '">';
 
 		$atts           = array();
@@ -292,10 +298,14 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 		$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 		$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
 		$atts['href']   = ! empty( $item->url ) ? $item->url : '';
+		if ( 0 === $depth && $this->is_mega ) {
+			$atts['aria-haspopup'] = 'true';
+			$atts['aria-expanded'] = 'false';
+		}
 
 		$attributes = '';
 		foreach ( $atts as $attr => $value ) {
-			if ( ! empty( $value ) ) {
+			if ( ! empty( $value ) || '0' === $value ) {
 				$value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
 				$attributes .= ' ' . $attr . '="' . $value . '"';
 			}
@@ -313,7 +323,8 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 			$item_output .= ( isset( $args->link_before ) ? $args->link_before : '' ) . esc_html( $title ) . ( isset( $args->link_after ) ? $args->link_after : '' );
 		}
 
-		if ( in_array( 'menu-item-has-children', $classes, true ) && 0 === $depth ) {
+		$has_children = in_array( 'menu-item-has-children', (array) $classes, true ) || $this->is_mega;
+		if ( $has_children && 0 === $depth ) {
 			$item_output .= ' <i class="fa-solid fa-chevron-down submenu-caret" aria-hidden="true"></i>';
 		}
 

@@ -233,6 +233,7 @@ p:last-child {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+  overflow: visible;
 }
 
 .site-branding {
@@ -297,6 +298,7 @@ p:last-child {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  overflow: visible;
 }
 
 .primary-menu {
@@ -404,23 +406,25 @@ p:last-child {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: 100%;
     max-width: none;
-    /* Hit-area includes header so the pointer never falls through a gap */
-    padding-top: var(--pps-header-h);
+    padding-top: 0.35rem;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    display: none;
     transition: opacity 0.2s var(--pps-ease), visibility 0.2s;
     z-index: 1100;
   }
 
+  /* Open only while hovering Billing Solutions (or keyboard focus / .is-open). */
   .pps-mega-billing:hover > .pps-mega-panel,
   .pps-mega-billing:focus-within > .pps-mega-panel,
   .pps-mega-billing.is-open > .pps-mega-panel {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    display: block;
   }
 }
 
@@ -493,17 +497,17 @@ p:last-child {
 }
 
 .pps-mega-grid.sub-menu {
-  position: static;
-  opacity: 1;
-  visibility: visible;
-  transform: none;
+  position: static !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
   box-shadow: none;
   border: 0;
   border-radius: 0;
   min-width: 0;
   margin: 0;
   padding: 1.15rem;
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.35rem 0.75rem;
   max-height: min(58vh, 420px);
