@@ -181,27 +181,33 @@ get_header();
 		</div>
 
 		<div class="automation-grid">
-			<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
-				<div class="automation-feature pps-reveal">
+			<?php
+			$auto_icons = array(
+				1 => 'fa-phone',
+				2 => 'fa-user-group',
+				3 => 'fa-comments',
+				4 => 'fa-desktop',
+			);
+			for ( $i = 1; $i <= 4; $i++ ) :
+				$auto_url = page_home( "auto_{$i}_url" );
+				if ( $auto_url && 0 === strpos( $auto_url, '/' ) ) {
+					$auto_url = home_url( $auto_url );
+				}
+				?>
+				<a class="automation-feature pps-reveal" href="<?php echo esc_url( $auto_url ); ?>">
 					<div class="automation-feature__icon" aria-hidden="true">
-						<?php
-						$icons = array( 1 => 'fa-phone', 2 => 'fa-user-group', 3 => 'fa-comments', 4 => 'fa-desktop' );
-						?>
-						<i class="fa-solid <?php echo esc_attr( $icons[ $i ] ); ?>"></i>
+						<i class="fa-solid <?php echo esc_attr( $auto_icons[ $i ] ); ?>"></i>
 					</div>
-					<div>
+					<div class="automation-feature__body">
 						<h3><?php echo esc_html( page_home( "auto_{$i}_title" ) ); ?></h3>
 						<p><?php echo esc_html( page_home( "auto_{$i}_text" ) ); ?></p>
+						<span class="automation-feature__link">
+							<?php echo esc_html( page_home( "auto_{$i}_cta" ) ); ?>
+							<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+						</span>
 					</div>
-				</div>
+				</a>
 			<?php endfor; ?>
-		</div>
-
-		<div class="automation-cta pps-reveal">
-			<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( home_url( page_home( 'auto_cta_url' ) ) ); ?>">
-				<?php echo esc_html( page_home( 'auto_cta' ) ); ?>
-				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-			</a>
 		</div>
 	</div>
 </section>

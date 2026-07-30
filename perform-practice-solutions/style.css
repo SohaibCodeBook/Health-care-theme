@@ -1854,12 +1854,16 @@ p:last-child {
   display: flex;
   gap: 1rem;
   box-shadow: var(--pps-shadow-sm);
-  transition: transform 0.25s var(--pps-ease), box-shadow 0.25s var(--pps-ease);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s var(--pps-ease), box-shadow 0.25s var(--pps-ease), border-color 0.25s var(--pps-ease);
 }
 
 .automation-feature:hover {
   transform: translateY(-4px);
   box-shadow: var(--pps-shadow);
+  border-color: rgba(14, 124, 134, 0.28);
+  color: inherit;
 }
 
 .automation-feature__icon {
@@ -1873,15 +1877,43 @@ p:last-child {
   place-items: center;
 }
 
+.automation-feature__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
 .automation-feature h3 {
   font-size: 1.05rem;
   margin-bottom: 0.35rem;
+  color: var(--pps-ink);
 }
 
 .automation-feature p {
   color: var(--pps-muted);
   font-size: 0.95rem;
-  margin: 0;
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.automation-feature__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  font-family: var(--pps-font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--pps-primary);
+}
+
+.automation-feature__link i {
+  transition: transform 0.25s var(--pps-ease);
+}
+
+.automation-feature:hover .automation-feature__link i {
+  transform: translateX(4px);
 }
 
 .automation-cta {
