@@ -113,7 +113,7 @@ $why_image  = page_va( 'why_image' );
 		</div>
 		<div class="va-task-mosaic">
 			<?php for ( $i = 1; $i <= 7; $i++ ) : ?>
-				<article class="va-task-card pps-reveal<?php echo 1 === $i ? ' va-task-card--wide' : ''; ?>">
+				<article class="va-task-card pps-reveal">
 					<span class="va-task-card__icon" aria-hidden="true"><i class="fa-solid <?php echo esc_attr( page_va( "task_{$i}_icon" ) ); ?>"></i></span>
 					<h3><?php echo esc_html( page_va( "task_{$i}_title" ) ); ?></h3>
 					<p><?php echo esc_html( page_va( "task_{$i}_text" ) ); ?></p>
