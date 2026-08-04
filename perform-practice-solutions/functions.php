@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.9.0' );
+define( 'PPS_THEME_VERSION', '2.9.1' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -283,6 +283,9 @@ class PPS_Nav_Walker extends Walker_Nav_Menu {
 			$meta_icon = get_post_meta( $item->object_id, '_pps_billing_icon', true );
 			if ( $meta_icon ) {
 				$icon = $meta_icon;
+			} elseif ( function_exists( 'pps_billing_icon_for_slug' ) ) {
+				$slug = get_post_field( 'post_name', $item->object_id );
+				$icon = pps_billing_icon_for_slug( $slug );
 			}
 			if ( 'featured' === $group ) {
 				$classes[] = 'pps-mega-item--featured';

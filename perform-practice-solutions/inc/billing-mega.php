@@ -327,6 +327,7 @@ function pps_billing_specialty_pages() {
 			'seo_title' => $name . ' | Perform Practice Solutions',
 			'seo_desc'  => 'Perform Practice Solutions provides specialized ' . strtolower( $name ) . ' to reduce denials, improve collections, and protect your practice revenue.',
 			'group'     => 'specialty',
+			'icon'      => pps_billing_icon_for_slug( $slug ),
 		);
 		if ( isset( $seo_overrides[ $slug ] ) ) {
 			$row['seo_title'] = $seo_overrides[ $slug ]['seo_title'];
@@ -336,6 +337,62 @@ function pps_billing_specialty_pages() {
 	}
 
 	return $pages;
+}
+
+/**
+ * Font Awesome icon class for a billing specialty slug.
+ *
+ * @param string $slug Page slug.
+ * @return string Icon class without the fa-solid prefix (e.g. fa-heart).
+ */
+function pps_billing_icon_for_slug( $slug ) {
+	$icons = array(
+		'physical-therapy-billing-services'                         => 'fa-person-walking',
+		'chiropractic-billing-services'                             => 'fa-bone',
+		'pain-management-billing-services'                          => 'fa-heart-pulse',
+		'orthopedic-medical-billing-services'                       => 'fa-crutch',
+		'occupational-therapy-billing-services'                     => 'fa-hand-holding-hand',
+		'speech-therapy-billing-services'                           => 'fa-comments',
+		'allergy-and-immunology-billing-services'                   => 'fa-wind',
+		'anesthesiology-billing-services'                           => 'fa-syringe',
+		'behavioral-therapy-aba-billing-services'                   => 'fa-puzzle-piece',
+		'cardiology-billing-services'                               => 'fa-heart',
+		'dental-billing-services'                                   => 'fa-tooth',
+		'dermatology-billing-services'                              => 'fa-hand-dots',
+		'diabetes-billing-services'                                 => 'fa-droplet',
+		'emergency-medicine-billing-services'                       => 'fa-truck-medical',
+		'endocrinology-billing-services'                            => 'fa-flask',
+		'family-medicine-billing-services'                          => 'fa-house-medical',
+		'gastroenterology-billing-services'                         => 'fa-notes-medical',
+		'general-surgery-billing-services'                          => 'fa-user-doctor',
+		'hematology-billing-services'                               => 'fa-vial',
+		'home-health-billing-services'                              => 'fa-house-chimney-medical',
+		'hormone-testing-billing-services'                          => 'fa-flask-vial',
+		'internal-medicine-billing-services'                        => 'fa-stethoscope',
+		'nephrology-billing-services'                               => 'fa-kit-medical',
+		'neurology-billing-services'                                => 'fa-brain',
+		'neurosurgery-billing-services'                             => 'fa-head-side-virus',
+		'obstetrics-and-gynecology-billing-services'                => 'fa-person-pregnant',
+		'oncology-billing-services'                                 => 'fa-disease',
+		'ophthalmology-billing-services'                            => 'fa-eye',
+		'pathology-billing-services'                                => 'fa-microscope',
+		'pediatrics-billing-services'                               => 'fa-child',
+		'outpatient-surgery-centers-billing-services'               => 'fa-hospital',
+		'nursing-homes-assisted-living-facilities-billing-services' => 'fa-bed-pulse',
+		'labs-billing-services'                                     => 'fa-vials',
+		'plastic-surgery-billing-services'                          => 'fa-spa',
+		'podiatry-billing-services'                                 => 'fa-shoe-prints',
+		'psychiatry-billing-services'                               => 'fa-comment-medical',
+		'psychology-billing-services'                               => 'fa-brain',
+		'pulmonology-billing-services'                              => 'fa-lungs',
+		'radiology-billing-services'                                => 'fa-x-ray',
+		'rheumatology-billing-services'                             => 'fa-hand',
+		'telemedicine-billing-services'                             => 'fa-laptop-medical',
+		'urology-billing-services'                                  => 'fa-notes-medical',
+		'wound-care-billing-services'                               => 'fa-bandage',
+	);
+
+	return isset( $icons[ $slug ] ) ? $icons[ $slug ] : 'fa-file-medical';
 }
 
 /**
@@ -692,7 +749,7 @@ function pps_trash_removed_billing_specialty_pages() {
 function pps_setup_billing_mega_menu() {
 	pps_migrate_pathology_billing_page_slug();
 
-	if ( get_option( 'pps_billing_mega_version' ) === '1.3.8' ) {
+	if ( get_option( 'pps_billing_mega_version' ) === '1.3.9' ) {
 		return;
 	}
 
@@ -712,7 +769,7 @@ function pps_setup_billing_mega_menu() {
 	// Flush rewrite rules once after flattening URLs.
 	flush_rewrite_rules( false );
 
-	update_option( 'pps_billing_mega_version', '1.3.8' );
+	update_option( 'pps_billing_mega_version', '1.3.9' );
 }
 add_action( 'after_setup_theme', 'pps_setup_billing_mega_menu', 30 );
 add_action( 'after_switch_theme', 'pps_setup_billing_mega_menu', 20 );
