@@ -323,7 +323,9 @@ get_header();
 <section class="pps-section home-emr" id="emr">
 	<div class="pps-container pps-reveal">
 		<h2 class="pps-section-title home-emr__title"><?php echo esc_html( page_home( 'spec_eyebrow' ) ); ?></h2>
-		<div class="emr-logos" role="list">
+	</div>
+	<div class="emr-marquee" aria-label="<?php esc_attr_e( 'Preferred EMR systems', 'perform-practice' ); ?>">
+		<div class="emr-marquee__track">
 			<?php
 			$emr_logos = array(
 				array( 'file' => 'stride.png', 'alt' => 'Stride' ),
@@ -332,21 +334,25 @@ get_header();
 				array( 'file' => 'raintree.png', 'alt' => 'Raintree' ),
 				array( 'file' => 'curemd.png', 'alt' => 'CureMD' ),
 			);
-			foreach ( $emr_logos as $logo ) :
-				$src = PPS_THEME_URI . '/assets/images/emr-systems/' . $logo['file'];
+			// Duplicate the set so the marquee loops seamlessly; add more logos to $emr_logos anytime.
+			for ( $loop = 0; $loop < 2; $loop++ ) :
 				?>
-				<div class="emr-logos__item" role="listitem">
-					<img
-						class="emr-logos__img"
-						src="<?php echo esc_url( $src ); ?>"
-						alt="<?php echo esc_attr( $logo['alt'] ); ?>"
-						width="168"
-						height="70"
-						loading="lazy"
-						decoding="async"
-					>
+				<div class="emr-marquee__group" <?php echo 1 === $loop ? 'aria-hidden="true"' : 'role="list"'; ?>>
+					<?php foreach ( $emr_logos as $logo ) : ?>
+						<div class="emr-logos__item" <?php echo 0 === $loop ? 'role="listitem"' : ''; ?>>
+							<img
+								class="emr-logos__img"
+								src="<?php echo esc_url( PPS_THEME_URI . '/assets/images/emr-systems/' . $logo['file'] ); ?>"
+								alt="<?php echo 0 === $loop ? esc_attr( $logo['alt'] ) : ''; ?>"
+								width="168"
+								height="70"
+								loading="lazy"
+								decoding="async"
+							>
+						</div>
+					<?php endforeach; ?>
 				</div>
-			<?php endforeach; ?>
+			<?php endfor; ?>
 		</div>
 	</div>
 </section>

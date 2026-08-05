@@ -125,31 +125,6 @@ get_header();
 <section class="pps-section cred-focus" id="focus">
 	<div class="pps-container">
 		<div class="cred-focus-shell pps-reveal">
-			<aside class="cred-focus-rail cred-focus-rail--left" aria-hidden="true">
-				<div class="cred-focus-chip cred-focus-chip--accent">
-					<span class="cred-focus-chip__icon"><i class="fa-solid fa-shield-halved"></i></span>
-					<div>
-						<strong>NPDB verified</strong>
-						<small>Primary source checks</small>
-					</div>
-				</div>
-				<div class="cred-focus-chip">
-					<span class="cred-focus-chip__icon"><i class="fa-solid fa-id-card"></i></span>
-					<div>
-						<strong>DEA · State boards</strong>
-						<small>License validation</small>
-					</div>
-				</div>
-				<div class="cred-focus-chip cred-focus-chip--soft">
-					<span class="cred-focus-chip__icon"><i class="fa-solid fa-building-columns"></i></span>
-					<div>
-						<strong>Payer enrollment</strong>
-						<small>Commercial + Medicare</small>
-					</div>
-				</div>
-				<div class="cred-focus-ring"></div>
-			</aside>
-
 			<div class="cred-focus-panel">
 				<p class="pps-eyebrow"><?php echo esc_html( page_cred( 'focus_eyebrow' ) ); ?></p>
 				<h2 class="pps-section-title"><?php echo esc_html( page_cred( 'focus_title' ) ); ?></h2>
@@ -159,34 +134,29 @@ get_header();
 				<p class="cred-focus-panel__close"><?php echo esc_html( page_cred( 'focus_text_3' ) ); ?></p>
 			</div>
 
-			<aside class="cred-focus-rail cred-focus-rail--right" aria-hidden="true">
-				<div class="cred-focus-stat">
-					<em>6–8</em>
-					<span>weeks typical enrollment</span>
+			<figure class="cred-focus-visual" aria-hidden="true">
+				<div class="cred-focus-visual__media">
+					<img
+						src="<?php echo esc_url( PPS_THEME_URI . '/assets/images/about.jpeg' ); ?>"
+						alt=""
+						loading="lazy"
+						decoding="async"
+					>
 				</div>
-				<div class="cred-focus-chip">
-					<span class="cred-focus-chip__icon"><i class="fa-solid fa-stethoscope"></i></span>
-					<div>
-						<strong>Specialty focused</strong>
-						<small>Allied health experts</small>
-					</div>
-				</div>
-				<div class="cred-focus-chip cred-focus-chip--accent">
-					<span class="cred-focus-chip__icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
-					<div>
-						<strong>Active monitoring</strong>
-						<small>Until fully enrolled</small>
-					</div>
-				</div>
-				<div class="cred-focus-chip cred-focus-chip--soft">
-					<span class="cred-focus-chip__icon"><i class="fa-solid fa-file-circle-check"></i></span>
-					<div>
-						<strong>Clean applications</strong>
-						<small>Fewer stalls &amp; denials</small>
-					</div>
-				</div>
-				<div class="cred-focus-orbit"></div>
-			</aside>
+
+				<figcaption class="cred-focus-visual__card">
+					<span class="cred-focus-visual__kicker">
+						<i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+						Primary source verification
+					</span>
+					<strong>Built for faster enrollment</strong>
+					<ul>
+						<li><i class="fa-solid fa-check" aria-hidden="true"></i> NPDB and primary checks</li>
+						<li><i class="fa-solid fa-check" aria-hidden="true"></i> DEA and state board validation</li>
+						<li><i class="fa-solid fa-check" aria-hidden="true"></i> Payer applications tracked</li>
+					</ul>
+				</figcaption>
+			</figure>
 		</div>
 	</div>
 </section>
