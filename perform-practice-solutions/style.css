@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.9.5
+Version: 2.9.8
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -47,6 +47,320 @@ Tags: custom-logo, custom-menu, featured-images, sticky-post, theme-options, tra
   --pps-grad-hero: linear-gradient(135deg, #061525 0%, #0a3d45 48%, #0e7c86 100%);
   --pps-grad-soft: linear-gradient(180deg, #f0f9fb 0%, #f4f7fb 45%, #eef2f7 100%);
   --pps-grad-card: linear-gradient(160deg, #ffffff 0%, #f3fafb 100%);
+}
+
+/* ==========================================================================
+   Homepage-only palette — from color references / AI Bolt
+   Scoped to body.pps-front-page so other pages stay unchanged.
+   ========================================================================== */
+body.pps-front-page {
+  --pps-ink: #262222;
+  --pps-ink-soft: #494242;
+  --pps-muted: #767676;
+  --pps-line: rgba(38, 34, 34, 0.1);
+  --pps-surface: #f7f9fc;
+  --pps-surface-elevated: #ffffff;
+  --pps-primary: #05177d;
+  --pps-primary-dark: #0e39c1;
+  --pps-primary-soft: rgba(5, 23, 125, 0.1);
+  --pps-accent: #00acec;
+  --pps-accent-deep: #4bcef7;
+  --pps-tech: #0e39c1;
+  --pps-tech-soft: rgba(0, 172, 236, 0.12);
+  --pps-orange: #f8931f;
+  --pps-orange-deep: #d37724;
+  --pps-silver: #c4c6c7;
+  --pps-mist: #e8e9ea;
+  --pps-grad-hero: linear-gradient(135deg, #05177d 0%, #00acec 100%);
+  --pps-grad-soft: linear-gradient(180deg, #ffffff 0%, #f7f9fc 55%, #eef2f7 100%);
+  --pps-grad-card: linear-gradient(160deg, #ffffff 0%, #f7f9fc 100%);
+  --pps-grad-brand: linear-gradient(135deg, #05177d 0%, #00acec 100%);
+  background: #ffffff;
+  color: var(--pps-ink-soft);
+}
+
+body.pps-front-page .site-header {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+body.pps-front-page .site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom-color: var(--pps-mist);
+  box-shadow: 0 4px 24px rgba(5, 23, 125, 0.06);
+}
+
+body.pps-front-page .site-logo-mark {
+  background: var(--pps-grad-brand);
+  box-shadow: 0 8px 20px rgba(5, 23, 125, 0.28);
+}
+
+body.pps-front-page .pps-btn--primary {
+  background: var(--pps-grad-brand);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(5, 23, 125, 0.22);
+}
+
+body.pps-front-page .pps-btn--primary:hover {
+  background: linear-gradient(135deg, #0e39c1 0%, #00acec 100%);
+  color: #fff;
+  box-shadow: 0 12px 32px rgba(0, 172, 236, 0.3);
+}
+
+body.pps-front-page .pps-btn--light {
+  background: var(--pps-grad-brand);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(5, 23, 125, 0.22);
+}
+
+body.pps-front-page .pps-btn--light:hover {
+  background: linear-gradient(135deg, #0e39c1 0%, #00acec 100%);
+  color: #fff;
+}
+
+body.pps-front-page .pps-btn--ghost:hover,
+body.pps-front-page .pps-btn--secondary:hover {
+  border-color: var(--pps-accent);
+  color: var(--pps-primary);
+}
+
+body.pps-front-page .pps-eyebrow {
+  color: var(--pps-accent);
+}
+
+body.pps-front-page .pps-eyebrow::before {
+  background: var(--pps-orange);
+}
+
+body.pps-front-page .home-hero {
+  background:
+    radial-gradient(ellipse 70% 50% at 85% 20%, rgba(0, 172, 236, 0.12), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(5, 23, 125, 0.07), transparent 50%),
+    #ffffff;
+  color: var(--pps-ink);
+}
+
+body.pps-front-page .home-hero::before {
+  background:
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgba(0, 172, 236, 0.08), transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2305177D' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+body.pps-front-page .home-hero__brand {
+  color: var(--pps-ink);
+}
+
+body.pps-front-page .home-hero__brand span {
+  color: var(--pps-accent);
+}
+
+body.pps-front-page .home-hero__title {
+  color: var(--pps-primary);
+}
+
+body.pps-front-page .home-hero__lead {
+  color: var(--pps-muted);
+}
+
+body.pps-front-page .home-hero .pps-btn--secondary {
+  background: #ffffff;
+  color: var(--pps-primary);
+  border: 1.5px solid var(--pps-silver);
+  backdrop-filter: none;
+}
+
+body.pps-front-page .home-hero .pps-btn--secondary:hover {
+  background: #ffffff;
+  border-color: var(--pps-accent);
+  color: var(--pps-accent);
+}
+
+body.pps-front-page .home-hero__visual-caption {
+  color: var(--pps-muted);
+}
+
+body.pps-front-page .home-contact {
+  background: #ffffff;
+  color: var(--pps-ink-soft);
+}
+
+body.pps-front-page .home-contact .pps-section-title {
+  color: var(--pps-primary);
+}
+
+body.pps-front-page .home-contact .pps-eyebrow {
+  color: var(--pps-accent);
+}
+
+body.pps-front-page .home-contact .pps-eyebrow::before {
+  background: var(--pps-orange);
+}
+
+body.pps-front-page .home-contact > .pps-container > .contact-grid > div > p {
+  color: var(--pps-muted);
+}
+
+body.pps-front-page .contact-detail {
+  background: var(--pps-surface);
+  border-color: var(--pps-mist);
+  color: var(--pps-ink-soft);
+}
+
+body.pps-front-page .contact-detail strong {
+  color: var(--pps-ink);
+}
+
+body.pps-front-page .contact-detail i {
+  color: var(--pps-primary);
+}
+
+body.pps-front-page .contact-detail a {
+  color: var(--pps-ink-soft);
+}
+
+body.pps-front-page .contact-detail a:hover {
+  color: var(--pps-accent);
+}
+
+body.pps-front-page .home-services,
+body.pps-front-page .home-automation,
+body.pps-front-page .home-faq,
+body.pps-front-page .home-insights,
+body.pps-front-page .home-need-help {
+  background: var(--pps-surface);
+}
+
+body.pps-front-page .intro-shell__note {
+  background: linear-gradient(135deg, rgba(5, 23, 125, 0.08), rgba(0, 172, 236, 0.1));
+  border-color: rgba(0, 172, 236, 0.22);
+  color: var(--pps-primary);
+}
+
+body.pps-front-page .service-card:hover,
+body.pps-front-page .automation-feature:hover {
+  border-color: rgba(0, 172, 236, 0.35);
+}
+
+body.pps-front-page .automation-feature__icon {
+  background: var(--pps-grad-brand);
+}
+
+body.pps-front-page .hero-dash__chrome {
+  background: linear-gradient(90deg, #05177d, #0e39c1);
+}
+
+body.pps-front-page .home-stats {
+  background: var(--pps-grad-brand);
+  color: #fff;
+}
+
+body.pps-front-page .pps-mega-panel__intro {
+  background: var(--pps-grad-brand);
+}
+
+body.pps-front-page .site-footer {
+  background: #05177d;
+}
+
+body.pps-front-page .header-cta .pps-btn--primary,
+body.pps-front-page .site-header .pps-btn--primary {
+  background: var(--pps-grad-brand);
+}
+
+body.pps-front-page .pps-connect-tab {
+  background: var(--pps-primary);
+}
+
+body.pps-front-page .pps-connect-tab:hover {
+  background: var(--pps-primary-dark);
+}
+
+body.pps-front-page .pps-connect-tab i {
+  color: var(--pps-orange);
+}
+
+/* Orange + blue mix (from AI Bolt): alternating icons + orange form CTA */
+body.pps-front-page .service-card__icon {
+  background: var(--pps-grad-brand);
+  color: #fff;
+}
+
+body.pps-front-page .service-card:nth-child(even) .service-card__icon,
+body.pps-front-page .service-card--ai .service-card__icon {
+  background: linear-gradient(135deg, var(--pps-orange-deep), var(--pps-orange));
+  color: #fff;
+}
+
+body.pps-front-page .automation-feature__icon {
+  background: var(--pps-grad-brand);
+}
+
+body.pps-front-page .automation-feature:nth-child(even) .automation-feature__icon {
+  background: linear-gradient(135deg, var(--pps-orange-deep), var(--pps-orange));
+}
+
+body.pps-front-page .intro-shell__tags li {
+  background: rgba(248, 147, 31, 0.12);
+  color: var(--pps-orange-deep);
+}
+
+body.pps-front-page .specialty-pill {
+  background: rgba(5, 23, 125, 0.08);
+  color: var(--pps-primary);
+  border-color: rgba(5, 23, 125, 0.14);
+}
+
+body.pps-front-page .specialty-pill:nth-child(even) {
+  background: rgba(248, 147, 31, 0.12);
+  color: var(--pps-orange-deep);
+  border-color: rgba(248, 147, 31, 0.28);
+}
+
+body.pps-front-page .faq-item__icon {
+  background: rgba(248, 147, 31, 0.15);
+  color: var(--pps-orange-deep);
+}
+
+body.pps-front-page .faq-item.is-open .faq-item__icon {
+  background: var(--pps-orange);
+  color: #fff;
+}
+
+body.pps-front-page .home-contact .pps-btn--primary,
+body.pps-front-page #pps-contact-form .pps-btn--primary,
+body.pps-front-page .contact-form .pps-btn--primary {
+  background: var(--pps-orange);
+  box-shadow: 0 8px 24px rgba(248, 147, 31, 0.28);
+}
+
+body.pps-front-page .home-contact .pps-btn--primary:hover,
+body.pps-front-page #pps-contact-form .pps-btn--primary:hover,
+body.pps-front-page .contact-form .pps-btn--primary:hover {
+  background: var(--pps-orange-deep);
+  box-shadow: 0 12px 28px rgba(211, 119, 36, 0.35);
+}
+
+body.pps-front-page .testimonial-card__quote::before {
+  color: var(--pps-orange);
+}
+
+body.pps-front-page .result-card:nth-child(even) .result-card__value,
+body.pps-front-page .stat-card:nth-child(even) .stat-card__value {
+  color: #fff;
+}
+
+body.pps-front-page .about-float-card span,
+body.pps-front-page .founder-chip {
+  color: var(--pps-orange-deep);
+}
+
+body.pps-front-page .help-ui__avatar,
+body.pps-front-page .help-ui--psv li i {
+  background: var(--pps-grad-brand);
+}
+
+body.pps-front-page .help-ui--psv li i.is-amber {
+  background: var(--pps-orange);
 }
 
 /* ==========================================================================
