@@ -194,26 +194,20 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(2.25rem, 4vw, 3.25rem) clamp(1.5rem, 3vw, 2.25rem);
   align-items: stretch;
 }
 
 .team-card {
-  grid-column: span 2;
   display: flex;
   flex-direction: column;
   text-align: left;
+  justify-self: stretch;
 }
 
-.team-card:nth-child(4),
-.team-card:nth-child(6) {
-  grid-column: 2 / 4;
-}
-
-.team-card:nth-child(5),
 .team-card:nth-child(7) {
-  grid-column: 4 / 6;
+  grid-column: 1;
 }
 
 .team-card__photo {
@@ -347,15 +341,6 @@ button.team-card__more:hover {
     grid-template-columns: 1fr;
   }
 
-  .team-grid,
-  .team-card,
-  .team-card:nth-child(4),
-  .team-card:nth-child(5),
-  .team-card:nth-child(6),
-  .team-card:nth-child(7) {
-    grid-column: auto;
-  }
-
   .team-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
@@ -363,6 +348,7 @@ button.team-card__more:hover {
   }
 
   .team-card {
+    grid-column: auto;
     text-align: center;
   }
 
@@ -374,26 +360,6 @@ button.team-card__more:hover {
   .team-card__more--pending {
     text-align: center;
     width: 100%;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .team-card,
-  .team-card:nth-child(4),
-  .team-card:nth-child(5),
-  .team-card:nth-child(6),
-  .team-card:nth-child(7) {
-    grid-column: auto;
-  }
-
-  .team-card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    max-width: 420px;
-    justify-self: center;
   }
 }
 

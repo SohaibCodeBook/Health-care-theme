@@ -51,6 +51,7 @@ function pps_team_defaults() {
 		'member_2_name'  => 'Kari Landrum',
 		'member_2_title' => 'Business Manager',
 		'member_2_bio'   => "With twenty years experience in health care, Kari is one of Perform Practice Solutions's Master...",
+		'member_2_bio_full' => "With twenty years experience in health care, Kari is one of Perform Practice Solutions's Master Billers!\n\nKari loves to spend her time with her new puppy and her family, while discovering the outdoors of Wyoming.",
 		'member_2_phone' => '833-764-0178',
 		'member_2_email' => 'Kari@PerformPracticeSolutions.com',
 		'member_2_image' => '',
@@ -58,6 +59,7 @@ function pps_team_defaults() {
 		'member_3_name'  => 'Kris Jorge',
 		'member_3_title' => 'Sales & Marketing Director',
 		'member_3_bio'   => 'With over a decade in sales and marketing, Kris Jorge helps businesses uncover revenue growth...',
+		'member_3_bio_full' => "With over a decade in sales and marketing, Kris Jorge helps businesses uncover revenue growth opportunities and drive client acquisition through high-impact campaigns. From launching services to building lasting market presence, Kris turns strategic vision into measurable results.\n\nWhen Kris isn't driving results in the boardroom, you'll likely find him on two wheels — riding motorcycles is his way of clearing his head and embracing the open road. A passionate advocate for animals, Kris actively rescues stray cats and gives them a second chance at a loving home.",
 		'member_3_phone' => '702-600-0483',
 		'member_3_email' => 'Kris@PerformPracticeSolutions.com',
 		'member_3_image' => '',
@@ -65,6 +67,7 @@ function pps_team_defaults() {
 		'member_4_name'  => 'Gianni Gonzalez',
 		'member_4_title' => 'Provider Credentialing & Enrollment Expert',
 		'member_4_bio'   => "Every day a provider isn't credentialed is revenue walking out the door. With 20+ years...",
+		'member_4_bio_full' => "Every day a provider isn't credentialed is revenue walking out the door.\n\nWith 20+ years in healthcare revenue cycle management, I've made it my mission to ensure providers are enrolled, credentialed, and reimbursement-ready — without the runaround.\n\nI partner with medical practices of all sizes to remove the complexity from credentialing. From navigating maze-like payer requirements to staying ahead of re-credentialing deadlines, I handle it all — so nothing falls through the cracks and your practice never misses a dollar it's earned.\n\n\"When I'm not chasing down credentialing approvals, I'm chasing sunsets in places with hard-to-pronounce names.\"",
 		'member_4_phone' => '702-725-4950',
 		'member_4_email' => 'Credentialing@PerformPT.net',
 		'member_4_image' => '',
@@ -72,6 +75,7 @@ function pps_team_defaults() {
 		'member_5_name'  => 'Leo Benedict Pascual',
 		'member_5_title' => 'Customer Success Manager / VA Manager',
 		'member_5_bio'   => 'With over a decade of leadership experience in the insurance and healthcare verticals, Leo specializes...',
+		'member_5_bio_full' => "With over a decade of leadership experience in the insurance and healthcare verticals, Leo specializes in optimizing revenue cycle processes and elevating patient experience through efficient front-end and back-end operations. He has a strong track record of leading high-performing teams, improving workflow efficiency, and ensuring seamless coordination between call centers and operations. His approach focuses on turning operational challenges into scalable, results-driven solutions.\n\nOutside of work, Leo enjoys gaming and watching movies, whether it's diving into competitive matches or getting lost in a great story on screen.",
 		'member_5_phone' => '949-392-5244',
 		'member_5_email' => 'Leo@PerformPracticeSolutions.com',
 		'member_5_image' => '',
@@ -169,6 +173,9 @@ function page_team( $key, $default = '' ) {
 		$default = $defaults[ $key ];
 	}
 	$value = (string) get_theme_mod( 'pps_team_' . $key, $default );
+	if ( '' === trim( $value ) && preg_match( '/^member_\d+_bio_full$/', $key ) && isset( $defaults[ $key ] ) && '' !== trim( (string) $defaults[ $key ] ) ) {
+		$value = (string) $defaults[ $key ];
+	}
 	if ( 'kevin_image' === $key && '' === $value ) {
 		return PPS_THEME_URI . '/assets/images/founder.jpeg';
 	}
@@ -449,7 +456,7 @@ function pps_attach_team_to_primary_menu( $page_id ) {
  * Create Our Team page, assign template/SEO, update menu.
  */
 function pps_setup_team_page() {
-	$version = '1.3.0';
+	$version = '1.6.0';
 	if ( get_option( 'pps_team_page_version' ) === $version ) {
 		return;
 	}
@@ -457,7 +464,7 @@ function pps_setup_team_page() {
 	$defaults = pps_team_defaults();
 
 	for ( $i = 1; $i <= 7; $i++ ) {
-		foreach ( array( 'name', 'title', 'bio', 'bio_full', 'phone', 'email', 'image' ) as $field ) {
+		foreach ( array( 'name', 'title', 'bio', 'phone', 'email', 'image' ) as $field ) {
 			$key = "member_{$i}_{$field}";
 			if ( ! isset( $defaults[ $key ] ) ) {
 				continue;
@@ -466,6 +473,11 @@ function pps_setup_team_page() {
 			if ( '' === get_theme_mod( $setting, '' ) && '' !== $defaults[ $key ] ) {
 				set_theme_mod( $setting, $defaults[ $key ] );
 			}
+		}
+
+		$bio_key = "member_{$i}_bio_full";
+		if ( ! empty( $defaults[ $bio_key ] ) ) {
+			set_theme_mod( 'pps_team_' . $bio_key, $defaults[ $bio_key ] );
 		}
 	}
 
