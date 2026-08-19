@@ -74,7 +74,85 @@ function pps_team_defaults() {
 		'member_5_phone' => '949-392-5244',
 		'member_5_email' => 'Leo@PerformPracticeSolutions.com',
 		'member_5_image' => '',
+
+		'member_6_name'  => 'Shaira',
+		'member_6_title' => '',
+		'member_6_bio'   => 'With over 7 years of experience in digital marketing, Shaira helps businesses grow their online presence through creative content, engaging social media...',
+		'member_6_bio_full' => "With over 7 years of experience in digital marketing, Shaira helps businesses grow their online presence through creative content, engaging social media, strategic advertising, and data-driven marketing.\n\nShe enjoys bringing ideas to life through content and creative campaigns that connect with people while keeping business goals at the center of the strategy.\n\nWhen she's not working on her latest project, you'll likely find her spending time with her dogs, exploring new places and foods, or planning her next beach getaway.",
+		'member_6_phone' => '',
+		'member_6_email' => 'shaira@performpt.net',
+		'member_6_image' => '',
+
+		'member_7_name'  => 'Raneighia Astillero',
+		'member_7_title' => 'Content Marketing',
+		'member_7_bio'   => 'Raneighia Astillero is a Digital Marketing Specialist with 7 years of experience in SEO, website management, and ads strategy. She helps businesses get found in search...',
+		'member_7_bio_full' => "Raneighia Astillero is a Digital Marketing Specialist with 7 years of experience in SEO, website management, and ads strategy. She helps businesses get found in search, keep their websites fast and current, and run paid campaigns that spend with purpose.\n\nHer approach is diagnostic: find out why the numbers look the way they do, then fix it, so clients see more qualified traffic, stronger conversion, and a budget that earns its keep.\n\nOutside of work, she plays tennis and answers to a pug named Drake.",
+		'member_7_phone' => '',
+		'member_7_email' => 'raneya@performpt.net',
+		'member_7_image' => '',
 	);
+}
+
+/**
+ * Bundled team member headshot filenames (member index => file).
+ *
+ * @return array<int, string>
+ */
+function pps_team_member_image_files() {
+	return array(
+		1 => 'Courtney.jpg',
+		2 => 'kari.jpg',
+		3 => 'kris.jpg',
+		4 => 'Gianni.jpg',
+		5 => 'leo.jpg',
+		6 => 'shaira.jpeg',
+		7 => 'raneighia.jpeg',
+	);
+}
+
+/**
+ * Default headshot URI for a team member slot.
+ *
+ * @param int $index Member index (1–7).
+ * @return string
+ */
+function pps_team_member_default_image( $index ) {
+	$files = pps_team_member_image_files();
+	$index = (int) $index;
+	if ( ! isset( $files[ $index ] ) ) {
+		return '';
+	}
+
+	$rel  = '/assets/images/our team images/' . $files[ $index ];
+	$path = PPS_THEME_DIR . $rel;
+	if ( ! file_exists( $path ) ) {
+		return '';
+	}
+
+	return PPS_THEME_URI . $rel;
+}
+
+/**
+ * Cache-bust a theme team image URL.
+ *
+ * @param string $url Image URL.
+ * @return string
+ */
+function pps_team_image_url( $url ) {
+	if ( '' === $url || false !== strpos( $url, '?' ) ) {
+		return $url;
+	}
+
+	$path = str_replace( PPS_THEME_URI, PPS_THEME_DIR, $url );
+	if ( ! file_exists( $path ) ) {
+		$decoded = str_replace( PPS_THEME_URI, PPS_THEME_DIR, rawurldecode( $url ) );
+		if ( file_exists( $decoded ) ) {
+			$path = $decoded;
+		}
+	}
+
+	$ver = file_exists( $path ) ? (string) filemtime( $path ) : PPS_THEME_VERSION;
+	return $url . '?ver=' . rawurlencode( $ver );
 }
 
 /**
@@ -93,6 +171,9 @@ function page_team( $key, $default = '' ) {
 	if ( 'kevin_image' === $key && '' === $value ) {
 		return PPS_THEME_URI . '/assets/images/founder.jpeg';
 	}
+	if ( preg_match( '/^member_(\d+)_image$/', $key, $matches ) && '' === $value ) {
+		return pps_team_member_default_image( (int) $matches[1] );
+	}
 	return $value;
 }
 
@@ -103,18 +184,19 @@ function page_team( $key, $default = '' ) {
  */
 function pps_team_members() {
 	$members = array();
-	for ( $i = 1; $i <= 5; $i++ ) {
+	for ( $i = 1; $i <= 7; $i++ ) {
 		$name = page_team( "member_{$i}_name" );
 		if ( '' === trim( $name ) ) {
 			continue;
 		}
 		$members[] = array(
-			'name'  => $name,
-			'title' => page_team( "member_{$i}_title" ),
-			'bio'   => page_team( "member_{$i}_bio" ),
-			'phone' => page_team( "member_{$i}_phone" ),
-			'email' => page_team( "member_{$i}_email" ),
-			'image' => page_team( "member_{$i}_image" ),
+			'name'     => $name,
+			'title'    => page_team( "member_{$i}_title" ),
+			'bio'      => page_team( "member_{$i}_bio" ),
+			'bio_full' => page_team( "member_{$i}_bio_full" ),
+			'phone'    => page_team( "member_{$i}_phone" ),
+			'email'    => page_team( "member_{$i}_email" ),
+			'image'    => page_team( "member_{$i}_image" ),
 		);
 	}
 	return $members;
@@ -137,7 +219,7 @@ function pps_team_customize_register( $wp_customize ) {
 
 	foreach ( pps_team_defaults() as $key => $default ) {
 		$setting_id  = 'pps_team_' . $key;
-		$is_textarea = (bool) preg_match( '/(_bio|_highlight|seo_desc)$/', $key );
+		$is_textarea = (bool) preg_match( '/(_bio|_bio_full|_highlight|seo_desc)$/', $key );
 		$is_image    = (bool) preg_match( '/_image$/', $key );
 
 		$wp_customize->add_setting(
@@ -321,12 +403,35 @@ function pps_attach_team_to_primary_menu( $page_id ) {
  * Create Our Team page, assign template/SEO, update menu.
  */
 function pps_setup_team_page() {
-	$version = '1.0.0';
+	$version = '1.2.0';
 	if ( get_option( 'pps_team_page_version' ) === $version ) {
 		return;
 	}
 
 	$defaults = pps_team_defaults();
+
+	for ( $i = 6; $i <= 7; $i++ ) {
+		foreach ( array( 'name', 'title', 'bio', 'bio_full', 'phone', 'email', 'image' ) as $field ) {
+			$key = "member_{$i}_{$field}";
+			if ( ! isset( $defaults[ $key ] ) ) {
+				continue;
+			}
+			$setting = 'pps_team_' . $key;
+			if ( '' === get_theme_mod( $setting, '' ) && '' !== $defaults[ $key ] ) {
+				set_theme_mod( $setting, $defaults[ $key ] );
+			}
+		}
+	}
+
+	for ( $i = 1; $i <= 7; $i++ ) {
+		$setting = 'pps_team_member_' . $i . '_image';
+		if ( '' === get_theme_mod( $setting, '' ) ) {
+			$image = pps_team_member_default_image( $i );
+			if ( $image ) {
+				set_theme_mod( $setting, esc_url_raw( $image ) );
+			}
+		}
+	}
 	$page     = get_page_by_path( 'our-team' );
 
 	if ( $page ) {

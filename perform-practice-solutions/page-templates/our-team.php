@@ -17,11 +17,9 @@ $members = pps_team_members();
 			<figure class="kevin-panel__photo">
 				<?php
 				$kevin_image = page_team( 'kevin_image' );
-				$kevin_path  = str_replace( PPS_THEME_URI, PPS_THEME_DIR, $kevin_image );
-				$kevin_ver   = file_exists( $kevin_path ) ? (string) filemtime( $kevin_path ) : PPS_THEME_VERSION;
 				?>
 				<img
-					src="<?php echo esc_url( $kevin_image . ( false === strpos( $kevin_image, '?' ) ? '?ver=' . rawurlencode( $kevin_ver ) : '' ) ); ?>"
+					src="<?php echo esc_url( pps_team_image_url( $kevin_image ) ); ?>"
 					alt="<?php echo esc_attr( page_team( 'kevin_name' ) ); ?>"
 					width="640"
 					height="800"
@@ -90,22 +88,27 @@ $members = pps_team_members();
 					<?php if ( ! empty( $member['image'] ) ) : ?>
 						<figure class="team-card__photo">
 							<img
-								src="<?php echo esc_url( $member['image'] ); ?>"
+								src="<?php echo esc_url( pps_team_image_url( $member['image'] ) ); ?>"
 								alt="<?php echo esc_attr( $member['name'] ); ?>"
 								width="420"
 								height="520"
 								loading="lazy"
+								decoding="async"
 							>
 						</figure>
 					<?php endif; ?>
 
 					<h2 class="team-card__name"><?php echo esc_html( $member['name'] ); ?></h2>
-					<p class="team-card__role"><?php echo esc_html( $member['title'] ); ?></p>
-					<p class="team-card__bio">
-						<?php echo esc_html( $member['bio'] ); ?>
-						<span class="team-card__more"><?php esc_html_e( 'Read More', 'perform-practice' ); ?></span>
-					</p>
+					<?php if ( ! empty( $member['title'] ) ) : ?>
+						<p class="team-card__role"><?php echo esc_html( $member['title'] ); ?></p>
+					<?php endif; ?>
 
+					<div class="team-card__bio-block">
+						<p class="team-card__bio"><?php echo esc_html( $member['bio'] ); ?></p>
+						<span class="team-card__more"><?php esc_html_e( 'Read More', 'perform-practice' ); ?></span>
+					</div>
+
+					<?php if ( ! empty( $member['phone'] ) || ! empty( $member['email'] ) ) : ?>
 					<ul class="team-card__contact">
 						<?php if ( ! empty( $member['phone'] ) ) : ?>
 							<li>
@@ -130,6 +133,7 @@ $members = pps_team_members();
 							</li>
 						<?php endif; ?>
 					</ul>
+					<?php endif; ?>
 				</article>
 			<?php endforeach; ?>
 		</div>
