@@ -65,6 +65,11 @@ function pps_theme_activation() {
 			'title'   => 'About Us',
 			'content' => '<p>About Us page content will be designed in a later phase.</p>',
 		),
+		'our-team'          => array(
+			'title'    => 'Our Team',
+			'content'  => '<!-- Our Team content is managed via Appearance → Customize → PPS — Service Pages → Our Team -->',
+			'template' => 'page-templates/our-team.php',
+		),
 		'blog'              => array(
 			'title'   => 'Blog',
 			'content' => '',
