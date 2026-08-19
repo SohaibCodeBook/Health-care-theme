@@ -271,7 +271,25 @@
   padding-top: 0.5rem;
   color: var(--pps-accent);
   font-weight: 600;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: 1.4;
+  text-align: left;
+}
+
+button.team-card__more {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button.team-card__more:hover {
+  text-decoration: underline;
+}
+
+.team-card__more--pending {
   cursor: default;
+  opacity: 0.55;
 }
 
 .team-card__contact {
@@ -351,6 +369,12 @@
   .team-card__contact li {
     justify-content: center;
   }
+
+  button.team-card__more,
+  .team-card__more--pending {
+    text-align: center;
+    width: 100%;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -370,5 +394,164 @@
     grid-column: 1 / -1;
     max-width: 420px;
     justify-self: center;
+  }
+}
+
+/* Team member detail modal */
+body.team-modal-open {
+  overflow: hidden;
+}
+
+.team-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.team-modal[hidden] {
+  display: none;
+}
+
+.team-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.62);
+}
+
+.team-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 980px);
+  max-height: min(92vh, 760px);
+  overflow: auto;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.22);
+}
+
+.team-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #111;
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.team-modal__close:hover {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.team-modal__grid {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+  min-height: 100%;
+}
+
+.team-modal__photo {
+  margin: 0;
+  min-height: 100%;
+  background: #e8eef5;
+}
+
+.team-modal__photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.team-modal__content {
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.team-modal__name {
+  margin: 0 0 0.35rem;
+  padding-right: 2rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--pps-primary);
+}
+
+.team-modal__role {
+  margin: 0 0 1.15rem;
+  font-family: var(--pps-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--pps-primary);
+}
+
+.team-modal__bio {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.team-modal__bio p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.68;
+  color: #262222;
+}
+
+.team-modal__contact {
+  list-style: none;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.team-modal__contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #262222;
+}
+
+.team-modal__contact i {
+  width: 1rem;
+  color: #111;
+  font-size: 0.88rem;
+}
+
+.team-modal__contact a {
+  color: inherit;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.team-modal__contact a:hover {
+  color: var(--pps-accent);
+}
+
+@media (max-width: 767.98px) {
+  .team-modal__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-modal__photo img {
+    min-height: 280px;
+    max-height: 360px;
   }
 }

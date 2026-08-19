@@ -43,6 +43,7 @@ function pps_team_defaults() {
 		'member_1_name'  => 'Courtney Crocker',
 		'member_1_title' => 'Director of Perform Practice Solutions',
 		'member_1_bio'   => 'I bring over a decade of experience helping healthcare practices unlock growth, maximize revenue, and...',
+		'member_1_bio_full' => "I bring over a decade of experience helping healthcare practices unlock growth, maximize revenue, and build high-performing operations that scale. My expertise combines client strategy, revenue cycle management, workflow optimization, credentialing, and business development to help practices grow smarter, stronger, and more profitably from startup through expansion. At Perform Practice Solutions, we are also leading the way in AI innovation for the allied health sector, developing smarter tools that automate tasks, increase efficiency, and create a better experience for both providers and patients.\n\nI transform operational bottlenecks into revenue-driving growth engines.\n\nWhen I am not helping practices grow, you can usually find me behind a camera, exploring somewhere new, or camping under the stars. Put me in a Jeep in the middle of the Utah desert, and I am a happy girl.",
 		'member_1_phone' => '833-764-0178',
 		'member_1_email' => 'Courtney@PerformPracticeSolutions.com',
 		'member_1_image' => '',
@@ -190,6 +191,7 @@ function pps_team_members() {
 			continue;
 		}
 		$members[] = array(
+			'id'       => $i,
 			'name'     => $name,
 			'title'    => page_team( "member_{$i}_title" ),
 			'bio'      => page_team( "member_{$i}_bio" ),
@@ -200,6 +202,40 @@ function pps_team_members() {
 		);
 	}
 	return $members;
+}
+
+/**
+ * Team members with modal content keyed by member id.
+ *
+ * @return array<int, array<string, mixed>>
+ */
+function pps_team_modal_data() {
+	$data = array();
+
+	foreach ( pps_team_members() as $member ) {
+		$bio_full = trim( (string) ( $member['bio_full'] ?? '' ) );
+		if ( '' === $bio_full ) {
+			continue;
+		}
+
+		$paragraphs = preg_split( '/\n\s*\n/', $bio_full );
+		$paragraphs = array_values(
+			array_filter(
+				array_map( 'trim', is_array( $paragraphs ) ? $paragraphs : array( $bio_full ) )
+			)
+		);
+
+		$data[ (int) $member['id'] ] = array(
+			'name'       => $member['name'],
+			'title'      => $member['title'],
+			'paragraphs' => $paragraphs,
+			'phone'      => $member['phone'],
+			'email'      => $member['email'],
+			'image'      => pps_team_image_url( $member['image'] ),
+		);
+	}
+
+	return $data;
 }
 
 /**
@@ -305,6 +341,16 @@ function pps_team_print_inline_css() {
 function pps_team_enqueue_assets() {
 	if ( pps_is_team_page() ) {
 		pps_team_register_styles();
+
+		$script_path = PPS_THEME_DIR . '/assets/js/team.js';
+		$script_ver  = file_exists( $script_path ) ? (string) filemtime( $script_path ) : PPS_THEME_VERSION;
+		wp_enqueue_script(
+			'pps-team',
+			PPS_THEME_URI . '/assets/js/team.js',
+			array(),
+			$script_ver,
+			true
+		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'pps_team_enqueue_assets', 25 );
@@ -403,14 +449,14 @@ function pps_attach_team_to_primary_menu( $page_id ) {
  * Create Our Team page, assign template/SEO, update menu.
  */
 function pps_setup_team_page() {
-	$version = '1.2.0';
+	$version = '1.3.0';
 	if ( get_option( 'pps_team_page_version' ) === $version ) {
 		return;
 	}
 
 	$defaults = pps_team_defaults();
 
-	for ( $i = 6; $i <= 7; $i++ ) {
+	for ( $i = 1; $i <= 7; $i++ ) {
 		foreach ( array( 'name', 'title', 'bio', 'bio_full', 'phone', 'email', 'image' ) as $field ) {
 			$key = "member_{$i}_{$field}";
 			if ( ! isset( $defaults[ $key ] ) ) {

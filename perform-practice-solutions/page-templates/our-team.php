@@ -9,6 +9,7 @@
 get_header();
 
 $members = pps_team_members();
+$team_modal_data = pps_team_modal_data();
 ?>
 
 <section class="team-page" id="top">
@@ -105,7 +106,17 @@ $members = pps_team_members();
 
 					<div class="team-card__bio-block">
 						<p class="team-card__bio"><?php echo esc_html( $member['bio'] ); ?></p>
-						<span class="team-card__more"><?php esc_html_e( 'Read More', 'perform-practice' ); ?></span>
+						<?php if ( ! empty( trim( (string) $member['bio_full'] ) ) ) : ?>
+							<button
+								type="button"
+								class="team-card__more"
+								data-team-member="<?php echo esc_attr( (string) $member['id'] ); ?>"
+							>
+								<?php esc_html_e( 'Read More', 'perform-practice' ); ?>
+							</button>
+						<?php else : ?>
+							<span class="team-card__more team-card__more--pending"><?php esc_html_e( 'Read More', 'perform-practice' ); ?></span>
+						<?php endif; ?>
 					</div>
 
 					<?php if ( ! empty( $member['phone'] ) || ! empty( $member['email'] ) ) : ?>
@@ -139,6 +150,28 @@ $members = pps_team_members();
 		</div>
 	</div>
 </section>
+
+<div class="team-modal" id="team-member-modal" hidden aria-hidden="true">
+	<div class="team-modal__backdrop" data-team-modal-close tabindex="-1"></div>
+	<div class="team-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="team-modal-name">
+		<button type="button" class="team-modal__close" data-team-modal-close aria-label="<?php esc_attr_e( 'Close', 'perform-practice' ); ?>">
+			<i class="fa-solid fa-xmark" aria-hidden="true"></i>
+		</button>
+		<div class="team-modal__grid">
+			<figure class="team-modal__photo">
+				<img src="" alt="" width="420" height="520" decoding="async">
+			</figure>
+			<div class="team-modal__content">
+				<h2 class="team-modal__name" id="team-modal-name"></h2>
+				<p class="team-modal__role"></p>
+				<div class="team-modal__bio"></div>
+				<ul class="team-modal__contact"></ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="application/json" id="pps-team-modal-data"><?php echo wp_json_encode( $team_modal_data ); ?></script>
 
 <?php
 get_footer();
