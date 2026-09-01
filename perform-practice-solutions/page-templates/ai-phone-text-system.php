@@ -128,6 +128,8 @@ $bento_layout = array(
 	</div>
 </section>
 
+<?php get_template_part( 'template-parts/ai/agent-suite-sections' ); ?>
+
 <section class="ai-pts-metrics" aria-label="<?php esc_attr_e( 'Key benefits', 'perform-practice' ); ?>">
 	<div class="pps-container">
 		<div class="ai-pts-metrics__grid">

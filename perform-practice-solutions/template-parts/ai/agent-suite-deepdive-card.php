@@ -1,0 +1,40 @@
+<?php
+/**
+ * Single agent deep-dive card for agent suite sections.
+ *
+ * @package Perform_Practice
+ * Expects $agent array in scope.
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+if ( empty( $agent ) ) {
+	return;
+}
+
+$card_class = 'ai-suite-deepdive pps-reveal';
+if ( ! empty( $agent['featured'] ) ) {
+	$card_class .= ' ai-suite-deepdive--featured';
+}
+?>
+<article class="<?php echo esc_attr( $card_class ); ?>">
+	<header class="ai-suite-deepdive__head">
+		<div class="ai-suite-deepdive__mark" aria-hidden="true"><?php echo esc_html( $agent['letter'] ); ?></div>
+		<div>
+			<h3><?php echo esc_html( $agent['name'] ); ?></h3>
+			<p class="ai-suite-deepdive__title"><?php echo esc_html( $agent['title'] ); ?></p>
+			<p class="ai-suite-deepdive__audience"><?php echo esc_html( $agent['audience'] ); ?></p>
+		</div>
+	</header>
+	<p class="ai-suite-deepdive__placement"><?php echo esc_html( $agent['placement'] ); ?></p>
+	<ul class="ai-suite-acronym ai-suite-acronym--inline">
+		<?php foreach ( $agent['letters'] as $part ) : ?>
+			<li><span><?php echo esc_html( $part['l'] ); ?></span> <?php echo esc_html( $part['w'] ); ?></li>
+		<?php endforeach; ?>
+	</ul>
+	<p class="ai-suite-deepdive__bio"><?php echo esc_html( $agent['bio'] ); ?></p>
+	<blockquote class="ai-suite-deepdive__voice">
+		<p><?php echo esc_html( $agent['voice'] ); ?></p>
+		<cite><?php esc_html_e( 'Sample voice line', 'perform-practice' ); ?></cite>
+	</blockquote>
+</article>
