@@ -17,6 +17,10 @@ if ( ! empty( $agent['featured'] ) ) {
 	$card_class .= ' ai-suite-deepdive--featured';
 }
 $avatar_url = pps_ai_agent_avatar_url( $agent['name'] );
+$agent_url  = ! empty( $agent['slug'] ) ? pps_ai_agent_page_url( $agent['slug'] ) : '';
+if ( $agent_url ) {
+	$card_class .= ' ai-suite-deepdive--link';
+}
 ?>
 <article class="<?php echo esc_attr( $card_class ); ?>">
 	<header class="ai-suite-deepdive__head">
@@ -28,7 +32,11 @@ $avatar_url = pps_ai_agent_avatar_url( $agent['name'] );
 			<div class="ai-suite-deepdive__mark" aria-hidden="true"><?php echo esc_html( $agent['letter'] ); ?></div>
 		<?php endif; ?>
 		<div>
-			<h3><?php echo esc_html( $agent['name'] ); ?></h3>
+			<?php if ( $agent_url ) : ?>
+				<h3><a href="<?php echo esc_url( $agent_url ); ?>"><?php echo esc_html( $agent['name'] ); ?></a></h3>
+			<?php else : ?>
+				<h3><?php echo esc_html( $agent['name'] ); ?></h3>
+			<?php endif; ?>
 			<p class="ai-suite-deepdive__title"><?php echo esc_html( $agent['title'] ); ?></p>
 			<p class="ai-suite-deepdive__audience"><?php echo esc_html( $agent['audience'] ); ?></p>
 		</div>
@@ -44,4 +52,10 @@ $avatar_url = pps_ai_agent_avatar_url( $agent['name'] );
 		<p><?php echo esc_html( $agent['voice'] ); ?></p>
 		<cite><?php esc_html_e( 'Sample voice line', 'perform-practice' ); ?></cite>
 	</blockquote>
+	<?php if ( $agent_url ) : ?>
+		<a class="ai-suite-deepdive__cta" href="<?php echo esc_url( $agent_url ); ?>">
+			<?php echo esc_html( sprintf( /* translators: agent name */ __( 'Meet %s', 'perform-practice' ), $agent['name'] ) ); ?>
+			<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+		</a>
+	<?php endif; ?>
 </article>

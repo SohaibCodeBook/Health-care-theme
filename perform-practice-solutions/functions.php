@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.9.45' );
+define( 'PPS_THEME_VERSION', '2.9.49' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -79,6 +79,7 @@ require_once PPS_THEME_DIR . '/inc/ai-referral-outreach.php';
 require_once PPS_THEME_DIR . '/inc/ai-website-chatbot.php';
 require_once PPS_THEME_DIR . '/inc/ai-front-desk-tools.php';
 require_once PPS_THEME_DIR . '/inc/ai-agent-suite.php';
+require_once PPS_THEME_DIR . '/inc/ai-agent-page.php';
 require_once PPS_THEME_DIR . '/inc/about.php';
 require_once PPS_THEME_DIR . '/inc/team.php';
 require_once PPS_THEME_DIR . '/inc/contact.php';

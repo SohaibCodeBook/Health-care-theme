@@ -12,30 +12,35 @@ $ai_suite_agents = array(
 	array(
 		'letter'   => 'A',
 		'name'     => 'Ava',
+		'slug'     => 'ava',
 		'title'    => 'Account and Voice Assistant',
 		'audience' => 'Practice-wide',
 	),
 	array(
 		'letter'   => 'R',
 		'name'     => 'Rosa',
+		'slug'     => 'rosa',
 		'title'    => 'Referral Outreach & Scheduling Assistant',
 		'audience' => 'Referral coordinators',
 	),
 	array(
 		'letter'   => 'V',
 		'name'     => 'Vera',
+		'slug'     => 'vera',
 		'title'    => 'Visitor Engagement & Response Assistant',
 		'audience' => 'Website patients',
 	),
 	array(
 		'letter'   => 'R',
 		'name'     => 'Rex',
+		'slug'     => 'rex',
 		'title'    => 'Reception Efficiency eXpert',
 		'audience' => 'Front desk staff',
 	),
 	array(
 		'letter'   => 'C',
 		'name'     => 'Cora',
+		'slug'     => 'cora',
 		'title'    => 'Communication Outreach & Response Assistant',
 		'audience' => 'Practice managers',
 		'featured' => true,
@@ -46,6 +51,7 @@ $ai_suite_deepdives = array(
 	array(
 		'letter'    => 'R',
 		'name'      => 'Rosa',
+		'slug'      => 'rosa',
 		'title'     => 'Referral outreach & scheduling assistant',
 		'audience'  => 'Referral & medical coordinators',
 		'placement' => 'ROSA — lives inside Tebra EMR',
@@ -61,6 +67,7 @@ $ai_suite_deepdives = array(
 	array(
 		'letter'    => 'V',
 		'name'      => 'Vera',
+		'slug'      => 'vera',
 		'title'     => 'Visitor engagement & response assistant',
 		'audience'  => 'Patients visiting the site',
 		'placement' => 'VERA — embedded on the practice website',
@@ -75,6 +82,7 @@ $ai_suite_deepdives = array(
 	array(
 		'letter'    => 'R',
 		'name'      => 'Rex',
+		'slug'      => 'rex',
 		'title'     => 'Reception efficiency expert',
 		'audience'  => 'Front desk staff & administrators',
 		'placement' => 'REX — runs front-desk workflows',
@@ -89,6 +97,7 @@ $ai_suite_deepdives = array(
 	array(
 		'letter'    => 'C',
 		'name'      => 'Cora',
+		'slug'      => 'cora',
 		'title'     => 'Communication outreach & response assistant',
 		'audience'  => 'Practice managers',
 		'placement' => 'CORA — runs text & phone automation',
@@ -113,8 +122,22 @@ $ai_suite_deepdives = array(
 		</div>
 		<div class="ai-suite-team__grid">
 			<?php foreach ( $ai_suite_agents as $agent ) : ?>
-				<?php $avatar_url = pps_ai_agent_avatar_url( $agent['name'] ); ?>
-				<article class="ai-suite-team-card pps-reveal<?php echo ! empty( $agent['featured'] ) ? ' ai-suite-team-card--featured' : ''; ?>">
+				<?php
+				$avatar_url = pps_ai_agent_avatar_url( $agent['name'] );
+				$agent_url  = ! empty( $agent['slug'] ) ? pps_ai_agent_page_url( $agent['slug'] ) : '';
+				$card_class = 'ai-suite-team-card pps-reveal';
+				if ( ! empty( $agent['featured'] ) ) {
+					$card_class .= ' ai-suite-team-card--featured';
+				}
+				if ( $agent_url ) {
+					$card_class .= ' ai-suite-team-card--link';
+				}
+				?>
+				<?php if ( $agent_url ) : ?>
+					<a class="<?php echo esc_attr( $card_class ); ?>" href="<?php echo esc_url( $agent_url ); ?>">
+				<?php else : ?>
+					<article class="<?php echo esc_attr( $card_class ); ?>">
+				<?php endif; ?>
 					<?php if ( $avatar_url ) : ?>
 						<div class="ai-suite-team-card__avatar">
 							<img src="<?php echo esc_url( $avatar_url ); ?>" alt="<?php echo esc_attr( $agent['name'] ); ?>" width="88" height="88" loading="lazy" decoding="async">
@@ -125,7 +148,17 @@ $ai_suite_deepdives = array(
 					<h3><?php echo esc_html( $agent['name'] ); ?></h3>
 					<p class="ai-suite-team-card__role"><?php echo esc_html( $agent['title'] ); ?></p>
 					<p class="ai-suite-team-card__audience"><?php echo esc_html( $agent['audience'] ); ?></p>
-				</article>
+					<?php if ( $agent_url ) : ?>
+						<span class="ai-suite-team-card__cta">
+							<?php esc_html_e( 'Meet', 'perform-practice' ); ?> <?php echo esc_html( $agent['name'] ); ?>
+							<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+						</span>
+					<?php endif; ?>
+				<?php if ( $agent_url ) : ?>
+					</a>
+				<?php else : ?>
+					</article>
+				<?php endif; ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
