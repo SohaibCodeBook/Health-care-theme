@@ -152,20 +152,89 @@ pps_ai_agent_force_styles();
 				<p class="ai-agent-section-lead"><?php echo esc_html( $agent['onboard_intro'] ); ?></p>
 			</div>
 
-			<ol class="ai-agent-steps">
-				<?php foreach ( $agent['onboard_steps'] as $i => $step ) : ?>
-					<li class="ai-agent-step pps-reveal" style="--ai-delay: <?php echo esc_attr( (string) ( $i * 0.05 ) ); ?>s">
-						<span class="ai-agent-step__num"><?php echo esc_html( sprintf( '%02d', $i + 1 ) ); ?></span>
-						<div>
-							<h3><?php echo esc_html( $step['title'] ); ?></h3>
-							<p><?php echo esc_html( $step['text'] ); ?></p>
-						</div>
-					</li>
-				<?php endforeach; ?>
-			</ol>
+			<div class="ai-agent-onboard__layout pps-reveal">
+				<div class="ai-agent-phone" aria-hidden="true">
+					<div class="ai-agent-phone__device">
+						<div class="ai-agent-phone__notch"></div>
+						<div class="ai-agent-phone__screen">
+							<?php foreach ( $agent['onboard_steps'] as $i => $step ) : ?>
+								<div class="ai-agent-phone__pane<?php echo 0 === $i ? ' is-active' : ''; ?>" data-step-pane="<?php echo esc_attr( (string) $i ); ?>">
+									<div class="ai-agent-phone__top">
+										<?php if ( $avatar_url ) : ?>
+											<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" width="28" height="28" loading="lazy">
+										<?php endif; ?>
+										<div>
+											<strong><?php echo esc_html( ! empty( $step['phone_title'] ) ? $step['phone_title'] : $step['title'] ); ?></strong>
+											<span><?php echo esc_html( ! empty( $agent['onboard_phone_header'] ) ? $agent['onboard_phone_header'] : $agent['name'] ); ?></span>
+										</div>
+									</div>
 
-			<div class="ai-agent-section-cta pps-reveal">
-				<a class="pps-btn pps-btn--primary" href="<?php echo esc_url( $agent['onboard_cta_url'] ); ?>">
+									<div class="ai-agent-phone__thread">
+										<?php if ( ! empty( $step['phone_user'] ) ) : ?>
+											<div class="ai-agent-phone__bubble ai-agent-phone__bubble--user">
+												<?php echo esc_html( $step['phone_user'] ); ?>
+											</div>
+										<?php endif; ?>
+
+										<?php if ( ! empty( $step['phone_agent'] ) ) : ?>
+											<div class="ai-agent-phone__bubble ai-agent-phone__bubble--agent">
+												<?php if ( $avatar_url ) : ?>
+													<img src="<?php echo esc_url( $avatar_url ); ?>" alt="" width="22" height="22" loading="lazy">
+												<?php endif; ?>
+												<p><?php echo esc_html( $step['phone_agent'] ); ?></p>
+											</div>
+										<?php endif; ?>
+
+										<?php if ( ! empty( $step['phone_status'] ) && is_array( $step['phone_status'] ) ) : ?>
+											<ul class="ai-agent-phone__status">
+												<?php foreach ( $step['phone_status'] as $status ) : ?>
+													<li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> <?php echo esc_html( $status ); ?></li>
+												<?php endforeach; ?>
+											</ul>
+										<?php endif; ?>
+
+										<?php if ( ! empty( $step['phone_card'] ) && is_array( $step['phone_card'] ) ) : ?>
+											<div class="ai-agent-phone__card">
+												<div>
+													<strong><?php echo esc_html( $step['phone_card']['title'] ); ?></strong>
+													<span><?php echo esc_html( $step['phone_card']['meta'] ); ?></span>
+												</div>
+												<em><?php echo esc_html( $step['phone_card']['badge'] ); ?></em>
+											</div>
+										<?php endif; ?>
+									</div>
+
+									<div class="ai-agent-phone__composer">
+										<span><?php echo esc_html( sprintf( /* translators: agent name */ __( 'Message %s…', 'perform-practice' ), $agent['name'] ) ); ?></span>
+										<i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+									</div>
+								</div>
+							<?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+
+				<div class="ai-agent-onboard__steps" role="tablist" aria-label="<?php esc_attr_e( 'Onboarding steps', 'perform-practice' ); ?>">
+					<?php foreach ( $agent['onboard_steps'] as $i => $step ) : ?>
+						<button
+							class="ai-agent-onboard__step<?php echo 0 === $i ? ' is-active' : ''; ?>"
+							type="button"
+							role="tab"
+							aria-selected="<?php echo 0 === $i ? 'true' : 'false'; ?>"
+							data-step="<?php echo esc_attr( (string) $i ); ?>"
+						>
+							<span class="ai-agent-onboard__step-index"><?php echo esc_html( (string) ( $i + 1 ) ); ?></span>
+							<span class="ai-agent-onboard__step-body">
+								<span class="ai-agent-onboard__step-title"><?php echo esc_html( $step['title'] ); ?></span>
+								<span class="ai-agent-onboard__step-text"><?php echo esc_html( $step['text'] ); ?></span>
+							</span>
+						</button>
+					<?php endforeach; ?>
+				</div>
+			</div>
+
+			<div class="ai-agent-section-cta">
+				<a class="pps-btn pps-btn--primary ai-agent-btn-glow" href="<?php echo esc_url( $agent['onboard_cta_url'] ); ?>">
 					<?php echo esc_html( $agent['onboard_cta'] ); ?>
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</a>
