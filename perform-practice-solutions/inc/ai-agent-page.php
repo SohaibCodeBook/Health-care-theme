@@ -8,6 +8,9 @@
 defined( 'ABSPATH' ) || exit;
 
 require_once PPS_THEME_DIR . '/inc/agents/rosa.php';
+require_once PPS_THEME_DIR . '/inc/agents/vera.php';
+require_once PPS_THEME_DIR . '/inc/agents/rex.php';
+require_once PPS_THEME_DIR . '/inc/agents/cora.php';
 
 /**
  * Registered AI agents and their content callbacks.
@@ -17,6 +20,9 @@ require_once PPS_THEME_DIR . '/inc/agents/rosa.php';
 function pps_ai_agent_registry() {
 	return array(
 		'rosa' => 'pps_ai_agent_rosa_content',
+		'vera' => 'pps_ai_agent_vera_content',
+		'rex'  => 'pps_ai_agent_rex_content',
+		'cora' => 'pps_ai_agent_cora_content',
 	);
 }
 
@@ -239,7 +245,7 @@ add_filter( 'template_include', 'pps_ai_agent_template_include', 99 );
  * Ensure parent + agent pages exist and use the shared template.
  */
 function pps_setup_ai_agent_pages() {
-	$version = '1.0.0';
+	$version = '1.1.0';
 	if ( get_option( 'pps_ai_agent_pages_version' ) === $version ) {
 		return;
 	}
