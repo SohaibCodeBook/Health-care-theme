@@ -7,6 +7,7 @@
  */
 
 get_header();
+pps_cred_force_extras_styles();
 ?>
 
 <section class="cred-hero" id="top">
@@ -99,6 +100,8 @@ get_header();
 		</div>
 	</div>
 </section>
+
+<?php pps_cred_render_payer_networks(); ?>
 
 <section class="pps-section cred-apart" id="difference">
 	<div class="pps-container">

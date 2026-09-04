@@ -142,6 +142,8 @@ pps_ai_ref_force_styles();
 	</div>
 </section>
 
+<?php get_template_part( 'template-parts/ai/agent-suite-sections' ); ?>
+
 <section class="pps-section ai-ref-workflow" id="workflow">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">

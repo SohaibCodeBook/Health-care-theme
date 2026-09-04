@@ -71,6 +71,10 @@ get_header();
 					<li><?php esc_html_e( 'Chiropractic', 'perform-practice' ); ?></li>
 					<li><?php esc_html_e( 'Occupational Therapy', 'perform-practice' ); ?></li>
 					<li><?php esc_html_e( 'Speech Therapy', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Psychiatric Health', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Pain Management', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Surgery Centers', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Hospital Billing', 'perform-practice' ); ?></li>
 				</ul>
 
 				<div class="intro-shell__note">

@@ -135,6 +135,8 @@ pps_ai_chat_force_styles();
 	</div>
 </section>
 
+<?php get_template_part( 'template-parts/ai/agent-suite-sections' ); ?>
+
 <section class="pps-section ai-chat-capabilities" id="capabilities">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">

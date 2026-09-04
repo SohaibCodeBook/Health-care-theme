@@ -155,6 +155,8 @@ pps_ai_fd_force_styles();
 	</div>
 </section>
 
+<?php get_template_part( 'template-parts/ai/agent-suite-sections' ); ?>
+
 <section class="pps-section ai-fd-workflows" id="workflows">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">

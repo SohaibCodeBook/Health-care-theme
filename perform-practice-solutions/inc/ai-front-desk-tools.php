@@ -183,6 +183,7 @@ function pps_ai_fd_print_inline_css() {
  */
 function pps_ai_fd_force_styles() {
 	pps_print_theme_style_inline( 'pps-ai-front-desk-tools', '/assets/css/ai-front-desk-tools.css' );
+	pps_ai_suite_force_styles();
 }
 
 /**

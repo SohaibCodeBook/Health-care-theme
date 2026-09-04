@@ -1,0 +1,215 @@
+/* Billing service page extras — trust banner + process cards */
+
+.svc-trust-banner {
+  background: #fff;
+  padding: clamp(1.75rem, 3vw, 2.25rem) 0;
+  border-bottom: 1px solid var(--pps-line);
+}
+
+.svc-trust-banner__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.svc-trust-banner__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+}
+
+.svc-trust-banner__icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #d37724, #f8931f);
+  color: #fff;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 16px rgba(248, 147, 31, 0.22);
+}
+
+.svc-trust-banner__item p {
+  margin: 0;
+  max-width: 11.5rem;
+  font-family: var(--pps-font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--pps-ink-soft);
+}
+
+.svc-process-cards {
+  background:
+    radial-gradient(ellipse 48% 44% at 92% 8%, rgba(14, 124, 134, 0.06), transparent 58%),
+    var(--pps-surface, #f4f7fb);
+}
+
+.svc-process-cards__head {
+  max-width: 52rem;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.svc-process-cards__head .pps-section-title {
+  position: relative;
+  max-width: 22ch;
+  margin-bottom: 1rem;
+}
+
+.svc-process-cards__head .pps-section-title::before {
+  content: "";
+  position: absolute;
+  left: -0.15rem;
+  top: 0.15rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(248, 147, 31, 0.18);
+  z-index: -1;
+}
+
+.svc-process-cards__lead {
+  margin: 0;
+  max-width: 48rem;
+  color: var(--pps-muted);
+  line-height: 1.7;
+}
+
+.svc-process-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.svc-billing-card {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border-radius: 24px;
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.svc-billing-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 1.1rem 1.2rem;
+  background: linear-gradient(135deg, #0a5c63, #0e7c86);
+  color: #fff;
+}
+
+.svc-billing-card__head-icon {
+  flex-shrink: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.svc-billing-card__head h3 {
+  margin: 0;
+  font-family: var(--pps-font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.svc-billing-card__body {
+  padding: 1.2rem 1.2rem 1.35rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.svc-billing-card__pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.svc-billing-card__pills li {
+  display: inline-block;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 147, 31, 0.35);
+  background: rgba(248, 147, 31, 0.1);
+  color: #d37724;
+  font-family: var(--pps-font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.svc-billing-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.svc-billing-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: var(--pps-ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.svc-billing-card__list i {
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.12rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #d37724, #f8931f);
+  color: #fff;
+  font-size: 0.58rem;
+}
+
+@media (max-width: 1199.98px) {
+  .svc-trust-banner__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991.98px) {
+  .svc-process-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-trust-banner__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .svc-trust-banner__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

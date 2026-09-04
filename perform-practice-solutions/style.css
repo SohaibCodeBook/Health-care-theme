@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.9.31
+Version: 2.9.45
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -30,6 +30,8 @@ Tags: custom-logo, custom-menu, featured-images, sticky-post, theme-options, tra
   --pps-accent-deep: #14b8a6;
   --pps-tech: #2563eb;
   --pps-tech-soft: rgba(37, 99, 235, 0.08);
+  --pps-orange: #f8931f;
+  --pps-orange-deep: #d37724;
   --pps-success: #059669;
   --pps-danger: #dc2626;
   --pps-radius-sm: 10px;
@@ -3577,6 +3579,193 @@ p:last-child {
   color: var(--pps-accent);
 }
 
+.svc-trust-banner {
+  background: #fff;
+  padding: clamp(1.75rem, 3vw, 2.25rem) 0;
+  border-bottom: 1px solid var(--pps-line);
+}
+
+.svc-trust-banner__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.75rem);
+}
+
+.svc-trust-banner__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+}
+
+.svc-trust-banner__icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--pps-orange-deep, #d37724), var(--pps-orange, #f8931f));
+  color: #fff;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 16px rgba(248, 147, 31, 0.22);
+}
+
+.svc-trust-banner__item p {
+  margin: 0;
+  max-width: 11.5rem;
+  font-family: var(--pps-font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--pps-ink-soft);
+}
+
+.svc-process-cards {
+  background:
+    radial-gradient(ellipse 48% 44% at 92% 8%, rgba(14, 124, 134, 0.06), transparent 58%),
+    var(--pps-surface);
+}
+
+.svc-process-cards__head {
+  max-width: 52rem;
+  margin-bottom: clamp(2rem, 4vw, 2.75rem);
+}
+
+.svc-process-cards__head .pps-section-title {
+  position: relative;
+  max-width: 22ch;
+  margin-bottom: 1rem;
+}
+
+.svc-process-cards__head .pps-section-title::before {
+  content: "";
+  position: absolute;
+  left: -0.15rem;
+  top: 0.15rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(248, 147, 31, 0.18);
+  z-index: -1;
+}
+
+.svc-process-cards__lead {
+  margin: 0;
+  max-width: 48rem;
+  color: var(--pps-muted);
+  line-height: 1.7;
+}
+
+.svc-process-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.svc-billing-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--pps-radius-lg);
+  background: #fff;
+  border: 1px solid var(--pps-line);
+  box-shadow: var(--pps-shadow-sm);
+  overflow: hidden;
+}
+
+.svc-billing-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.05rem 1.15rem;
+  background: linear-gradient(135deg, var(--pps-primary-dark), var(--pps-primary));
+  color: #fff;
+  border-radius: 0;
+}
+
+.svc-billing-card__head-icon {
+  flex-shrink: 0;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 1rem;
+}
+
+.svc-billing-card__head h3 {
+  margin: 0;
+  font-family: var(--pps-font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.svc-billing-card__body {
+  padding: 1.15rem 1.15rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.svc-billing-card__pills {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.svc-billing-card__pills li {
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 147, 31, 0.35);
+  background: rgba(248, 147, 31, 0.08);
+  color: var(--pps-orange-deep, #d37724);
+  font-family: var(--pps-font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.svc-billing-card__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.svc-billing-card__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: var(--pps-ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.svc-billing-card__list i {
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.12rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--pps-orange-deep, #d37724), var(--pps-orange, #f8931f));
+  color: #fff;
+  font-size: 0.58rem;
+}
+
 .svc-problem {
   padding-top: 4rem;
 }
@@ -3798,6 +3987,14 @@ p:last-child {
     grid-template-columns: 1fr;
   }
 
+  .svc-trust-banner__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .svc-process-cards__grid {
+    grid-template-columns: 1fr;
+  }
+
   .svc-offer-grid {
     grid-template-columns: 1fr;
   }
@@ -3816,6 +4013,10 @@ p:last-child {
 @media (max-width: 575.98px) {
   .svc-hero {
     padding-top: calc(var(--pps-header-h) + 2.5rem);
+  }
+
+  .svc-trust-banner__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .svc-problem-shell,

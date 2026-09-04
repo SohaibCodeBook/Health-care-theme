@@ -186,6 +186,7 @@ function pps_ai_ref_print_inline_css() {
  */
 function pps_ai_ref_force_styles() {
 	pps_print_theme_style_inline( 'pps-ai-referral-outreach', '/assets/css/ai-referral-outreach.css' );
+	pps_ai_suite_force_styles();
 }
 
 /**

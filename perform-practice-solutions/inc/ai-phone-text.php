@@ -185,6 +185,7 @@ function pps_ai_pts_print_inline_css() {
  */
 function pps_ai_pts_force_styles() {
 	pps_print_theme_style_inline( 'pps-ai-phone-text', '/assets/css/ai-phone-text.css' );
+	pps_ai_suite_force_styles();
 }
 
 /**

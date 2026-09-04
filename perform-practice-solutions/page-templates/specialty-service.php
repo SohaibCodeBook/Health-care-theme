@@ -7,6 +7,7 @@
  */
 
 get_header();
+pps_service_force_extras_styles();
 ?>
 
 <section class="svc-hero" id="top">
@@ -37,6 +38,8 @@ get_header();
 	</div>
 </section>
 
+<?php get_template_part( 'template-parts/billing/trust-banner' ); ?>
+
 <section class="pps-section svc-problem" id="overview">
 	<div class="pps-container">
 		<div class="svc-problem-shell pps-reveal">
@@ -63,10 +66,19 @@ get_header();
 					<strong><?php echo esc_html( page_service( 'problem_card_2_title' ) ); ?></strong>
 					<p><?php echo esc_html( page_service( 'problem_card_2_text' ) ); ?></p>
 				</div>
+				<?php if ( page_service( 'problem_card_3_title' ) ) : ?>
+				<div class="svc-aside-card">
+					<i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+					<strong><?php echo esc_html( page_service( 'problem_card_3_title' ) ); ?></strong>
+					<p><?php echo esc_html( page_service( 'problem_card_3_text' ) ); ?></p>
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
 </section>
+
+<?php get_template_part( 'template-parts/billing/process-cards' ); ?>
 
 <section class="pps-section svc-offer" id="services">
 	<div class="pps-container">

@@ -178,6 +178,7 @@ function pps_ai_chat_print_inline_css() {
  */
 function pps_ai_chat_force_styles() {
 	pps_print_theme_style_inline( 'pps-ai-website-chatbot', '/assets/css/ai-website-chatbot.css' );
+	pps_ai_suite_force_styles();
 }
 
 /**

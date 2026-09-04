@@ -16,10 +16,17 @@ $card_class = 'ai-suite-deepdive pps-reveal';
 if ( ! empty( $agent['featured'] ) ) {
 	$card_class .= ' ai-suite-deepdive--featured';
 }
+$avatar_url = pps_ai_agent_avatar_url( $agent['name'] );
 ?>
 <article class="<?php echo esc_attr( $card_class ); ?>">
 	<header class="ai-suite-deepdive__head">
-		<div class="ai-suite-deepdive__mark" aria-hidden="true"><?php echo esc_html( $agent['letter'] ); ?></div>
+		<?php if ( $avatar_url ) : ?>
+			<div class="ai-suite-deepdive__avatar">
+				<img src="<?php echo esc_url( $avatar_url ); ?>" alt="<?php echo esc_attr( $agent['name'] ); ?>" width="96" height="96" loading="lazy" decoding="async">
+			</div>
+		<?php else : ?>
+			<div class="ai-suite-deepdive__mark" aria-hidden="true"><?php echo esc_html( $agent['letter'] ); ?></div>
+		<?php endif; ?>
 		<div>
 			<h3><?php echo esc_html( $agent['name'] ); ?></h3>
 			<p class="ai-suite-deepdive__title"><?php echo esc_html( $agent['title'] ); ?></p>

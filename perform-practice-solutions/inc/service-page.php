@@ -63,6 +63,18 @@ function pps_service_customizer_slugs() {
 }
 
 /**
+ * Shared third card for the "Why Outsource" section on billing service pages.
+ *
+ * @return array
+ */
+function pps_service_problem_card_3_defaults() {
+	return array(
+		'problem_card_3_title' => 'Automated Regulatory & Coding Compliance',
+		'problem_card_3_text'  => 'External billing partners stay up-to-date with complex, constantly changing billing codes (e.g., ICD-10, CPT updates) and healthcare regulations like HIPAA, transferring compliance responsibility to experts.',
+	);
+}
+
+/**
  * Placeholder specialty content (same structure as PT page). Replace later with full copy.
  *
  * @param string $label     Specialty label, e.g. "Chiropractic".
@@ -95,6 +107,8 @@ function pps_service_placeholder_defaults( $label, $seo_title, $seo_desc ) {
 		'problem_card_1_text'  => 'See where every dollar stands, including claims, A/R, denials, and patient balances.',
 		'problem_card_2_title' => 'Front desk partnership',
 		'problem_card_2_text'  => 'We coach your team so clean data goes out and clean payments come back.',
+		'problem_card_3_title' => 'Automated Regulatory & Coding Compliance',
+		'problem_card_3_text'  => 'External billing partners stay up-to-date with complex, constantly changing billing codes (e.g., ICD-10, CPT updates) and healthcare regulations like HIPAA, transferring compliance responsibility to experts.',
 
 		'offer_eyebrow' => 'What You Get',
 		'offer_title'   => $short . ' billing done the way it is meant to be done',
@@ -2999,12 +3013,14 @@ function pps_service_defaults_for( $slug ) {
 	);
 
 	if ( isset( $catalog[ $slug ] ) ) {
-		return $catalog[ $slug ];
+		return array_merge( pps_service_problem_card_3_defaults(), $catalog[ $slug ] );
 	}
 
 	// Generic fallback for other specialty pages using the same template.
 	$title = is_singular() ? get_the_title() : 'Specialty Billing Services';
-	return array(
+	return array_merge(
+		pps_service_problem_card_3_defaults(),
+		array(
 		'seo_title'       => $title . ' | Perform Practice Solutions',
 		'seo_desc'        => 'Expert ' . strtolower( $title ) . ' from Perform Practice Solutions. Reduce denials, speed reimbursement, and protect practice revenue.',
 		'hero_eyebrow'    => $title,
@@ -3068,6 +3084,7 @@ function pps_service_defaults_for( $slug ) {
 		'cta_text'        => 'Book a strategy session and we’ll map the right billing path for your practice.',
 		'cta_button'      => 'Book a Strategy Session',
 		'cta_button_url'  => '#contact',
+		)
 	);
 }
 
@@ -3114,6 +3131,43 @@ function pps_is_specialty_service_page() {
 	$template = get_page_template_slug( get_queried_object_id() );
 	return 'page-templates/specialty-service.php' === $template;
 }
+
+/**
+ * Register billing service extras stylesheet (trust banner + process cards).
+ */
+function pps_service_register_extras_styles() {
+	pps_enqueue_theme_style( 'pps-billing-service-extras', '/assets/css/billing-service-extras.css', array() );
+
+	if ( ! has_action( 'wp_head', 'pps_service_print_extras_inline_css' ) ) {
+		add_action( 'wp_head', 'pps_service_print_extras_inline_css', 202 );
+	}
+}
+
+/**
+ * Print billing service extras CSS inline.
+ */
+function pps_service_print_extras_inline_css() {
+	if ( pps_is_specialty_service_page() ) {
+		pps_print_theme_style_inline( 'pps-billing-service-extras', '/assets/css/billing-service-extras.css' );
+	}
+}
+
+/**
+ * Force billing service extras CSS after header.
+ */
+function pps_service_force_extras_styles() {
+	pps_print_theme_style_inline( 'pps-billing-service-extras', '/assets/css/billing-service-extras.css' );
+}
+
+/**
+ * Enqueue billing service extras on specialty pages.
+ */
+function pps_service_enqueue_extras_assets() {
+	if ( pps_is_specialty_service_page() ) {
+		pps_service_register_extras_styles();
+	}
+}
+add_action( 'wp_enqueue_scripts', 'pps_service_enqueue_extras_assets', 27 );
 
 /**
  * Register Customizer settings for service pages.

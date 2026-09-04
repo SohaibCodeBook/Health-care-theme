@@ -166,8 +166,158 @@ add_action( 'customize_register', 'pps_cred_customize_register', 22 );
  * @return bool
  */
 function pps_is_cred_page() {
-	return is_page_template( 'page-templates/credentialing.php' );
+	if ( is_page_template( 'page-templates/credentialing.php' ) ) {
+		return true;
+	}
+
+	$page = get_queried_object();
+	if ( ! ( $page instanceof WP_Post ) || 'page' !== $page->post_type ) {
+		return false;
+	}
+
+	return in_array( $page->post_name, array( 'credentialing', 'medical-credentialing-services' ), true );
 }
+
+/**
+ * Register credentialing extras stylesheet.
+ */
+function pps_cred_register_extras_styles() {
+	pps_enqueue_theme_style( 'pps-credentialing-extras', '/assets/css/credentialing-extras.css', array() );
+
+	if ( ! has_action( 'wp_head', 'pps_cred_print_extras_inline_css' ) ) {
+		add_action( 'wp_head', 'pps_cred_print_extras_inline_css', 203 );
+	}
+}
+
+/**
+ * Print credentialing extras CSS inline.
+ */
+function pps_cred_print_extras_inline_css() {
+	if ( pps_is_cred_page() ) {
+		pps_print_theme_style_inline( 'pps-credentialing-extras', '/assets/css/credentialing-extras.css' );
+	}
+}
+
+/**
+ * Force credentialing extras CSS after header.
+ */
+function pps_cred_force_extras_styles() {
+	pps_print_theme_style_inline( 'pps-credentialing-extras', '/assets/css/credentialing-extras.css' );
+}
+
+/**
+ * Enqueue credentialing extras on credentialing pages.
+ */
+function pps_cred_enqueue_extras_assets() {
+	if ( pps_is_cred_page() ) {
+		pps_cred_register_extras_styles();
+	}
+}
+add_action( 'wp_enqueue_scripts', 'pps_cred_enqueue_extras_assets', 28 );
+
+/**
+ * Payer network groups for credentialing page cards.
+ *
+ * @return array
+ */
+function pps_cred_payer_network_groups() {
+	return array(
+		array(
+			'icon'  => 'fa-landmark',
+			'title' => __( 'Government / Public', 'perform-practice' ),
+			'items' => array(
+				__( 'Medicare', 'perform-practice' ),
+				__( 'Medicaid (state-specific)', 'perform-practice' ),
+				__( 'TRICARE', 'perform-practice' ),
+				__( 'CHAMPVA', 'perform-practice' ),
+			),
+		),
+		array(
+			'icon'  => 'fa-building',
+			'title' => __( 'Commercial', 'perform-practice' ),
+			'items' => array(
+				__( 'UnitedHealthcare', 'perform-practice' ),
+				__( 'Aetna', 'perform-practice' ),
+				__( 'Cigna', 'perform-practice' ),
+				__( 'Elevance Health (Anthem)', 'perform-practice' ),
+				__( 'Humana', 'perform-practice' ),
+				__( 'Kaiser Permanente', 'perform-practice' ),
+				__( 'Molina Healthcare', 'perform-practice' ),
+				__( 'Centene / WellCare / Ambetter', 'perform-practice' ),
+				__( 'Health Net', 'perform-practice' ),
+				__( 'Oscar Health', 'perform-practice' ),
+			),
+		),
+		array(
+			'icon'  => 'fa-shield-halved',
+			'title' => __( 'Blue Cross Blue Shield Plans (by state, examples)', 'perform-practice' ),
+			'items' => array(
+				__( 'BCBS of Texas', 'perform-practice' ),
+				__( 'BCBS of Michigan', 'perform-practice' ),
+				__( 'Highmark BCBS', 'perform-practice' ),
+				__( 'Independence Blue Cross', 'perform-practice' ),
+				__( 'Blue Shield of California', 'perform-practice' ),
+				__( 'CareFirst BlueCross BlueShield', 'perform-practice' ),
+				__( 'Excellus BlueCross BlueShield', 'perform-practice' ),
+				__( 'HCSC (Health Care Service Corporation) — runs BCBS IL, MT, NM, OK, TX', 'perform-practice' ),
+			),
+		),
+		array(
+			'icon'  => 'fa-helmet-safety',
+			'title' => __( 'Workers\' Comp / Auto (PIP)', 'perform-practice' ),
+			'items' => array(
+				__( 'State Fund (varies by state)', 'perform-practice' ),
+				__( 'Zenith', 'perform-practice' ),
+				__( 'Travelers', 'perform-practice' ),
+			),
+		),
+		array(
+			'icon'  => 'fa-id-card',
+			'title' => __( 'Credentialing-related (not payors)', 'perform-practice' ),
+			'items' => array(
+				__( 'CAQH', 'perform-practice' ),
+				__( 'NPPES', 'perform-practice' ),
+				__( 'PECOS', 'perform-practice' ),
+			),
+		),
+	);
+}
+
+/**
+ * Render payer networks section on credentialing page.
+ */
+function pps_cred_render_payer_networks() {
+	$payer_groups = pps_cred_payer_network_groups();
+	$partial      = locate_template( 'template-parts/credentialing/payer-networks.php' );
+	if ( $partial ) {
+		include $partial;
+	}
+}
+
+/**
+ * Force credentialing template for known page slugs.
+ *
+ * @param string $template Template path.
+ * @return string
+ */
+function pps_cred_template_include( $template ) {
+	if ( ! is_singular( 'page' ) ) {
+		return $template;
+	}
+
+	$page = get_queried_object();
+	if ( ! ( $page instanceof WP_Post ) ) {
+		return $template;
+	}
+
+	if ( ! in_array( $page->post_name, array( 'credentialing', 'medical-credentialing-services' ), true ) ) {
+		return $template;
+	}
+
+	$custom = locate_template( 'page-templates/credentialing.php' );
+	return $custom ? $custom : $template;
+}
+add_filter( 'template_include', 'pps_cred_template_include', 99 );
 
 /**
  * SEO title for credentialing page.
@@ -276,13 +426,17 @@ function pps_attach_cred_to_primary_menu( $page_id ) {
  * Create credentialing page, assign template/SEO, update menu.
  */
 function pps_setup_cred_page() {
-	$version = '1.0.0';
+	$version = '1.1.1';
 	if ( get_option( 'pps_cred_page_version' ) === $version ) {
 		return;
 	}
 
 	$defaults = pps_cred_defaults();
 	$page     = get_page_by_path( 'medical-credentialing-services' );
+
+	if ( ! $page ) {
+		$page = get_page_by_path( 'credentialing' );
+	}
 
 	if ( $page ) {
 		$page_id = (int) $page->ID;
