@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.9.51' );
+define( 'PPS_THEME_VERSION', '2.9.58' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -74,6 +74,7 @@ require_once PPS_THEME_DIR . '/inc/credentialing.php';
 require_once PPS_THEME_DIR . '/inc/med-va.php';
 require_once PPS_THEME_DIR . '/inc/coaching.php';
 require_once PPS_THEME_DIR . '/inc/digital-marketing.php';
+require_once PPS_THEME_DIR . '/inc/ai-development.php';
 require_once PPS_THEME_DIR . '/inc/ai-phone-text.php';
 require_once PPS_THEME_DIR . '/inc/ai-referral-outreach.php';
 require_once PPS_THEME_DIR . '/inc/ai-website-chatbot.php';
@@ -90,7 +91,7 @@ require_once PPS_THEME_DIR . '/inc/blog.php';
  * Clears stored home mods so new defaults from Home content.md appear.
  */
 function pps_maybe_refresh_home_content() {
-	$content_version = '1.3.0';
+	$content_version = '1.3.1';
 	if ( get_option( 'pps_home_content_version' ) === $content_version ) {
 		return;
 	}

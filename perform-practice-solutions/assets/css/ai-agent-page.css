@@ -30,6 +30,22 @@
   transform: translateY(-1px);
 }
 
+/* Secondary is white-on-transparent by default (dark heroes). Agent pages are light. */
+.ai-agent-page .pps-btn--secondary {
+  background: #fff;
+  color: var(--ai-ink);
+  border: 1.5px solid rgba(15, 23, 42, 0.14);
+  backdrop-filter: none;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.ai-agent-page .pps-btn--secondary:hover,
+.ai-agent-page .pps-btn--secondary:focus-visible {
+  background: #fff;
+  color: var(--ai-orange-deep);
+  border-color: var(--ai-orange);
+}
+
 .ai-agent-btn-glow {
   position: relative;
 }

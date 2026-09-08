@@ -14,6 +14,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function pps_ai_suite_templates() {
 	return array(
+		'page-templates/ai-development.php',
 		'page-templates/ai-phone-text-system.php',
 		'page-templates/ai-referral-outreach.php',
 		'page-templates/ai-website-chatbot.php',
@@ -39,6 +40,7 @@ function pps_is_ai_suite_page() {
 	}
 
 	$slug_templates = array(
+		'ai-development'     => 'page-templates/ai-development.php',
 		'phone-text-system'  => 'page-templates/ai-phone-text-system.php',
 		'referral-outreach'  => 'page-templates/ai-referral-outreach.php',
 		'website-chatbot'    => 'page-templates/ai-website-chatbot.php',

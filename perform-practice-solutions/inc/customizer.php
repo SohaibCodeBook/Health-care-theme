@@ -143,11 +143,11 @@ function pps_home_defaults() {
 		'insights_note'           => 'The future of healthcare isn\'t just about better medicine. It\'s about smarter systems.',
 		'result_1_value'          => '98%',
 		'result_1_label'          => 'average clean claim rate across client accounts',
-		'result_2_value'          => '16%',
+		'result_2_value'          => '15%',
 		'result_2_label'          => 'average revenue increase after onboarding',
 		'result_3_value'          => '48 hr',
 		'result_3_label'          => 'average claim submission turnaround, vs industry norms of a week or more',
-		'result_4_value'          => '~3 wks',
+		'result_4_value'          => '19 days',
 		'result_4_label'          => 'billing cycles — down from an industry average of 45 to 60 days',
 
 		'help_eyebrow'            => 'EMR Transitions',

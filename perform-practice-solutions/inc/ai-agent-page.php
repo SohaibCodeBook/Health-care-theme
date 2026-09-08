@@ -11,6 +11,7 @@ require_once PPS_THEME_DIR . '/inc/agents/rosa.php';
 require_once PPS_THEME_DIR . '/inc/agents/vera.php';
 require_once PPS_THEME_DIR . '/inc/agents/rex.php';
 require_once PPS_THEME_DIR . '/inc/agents/cora.php';
+require_once PPS_THEME_DIR . '/inc/agents/ava.php';
 
 /**
  * Registered AI agents and their content callbacks.
@@ -23,6 +24,7 @@ function pps_ai_agent_registry() {
 		'vera' => 'pps_ai_agent_vera_content',
 		'rex'  => 'pps_ai_agent_rex_content',
 		'cora' => 'pps_ai_agent_cora_content',
+		'ava'  => 'pps_ai_agent_ava_content',
 	);
 }
 
@@ -85,29 +87,53 @@ function pps_is_ai_agent_page() {
 }
 
 /**
- * Permalink for an agent page (empty if not published yet).
+ * Permalink for an agent page.
+ * Always returns a URL for registered agents so Meet CTAs stay visible.
  *
  * @param string $slug Agent slug.
  * @return string
  */
 function pps_ai_agent_page_url( $slug ) {
 	$slug = sanitize_key( $slug );
-	$page = get_page_by_path( 'ai-agents/' . $slug );
+	if ( ! $slug ) {
+		return '';
+	}
 
+	$page = get_page_by_path( 'ai-agents/' . $slug );
 	if ( ! $page ) {
 		$page = get_page_by_path( $slug );
 	}
 
 	if ( ! $page ) {
-		return '';
+		$by_meta = get_posts(
+			array(
+				'post_type'      => 'page',
+				'post_status'    => 'publish',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				'meta_key'       => '_pps_ai_agent',
+				'meta_value'     => $slug,
+			)
+		);
+		if ( ! empty( $by_meta[0] ) ) {
+			$page = get_post( (int) $by_meta[0] );
+		}
 	}
 
-	$meta = get_post_meta( $page->ID, '_pps_ai_agent', true );
-	if ( $meta && sanitize_key( $meta ) !== $slug ) {
-		return '';
+	if ( $page instanceof WP_Post ) {
+		$meta = get_post_meta( $page->ID, '_pps_ai_agent', true );
+		if ( $meta && sanitize_key( $meta ) !== $slug ) {
+			return '';
+		}
+		return get_permalink( $page );
 	}
 
-	return get_permalink( $page );
+	// Registered agent: still expose expected URL so Meet buttons render.
+	if ( isset( pps_ai_agent_registry()[ $slug ] ) ) {
+		return home_url( user_trailingslashit( 'ai-agents/' . $slug ) );
+	}
+
+	return '';
 }
 
 /**
@@ -243,10 +269,21 @@ add_filter( 'template_include', 'pps_ai_agent_template_include', 99 );
 
 /**
  * Ensure parent + agent pages exist and use the shared template.
+ * Re-runs whenever a registered agent is missing a page.
  */
 function pps_setup_ai_agent_pages() {
-	$version = '1.1.0';
-	if ( get_option( 'pps_ai_agent_pages_version' ) === $version ) {
+	$version     = '1.2.1';
+	$version_ok  = get_option( 'pps_ai_agent_pages_version' ) === $version;
+	$missing     = false;
+
+	foreach ( array_keys( pps_ai_agent_registry() ) as $slug ) {
+		if ( ! get_page_by_path( 'ai-agents/' . $slug ) && ! get_page_by_path( $slug ) ) {
+			$missing = true;
+			break;
+		}
+	}
+
+	if ( $version_ok && ! $missing ) {
 		return;
 	}
 
@@ -285,7 +322,7 @@ function pps_setup_ai_agent_pages() {
 
 		if ( $page ) {
 			$page_id = (int) $page->ID;
-			if ( (int) $page->post_parent !== (int) $parent->ID ) {
+			if ( (int) $page->post_parent !== (int) $parent->ID || $page->post_name !== $slug ) {
 				wp_update_post(
 					array(
 						'ID'          => $page_id,

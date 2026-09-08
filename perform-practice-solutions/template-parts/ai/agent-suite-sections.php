@@ -49,6 +49,21 @@ $ai_suite_agents = array(
 
 $ai_suite_deepdives = array(
 	array(
+		'letter'    => 'A',
+		'name'      => 'Ava',
+		'slug'      => 'ava',
+		'title'     => 'Account and voice assistant',
+		'audience'  => 'Practice-wide billing callers',
+		'placement' => 'AVA — handles billing & account calls',
+		'letters'   => array(
+			array( 'l' => 'A', 'w' => 'Account' ),
+			array( 'l' => 'V', 'w' => 'Voice' ),
+			array( 'l' => 'A', 'w' => 'Assistant' ),
+		),
+		'bio'       => 'Answers inbound billing calls, verifies identity, explains balances, and warm-transfers the right biller — so account questions never sit on hold.',
+		'voice'     => 'I verified the caller, explained the balance, and sent a secure payment link.',
+	),
+	array(
 		'letter'    => 'R',
 		'name'      => 'Rosa',
 		'slug'      => 'rosa',
@@ -166,15 +181,15 @@ $ai_suite_deepdives = array(
 
 <section class="ai-suite ai-suite--deepdives">
 	<div class="pps-container">
-		<div class="ai-suite-deepdives__grid">
-			<?php foreach ( array_slice( $ai_suite_deepdives, 0, 2 ) as $agent ) : ?>
-				<?php include locate_template( 'template-parts/ai/agent-suite-deepdive-card.php' ); ?>
-			<?php endforeach; ?>
-		</div>
-		<div class="ai-suite-deepdives__grid">
-			<?php foreach ( array_slice( $ai_suite_deepdives, 2, 2 ) as $agent ) : ?>
-				<?php include locate_template( 'template-parts/ai/agent-suite-deepdive-card.php' ); ?>
-			<?php endforeach; ?>
-		</div>
+		<?php
+		$deepdive_chunks = array_chunk( $ai_suite_deepdives, 2 );
+		foreach ( $deepdive_chunks as $chunk ) :
+			?>
+			<div class="ai-suite-deepdives__grid">
+				<?php foreach ( $chunk as $agent ) : ?>
+					<?php include locate_template( 'template-parts/ai/agent-suite-deepdive-card.php' ); ?>
+				<?php endforeach; ?>
+			</div>
+		<?php endforeach; ?>
 	</div>
 </section>

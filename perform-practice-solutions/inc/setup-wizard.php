@@ -39,7 +39,7 @@ function pps_theme_activation() {
 		),
 		'ai-development'    => array(
 			'title'   => 'AI Development',
-			'content' => '<p>AI Development overview. Child pages cover specific automation offerings.</p>',
+			'content' => '',
 		),
 		'phone-text-system' => array(
 			'title'   => 'Fully Automated Phone and Text System',
