@@ -1,6 +1,6 @@
 <?php
 /**
- * AI Development — parent overview / summary page.
+ * AI Bolt — parent overview / summary page (formerly AI Development).
  *
  * @package Perform_Practice
  */
@@ -8,16 +8,47 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Default content for the AI Development hub.
+ * Canonical hub page slug.
+ *
+ * @return string
+ */
+function pps_ai_hub_slug() {
+	return 'ai-bolt';
+}
+
+/**
+ * Canonical hub page title (nav / WP page title).
+ *
+ * @return string
+ */
+function pps_ai_hub_title() {
+	return 'AI Bolt';
+}
+
+/**
+ * Resolve the AI Bolt hub page (supports legacy ai-development slug).
+ *
+ * @return WP_Post|null
+ */
+function pps_ai_hub_page() {
+	$page = get_page_by_path( pps_ai_hub_slug() );
+	if ( ! $page ) {
+		$page = get_page_by_path( 'ai-development' );
+	}
+	return ( $page instanceof WP_Post ) ? $page : null;
+}
+
+/**
+ * Default content for the AI Bolt hub.
  *
  * @return array
  */
 function pps_ai_dev_defaults() {
 	return array(
-		'seo_title' => 'AI Development | Perform Practice Solutions',
+		'seo_title' => 'AI Bolt | Perform Practice Solutions',
 		'seo_desc'  => 'Custom AI automation for healthcare practices: phone and text, referral outreach, website chatbots, and front desk tools — built around your EMR and workflows.',
 
-		'hero_eyebrow'   => 'AI Development',
+		'hero_eyebrow'   => 'AI Bolt',
 		'hero_title'     => 'Automation Built Around How Your Practice Runs',
 		'hero_subtitle'  => 'Four purpose-built systems that answer patients, capture referrals, convert website visitors, and clear front-desk busywork.',
 		'hero_lead'      => 'Missed calls, slow referral follow-up, and after-hours website traffic should not cost you patients. Perform Practice Solutions designs AI automation that plugs into your EMR and day-to-day workflows — so your team stays focused on care while the system handles the repetitive work.',
@@ -72,7 +103,7 @@ function pps_ai_dev_defaults() {
 }
 
 /**
- * AI Development overview content helper.
+ * AI Bolt overview content helper.
  *
  * @param string $key     Setting key.
  * @param string $default Optional default.
@@ -87,21 +118,25 @@ function page_ai_dev( $key, $default = '' ) {
 }
 
 /**
- * Permalink for an AI Development child page.
+ * Permalink for an AI Bolt child page.
  *
  * @param string $slug Child page slug.
  * @return string
  */
 function pps_ai_dev_child_url( $slug ) {
 	$slug = sanitize_title( $slug );
-	$page = get_page_by_path( 'ai-development/' . $slug );
+	$hub  = pps_ai_hub_slug();
+	$page = get_page_by_path( $hub . '/' . $slug );
+	if ( ! $page ) {
+		$page = get_page_by_path( 'ai-development/' . $slug );
+	}
 	if ( ! $page ) {
 		$page = get_page_by_path( $slug );
 	}
 	if ( $page instanceof WP_Post ) {
 		return get_permalink( $page );
 	}
-	return home_url( '/ai-development/' . $slug . '/' );
+	return home_url( '/' . $hub . '/' . $slug . '/' );
 }
 
 /**
@@ -113,7 +148,7 @@ function pps_ai_dev_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'pps_section_ai_dev',
 		array(
-			'title'    => __( 'AI — Development Overview', 'perform-practice' ),
+			'title'    => __( 'AI — Bolt Overview', 'perform-practice' ),
 			'panel'    => 'pps_panel_services',
 			'priority' => 13,
 		)
@@ -145,7 +180,7 @@ function pps_ai_dev_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'pps_ai_dev_customize_register' );
 
 /**
- * Whether current request is the AI Development hub.
+ * Whether current request is the AI Bolt hub.
  *
  * @return bool
  */
@@ -156,12 +191,12 @@ function pps_is_ai_dev_page() {
 		return true;
 	}
 
-	if ( is_page( 'ai-development' ) ) {
+	if ( is_page( pps_ai_hub_slug() ) || is_page( 'ai-development' ) ) {
 		return true;
 	}
 
 	$page = get_queried_object();
-	if ( $page instanceof WP_Post && 'page' === $page->post_type && 'ai-development' === $page->post_name ) {
+	if ( $page instanceof WP_Post && 'page' === $page->post_type && in_array( $page->post_name, array( pps_ai_hub_slug(), 'ai-development' ), true ) ) {
 		$assigned = get_page_template_slug( $page->ID );
 		return ( '' === $assigned || $template === $assigned || 'ai-development.php' === $assigned );
 	}
@@ -262,13 +297,13 @@ function pps_ai_dev_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'pps_ai_dev_enqueue_assets', 25 );
 
 /**
- * Force template for ai-development slug.
+ * Force template for ai-bolt (and legacy ai-development) slug.
  *
  * @param string $template Template path.
  * @return string
  */
 function pps_ai_dev_template_include( $template ) {
-	if ( is_page( 'ai-development' ) ) {
+	if ( is_page( pps_ai_hub_slug() ) || is_page( 'ai-development' ) ) {
 		$custom = locate_template( 'page-templates/ai-development.php' );
 		if ( $custom ) {
 			return $custom;
@@ -309,7 +344,7 @@ add_action( 'template_redirect', 'pps_ai_dev_prevent_cache', 0 );
 add_action( 'send_headers', 'pps_ai_dev_prevent_cache', 0 );
 
 /**
- * Browser-level cache hints (helps when hosting proxy ignores PHP headers).
+ * Browser-level cache hints.
  */
 function pps_ai_dev_cache_meta() {
 	if ( ! pps_is_ai_dev_page() ) {
@@ -322,22 +357,67 @@ function pps_ai_dev_cache_meta() {
 add_action( 'wp_head', 'pps_ai_dev_cache_meta', 0 );
 
 /**
- * Ensure AI Development page exists and uses the overview template.
+ * 301 legacy /ai-development/ URLs to /ai-bolt/.
+ */
+function pps_ai_hub_redirect_legacy_slug() {
+	if ( is_admin() || wp_doing_ajax() ) {
+		return;
+	}
+
+	$request = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '';
+	if ( ! $request || false === stripos( $request, '/ai-development' ) ) {
+		return;
+	}
+
+	$hub = pps_ai_hub_page();
+	if ( ! $hub || 'ai-development' === $hub->post_name ) {
+		return;
+	}
+
+	$path = wp_parse_url( $request, PHP_URL_PATH );
+	if ( ! is_string( $path ) || false === stripos( $path, '/ai-development' ) ) {
+		return;
+	}
+
+	$target_path = preg_replace( '#/ai-development(/|$)#', '/' . pps_ai_hub_slug() . '$1', $path, 1 );
+	if ( ! is_string( $target_path ) || $target_path === $path ) {
+		return;
+	}
+
+	$query = wp_parse_url( $request, PHP_URL_QUERY );
+	$url   = home_url( $target_path );
+	if ( $query ) {
+		$url .= '?' . $query;
+	}
+
+	wp_safe_redirect( $url, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'pps_ai_hub_redirect_legacy_slug', 0 );
+
+/**
+ * Ensure AI Bolt page exists, migrates legacy ai-development slug, and assigns template.
  */
 function pps_setup_ai_dev_page() {
-	$version = '1.0.1';
+	$version = '1.1.0';
 	if ( get_option( 'pps_ai_dev_page_version' ) === $version ) {
 		return;
 	}
 
-	$defaults = pps_ai_dev_defaults();
+	$defaults  = pps_ai_dev_defaults();
+	$hub_slug  = pps_ai_hub_slug();
+	$hub_title = pps_ai_hub_title();
 
-	$page = get_page_by_path( 'ai-development' );
+	$page = get_page_by_path( $hub_slug );
+	if ( ! $page ) {
+		$page = get_page_by_path( 'ai-development' );
+	}
+
 	if ( ! $page ) {
 		$page_id = wp_insert_post(
 			array(
-				'post_title'   => 'AI Development',
-				'post_name'    => 'ai-development',
+				'post_title'   => $hub_title,
+				'post_name'    => $hub_slug,
 				'post_status'  => 'publish',
 				'post_type'    => 'page',
 				'post_content' => '',
@@ -348,22 +428,33 @@ function pps_setup_ai_dev_page() {
 		}
 	} else {
 		$page_id = (int) $page->ID;
+		wp_update_post(
+			array(
+				'ID'         => $page_id,
+				'post_title' => $hub_title,
+				'post_name'  => $hub_slug,
+			)
+		);
 	}
 
 	update_post_meta( $page_id, '_wp_page_template', 'page-templates/ai-development.php' );
 	update_post_meta( $page_id, '_pps_seo_title', sanitize_text_field( $defaults['seo_title'] ) );
 	update_post_meta( $page_id, '_pps_seo_description', sanitize_text_field( $defaults['seo_desc'] ) );
 
-	// Touch the page so host/CDN caches keyed on modified time invalidate.
-	wp_update_post(
-		array(
-			'ID'                => $page_id,
-			'post_modified'     => current_time( 'mysql' ),
-			'post_modified_gmt' => current_time( 'mysql', 1 ),
-		)
-	);
-	clean_post_cache( $page_id );
+	remove_theme_mod( 'pps_ai_dev_hero_eyebrow' );
+	remove_theme_mod( 'pps_ai_dev_seo_title' );
 
+	$mods = get_theme_mods();
+	if ( is_array( $mods ) ) {
+		foreach ( $mods as $key => $value ) {
+			if ( ! is_string( $value ) || false === strpos( $value, 'ai-development' ) ) {
+				continue;
+			}
+			set_theme_mod( $key, str_replace( 'ai-development', $hub_slug, $value ) );
+		}
+	}
+
+	clean_post_cache( $page_id );
 	update_option( 'pps_ai_dev_page_version', $version );
 }
 add_action( 'after_setup_theme', 'pps_setup_ai_dev_page', 45 );

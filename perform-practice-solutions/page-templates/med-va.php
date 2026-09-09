@@ -274,7 +274,7 @@ $why_image  = page_va( 'why_image' );
 							<option value="Front-Desk 101"><?php esc_html_e( 'Front-Desk 101', 'perform-practice' ); ?></option>
 							<option value="Eligibility Services"><?php esc_html_e( 'Eligibility Services', 'perform-practice' ); ?></option>
 							<option value="Med VA" selected><?php esc_html_e( 'Med VA / Virtual Assistant', 'perform-practice' ); ?></option>
-							<option value="AI Development"><?php esc_html_e( 'AI Development', 'perform-practice' ); ?></option>
+							<option value="AI Bolt"><?php esc_html_e( 'AI Bolt', 'perform-practice' ); ?></option>
 						</select>
 					</div>
 					<div class="form-field">

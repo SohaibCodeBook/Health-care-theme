@@ -59,6 +59,12 @@ function pps_ai_agent_rosa_content() {
 		'problem_close' => 'Rosa picks up the chain the second the referral lands and does not put it down.',
 		'problem_cta'   => 'See how Rosa handles a referral',
 		'problem_cta_url' => '#capabilities',
+		'flow_steps'    => array(
+			'Referral lands',
+			'Rosa reaches out',
+			'Patient books',
+			'Loop closed',
+		),
 
 		'onboard_eyebrow' => 'Onboarding',
 		'onboard_title'   => 'Simple setup, on purpose',

@@ -1,6 +1,6 @@
 <?php
 /**
- * Ava — Account and Voice Assistant page content.
+ * AVA — Account and Voice Assistant page content.
  *
  * @package Perform_Practice
  */
@@ -8,25 +8,25 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Ava agent page content.
+ * AVA agent page content.
  *
  * @return array
  */
 function pps_ai_agent_ava_content() {
 	return array(
 		'slug'         => 'ava',
-		'name'         => 'Ava',
+		'name'         => 'AVA',
 		'letter'       => 'A',
 		'role'         => 'Your Account and Voice Assistant',
 		'acronym'      => 'Account and Voice Assistant',
-		'placement'    => 'Handles billing & account calls practice-wide',
+		'placement'    => 'Handles billing and account management calls practice-wide',
 		'audience'     => 'Practice-wide',
-		'seo_title'    => 'Ava — AI Billing & Account Voice Assistant | Perform Practice Solutions',
-		'seo_desc'     => 'Ava answers inbound patient calls about accounts and billing: FAQs, balances, secure payments, and warm transfers to the right biller — 24/7 with HIPAA-aligned identity verification.',
+		'seo_title'    => 'AVA — AI Billing & Account Voice Assistant | Perform Practice Solutions',
+		'seo_desc'     => 'AVA answers inbound patient calls about accounts and billing: FAQs, balances, secure payments, and warm transfers to the right biller — 24/7 with HIPAA-aligned identity verification.',
 
-		'hero_title'   => 'Ava, Your Account and Voice Assistant',
-		'hero_lead'    => 'Ava handles inbound patient calls for account and billing matters. She answers FAQs, looks up balances, explains what a patient owes in plain language, takes secure payments, and routes complex issues to the right biller — so your billing team spends less time on the phone and more time resolving real work.',
-		'hero_cta'     => 'See Ava take a billing call',
+		'hero_title'   => 'AVA, Your Account and Voice Assistant',
+		'hero_lead'    => 'AVA handles inbound patient calls for account and billing matters. She answers FAQs, looks up balances, explains what a patient owes in plain language, takes secure payments, and routes complex issues to the right biller — so your billing team spends less time on the phone and more time resolving real work.',
+		'hero_cta'     => 'Schedule a demo call',
 		'hero_cta_url' => '#contact',
 		'hero_note'    => 'Built for allied health practices. HIPAA-aligned identity checks before any account details are shared.',
 		'hero_tagline' => 'Billing Questions Answered. The Right Biller Briefed.',
@@ -56,22 +56,28 @@ function pps_ai_agent_ava_content() {
 
 		'problem_title'   => 'Most practices do not lose billing calls. They lose the time it takes to answer them.',
 		'problem_body'    => 'A patient calls about a balance. Someone has to verify who they are, look up the claim, explain a line item, take a payment, or find the right biller. Between statement seasons and a full queue, that call sits on hold — or gets a voicemail that turns into a frustrated callback. Meanwhile your billing team is buried in the same FAQs every afternoon.',
-		'problem_close'   => 'Ava picks up the billing line, verifies the caller, handles what she can, and warm-transfers only what needs a human — with the whole story already attached.',
-		'problem_cta'     => 'See how Ava handles a balance call',
+		'problem_close'   => 'AVA picks up the billing line, verifies the caller, handles what she can, and warm-transfers only what needs a human — with the whole story already attached.',
+		'problem_cta'     => 'See how AVA handles a balance call',
 		'problem_cta_url' => '#capabilities',
+		'flow_steps'      => array(
+			'Patient calls about their account',
+			'AVA verifies and answers',
+			'Payment taken or issue routed',
+			'Biller gets the full summary',
+		),
 
 		'onboard_eyebrow'      => 'Onboarding',
 		'onboard_title'        => 'Simple setup, on purpose',
-		'onboard_intro'        => 'Getting Ava live is a working session, not a rebuild. She learns your billing FAQs, routing rules, and payment policies from what your practice already uses.',
+		'onboard_intro'        => 'Getting AVA live is a working session, not a rebuild. She learns your billing FAQs, routing rules, and payment policies from what your practice already uses.',
 		'onboard_cta'          => 'Book a setup walkthrough',
 		'onboard_cta_url'      => '#contact',
-		'onboard_phone_header' => 'Ava · Billing voice setup',
+		'onboard_phone_header' => 'AVA · Billing voice setup',
 		'onboard_steps'        => array(
 			array(
 				'title'        => 'Connect your billing systems',
-				'text'         => 'Link Ava to your PM/EMR and billing tools so she can look up balances, claim status, and eligibility on file.',
+				'text'         => 'Link AVA to your PM/EMR and billing tools so she can look up balances, claim status, and eligibility on file.',
 				'phone_title'  => 'Systems linked',
-				'phone_user'   => 'Connect Ava to Tebra and our billing queue.',
+				'phone_user'   => 'Connect AVA to Tebra and our billing queue.',
 				'phone_agent'  => 'Connected. I can verify callers and pull live balance details.',
 				'phone_status' => array( 'PM/EMR linked', 'Balances readable', 'Write-back on' ),
 				'phone_card'   => array(
@@ -82,7 +88,7 @@ function pps_ai_agent_ava_content() {
 			),
 			array(
 				'title'        => 'Upload your billing knowledge',
-				'text'         => 'Give Ava your practice FAQs, payment methods, statement schedule, and billing policy language. She uses your answers, not a generic script.',
+				'text'         => 'Give AVA your practice FAQs, payment methods, statement schedule, and billing policy language. She uses your answers, not a generic script.',
 				'phone_title'  => 'FAQ library',
 				'phone_user'   => 'Here are our billing FAQs and payment policies.',
 				'phone_agent'  => 'Loaded. I\'ll answer from your policies and escalate clinical questions immediately.',
@@ -95,7 +101,7 @@ function pps_ai_agent_ava_content() {
 			),
 			array(
 				'title'        => 'Set identity and routing rules',
-				'text'         => 'Define how Ava verifies callers, what she can disclose, which intents go to which biller, and when a human must take over.',
+				'text'         => 'Define how AVA verifies callers, what she can disclose, which intents go to which biller, and when a human must take over.',
 				'phone_title'  => 'Routing rules',
 				'phone_user'   => 'Verify with DOB + last name. Disputes go to Team B.',
 				'phone_agent'  => 'Rules locked. Identity gate on — disputes warm-transfer to Team B with a brief.',
@@ -121,7 +127,7 @@ function pps_ai_agent_ava_content() {
 			),
 			array(
 				'title'        => 'Review the first week',
-				'text'         => 'Listen to calls, check summaries written back to your system, and tighten phrasing. Ava applies corrections from then on.',
+				'text'         => 'Listen to calls, check summaries written back to your system, and tighten phrasing. AVA applies corrections from then on.',
 				'phone_title'  => 'Week 1 review',
 				'phone_user'   => 'What were the top reasons patients called this week?',
 				'phone_agent'  => 'Mostly balance confusion and payment plans. Summaries and surveys are in your dashboard.',
@@ -134,9 +140,9 @@ function pps_ai_agent_ava_content() {
 			),
 		),
 
-		'cap_eyebrow'  => 'What Ava Does',
+		'cap_eyebrow'  => 'What AVA Does',
 		'cap_title'    => 'Your always-on account and billing voice line',
-		'cap_intro'    => 'Ava is the teammate who handles the path from inbound billing call to resolved question — or a warm handoff to the right biller. She works around the clock so routine account calls never sit in a hold queue.',
+		'cap_intro'    => 'AVA is the teammate who handles the path from inbound billing call to resolved question — or a warm handoff to the right biller. She works around the clock so routine account calls never sit in a hold queue.',
 		'cap_cta'      => 'See the full workflow',
 		'cap_cta_url'  => '#contact',
 		'capabilities' => array(
@@ -208,7 +214,7 @@ function pps_ai_agent_ava_content() {
 			array(
 				'icon'  => 'fa-link',
 				'title' => 'Carry context from sibling agents',
-				'text'  => 'If the patient already texted Cora about the same balance, Ava already has that thread.',
+				'text'  => 'If the patient already texted Cora about the same balance, AVA already has that thread.',
 			),
 			array(
 				'icon'  => 'fa-notes-medical',
@@ -225,7 +231,7 @@ function pps_ai_agent_ava_content() {
 		'benefits_eyebrow'      => 'Benefits',
 		'benefits_title'        => 'Your billing line,',
 		'benefits_title_accent' => 'easy mode',
-		'benefits_intro'        => 'Ava turns account and billing calls into a repeatable workflow that holds up during statement season.',
+		'benefits_intro'        => 'AVA turns account and billing calls into a repeatable workflow that holds up during statement season.',
 		'benefits_cta'          => 'Talk to us about your billing call volume',
 		'benefits_cta_url'      => '#contact',
 		'benefits'              => array(
@@ -247,17 +253,17 @@ function pps_ai_agent_ava_content() {
 			array(
 				'icon'  => 'fa-gauge-high',
 				'title' => 'Coverage that scales with statement season',
-				'text'  => 'Call spikes do not change how fast Ava answers or how carefully she routes.',
+				'text'  => 'Call spikes do not change how fast AVA answers or how carefully she routes.',
 			),
 		),
 
 		'showcase' => array(
 			'sidebar_role'       => 'Billing voice',
 			'new_chat_label'     => 'New account call',
-			'input_placeholder'  => 'Ask Ava about a balance…',
-			'cta_label'          => 'See Ava take a billing call',
+			'input_placeholder'  => 'Ask AVA about a balance…',
+			'cta_label'          => 'See AVA take a billing call',
 			'cta_url'            => '#contact',
-			'user_message'       => 'A patient is calling about last month\'s statement — can Ava handle it?',
+			'user_message'       => 'A patient is calling about last month\'s statement — can AVA handle it?',
 			'agent_message'      => 'Yes. I\'ll verify identity, explain the balance, and offer a secure payment or warm-transfer if it\'s a dispute.',
 			'status_items'       => array(
 				'Identity verified',
@@ -269,9 +275,9 @@ function pps_ai_agent_ava_content() {
 		),
 
 		'memory_eyebrow' => 'Practice knowledge',
-		'memory_title'   => 'Ava runs on your billing policies, not a generic script',
-		'memory_intro'   => 'Everything Ava knows about your FAQs, routing, and payment rules lives in one place your team controls.',
-		'memory_cta'     => 'See what Ava would know about your practice',
+		'memory_title'   => 'AVA runs on your billing policies, not a generic script',
+		'memory_intro'   => 'Everything AVA knows about your FAQs, routing, and payment rules lives in one place your team controls.',
+		'memory_cta'     => 'See what AVA would know about your practice',
 		'memory_cta_url' => '#contact',
 		'memory_points'  => array(
 			array(
@@ -280,7 +286,7 @@ function pps_ai_agent_ava_content() {
 			),
 			array(
 				'title' => 'Context that compounds',
-				'text'  => 'Approved phrasing, dispute patterns, and escalation outcomes tighten how Ava handles the next similar call.',
+				'text'  => 'Approved phrasing, dispute patterns, and escalation outcomes tighten how AVA handles the next similar call.',
 			),
 			array(
 				'title' => 'One source of truth',
@@ -290,7 +296,7 @@ function pps_ai_agent_ava_content() {
 
 		'security_eyebrow' => 'Security',
 		'security_title'   => 'Patient data, handled the way it should be',
-		'security_intro'   => 'Ava is built for account and billing conversations that require identity gates, encryption, and audit-ready logging.',
+		'security_intro'   => 'AVA is built for account and billing conversations that require identity gates, encryption, and audit-ready logging.',
 		'security_cta'     => 'Read our security overview',
 		'security_cta_url' => '#contact',
 		'security_points'  => array(
@@ -311,9 +317,9 @@ function pps_ai_agent_ava_content() {
 			),
 		),
 
-		'why_eyebrow' => 'Why practices like Ava',
+		'why_eyebrow' => 'Why practices like AVA',
 		'why_title'   => 'Why billing teams keep her on the line',
-		'why_cta'     => 'See Ava take a billing call',
+		'why_cta'     => 'See AVA take a billing call',
 		'why_cta_url' => '#contact',
 		'why_cards'   => array(
 			array(
@@ -355,45 +361,46 @@ function pps_ai_agent_ava_content() {
 		'faqs'        => array(
 			array(
 				'q' => 'What is an AI account and voice assistant?',
-				'a' => 'An AI account and voice assistant answers inbound patient calls about billing and accounts. It verifies identity, handles FAQs and balance questions, can take secure payments, and warm-transfers complex issues to the right biller with full context. Ava is built for allied health practices that need that coverage without expanding hold times.',
+				'a' => 'An AI account and voice assistant answers inbound patient calls about billing and accounts. It verifies identity, handles FAQs and balance questions, can take secure payments, and warm-transfers complex issues to the right biller with full context. AVA is built for allied health practices that need that coverage without expanding hold times.',
 			),
 			array(
-				'q' => 'How does Ava verify a caller before sharing account details?',
-				'a' => 'Ava runs a two-factor identity match using rules you configure — for example date of birth plus last name, or account/MRN plus phone number on file. Until verification passes, she will not disclose balances or account details. Unverified callers can leave a callback number instead.',
+				'q' => 'How does AVA verify a caller before sharing account details?',
+				'a' => 'AVA runs a two-factor identity match using rules you configure — for example date of birth plus last name, or account/MRN plus phone number on file. Until verification passes, she will not disclose balances or account details. Unverified callers can leave a callback number instead.',
 			),
 			array(
-				'q' => 'Can Ava take payments over the phone?',
-				'a' => 'Yes. Ava supports PCI-compliant tokenized capture via keypad/DTMF entry so card numbers never enter the voice or transcript stream. She can also send a secure payment link. Payment-plan options can be offered within limits your practice configures.',
+				'q' => 'Can AVA take payments over the phone?',
+				'a' => 'Yes. AVA supports PCI-compliant tokenized capture via keypad/DTMF entry so card numbers never enter the voice or transcript stream. She can also send a secure payment link. Payment-plan options can be offered within limits your practice configures.',
 			),
 			array(
 				'q' => 'What happens on a dispute or complex billing question?',
-				'a' => 'Ava captures a structured dispute or intent record, then warm-transfers to the correct biller or team with a brief covering who is calling, verification status, account status, and what was already discussed. If that biller is unavailable, she can schedule a callback instead of dropping to cold voicemail.',
+				'a' => 'AVA captures a structured dispute or intent record, then warm-transfers to the correct biller or team with a brief covering who is calling, verification status, account status, and what was already discussed. If that biller is unavailable, she can schedule a callback instead of dropping to cold voicemail.',
 			),
 			array(
-				'q' => 'Does Ava replace my billing staff?',
-				'a' => 'No. Ava handles routine FAQs, balance explanations, simple payments, and intake for transfers. Judgment work — appeals, complex negotiations, and exceptions — stays with your billers, who receive fuller context and fewer repetitive calls.',
+				'q' => 'Does AVA replace my billing staff?',
+				'a' => 'No. AVA handles routine FAQs, balance explanations, simple payments, and intake for transfers. Judgment work — appeals, complex negotiations, and exceptions — stays with your billers, who receive fuller context and fewer repetitive calls.',
 			),
 			array(
-				'q' => 'Is Ava HIPAA compliant?',
-				'a' => 'Ava is built to handle protected health information under HIPAA safeguards, including identity gates before disclosure, encryption in transit and at rest, and audit-ready call logging. Confirm current compliance documentation and BAA terms with our team before publishing practice-specific claims.',
+				'q' => 'Is AVA HIPAA compliant?',
+				'a' => 'AVA is built to handle protected health information under HIPAA safeguards, including identity gates before disclosure, encryption in transit and at rest, and audit-ready call logging. Confirm current compliance documentation and BAA terms with our team before publishing practice-specific claims.',
 			),
 			array(
-				'q' => 'How does Ava work with agents like Cora?',
-				'a' => 'When a patient has already texted or emailed about the same balance through a sibling agent such as Cora, Ava can carry that context into the phone call so the patient does not start over. That continuity is part of running a coordinated agent suite.',
+				'q' => 'How does AVA work with agents like Cora?',
+				'a' => 'When a patient has already texted or emailed about the same balance through a sibling agent such as Cora, AVA can carry that context into the phone call so the patient does not start over. That continuity is part of running a coordinated agent suite.',
 			),
 			array(
 				'q' => 'How long does setup take?',
-				'a' => 'Most practices are live after connecting billing systems, uploading FAQs and policies, setting identity and routing rules, and configuring payment options. The first week is spent reviewing calls and summaries before Ava runs with less oversight.',
+				'a' => 'Most practices are live after connecting billing systems, uploading FAQs and policies, setting identity and routing rules, and configuring payment options. The first week is spent reviewing calls and summaries before AVA runs with less oversight.',
 			),
 		),
 
 		'final_title'   => 'Every billing call answered. Every transfer briefed.',
-		'final_text'    => 'Ava works the account line so your billers can work the exceptions.',
+		'final_text'    => 'AVA works the account line so your billers can work the exceptions.',
 		'final_cta'     => 'Book a demo',
 		'final_cta_url' => '#contact',
 
-		'contact_title' => 'See Ava take a billing call',
-		'contact_text'  => 'Tell us about your billing call volume and we\'ll show you how Ava fits your account workflow.',
+		'contact_title' => 'Schedule a demo call and see how we can customize AVA into your workflow',
+		'contact_text'  => 'AVA handles billing calls and broader account management calls — not just balances and statements. Tell us about your volume and we\'ll show how to fit AVA into your practice.',
+		'contact_placeholder' => 'Tell us about billing or account management calls and how AVA could help.',
 		'voice_sample'  => 'I verified the caller, explained the balance, and sent a secure payment link — summary is in Tebra.',
 	);
 }

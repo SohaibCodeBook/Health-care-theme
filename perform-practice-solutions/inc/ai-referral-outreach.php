@@ -280,12 +280,12 @@ function pps_setup_ai_ref_page() {
 
 	$defaults = pps_ai_ref_defaults();
 
-	$parent = get_page_by_path( 'ai-development' );
+	$parent = pps_ai_hub_page();
 	if ( ! $parent ) {
 		$parent_id = wp_insert_post(
 			array(
-				'post_title'  => 'AI Development',
-				'post_name'   => 'ai-development',
+				'post_title'  => pps_ai_hub_title(),
+				'post_name'   => pps_ai_hub_slug(),
 				'post_status' => 'publish',
 				'post_type'   => 'page',
 			)
@@ -296,7 +296,10 @@ function pps_setup_ai_ref_page() {
 		$parent = get_post( $parent_id );
 	}
 
-	$page = get_page_by_path( 'ai-development/referral-outreach' );
+	$page = get_page_by_path( pps_ai_hub_slug() . '/referral-outreach' );
+	if ( ! $page ) {
+		$page = get_page_by_path( 'ai-development/referral-outreach' );
+	}
 	if ( ! $page ) {
 		$page = get_page_by_path( 'referral-outreach' );
 	}

@@ -37,29 +37,29 @@ function pps_theme_activation() {
 			'title'   => 'Digital Marketing Healthcare Agency',
 			'content' => '<p>Digital marketing for healthcare practices — managed via the Digital Marketing template.</p>',
 		),
-		'ai-development'    => array(
-			'title'   => 'AI Development',
+		'ai-bolt' => array(
+			'title'   => 'AI Bolt',
 			'content' => '',
 		),
 		'phone-text-system' => array(
 			'title'   => 'Fully Automated Phone and Text System',
 			'content' => '<p>Phone and text automation details will be designed in a later phase.</p>',
-			'parent'  => 'ai-development',
+			'parent'  => 'ai-bolt',
 		),
 		'referral-outreach' => array(
 			'title'   => 'Fully Automated New Client Referral Outreach',
 			'content' => '<p>Referral outreach automation details will be designed in a later phase.</p>',
-			'parent'  => 'ai-development',
+			'parent'  => 'ai-bolt',
 		),
 		'website-chatbot'   => array(
 			'title'   => 'Fully Automated and Integrated Website Chatbot',
 			'content' => '<p>Website chatbot details will be designed in a later phase.</p>',
-			'parent'  => 'ai-development',
+			'parent'  => 'ai-bolt',
 		),
 		'front-desk-tools'  => array(
 			'title'   => 'Front Desk Support and Automation Tools',
 			'content' => '<p>Front desk automation details will be designed in a later phase.</p>',
-			'parent'  => 'ai-development',
+			'parent'  => 'ai-bolt',
 		),
 		'about-us'          => array(
 			'title'   => 'About Us',
@@ -159,7 +159,7 @@ function pps_create_primary_menu( $pages ) {
 		array( 'slug' => 'credentialing', 'title' => 'Credentialing' ),
 		array( 'slug' => 'med-va', 'title' => 'Med VA' ),
 		array( 'slug' => 'digital-marketing-healthcare-agency', 'title' => 'Digital Marketing' ),
-		array( 'slug' => 'ai-development', 'title' => 'AI Development', 'children' => array(
+		array( 'slug' => 'ai-bolt', 'title' => 'AI Bolt', 'children' => array(
 			array( 'slug' => 'phone-text-system', 'title' => 'Fully Automated Phone and Text System' ),
 			array( 'slug' => 'referral-outreach', 'title' => 'Fully Automated New Client Referral Outreach' ),
 			array( 'slug' => 'website-chatbot', 'title' => 'Fully Automated and Integrated Website Chatbot' ),
@@ -216,7 +216,7 @@ function pps_create_primary_menu( $pages ) {
 }
 
 /**
- * Canonical AI Development child pages (slug => meta).
+ * Canonical AI Bolt child pages (slug => meta).
  *
  * @return array
  */
@@ -244,7 +244,7 @@ function pps_ai_development_children() {
 /**
  * Resolve the correct AI child page, fix *-2 slugs, trash duplicates.
  *
- * @param int    $parent_id Parent AI Development page ID.
+ * @param int    $parent_id Parent AI Bolt page ID.
  * @param string $slug      Desired post_name.
  * @param array  $meta      title + template.
  * @return int Page ID or 0.
@@ -270,7 +270,7 @@ function pps_resolve_ai_child_page( $parent_id, $slug, $meta ) {
 		$candidates[ (int) $post->ID ] = $post;
 	}
 
-	foreach ( array( 'ai-development/' . $slug, 'ai-development/' . $slug . '-2', $slug, $slug . '-2' ) as $path ) {
+	foreach ( array( 'ai-bolt/' . $slug, 'ai-development/' . $slug, 'ai-bolt/' . $slug . '-2', 'ai-development/' . $slug . '-2', $slug, $slug . '-2' ) as $path ) {
 		$page = get_page_by_path( $path );
 		if ( $page ) {
 			$candidates[ (int) $page->ID ] = $page;
@@ -340,7 +340,7 @@ function pps_resolve_ai_child_page( $parent_id, $slug, $meta ) {
 	}
 
 	// Free clean slug if another published page still holds it.
-	$holder = get_page_by_path( 'ai-development/' . $slug );
+	$holder = get_page_by_path( 'ai-bolt/' . $slug );
 	if ( ! $holder ) {
 		$holder = get_page_by_path( $slug );
 	}
@@ -363,9 +363,9 @@ function pps_resolve_ai_child_page( $parent_id, $slug, $meta ) {
 }
 
 /**
- * Point AI Development submenu items at the canonical child pages.
+ * Point AI Bolt submenu items at the canonical child pages.
  *
- * @param int   $parent_page_id AI Development page ID.
+ * @param int   $parent_page_id AI Bolt page ID.
  * @param array $resolved       slug => page ID.
  * @param array $children_meta  slug => meta.
  */
@@ -393,7 +393,7 @@ function pps_attach_ai_children_to_primary_menu( $parent_page_id, $resolved, $ch
 	}
 	if ( ! $ai_menu_item_id ) {
 		foreach ( $items as $item ) {
-			if ( 0 === (int) $item->menu_item_parent && false !== stripos( $item->title, 'AI Development' ) ) {
+			if ( 0 === (int) $item->menu_item_parent && ( false !== stripos( $item->title, 'AI Bolt' ) || false !== stripos( $item->title, 'AI Development' ) ) ) {
 				$ai_menu_item_id = (int) $item->ID;
 				break;
 			}
@@ -403,12 +403,12 @@ function pps_attach_ai_children_to_primary_menu( $parent_page_id, $resolved, $ch
 		return;
 	}
 
-	// Retarget parent menu item to the canonical AI Development page.
+	// Retarget parent menu item to the canonical AI Bolt page.
 	wp_update_nav_menu_item(
 		$menu_id,
 		$ai_menu_item_id,
 		array(
-			'menu-item-title'     => 'AI Development',
+			'menu-item-title'     => 'AI Bolt',
 			'menu-item-object'    => 'page',
 			'menu-item-object-id' => (int) $parent_page_id,
 			'menu-item-type'      => 'post_type',
@@ -505,12 +505,15 @@ function pps_attach_ai_children_to_primary_menu( $parent_page_id, $resolved, $ch
  * and rewire the primary submenu to those pages.
  */
 function pps_repair_ai_development_nav() {
-	$version = '1.0.0';
+	$version = '1.1.0';
 	if ( get_option( 'pps_ai_nav_repair_version' ) === $version ) {
 		return;
 	}
 
-	$parent = get_page_by_path( 'ai-development' );
+	$parent = function_exists( 'pps_ai_hub_page' ) ? pps_ai_hub_page() : get_page_by_path( 'ai-bolt' );
+	if ( ! $parent ) {
+		$parent = get_page_by_path( 'ai-development' );
+	}
 	if ( ! $parent ) {
 		return;
 	}
@@ -551,7 +554,10 @@ function pps_redirect_ai_duplicate_slugs() {
 		if ( $page->post_name !== $slug . '-2' && 0 !== strpos( $page->post_name, $slug . '-' ) ) {
 			continue;
 		}
-		$canonical = get_page_by_path( 'ai-development/' . $slug );
+		$canonical = get_page_by_path( 'ai-bolt/' . $slug );
+		if ( ! $canonical ) {
+			$canonical = get_page_by_path( 'ai-development/' . $slug );
+		}
 		if ( ! $canonical ) {
 			$canonical = get_page_by_path( $slug );
 		}

@@ -23,7 +23,7 @@
 					<li><a href="<?php echo esc_url( home_url( '/medical-credentialing-services/' ) ); ?>"><?php esc_html_e( 'Credentialing', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/virtual-medical-assistant/' ) ); ?>"><?php esc_html_e( 'Med VA', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/coaching-for-healthcare-professionals/' ) ); ?>"><?php esc_html_e( 'Coaching', 'perform-practice' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/ai-development/' ) ); ?>"><?php esc_html_e( 'AI Development', 'perform-practice' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/ai-bolt/' ) ); ?>"><?php esc_html_e( 'AI Bolt', 'perform-practice' ); ?></a></li>
 				</ul>
 			</div>
 

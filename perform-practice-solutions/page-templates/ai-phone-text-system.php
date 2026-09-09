@@ -352,7 +352,7 @@ $bento_layout = array(
 							<option value="Eligibility Services"><?php esc_html_e( 'Eligibility Services', 'perform-practice' ); ?></option>
 							<option value="Med VA"><?php esc_html_e( 'Med VA / Virtual Assistant', 'perform-practice' ); ?></option>
 							<option value="Coaching"><?php esc_html_e( 'Coaching', 'perform-practice' ); ?></option>
-							<option value="AI Development" selected><?php esc_html_e( 'AI Development', 'perform-practice' ); ?></option>
+							<option value="AI Bolt" selected><?php esc_html_e( 'AI Bolt', 'perform-practice' ); ?></option>
 						</select>
 					</div>
 					<div class="form-field">

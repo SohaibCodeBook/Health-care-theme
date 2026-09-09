@@ -59,6 +59,12 @@ function pps_ai_agent_vera_content() {
 		'problem_close'   => 'Vera picks up that traffic in real time. She answers the question, confirms fit, and gets the visit on the calendar while the patient is still deciding.',
 		'problem_cta'     => 'See what Vera answers',
 		'problem_cta_url' => '#capabilities',
+		'flow_steps'      => array(
+			'Visitor lands on your site',
+			'Vera answers in seconds',
+			'Question resolved or booked',
+			'Your team gets the details',
+		),
 
 		'onboard_eyebrow'      => 'Onboarding',
 		'onboard_title'        => 'Live in five steps, not five meetings',

@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.9.58' );
+define( 'PPS_THEME_VERSION', '2.9.62' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -353,7 +353,7 @@ function pps_fallback_menu() {
 		'virtual-medical-assistant' => __( 'Med VA', 'perform-practice' ),
 		'digital-marketing-healthcare-agency' => __( 'Digital Marketing', 'perform-practice' ),
 		'coaching-for-healthcare-professionals' => __( 'Coaching', 'perform-practice' ),
-		'ai-development'    => __( 'AI Development', 'perform-practice' ),
+		'ai-bolt'    => __( 'AI Bolt', 'perform-practice' ),
 		'about-us'          => __( 'About Us', 'perform-practice' ),
 		'blog'              => __( 'Blog', 'perform-practice' ),
 	);

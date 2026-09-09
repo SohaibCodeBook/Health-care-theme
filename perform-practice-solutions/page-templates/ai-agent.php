@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: AI Agent Profile
- * Description: Shared profile template for individual AI agents (Rosa, Vera, Rex, Cora, Ava).
+ * Description: Shared profile template for individual AI agents (Rosa, Vera, Rex, Cora, AVA).
  *
  * @package Perform_Practice
  */
@@ -121,23 +121,32 @@ pps_ai_agent_force_styles();
 				</a>
 			</div>
 			<div class="ai-agent-problem__panel pps-reveal" aria-hidden="true">
+				<?php
+				$flow_steps = ! empty( $agent['flow_steps'] ) && is_array( $agent['flow_steps'] )
+					? $agent['flow_steps']
+					: array(
+						'Referral lands',
+						sprintf( /* translators: agent name */ __( '%s reaches out', 'perform-practice' ), $agent['name'] ),
+						'Patient books',
+						'Loop closed',
+					);
+				?>
 				<div class="ai-agent-flow">
-					<div class="ai-agent-flow__step is-done">
-						<span>01</span>
-						<em><?php esc_html_e( 'Referral lands', 'perform-practice' ); ?></em>
-					</div>
-					<div class="ai-agent-flow__step is-active">
-						<span>02</span>
-						<em><?php echo esc_html( sprintf( /* translators: agent name */ __( '%s reaches out', 'perform-practice' ), $agent['name'] ) ); ?></em>
-					</div>
-					<div class="ai-agent-flow__step">
-						<span>03</span>
-						<em><?php esc_html_e( 'Patient books', 'perform-practice' ); ?></em>
-					</div>
-					<div class="ai-agent-flow__step">
-						<span>04</span>
-						<em><?php esc_html_e( 'Loop closed', 'perform-practice' ); ?></em>
-					</div>
+					<?php foreach ( array_values( $flow_steps ) as $i => $step_label ) : ?>
+						<?php
+						$num   = str_pad( (string) ( $i + 1 ), 2, '0', STR_PAD_LEFT );
+						$class = 'ai-agent-flow__step';
+						if ( 0 === $i ) {
+							$class .= ' is-done';
+						} elseif ( 1 === $i ) {
+							$class .= ' is-active';
+						}
+						?>
+						<div class="<?php echo esc_attr( $class ); ?>">
+							<span><?php echo esc_html( $num ); ?></span>
+							<em><?php echo esc_html( $step_label ); ?></em>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -476,12 +485,12 @@ pps_ai_agent_force_styles();
 							<option value="Eligibility Services"><?php esc_html_e( 'Eligibility Services', 'perform-practice' ); ?></option>
 							<option value="Med VA"><?php esc_html_e( 'Med VA / Virtual Assistant', 'perform-practice' ); ?></option>
 							<option value="Coaching"><?php esc_html_e( 'Coaching', 'perform-practice' ); ?></option>
-							<option value="AI Development" selected><?php esc_html_e( 'AI Development', 'perform-practice' ); ?></option>
+							<option value="AI Bolt" selected><?php esc_html_e( 'AI Bolt', 'perform-practice' ); ?></option>
 						</select>
 					</div>
 					<div class="form-field">
 						<label for="pps-message"><?php esc_html_e( 'Message', 'perform-practice' ); ?></label>
-						<textarea id="pps-message" name="message" rows="4" placeholder="<?php echo esc_attr( sprintf( /* translators: agent name */ __( 'Tell us about your practice and how %s could help.', 'perform-practice' ), $agent['name'] ) ); ?>"></textarea>
+						<textarea id="pps-message" name="message" rows="4" placeholder="<?php echo esc_attr( ! empty( $agent['contact_placeholder'] ) ? $agent['contact_placeholder'] : sprintf( /* translators: agent name */ __( 'Tell us about your practice and how %s could help.', 'perform-practice' ), $agent['name'] ) ); ?>"></textarea>
 					</div>
 					<button class="pps-btn pps-btn--primary" type="submit">
 						<?php esc_html_e( 'Send Message', 'perform-practice' ); ?>

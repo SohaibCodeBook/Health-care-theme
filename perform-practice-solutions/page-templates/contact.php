@@ -131,7 +131,7 @@ $service_tags = array(
 							<option value="Credentialing/Contracting"><?php esc_html_e( 'Credentialing/Contracting', 'perform-practice' ); ?></option>
 							<option value="Front-Desk 101"><?php esc_html_e( 'Front-Desk 101', 'perform-practice' ); ?></option>
 							<option value="Eligibility Services"><?php esc_html_e( 'Eligibility Services', 'perform-practice' ); ?></option>
-							<option value="AI Development"><?php esc_html_e( 'AI Development', 'perform-practice' ); ?></option>
+							<option value="AI Bolt"><?php esc_html_e( 'AI Bolt', 'perform-practice' ); ?></option>
 						</select>
 					</div>
 					<div class="form-field">

@@ -94,9 +94,9 @@ function pps_about_defaults() {
 		'svc_4_title'      => 'Credentialing/Contract',
 		'svc_4_text'       => 'Staying in-network and up-to-date with credentials is essential to your success. Perform Practice Solutions handles every detail of the credentialing and contracting process so your healthcare team stays compliant and your revenue keeps flowing.',
 		'svc_4_url'        => '/medical-credentialing-services/',
-		'svc_5_title'      => 'AI development',
+		'svc_5_title'      => 'AI Bolt',
 		'svc_5_text'       => 'Reduce your practice\'s admin work and improve the patient experience by building simple, secure automation — such as intake/scheduling assistants, reminders, and reporting — tailored to your workflows and systems. Schedule your free consultation to get a custom AI roadmap.',
-		'svc_5_url'        => '/ai-development/',
+		'svc_5_url'        => '/ai-bolt/',
 
 		'test_eyebrow' => 'What Healthcare Providers Say About Us',
 		'test_title'   => 'Trusted by practice owners across the United States',

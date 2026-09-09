@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 $ai_suite_agents = array(
 	array(
 		'letter'   => 'A',
-		'name'     => 'Ava',
+		'name'     => 'AVA',
 		'slug'     => 'ava',
 		'title'    => 'Account and Voice Assistant',
 		'audience' => 'Practice-wide',
@@ -50,11 +50,11 @@ $ai_suite_agents = array(
 $ai_suite_deepdives = array(
 	array(
 		'letter'    => 'A',
-		'name'      => 'Ava',
+		'name'      => 'AVA',
 		'slug'      => 'ava',
 		'title'     => 'Account and voice assistant',
 		'audience'  => 'Practice-wide billing callers',
-		'placement' => 'AVA — handles billing & account calls',
+		'placement' => 'AVA — handles billing & account management calls',
 		'letters'   => array(
 			array( 'l' => 'A', 'w' => 'Account' ),
 			array( 'l' => 'V', 'w' => 'Voice' ),

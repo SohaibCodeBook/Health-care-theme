@@ -1,6 +1,6 @@
 <?php
 /**
- * Shared AI agent profile pages (Rosa, Vera, Rex, Cora, Ava).
+ * Shared AI agent profile pages (Rosa, Vera, Rex, Cora, AVA).
  *
  * @package Perform_Practice
  */
@@ -272,7 +272,7 @@ add_filter( 'template_include', 'pps_ai_agent_template_include', 99 );
  * Re-runs whenever a registered agent is missing a page.
  */
 function pps_setup_ai_agent_pages() {
-	$version     = '1.2.1';
+	$version     = '1.2.2';
 	$version_ok  = get_option( 'pps_ai_agent_pages_version' ) === $version;
 	$missing     = false;
 
@@ -322,15 +322,15 @@ function pps_setup_ai_agent_pages() {
 
 		if ( $page ) {
 			$page_id = (int) $page->ID;
+			$update  = array(
+				'ID'         => $page_id,
+				'post_title' => $title,
+			);
 			if ( (int) $page->post_parent !== (int) $parent->ID || $page->post_name !== $slug ) {
-				wp_update_post(
-					array(
-						'ID'          => $page_id,
-						'post_parent' => (int) $parent->ID,
-						'post_name'   => $slug,
-					)
-				);
+				$update['post_parent'] = (int) $parent->ID;
+				$update['post_name']   = $slug;
 			}
+			wp_update_post( $update );
 		} else {
 			$page_id = wp_insert_post(
 				array(

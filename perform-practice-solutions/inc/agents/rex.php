@@ -59,6 +59,12 @@ function pps_ai_agent_rex_content() {
 		'problem_close'   => 'Rex works the queue continuously in the background. By the time your staff sit down, the routine items are handled and only the exceptions are waiting.',
 		'problem_cta'     => 'Show me what Rex clears in a day',
 		'problem_cta_url' => '#capabilities',
+		'flow_steps'      => array(
+			'Patient checks in',
+			'Rex handles the paperwork',
+			'Intake queue cleared',
+			'Front desk stays free',
+		),
 
 		'onboard_eyebrow'      => 'Onboarding',
 		'onboard_title'        => 'Simple onboarding, on purpose',

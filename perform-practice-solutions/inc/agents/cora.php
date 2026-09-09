@@ -59,6 +59,12 @@ function pps_ai_agent_cora_content() {
 		'problem_close'   => 'Cora takes the phone and text line off your team\'s plate and keeps every patient conversation moving. One assistant. Full coverage. No busy signal.',
 		'problem_cta'     => 'Book a 15-minute walkthrough',
 		'problem_cta_url' => '#contact',
+		'flow_steps'      => array(
+			'Patient sends a text or calls',
+			'Cora replies within seconds',
+			'Appointment confirmed or rescheduled',
+			'Your team sees the full thread',
+		),
 
 		'onboard_eyebrow'      => 'Onboarding',
 		'onboard_title'        => 'Onboarding that takes an afternoon, not a quarter',

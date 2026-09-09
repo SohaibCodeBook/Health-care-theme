@@ -40,6 +40,7 @@ function pps_is_ai_suite_page() {
 	}
 
 	$slug_templates = array(
+		'ai-bolt'            => 'page-templates/ai-development.php',
 		'ai-development'     => 'page-templates/ai-development.php',
 		'phone-text-system'  => 'page-templates/ai-phone-text-system.php',
 		'referral-outreach'  => 'page-templates/ai-referral-outreach.php',
@@ -95,7 +96,7 @@ add_action( 'wp_enqueue_scripts', 'pps_ai_suite_enqueue_assets', 26 );
 /**
  * Avatar image URL for a named AI agent.
  *
- * @param string $name Agent display name (e.g. Ava, Rosa).
+ * @param string $name Agent display name (e.g. AVA, Rosa).
  * @return string
  */
 function pps_ai_agent_avatar_url( $name ) {
