@@ -55,8 +55,7 @@ get_header();
 					loading="lazy"
 				>
 				<div class="intro-shell__badge">
-					<span><?php esc_html_e( 'Allied Health', 'perform-practice' ); ?></span>
-					<strong>PT · Chiro · OT · Speech</strong>
+					<strong><?php esc_html_e( 'Allied Health', 'perform-practice' ); ?></strong>
 				</div>
 			</div>
 
@@ -67,14 +66,14 @@ get_header();
 				<p><?php echo esc_html( page_home( 'intro_text_2' ) ); ?></p>
 
 				<ul class="intro-shell__tags">
-					<li><?php esc_html_e( 'Physical Therapy', 'perform-practice' ); ?></li>
-					<li><?php esc_html_e( 'Chiropractic', 'perform-practice' ); ?></li>
-					<li><?php esc_html_e( 'Occupational Therapy', 'perform-practice' ); ?></li>
-					<li><?php esc_html_e( 'Speech Therapy', 'perform-practice' ); ?></li>
 					<li><?php esc_html_e( 'Psychiatric Health', 'perform-practice' ); ?></li>
 					<li><?php esc_html_e( 'Pain Management', 'perform-practice' ); ?></li>
 					<li><?php esc_html_e( 'Surgery Centers', 'perform-practice' ); ?></li>
 					<li><?php esc_html_e( 'Hospital Billing', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Physical Therapy', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Chiropractic', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Occupational Therapy', 'perform-practice' ); ?></li>
+					<li><?php esc_html_e( 'Speech Therapy', 'perform-practice' ); ?></li>
 				</ul>
 
 				<div class="intro-shell__note">
