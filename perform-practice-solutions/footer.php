@@ -57,7 +57,18 @@
 
 		<div class="footer-bottom">
 			<p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( site_data( 'brand_name' ) ); ?>. <?php esc_html_e( 'All rights reserved.', 'perform-practice' ); ?></p>
-			<p><?php esc_html_e( 'We make your patient confidentiality our priority.', 'perform-practice' ); ?></p>
+			<div class="footer-bottom__trust">
+				<img
+					class="footer-hipaa"
+					src="<?php echo esc_url( PPS_THEME_URI . '/assets/images/hipaa-compliant.png' ); ?>"
+					alt="<?php esc_attr_e( 'HIPAA Compliant', 'perform-practice' ); ?>"
+					width="160"
+					height="56"
+					loading="lazy"
+					decoding="async"
+				>
+				<p><?php esc_html_e( 'We make your patient confidentiality our priority.', 'perform-practice' ); ?></p>
+			</div>
 		</div>
 	</div>
 </footer>
