@@ -413,24 +413,31 @@ function pps_attach_team_to_primary_menu( $page_id ) {
 	}
 
 	$menu_id = (int) $locations['primary'];
-	$items   = wp_get_nav_menu_items( $menu_id );
-	if ( ! $items ) {
-		return;
+	$items   = wp_get_nav_menu_items( $menu_id, array( 'post_status' => 'any' ) );
+	if ( ! is_array( $items ) ) {
+		$items = array();
 	}
 
 	$team_item_id = 0;
-	$about_pos    = 60;
+	$team_pos     = 0;
+	$about_pos    = 0;
+	$max_pos      = 0;
 
 	foreach ( $items as $item ) {
+		$pos = (int) $item->menu_order;
+		if ( $pos > $max_pos ) {
+			$max_pos = $pos;
+		}
 		if ( (int) $item->menu_item_parent !== 0 ) {
 			continue;
 		}
-		$slug = get_post_field( 'post_name', $item->object_id );
-		if ( 'our-team' === $slug || 'Our Team' === $item->title ) {
+		$slug = ( 'page' === $item->object ) ? get_post_field( 'post_name', $item->object_id ) : '';
+		if ( 'our-team' === $slug || 'Our Team' === $item->title || (int) $item->object_id === (int) $page_id ) {
 			$team_item_id = (int) $item->ID;
+			$team_pos     = $pos;
 		}
 		if ( 'about-us' === $slug || 'About Us' === $item->title ) {
-			$about_pos = (int) $item->menu_order;
+			$about_pos = $pos;
 		}
 	}
 
@@ -444,11 +451,12 @@ function pps_attach_team_to_primary_menu( $page_id ) {
 	);
 
 	if ( $team_item_id ) {
+		$args['menu-item-position'] = $about_pos ? $about_pos + 1 : $team_pos;
 		wp_update_nav_menu_item( $menu_id, $team_item_id, $args );
 		return;
 	}
 
-	$args['menu-item-position'] = $about_pos + 1;
+	$args['menu-item-position'] = $about_pos ? $about_pos + 1 : $max_pos + 1;
 	wp_update_nav_menu_item( $menu_id, 0, $args );
 }
 
@@ -456,7 +464,7 @@ function pps_attach_team_to_primary_menu( $page_id ) {
  * Create Our Team page, assign template/SEO, update menu.
  */
 function pps_setup_team_page() {
-	$version = '1.6.0';
+	$version = '1.6.1';
 	if ( get_option( 'pps_team_page_version' ) === $version ) {
 		return;
 	}

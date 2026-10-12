@@ -33,6 +33,26 @@ function pps_about_defaults() {
 		'story_2'       => 'After over a decade of practice & errors, and having ownership of multiple practices, I finally found successful tools and methodologies to own and run a profitable PT practice. And others started to notice; people would come to me to ask for advice and that\'s when I knew I had to step up for the ones that want to successfully run their practice.',
 		'story_3'       => 'Perform Practice Solutions was created to help PT, OT, and other practices thrive by providing high-quality services & resources so practice owners can focus on what really matters: the patients.',
 
+		'team_eyebrow' => 'Our Team',
+		'team_title'   => 'The specialists who support your practice',
+		'team_lead'    => 'The Perform Practice Solutions team is the group of allied health business specialists who work alongside Kevin to support Physical Therapy, Chiropractic, Speech Therapy, and Occupational Therapy practices.',
+		'team_1_name'  => 'Courtney Crocker',
+		'team_1_role'  => 'Director of Perform Practice Solutions',
+		'team_1_text'  => 'Courtney Crocker, Director of Perform Practice Solutions, leads quarterly reviews with clients to walk through the financial health of each practice and set clear next steps.',
+		'team_1_image' => 1,
+		'team_2_name'  => 'Kari Landrum',
+		'team_2_role'  => 'Business Manager',
+		'team_2_text'  => 'Kari Landrum, Business Manager, keeps the business side of PPS running and joins those reviews so every practice has a clear picture of its numbers.',
+		'team_2_image' => 2,
+		'team_3_name'  => 'Kris Jorge',
+		'team_3_role'  => 'Sales & Marketing Director',
+		'team_3_text'  => 'Kris Jorge, Sales & Marketing Director, helps practice owners find the right mix of PPS services and leads the marketing strategy that brings new patients through the door.',
+		'team_3_image' => 3,
+		'team_4_name'  => 'Leo Benedict Pascual',
+		'team_4_role'  => 'Customer Success Manager and VA Manager',
+		'team_4_text'  => 'Leo Benedict Pascual, Customer Success Manager and VA Manager, supports clients from onboarding onward and manages the PPS medical virtual assistant team that handles front office tasks.',
+		'team_4_image' => 5,
+
 		'mission_title' => 'At PPS, our goal is to help you run your practice by providing you with efficient, customized strategies.',
 		'mission_cta'   => 'Contact Us',
 		'mission_cta_url' => '#contact',
@@ -308,7 +328,7 @@ add_action( 'template_redirect', 'pps_redirect_legacy_meet_kevin' );
  * Create/update About Us page, assign template/SEO, update menu.
  */
 function pps_setup_about_page() {
-	$version = '1.0.0';
+	$version = '1.1.0';
 	if ( get_option( 'pps_about_page_version' ) === $version ) {
 		return;
 	}

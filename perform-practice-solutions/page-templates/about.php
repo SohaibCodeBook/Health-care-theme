@@ -72,6 +72,43 @@ $svc_icons  = array( 'fa-file-invoice-dollar', 'fa-headset', 'fa-bullhorn', 'fa-
 	</div>
 </section>
 
+<section class="pps-section about-team" id="team">
+	<div class="pps-container">
+		<div class="pps-section-head pps-section-head--center pps-reveal">
+			<p class="pps-eyebrow" style="justify-content:center;"><?php echo esc_html( page_about( 'team_eyebrow' ) ); ?></p>
+			<h2 class="pps-section-title"><?php echo esc_html( page_about( 'team_title' ) ); ?></h2>
+			<p class="pps-section-lead"><?php echo esc_html( page_about( 'team_lead' ) ); ?></p>
+		</div>
+		<div class="about-team-grid">
+			<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
+				<?php
+				$img_index = (int) page_about( "team_{$i}_image" );
+				$img_url   = function_exists( 'pps_team_member_default_image' ) ? pps_team_member_default_image( $img_index ) : '';
+				?>
+				<article class="about-team-card pps-reveal">
+					<?php if ( $img_url ) : ?>
+						<figure class="about-team-card__photo">
+							<img
+								src="<?php echo esc_url( $img_url ); ?>"
+								alt="<?php echo esc_attr( page_about( "team_{$i}_name" ) ); ?>"
+								width="420"
+								height="480"
+								loading="lazy"
+								decoding="async"
+							>
+						</figure>
+					<?php endif; ?>
+					<div class="about-team-card__identity">
+						<strong><?php echo esc_html( page_about( "team_{$i}_name" ) ); ?></strong>
+						<span><?php echo esc_html( page_about( "team_{$i}_role" ) ); ?></span>
+					</div>
+					<p><?php echo esc_html( page_about( "team_{$i}_text" ) ); ?></p>
+				</article>
+			<?php endfor; ?>
+		</div>
+	</div>
+</section>
+
 <section class="about-mission">
 	<div class="pps-container">
 		<div class="about-mission__panel pps-reveal">

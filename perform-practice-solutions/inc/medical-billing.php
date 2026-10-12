@@ -61,7 +61,7 @@ function pps_mbs_defaults() {
 		'step_4_title'    => 'Patient billing and follow up',
 		'step_4_text'     => 'After insurance pays, patient statements go out promptly and clearly. We manage follow-up calls and payment arrangements so your staff never has to chase balances or navigate uncomfortable collection conversations.',
 		'step_5_title'    => 'Monthly and quarterly reviews',
-		'step_5_text'     => 'Every month you receive a report covering claim volume, approval rates, average days to payment, and denial reasons by payer. Every quarter, you sit down with our CEO for a deeper conversation about your practice’s financial health.',
+		'step_5_text'     => 'Every month you receive a report covering claim volume, approval rates, average days to payment, and denial reasons by payer. Every quarter, you sit down with Courtney Crocker, Director of Perform Practice Solutions, and Kari Landrum, Business Manager, for a deeper conversation about your practice\'s financial health.',
 
 		'spec_grid_eyebrow' => 'Medical Billing Services',
 		'spec_grid_title'   => 'Specialty billing built for every corner of your practice',
@@ -118,7 +118,7 @@ function pps_mbs_defaults() {
 		'faq_7_q'     => 'What does medical billing outsourcing cost for an allied health practice?',
 		'faq_7_a'     => 'Pricing is typically based on a percentage of collected revenue. The exact rate depends on practice size, provider count, patient volume, and claim complexity. We are always open to a direct conversation about what partnership would cost — and what it would return.',
 		'faq_8_q'     => 'How is Perform Practice Solutions different from other medical billing companies?',
-		'faq_8_a'     => 'Transparency, access, and specialization. You have a named contact, real-time reporting, monthly meetings with our COO, and quarterly sessions with our CEO. We specialize in allied health, so we understand the coding, authorization, and payer dynamics specific to your specialty.',
+		'faq_8_a'     => 'Perform Practice Solutions differs from other medical billing companies through transparency, access, and allied health specialization. Every client gets a named contact who knows their account, live reporting on claims and payments, and quarterly financial reviews with Courtney Crocker, Director of Perform Practice Solutions. Because we work only in allied health, we understand the coding, authorization, and payer rules specific to your specialty, so claims go out clean and get paid faster.',
 
 		'cta_title'      => 'Ready to stop leaving revenue on the table?',
 		'cta_text'       => 'If denied claims, slow reimbursements, or the day-to-day weight of managing billing are holding your practice back, we can change that. Book a free strategy session and find out exactly how much revenue your current billing process is leaving behind.',
@@ -294,7 +294,7 @@ function pps_attach_mbs_to_primary_menu( $page_id ) {
  * One-time creation of the Medical Billing Solutions page.
  */
 function pps_setup_mbs_page() {
-	$version = '1.1.0';
+	$version = '1.1.2';
 	if ( get_option( 'pps_mbs_page_version' ) === $version ) {
 		return;
 	}
@@ -323,6 +323,11 @@ function pps_setup_mbs_page() {
 	update_post_meta( $page_id, '_pps_seo_title', sanitize_text_field( $defaults['seo_title'] ) );
 	update_post_meta( $page_id, '_pps_seo_description', sanitize_text_field( $defaults['seo_desc'] ) );
 	pps_attach_mbs_to_primary_menu( $page_id );
+
+	// Refresh step 5 + FAQ copy (CEO/COO → Courtney Crocker).
+	remove_theme_mod( 'pps_mbs_step_5_text' );
+	remove_theme_mod( 'pps_mbs_faq_8_a' );
+
 	update_option( 'pps_mbs_page_version', $version );
 }
 add_action( 'after_setup_theme', 'pps_setup_mbs_page', 41 );

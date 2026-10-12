@@ -140,6 +140,27 @@ get_header();
 	</div>
 </section>
 
+<section class="pps-section mbs-testimonials" id="stories">
+	<div class="pps-container">
+		<div class="pps-section-head pps-section-head--center pps-reveal">
+			<p class="pps-eyebrow" style="justify-content:center;"><?php echo esc_html( page_mbs( 'test_eyebrow' ) ); ?></p>
+			<h2 class="pps-section-title"><?php echo esc_html( page_mbs( 'test_title' ) ); ?></h2>
+		</div>
+		<div class="mbs-test-grid">
+			<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
+				<blockquote class="mbs-test-card pps-reveal">
+					<i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+					<p><?php echo esc_html( page_mbs( "test_{$i}_quote" ) ); ?></p>
+					<footer>
+						<strong><?php echo esc_html( page_mbs( "test_{$i}_name" ) ); ?></strong>
+						<span><?php echo esc_html( page_mbs( "test_{$i}_meta" ) ); ?></span>
+					</footer>
+				</blockquote>
+			<?php endfor; ?>
+		</div>
+	</div>
+</section>
+
 <section class="pps-section mbs-specialties" id="specialties">
 	<div class="pps-container">
 		<div class="mbs-specialties__head pps-reveal">
@@ -195,27 +216,6 @@ get_header();
 					<h3><?php echo esc_html( page_mbs( "include_{$i}_title" ) ); ?></h3>
 					<p><?php echo esc_html( page_mbs( "include_{$i}_text" ) ); ?></p>
 				</article>
-			<?php endfor; ?>
-		</div>
-	</div>
-</section>
-
-<section class="pps-section mbs-testimonials" id="stories">
-	<div class="pps-container">
-		<div class="pps-section-head pps-section-head--center pps-reveal">
-			<p class="pps-eyebrow" style="justify-content:center;"><?php echo esc_html( page_mbs( 'test_eyebrow' ) ); ?></p>
-			<h2 class="pps-section-title"><?php echo esc_html( page_mbs( 'test_title' ) ); ?></h2>
-		</div>
-		<div class="mbs-test-grid">
-			<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-				<blockquote class="mbs-test-card pps-reveal">
-					<i class="fa-solid fa-quote-left" aria-hidden="true"></i>
-					<p><?php echo esc_html( page_mbs( "test_{$i}_quote" ) ); ?></p>
-					<footer>
-						<strong><?php echo esc_html( page_mbs( "test_{$i}_name" ) ); ?></strong>
-						<span><?php echo esc_html( page_mbs( "test_{$i}_meta" ) ); ?></span>
-					</footer>
-				</blockquote>
 			<?php endfor; ?>
 		</div>
 	</div>

@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.9.64' );
+define( 'PPS_THEME_VERSION', '2.9.70' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -355,6 +355,7 @@ function pps_fallback_menu() {
 		'coaching-for-healthcare-professionals' => __( 'Coaching', 'perform-practice' ),
 		'ai-bolt'    => __( 'AI Bolt', 'perform-practice' ),
 		'about-us'          => __( 'About Us', 'perform-practice' ),
+		'our-team'          => __( 'Our Team', 'perform-practice' ),
 		'blog'              => __( 'Blog', 'perform-practice' ),
 	);
 

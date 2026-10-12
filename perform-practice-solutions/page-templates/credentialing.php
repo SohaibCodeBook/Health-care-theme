@@ -140,8 +140,10 @@ pps_cred_force_extras_styles();
 			<figure class="cred-focus-visual" aria-hidden="true">
 				<div class="cred-focus-visual__media">
 					<img
-						src="<?php echo esc_url( PPS_THEME_URI . '/assets/images/about.jpeg' ); ?>"
-						alt=""
+						src="<?php echo esc_url( pps_team_member_default_image( 4 ) ); ?>"
+						alt="<?php esc_attr_e( 'Gianni Gonzalez, Perform Practice Solutions', 'perform-practice' ); ?>"
+						width="640"
+						height="800"
 						loading="lazy"
 						decoding="async"
 					>

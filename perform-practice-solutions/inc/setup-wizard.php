@@ -166,6 +166,7 @@ function pps_create_primary_menu( $pages ) {
 			array( 'slug' => 'front-desk-tools', 'title' => 'Front Desk Support and Automation Tools' ),
 		) ),
 		array( 'slug' => 'about-us', 'title' => 'About Us' ),
+		array( 'slug' => 'our-team', 'title' => 'Our Team' ),
 		array( 'slug' => 'blog', 'title' => 'Blog' ),
 	);
 

@@ -32,6 +32,7 @@
 				<ul class="footer-links">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>"><?php esc_html_e( 'About Us', 'perform-practice' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/our-team/' ) ); ?>"><?php esc_html_e( 'Our Team', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>"><?php esc_html_e( 'Blog', 'perform-practice' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>"><?php esc_html_e( 'Contact Us', 'perform-practice' ); ?></a></li>
 				</ul>
