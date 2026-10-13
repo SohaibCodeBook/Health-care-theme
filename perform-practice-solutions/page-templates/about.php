@@ -72,6 +72,27 @@ $svc_icons  = array( 'fa-file-invoice-dollar', 'fa-headset', 'fa-bullhorn', 'fa-
 	</div>
 </section>
 
+<section class="pps-section about-timeline" id="journey">
+	<div class="pps-container">
+		<div class="pps-section-head pps-reveal">
+			<p class="pps-eyebrow"><?php echo esc_html( page_about( 'timeline_eyebrow' ) ); ?></p>
+			<h2 class="pps-section-title"><?php echo esc_html( page_about( 'timeline_title' ) ); ?></h2>
+		</div>
+		<ol class="about-tl">
+			<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
+				<li class="about-tl__item pps-reveal">
+					<span class="about-tl__year"><?php echo esc_html( page_about( "tl_{$i}_year" ) ); ?></span>
+					<div class="about-tl__card">
+						<span class="about-tl__dot" aria-hidden="true"></span>
+						<h3><?php echo esc_html( page_about( "tl_{$i}_title" ) ); ?></h3>
+						<p><?php echo esc_html( page_about( "tl_{$i}_text" ) ); ?></p>
+					</div>
+				</li>
+			<?php endfor; ?>
+		</ol>
+	</div>
+</section>
+
 <section class="pps-section about-team" id="team">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">
@@ -118,27 +139,6 @@ $svc_icons  = array( 'fa-file-invoice-dollar', 'fa-headset', 'fa-bullhorn', 'fa-
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 			</a>
 		</div>
-	</div>
-</section>
-
-<section class="pps-section about-timeline" id="journey">
-	<div class="pps-container">
-		<div class="pps-section-head pps-reveal">
-			<p class="pps-eyebrow"><?php echo esc_html( page_about( 'timeline_eyebrow' ) ); ?></p>
-			<h2 class="pps-section-title"><?php echo esc_html( page_about( 'timeline_title' ) ); ?></h2>
-		</div>
-		<ol class="about-tl">
-			<?php for ( $i = 1; $i <= 6; $i++ ) : ?>
-				<li class="about-tl__item pps-reveal">
-					<span class="about-tl__year"><?php echo esc_html( page_about( "tl_{$i}_year" ) ); ?></span>
-					<div class="about-tl__card">
-						<span class="about-tl__dot" aria-hidden="true"></span>
-						<h3><?php echo esc_html( page_about( "tl_{$i}_title" ) ); ?></h3>
-						<p><?php echo esc_html( page_about( "tl_{$i}_text" ) ); ?></p>
-					</div>
-				</li>
-			<?php endfor; ?>
-		</ol>
 	</div>
 </section>
 

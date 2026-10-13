@@ -101,11 +101,45 @@ add_action( 'wp_enqueue_scripts', 'pps_ai_suite_enqueue_assets', 26 );
  */
 function pps_ai_agent_avatar_url( $name ) {
 	$slug = strtolower( sanitize_file_name( $name ) );
-	$path = PPS_THEME_DIR . '/assets/images/ai-agents/' . $slug . '.jpg';
+	$rel  = '/assets/images/ai-agents/' . $slug . '.png';
+	$path = PPS_THEME_DIR . $rel;
 
 	if ( file_exists( $path ) ) {
-		return PPS_THEME_URI . '/assets/images/ai-agents/' . $slug . '.jpg';
+		return PPS_THEME_URI . $rel . '?ver=' . (string) filemtime( $path );
 	}
 
 	return '';
+}
+
+/**
+ * Convert a Google Drive share/view URL into an embeddable preview URL.
+ *
+ * @param string $url Share or view URL.
+ * @return string Preview URL, or empty if not a Drive file link.
+ */
+function pps_ai_agent_google_drive_embed_url( $url ) {
+	$url = trim( (string) $url );
+	if ( '' === $url ) {
+		return '';
+	}
+
+	if ( preg_match( '#drive\.google\.com/file/d/([a-zA-Z0-9_-]+)#', $url, $m ) ) {
+		return 'https://drive.google.com/file/d/' . $m[1] . '/preview';
+	}
+
+	if ( preg_match( '#[?&]id=([a-zA-Z0-9_-]+)#', $url, $m ) ) {
+		return 'https://drive.google.com/file/d/' . $m[1] . '/preview';
+	}
+
+	return '';
+}
+
+/**
+ * Whether a demo URL should render as a Google Drive iframe.
+ *
+ * @param string $url Demo URL.
+ * @return bool
+ */
+function pps_ai_agent_demo_is_google_drive( $url ) {
+	return (bool) pps_ai_agent_google_drive_embed_url( $url );
 }

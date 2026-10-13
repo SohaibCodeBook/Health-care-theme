@@ -208,7 +208,7 @@ function pps_home_defaults() {
 		'providers_cta_url'       => '#contact',
 		'providers_1'             => 'Solo clinics and small size practices',
 		'providers_2'             => 'Multi specialty groups, large hospitals, and health systems',
-		'providers_3'             => 'Medical billing companies',
+		'providers_3'             => 'All types of EMR platforms',
 		'providers_4'             => 'Outpatient surgery centers',
 		'providers_5'             => 'Nursing homes and assisted living facilities',
 		'providers_6'             => 'Laboratories',

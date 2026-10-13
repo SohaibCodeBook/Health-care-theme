@@ -27,9 +27,12 @@ function pps_ai_agent_vera_content() {
 		'hero_title'   => 'Vera, Your Visitor Engagement & Response Assistant',
 		'hero_lead'    => 'Vera is the always-on front door of your website. She answers patient questions in plain language, checks insurance and service fit, and books the visit the moment someone decides to reach out. No forms left hanging. No callbacks that never happen.',
 		'hero_cta'     => 'See Vera on your site',
-		'hero_cta_url' => '#contact',
+		'hero_cta_url' => '#demo',
 		'hero_note'    => 'Live in under a week. No new software for your front desk to learn.',
 		'hero_tagline' => 'Your Website Answers Patients Now, Not Tomorrow',
+		'demo_video_url' => 'https://drive.google.com/file/d/1_Xl96Zhys7MEGBy_SaPmnUhff_BVvc-_/view?usp=drive_link',
+		'demo_title'     => 'See Vera in action',
+		'demo_lead'      => 'Watch a short demo of how Vera chats with website visitors, answers questions, and books appointments on the spot.',
 
 		'highlights'   => array(
 			array(

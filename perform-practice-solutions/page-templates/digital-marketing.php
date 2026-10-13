@@ -204,11 +204,28 @@ $step_icons  = array( 'fa-magnifying-glass-chart', 'fa-comments', 'fa-globe', 'f
 		</div>
 		<div class="dm-test-grid">
 			<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
+				<?php
+				$test_name  = page_dm( "test_{$i}_name" );
+				$test_image = page_dm( "test_{$i}_image" );
+				?>
 				<blockquote class="dm-test-card pps-reveal">
 					<p>“<?php echo esc_html( page_dm( "test_{$i}_quote" ) ); ?>”</p>
 					<footer>
-						<strong><?php echo esc_html( page_dm( "test_{$i}_name" ) ); ?></strong>
-						<span><?php echo esc_html( page_dm( "test_{$i}_meta" ) ); ?></span>
+						<?php if ( $test_image ) : ?>
+							<img
+								class="dm-test-card__avatar"
+								src="<?php echo esc_url( $test_image ); ?>"
+								alt="<?php echo esc_attr( $test_name ); ?>"
+								width="56"
+								height="56"
+								loading="lazy"
+								decoding="async"
+							>
+						<?php endif; ?>
+						<div class="dm-test-card__who">
+							<strong><?php echo esc_html( $test_name ); ?></strong>
+							<span><?php echo esc_html( page_dm( "test_{$i}_meta" ) ); ?></span>
+						</div>
 					</footer>
 				</blockquote>
 			<?php endfor; ?>

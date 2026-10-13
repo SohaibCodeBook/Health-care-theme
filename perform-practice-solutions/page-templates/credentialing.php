@@ -101,30 +101,6 @@ pps_cred_force_extras_styles();
 	</div>
 </section>
 
-<?php pps_cred_render_payer_networks(); ?>
-
-<section class="pps-section cred-apart" id="difference">
-	<div class="pps-container">
-		<div class="cred-apart-shell pps-reveal">
-			<div class="cred-apart-shell__intro">
-				<p class="pps-eyebrow" style="color:var(--pps-accent);"><?php echo esc_html( page_cred( 'apart_eyebrow' ) ); ?></p>
-				<h2 class="pps-section-title"><?php echo esc_html( page_cred( 'apart_title' ) ); ?></h2>
-			</div>
-			<ul class="cred-apart-list">
-				<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
-					<li class="pps-reveal">
-						<span class="cred-apart-list__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
-						<div>
-							<strong><?php echo esc_html( page_cred( "apart_{$i}_title" ) ); ?></strong>
-							<p><?php echo esc_html( page_cred( "apart_{$i}_text" ) ); ?></p>
-						</div>
-					</li>
-				<?php endfor; ?>
-			</ul>
-		</div>
-	</div>
-</section>
-
 <section class="pps-section cred-focus" id="focus">
 	<div class="pps-container">
 		<div class="cred-focus-shell pps-reveal">
@@ -166,6 +142,30 @@ pps_cred_force_extras_styles();
 	</div>
 </section>
 
+<?php pps_cred_render_payer_networks(); ?>
+
+<section class="pps-section cred-apart" id="difference">
+	<div class="pps-container">
+		<div class="cred-apart-shell pps-reveal">
+			<div class="cred-apart-shell__intro">
+				<p class="pps-eyebrow" style="color:var(--pps-accent);"><?php echo esc_html( page_cred( 'apart_eyebrow' ) ); ?></p>
+				<h2 class="pps-section-title"><?php echo esc_html( page_cred( 'apart_title' ) ); ?></h2>
+			</div>
+			<ul class="cred-apart-list">
+				<?php for ( $i = 1; $i <= 5; $i++ ) : ?>
+					<li class="pps-reveal">
+						<span class="cred-apart-list__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+						<div>
+							<strong><?php echo esc_html( page_cred( "apart_{$i}_title" ) ); ?></strong>
+							<p><?php echo esc_html( page_cred( "apart_{$i}_text" ) ); ?></p>
+						</div>
+					</li>
+				<?php endfor; ?>
+			</ul>
+		</div>
+	</div>
+</section>
+
 <section class="pps-section cred-testimonials" id="stories">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">
@@ -174,11 +174,28 @@ pps_cred_force_extras_styles();
 		</div>
 		<div class="cred-test-strip">
 			<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
+				<?php
+				$test_name  = page_cred( "test_{$i}_name" );
+				$test_image = page_cred( "test_{$i}_image" );
+				?>
 				<blockquote class="cred-test-item pps-reveal">
 					<p>“<?php echo esc_html( page_cred( "test_{$i}_quote" ) ); ?>”</p>
 					<footer>
-						<strong><?php echo esc_html( page_cred( "test_{$i}_name" ) ); ?></strong>
-						<span><?php echo esc_html( page_cred( "test_{$i}_meta" ) ); ?></span>
+						<?php if ( $test_image ) : ?>
+							<img
+								class="cred-test-item__avatar"
+								src="<?php echo esc_url( $test_image ); ?>"
+								alt="<?php echo esc_attr( $test_name ); ?>"
+								width="56"
+								height="56"
+								loading="lazy"
+								decoding="async"
+							>
+						<?php endif; ?>
+						<div class="cred-test-item__who">
+							<strong><?php echo esc_html( $test_name ); ?></strong>
+							<span><?php echo esc_html( page_cred( "test_{$i}_meta" ) ); ?></span>
+						</div>
 					</footer>
 				</blockquote>
 			<?php endfor; ?>

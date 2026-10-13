@@ -27,9 +27,12 @@ function pps_ai_agent_rex_content() {
 		'hero_title'   => 'Rex, Your Reception Efficiency eXpert',
 		'hero_lead'    => 'Meet Rex. The teammate who does the paperwork nobody wants. Rex is the behind-the-counter agent that clears your intake queue, chases the forms still missing a signature, and gets every chart ready before the patient walks in. Your front desk staff stay with patients instead of screens.',
 		'hero_cta'     => 'See Rex clear a queue',
-		'hero_cta_url' => '#contact',
+		'hero_cta_url' => '#demo',
 		'hero_note'    => 'Built for allied health practices running on Tebra. Live in a few business days.',
 		'hero_tagline' => 'Your front desk is not slow. It is buried.',
+		'demo_video_url' => 'https://drive.google.com/file/d/1pfX8NIsW-DnXxKD_ou4v6HLxTQCzEzxB/view?usp=drive_link',
+		'demo_title'     => 'See Rex in action',
+		'demo_lead'      => 'Watch a short demo of how Rex clears front-desk paperwork and intake so your staff can focus on patients.',
 
 		'highlights'   => array(
 			array(

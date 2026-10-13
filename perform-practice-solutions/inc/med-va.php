@@ -14,13 +14,13 @@ defined( 'ABSPATH' ) || exit;
  */
 function pps_va_defaults() {
 	return array(
-		'seo_title' => 'Virtual Medical Assistant Services in the USA | Perform Practice Solutions',
-		'seo_desc'  => 'Hire a Virtual Medical Assistant to streamline administrative tasks, reduce overhead, and keep your practice running smoothly. Professional support for U.S. healthcare providers.',
+		'seo_title' => 'Virtual Medical Assistant Services | Perform Practice Solutions',
+		'seo_desc'  => 'Hire a Virtual Medical Assistant to streamline administrative tasks, reduce overhead, and keep your practice running smoothly. Professional support for healthcare providers.',
 
 		'hero_eyebrow'   => 'Virtual Medical Assistant',
-		'hero_title'     => 'Professional virtual medical assistant for US healthcare providers',
+		'hero_title'     => 'Professional virtual medical assistant for healthcare providers',
 		'hero_lead'      => 'Running a healthcare practice means juggling patient care, scheduling, billing, and a constant stream of administrative work. A virtual medical assistant from Perform Practice Solutions takes that weight off your team so your staff can focus on what matters most: your patients.',
-		'hero_text'      => 'We connect practices across the United States with trained, HIPAA compliant virtual medical assistants who handle the daily tasks that keep your front desk, billing, and patient communication running smoothly. Whether you are a solo provider or manage multiple locations, our virtual assistant for medical professionals is built to fit your workflow, your EMR system, and your specialty.',
+		'hero_text'      => 'We connect practices with trained, HIPAA compliant virtual medical assistants who handle the daily tasks that keep your front desk, billing, and patient communication running smoothly. Whether you are a solo provider or manage multiple locations, our virtual assistant for medical professionals is built to fit your workflow, your EMR system, and your specialty.',
 		'hero_cta'       => 'Schedule a Consultation',
 		'hero_cta_url'   => '#contact',
 		'hero_cta_2'     => 'See How It Works',
@@ -29,7 +29,7 @@ function pps_va_defaults() {
 
 		'why_eyebrow' => 'Why Now',
 		'why_title'   => 'Why your practice needs a virtual medical assistant now',
-		'why_text'    => 'Healthcare administrators and practice owners across the United States face the same challenge: growing patient demand paired with rising labor costs and staffing shortages. The administrative workload that doesn\'t directly involve patient interaction still consumes hours each week, pulling you away from revenue-generating activities and creating bottlenecks in patient flow.',
+		'why_text'    => 'Healthcare administrators and practice owners face the same challenge: growing patient demand paired with rising labor costs and staffing shortages. The administrative workload that doesn\'t directly involve patient interaction still consumes hours each week, pulling you away from revenue-generating activities and creating bottlenecks in patient flow.',
 		'why_lead'    => 'A virtual medical assistant solves this by handling:',
 		'why_1_title' => 'Appointment Scheduling and Calendar Management',
 		'why_1_text'  => 'Reduce no-shows and double bookings while keeping your schedule optimized for maximum patient throughput.',
@@ -43,11 +43,11 @@ function pps_va_defaults() {
 		'process_eyebrow' => 'How It Works',
 		'process_title'   => 'How Perform Practice Solutions virtual medical assistant process works',
 		'step_1_title'    => 'Initial Consultation and Task Assessment',
-		'step_1_text'     => 'We start by understanding your practice\'s specific pain points. Whether you\'re a solo practitioner in rural America or managing a multi-provider clinic, we identify which administrative tasks are consuming the most time and creating friction. This consultation clarifies which functions are best handled remotely and which require on-site presence, ensuring the virtual assistant role aligns with your workflow and compliance requirements.',
+		'step_1_text'     => 'We start by understanding your practice\'s specific pain points. Whether you\'re a solo practitioner or managing a multi-provider clinic, we identify which administrative tasks are consuming the most time and creating friction. This consultation clarifies which functions are best handled remotely and which require on-site presence, ensuring the virtual assistant role aligns with your workflow and compliance requirements.',
 		'step_2_title'    => 'Onboarding and System Integration',
 		'step_2_text'     => 'Your virtual assistant is trained on your specific practice management software, EHR platform, scheduling system, and internal protocols. Unlike a generic administrative hire, a specialized virtual medical assistant understands HIPAA compliance, patient privacy protocols, and the documentation standards your practice follows. They integrate with your existing team and learn your patient communication preferences, billing procedures, and provider-specific requirements.',
 		'step_3_title'    => 'Task Handoff and Workflow Optimization',
-		'step_3_text'     => 'Once trained, the assistant takes ownership of assigned tasks. In most practices across the United States, this includes processing new patient intake, confirming appointments 24 hours before visits, managing insurance pre-authorization requests, updating patient contact information, and handling routine patient phone calls. Your in-house staff no longer owns these tasks, freeing them to focus on clinical support or revenue cycle management.',
+		'step_3_text'     => 'Once trained, the assistant takes ownership of assigned tasks. In most practices, this includes processing new patient intake, confirming appointments 24 hours before visits, managing insurance pre-authorization requests, updating patient contact information, and handling routine patient phone calls. Your in-house staff no longer owns these tasks, freeing them to focus on clinical support or revenue cycle management.',
 		'step_4_title'    => 'Ongoing Management and Reporting',
 		'step_4_text'     => 'Your virtual assistant provides regular updates on task completion, tracks key metrics (appointment confirmations, insurance verifications processed, average response time to patient inquiries), and adjusts workflows based on feedback. This accountability ensures consistent quality and continuous improvement in your practice\'s operations.',
 
@@ -329,7 +329,7 @@ function pps_attach_va_to_primary_menu( $page_id ) {
  * Create VA page, assign template/SEO, update menu.
  */
 function pps_setup_va_page() {
-	$version = '1.0.0';
+	$version = '1.0.1';
 	if ( get_option( 'pps_va_page_version' ) === $version ) {
 		return;
 	}
@@ -352,6 +352,21 @@ function pps_setup_va_page() {
 
 	if ( ! $page_id || is_wp_error( $page_id ) ) {
 		return;
+	}
+
+	$refresh_keys = array(
+		'seo_title',
+		'seo_desc',
+		'hero_title',
+		'hero_text',
+		'why_text',
+		'step_1_text',
+		'step_3_text',
+	);
+	foreach ( $refresh_keys as $key ) {
+		if ( isset( $defaults[ $key ] ) ) {
+			set_theme_mod( 'pps_va_' . $key, $defaults[ $key ] );
+		}
 	}
 
 	update_post_meta( $page_id, '_wp_page_template', 'page-templates/med-va.php' );

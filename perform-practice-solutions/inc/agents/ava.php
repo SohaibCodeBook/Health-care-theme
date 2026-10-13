@@ -27,9 +27,12 @@ function pps_ai_agent_ava_content() {
 		'hero_title'   => 'AVA, Your Account and Voice Assistant',
 		'hero_lead'    => 'AVA handles inbound patient calls for account and billing matters. She answers FAQs, looks up balances, explains what a patient owes in plain language, takes secure payments, and routes complex issues to the right biller — so your billing team spends less time on the phone and more time resolving real work.',
 		'hero_cta'     => 'Schedule a demo call',
-		'hero_cta_url' => '#contact',
+		'hero_cta_url' => '#demo',
 		'hero_note'    => 'Built for allied health practices. HIPAA-aligned identity checks before any account details are shared.',
 		'hero_tagline' => 'Billing Questions Answered. The Right Biller Briefed.',
+		'demo_video_url' => 'https://drive.google.com/file/d/1xF-iTWHaGOIvreofjqYSHPuA2I6ay5Ed/view?usp=drive_link',
+		'demo_title'     => 'See AVA in action',
+		'demo_lead'      => 'Watch a short demo of how AVA handles billing calls, explains balances, and connects patients to the right person.',
 
 		'highlights'   => array(
 			array(

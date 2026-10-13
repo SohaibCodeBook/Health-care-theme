@@ -90,6 +90,52 @@ pps_ai_agent_force_styles();
 		</div>
 	</section>
 
+	<?php if ( ! empty( $agent['demo_video_url'] ) ) : ?>
+		<?php
+		$demo_url   = (string) $agent['demo_video_url'];
+		$drive_url  = pps_ai_agent_google_drive_embed_url( $demo_url );
+		$demo_title = ! empty( $agent['demo_title'] )
+			? $agent['demo_title']
+			: sprintf( /* translators: agent name */ __( 'See %s in action', 'perform-practice' ), $agent['name'] );
+		$demo_lead  = ! empty( $agent['demo_lead'] ) ? $agent['demo_lead'] : '';
+		?>
+		<section class="ai-agent-demo" id="demo">
+			<div class="pps-container">
+				<div class="ai-agent-demo__head pps-reveal">
+					<p class="ai-agent-eyebrow" style="justify-content:center;">
+						<span class="ai-agent-eyebrow__dot"></span>
+						<?php esc_html_e( 'Product Demo', 'perform-practice' ); ?>
+					</p>
+					<h2 class="ai-agent-section-title"><?php echo esc_html( $demo_title ); ?></h2>
+					<?php if ( $demo_lead ) : ?>
+						<p class="ai-agent-demo__lead"><?php echo esc_html( $demo_lead ); ?></p>
+					<?php endif; ?>
+				</div>
+				<div class="ai-agent-demo__frame pps-reveal">
+					<?php if ( $drive_url ) : ?>
+						<iframe
+							src="<?php echo esc_url( $drive_url ); ?>"
+							title="<?php echo esc_attr( $demo_title ); ?>"
+							allow="autoplay; encrypted-media; picture-in-picture"
+							allowfullscreen
+							loading="lazy"
+						></iframe>
+					<?php else : ?>
+						<video
+							controls
+							playsinline
+							preload="metadata"
+							poster="<?php echo esc_url( $avatar_url ); ?>"
+						>
+							<source src="<?php echo esc_url( $demo_url ); ?>" type="video/mp4">
+							<?php esc_html_e( 'Your browser does not support the video tag.', 'perform-practice' ); ?>
+						</video>
+					<?php endif; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+
 	<!-- Tagline + highlight cards -->
 	<section class="ai-agent-highlights" id="overview">
 		<div class="pps-container">

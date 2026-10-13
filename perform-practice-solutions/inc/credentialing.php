@@ -78,12 +78,15 @@ function pps_cred_defaults() {
 		'test_1_quote' => 'As a busy PT clinic owner I just did not have the time to navigate the physical therapy credentialing process, so I contacted Perform Practice Solutions. It has been unbelievably helpful and convenient.',
 		'test_1_name'  => 'Donna',
 		'test_1_meta'  => 'Lake Worth, FL',
+		'test_1_image' => PPS_THEME_URI . '/assets/images/testimonials/donna.jpg',
 		'test_2_quote' => 'Opening a new practice can be overwhelming. Perform Practice Solutions was there for me every step of the way, ensuring I was properly credentialed with all the necessary insurance companies.',
 		'test_2_name'  => 'Dr. Emily H.',
 		'test_2_meta'  => 'Pain Management Specialist',
+		'test_2_image' => PPS_THEME_URI . '/assets/images/testimonials/emily.jpg',
 		'test_3_quote' => 'I was initially hesitant to outsource credentialing, but Perform Practice Solutions made the process seamless. Their attention to detail is impeccable.',
 		'test_3_name'  => 'Dr. Michael S.',
 		'test_3_meta'  => 'DPT',
+		'test_3_image' => PPS_THEME_URI . '/assets/images/testimonials/michael.jpg',
 
 		'faq_eyebrow' => 'FAQs',
 		'faq_title'   => 'Frequently asked questions about medical credentialing services',
@@ -139,7 +142,7 @@ function pps_cred_customize_register( $wp_customize ) {
 	foreach ( pps_cred_defaults() as $key => $default ) {
 		$setting_id  = 'pps_cred_' . $key;
 		$is_textarea = (bool) preg_match( '/(_text(_\d+)?|_lead|_note|_a|_quote|_closing|seo_desc)$/', $key );
-		$is_url      = (bool) preg_match( '/_url$/', $key );
+		$is_url      = (bool) preg_match( '/(_url|_image)$/', $key );
 
 		$wp_customize->add_setting(
 			$setting_id,

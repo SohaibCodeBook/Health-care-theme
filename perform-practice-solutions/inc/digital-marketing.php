@@ -28,9 +28,9 @@ function pps_dm_defaults() {
 		'seo_desc'  => 'Perform Practice Solutions is a digital marketing healthcare agency helping practices grow through SEO, content, and patient acquisition strategies.',
 
 		'hero_eyebrow'   => 'Digital Marketing Healthcare Agency',
-		'hero_title'     => 'Helping USA practices attract more qualified patients',
+		'hero_title'     => 'Helping practices attract more qualified patients',
 		'hero_lead'      => 'A digital marketing healthcare agency is a specialized marketing partner that builds websites, SEO strategies, and paid advertising campaigns specifically for medical, dental, mental health, and wellness practices, while maintaining compliance with HIPAA and healthcare advertising regulations.',
-		'hero_text'      => 'Perform Practice Solutions is a digital marketing healthcare agency serving practices across the United States. We combine the use of digital marketing in healthcare with deep regulatory knowledge, so your practice attracts qualified patients without risking compliance violations or wasted ad spend.',
+		'hero_text'      => 'Perform Practice Solutions is a digital marketing healthcare agency serving practices of all sizes. We combine the use of digital marketing in healthcare with deep regulatory knowledge, so your practice attracts qualified patients without risking compliance violations or wasted ad spend.',
 		'hero_cta'       => 'Schedule a Consultation',
 		'hero_cta_url'   => '#contact',
 		'hero_cta_2'     => 'See How It Works',
@@ -53,7 +53,7 @@ function pps_dm_defaults() {
 		'deliver_3_value' => 'HIPAA',
 		'deliver_3_title' => 'Peace of mind on regulatory standards',
 		'deliver_3_text'  => 'Every campaign element is built with HIPAA considerations and healthcare advertising best practices, so you can focus on patient care.',
-		'deliver_closing' => 'The practices we work with across the USA typically spend the first 60 days experiencing inconsistent results because their previous marketing hasn\'t been tailored to healthcare decision-making or compliance requirements.',
+		'deliver_closing' => 'The practices we work with typically spend the first 60 days experiencing inconsistent results because their previous marketing hasn\'t been tailored to healthcare decision-making or compliance requirements.',
 
 		'process_eyebrow' => 'How It Works',
 		'process_title'   => 'How Perform Practice Solutions digital marketing services for healthcare work',
@@ -62,7 +62,7 @@ function pps_dm_defaults() {
 		'step_2_title'    => 'Develop Your Healthcare-Specific Messaging Framework',
 		'step_2_text'     => 'Healthcare buying decisions are driven by trust, credibility, and understanding of outcomes. We craft messaging that addresses the specific concerns of your target patient demographic. For an orthopedic practice, this means different messaging than a dermatology clinic. For a mental health provider, it means addressing stigma and treatment efficacy questions upfront. This messaging becomes the backbone for your website, ad copy, and patient education content.',
 		'step_3_title'    => 'Build and Optimize Your Digital Presence',
-		'step_3_text'     => 'Your website is your 24/7 patient acquisition tool. We ensure it clearly communicates your services, addresses common patient questions, and includes appointment scheduling that removes friction from the booking process. We integrate SEO best practices tailored to healthcare searches so patients in your region find you when searching for your specific services. Beyond the website, we establish or optimize your Google Business Profile and other foundational digital properties that impact local visibility across the USA.',
+		'step_3_text'     => 'Your website is your 24/7 patient acquisition tool. We ensure it clearly communicates your services, addresses common patient questions, and includes appointment scheduling that removes friction from the booking process. We integrate SEO best practices tailored to healthcare searches so patients in your region find you when searching for your specific services. Beyond the website, we establish or optimize your Google Business Profile and other foundational digital properties that impact local visibility.',
 		'step_4_title'    => 'Launch Targeted Paid Campaigns',
 		'step_4_text'     => 'Once messaging is clear and your digital foundation is strong, we deploy paid advertising on platforms like Google Ads and Facebook, targeting specific patient demographics and search behaviors. Healthcare advertisers must follow strict platform policies, and we manage compliance at every step. Campaigns are built to move cold prospects toward scheduling by addressing objections and highlighting what makes your practice worth choosing.',
 		'step_5_title'    => 'Measure, Report, and Refine',
@@ -72,7 +72,7 @@ function pps_dm_defaults() {
 		'apart_title'   => 'What sets Perform Practice Solutions healthcare digital marketing agency apart',
 		'apart_image'   => '',
 		'apart_1_title' => 'Deep healthcare marketing knowledge',
-		'apart_1_text'  => 'Our team has worked with dozens of practices across the USA and understands the regulatory landscape, patient psychology, and messaging strategies that work in healthcare specifically.',
+		'apart_1_text'  => 'Our team has worked with dozens of practices and understands the regulatory landscape, patient psychology, and messaging strategies that work in healthcare specifically.',
 		'apart_2_title' => 'Compliance-first approach',
 		'apart_2_text'  => 'Every campaign is built with HIPAA awareness and healthcare advertising compliance embedded, not added as an afterthought.',
 		'apart_3_title' => 'Proven patient acquisition results',
@@ -87,12 +87,15 @@ function pps_dm_defaults() {
 		'test_1_quote' => 'I spent two years throwing money at agencies that didn\'t understand healthcare. Within 90 days of switching, our qualified consultation requests nearly doubled and our front desk stopped fielding calls from people who weren\'t even a fit for our services. That alone saved us hours every week.',
 		'test_1_name'  => 'Dr. Chen',
 		'test_1_meta'  => 'Clinic Owner',
+		'test_1_image' => PPS_THEME_URI . '/assets/images/testimonials/chen.jpg',
 		'test_2_quote' => 'What sold me wasn\'t the pitch, it was how much they understood HIPAA and advertising compliance before I even asked. I didn\'t have to explain our regulatory concerns. They already knew the questions to ask. Our new patient appointments grew steadily, and I finally trust what\'s happening with our ad spend.',
 		'test_2_name'  => 'M. Diallo',
 		'test_2_meta'  => 'Practice Administrator',
+		'test_2_image' => PPS_THEME_URI . '/assets/images/testimonials/diallo.jpg',
 		'test_3_quote' => 'We had been burned by a generalist marketing company that treated us like a retail store. This team rebuilt our messaging around how patients actually decide on a dermatologist, and within a few months our website went from collecting dust to actually filling our calendar.',
 		'test_3_name'  => 'Dr. Park',
 		'test_3_meta'  => 'Clinic Owner',
+		'test_3_image' => PPS_THEME_URI . '/assets/images/testimonials/park.jpg',
 
 		'faq_eyebrow' => 'FAQs',
 		'faq_title'   => 'Frequently asked questions',
@@ -106,7 +109,7 @@ function pps_dm_defaults() {
 		'faq_4_a'     => 'Cost depends on practice type, competition level in your geographic market, the specific services being promoted, and how aggressively you want to scale patient volume. Custom quotes are typically built around these factors rather than a flat, one size fits all price.',
 
 		'cta_title'      => 'Ready to attract more qualified patients to your practice?',
-		'cta_text'       => 'Healthcare practices across the United States are growing predictably by partnering with a dedicated digital marketing healthcare agency instead of relying on inconsistent referrals. If your practice is ready to build a reliable patient acquisition system, schedule a consultation to discuss your specific goals and what is possible for your practice.',
+		'cta_text'       => 'Healthcare practices are growing predictably by partnering with a dedicated digital marketing healthcare agency instead of relying on inconsistent referrals. If your practice is ready to build a reliable patient acquisition system, schedule a consultation to discuss your specific goals and what is possible for your practice.',
 		'cta_button'     => 'Schedule a Consultation',
 		'cta_button_url' => '#contact',
 	);
@@ -299,7 +302,7 @@ add_action( 'template_redirect', 'pps_redirect_legacy_digital_marketing' );
  * Create digital marketing page, assign template/SEO, update menu.
  */
 function pps_setup_dm_page() {
-	$version = '1.0.0';
+	$version = '1.0.2';
 	if ( get_option( 'pps_dm_page_version' ) === $version ) {
 		return;
 	}
@@ -322,6 +325,23 @@ function pps_setup_dm_page() {
 
 	if ( ! $page_id || is_wp_error( $page_id ) ) {
 		return;
+	}
+
+	$refresh_keys = array(
+		'hero_title',
+		'hero_text',
+		'deliver_closing',
+		'step_3_text',
+		'apart_1_text',
+		'cta_text',
+		'test_1_image',
+		'test_2_image',
+		'test_3_image',
+	);
+	foreach ( $refresh_keys as $key ) {
+		if ( isset( $defaults[ $key ] ) ) {
+			set_theme_mod( 'pps_dm_' . $key, $defaults[ $key ] );
+		}
 	}
 
 	update_post_meta( $page_id, '_wp_page_template', 'page-templates/digital-marketing.php' );

@@ -19,7 +19,7 @@ function pps_ai_agent_rosa_content() {
 		'letter'       => 'R',
 		'role'         => 'Your AI Referral Coordinator',
 		'acronym'      => 'Referral Outreach & Scheduling Assistant',
-		'placement'    => 'Lives inside Tebra EMR',
+		'placement'    => 'Lives inside your EMR',
 		'audience'     => 'Referral coordinators',
 		'seo_title'    => 'Rosa — AI Referral Coordinator for Tebra | Perform Practice Solutions',
 		'seo_desc'     => 'Rosa is an AI referral coordinator that lives inside Tebra. She catches every incoming referral, reaches out by voice, text, and email, and gets patients on the schedule before they fall through the cracks.',
@@ -27,9 +27,12 @@ function pps_ai_agent_rosa_content() {
 		'hero_title'   => 'Rosa, Your AI Referral Coordinator',
 		'hero_lead'    => 'Rosa is an AI referral coordinator that lives inside Tebra. She catches every incoming referral, reaches out to the patient by voice, text, and email, and gets them on the schedule before they fall through the cracks.',
 		'hero_cta'     => 'See Rosa in action',
-		'hero_cta_url' => '#contact',
+		'hero_cta_url' => '#demo',
 		'hero_note'    => 'Works inside your existing Tebra account. No new system for your staff to learn.',
 		'hero_tagline' => 'Your Referrals Are Booked Before Anyone Picks Up the Phone',
+		'demo_video_url' => 'https://drive.google.com/file/d/1iH3pDwh5VZzgAv3DYD5VtIM1GZXOujcr/view?usp=drive_link',
+		'demo_title'     => 'See Rosa in action',
+		'demo_lead'      => 'Watch a short demo of how Rosa follows up on new referrals and books patients before they get missed.',
 
 		'highlights'   => array(
 			array(
@@ -380,6 +383,6 @@ function pps_ai_agent_rosa_content() {
 
 		'contact_title' => 'See Rosa in action',
 		'contact_text'  => 'Tell us about your referral volume and we\'ll show you how Rosa fits your Tebra workflow.',
-		'voice_sample'  => 'I caught a new referral in Tebra, reached out to the patient, and got them on the calendar.',
+		'voice_sample'  => 'I caught a new referral, reached out to the patient, and got them on the calendar.',
 	);
 }

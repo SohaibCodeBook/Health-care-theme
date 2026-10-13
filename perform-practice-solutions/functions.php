@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PPS_THEME_VERSION', '2.9.70' );
+define( 'PPS_THEME_VERSION', '2.9.84' );
 define( 'PPS_THEME_DIR', get_template_directory() );
 define( 'PPS_THEME_URI', get_template_directory_uri() );
 
@@ -91,19 +91,12 @@ require_once PPS_THEME_DIR . '/inc/blog.php';
  * Clears stored home mods so new defaults from Home content.md appear.
  */
 function pps_maybe_refresh_home_content() {
-	$content_version = '1.3.1';
+	$content_version = '1.3.2';
 	if ( get_option( 'pps_home_content_version' ) === $content_version ) {
 		return;
 	}
 
-	$mods = get_theme_mods();
-	if ( is_array( $mods ) ) {
-		foreach ( array_keys( $mods ) as $key ) {
-			if ( 0 === strpos( $key, 'pps_home_' ) ) {
-				remove_theme_mod( $key );
-			}
-		}
-	}
+	set_theme_mod( 'pps_home_providers_3', 'All types of EMR platforms' );
 
 	update_option( 'pps_home_content_version', $content_version );
 }

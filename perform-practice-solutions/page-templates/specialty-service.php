@@ -80,6 +80,8 @@ pps_service_force_extras_styles();
 
 <?php get_template_part( 'template-parts/billing/process-cards' ); ?>
 
+<?php get_template_part( 'template-parts/emr-logos' ); ?>
+
 <section class="pps-section svc-offer" id="services">
 	<div class="pps-container">
 		<div class="pps-section-head pps-section-head--center pps-reveal">

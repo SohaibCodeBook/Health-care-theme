@@ -27,9 +27,12 @@ function pps_ai_agent_cora_content() {
 		'hero_title'   => 'Cora, Your AI Communication Assistant',
 		'hero_lead'    => 'Cora answers the phone, texts patients back within seconds, and confirms tomorrow\'s schedule while your practice sleeps. Every call answered. Every message returned. No new headcount.',
 		'hero_cta'     => 'See Cora in action',
-		'hero_cta_url' => '#contact',
+		'hero_cta_url' => '#demo',
 		'hero_note'    => 'Built for allied health practices on Tebra. HIPAA-aligned from day one.',
 		'hero_tagline' => 'Every Call Answered. Every Patient Kept.',
+		'demo_video_url' => 'https://drive.google.com/file/d/1O08vDXYt-cfs-3PuVTkGl9qcujwjrOYs/view?usp=drive_link',
+		'demo_title'     => 'See Cora in action',
+		'demo_lead'      => 'Watch a short demo of how Cora handles calls, texts, and appointment confirmations.',
 
 		'highlights'   => array(
 			array(
