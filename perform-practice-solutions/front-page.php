@@ -27,7 +27,7 @@ get_header();
 		<div class="home-hero__visual">
 			<div class="home-hero__team">
 				<?php
-				$hero_team_rel  = '/assets/images/hero-team-v3.png';
+				$hero_team_rel  = '/assets/images/hero-team-v4.png';
 				$hero_team_path = PPS_THEME_DIR . $hero_team_rel;
 				$hero_team_ver  = file_exists( $hero_team_path ) ? (string) filemtime( $hero_team_path ) : PPS_THEME_VERSION;
 				?>
@@ -35,7 +35,7 @@ get_header();
 					src="<?php echo esc_url( PPS_THEME_URI . $hero_team_rel . '?ver=' . $hero_team_ver ); ?>"
 					alt="<?php esc_attr_e( 'Medical professionals ready to support your practice', 'perform-practice' ); ?>"
 					width="2456"
-					height="1550"
+					height="1382"
 				>
 			</div>
 			<p class="home-hero__visual-caption"><?php echo esc_html( page_home( 'hero_visual_caption' ) ); ?></p>
