@@ -3,7 +3,7 @@ Theme Name: Perform Practice Solutions
 Theme URI: https://performpracticesolutions.com/
 Author: Perform Practice Solutions
 Description: Premium custom WordPress theme for healthcare consulting, medical billing, credentialing, and AI automation services. Modern, conversion-focused, Customizer-ready.
-Version: 2.9.87
+Version: 2.9.88
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -712,6 +712,7 @@ p:last-child {
   gap: 0.7rem;
   color: var(--pps-ink);
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .site-logo-link:hover {
@@ -719,8 +720,23 @@ p:last-child {
 }
 
 .site-logo-img {
-  max-height: 38px;
+  display: block;
   width: auto;
+  height: auto;
+  max-height: 46px;
+  max-width: min(220px, 42vw);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.site-logo-img--header {
+  max-height: 46px;
+  max-width: min(230px, 46vw);
+}
+
+.site-logo-img--footer {
+  max-height: 52px;
+  max-width: min(240px, 70vw);
 }
 
 .site-logo-mark {
@@ -3120,6 +3136,14 @@ p:last-child {
 .footer-brand .site-logo-text__name,
 .footer-brand .site-logo-link {
   color: #fff;
+}
+
+.footer-brand .site-logo-link {
+  margin-bottom: 0.15rem;
+}
+
+.footer-brand .site-logo-img--footer {
+  max-height: 54px;
 }
 
 .footer-brand p {
