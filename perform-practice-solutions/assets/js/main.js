@@ -13,7 +13,9 @@
     if (!nav || !toggle) return;
     nav.classList.toggle('is-open', isOpen);
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('nav-is-open', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.documentElement.style.overflowX = 'hidden';
     if (backdrop) {
       backdrop.hidden = !isOpen;
       backdrop.classList.toggle('is-visible', isOpen);
