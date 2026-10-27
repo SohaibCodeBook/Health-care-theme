@@ -80,7 +80,7 @@ function pps_team_defaults() {
 		'member_5_email' => 'Leo@PerformPracticeSolutions.com',
 		'member_5_image' => '',
 
-		'member_6_name'  => 'Shaira',
+		'member_6_name'  => 'Shaira Campos',
 		'member_6_title' => '',
 		'member_6_bio'   => 'With over 7 years of experience in digital marketing, Shaira helps businesses grow their online presence through creative content, engaging social media...',
 		'member_6_bio_full' => "With over 7 years of experience in digital marketing, Shaira helps businesses grow their online presence through creative content, engaging social media, strategic advertising, and data-driven marketing.\n\nShe enjoys bringing ideas to life through content and creative campaigns that connect with people while keeping business goals at the center of the strategy.\n\nWhen she's not working on her latest project, you'll likely find her spending time with her dogs, exploring new places and foods, or planning her next beach getaway.",
@@ -464,12 +464,14 @@ function pps_attach_team_to_primary_menu( $page_id ) {
  * Create Our Team page, assign template/SEO, update menu.
  */
 function pps_setup_team_page() {
-	$version = '1.6.1';
+	$version = '1.6.2';
 	if ( get_option( 'pps_team_page_version' ) === $version ) {
 		return;
 	}
 
 	$defaults = pps_team_defaults();
+
+	set_theme_mod( 'pps_team_member_6_name', $defaults['member_6_name'] );
 
 	for ( $i = 1; $i <= 7; $i++ ) {
 		foreach ( array( 'name', 'title', 'bio', 'phone', 'email', 'image' ) as $field ) {
